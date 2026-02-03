@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주택 구매 비용 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+    <style>
+        .housing-intro {
+            text-align: center;
+            padding: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 24px;
+        }
+
+        .housing-intro h2 {
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            color: var(--text-primary);
+        }
+
+        .housing-intro p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .housing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+        }
+
+        .housing-card {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .housing-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .housing-card.main-card {
+            background: linear-gradient(135deg, rgba(76, 175, 80, 0.15), rgba(76, 175, 80, 0.05));
+            border-color: rgba(76, 175, 80, 0.3);
+        }
+
+        .housing-card.main-card:hover {
+            border-color: #4CAF50;
+        }
+
+        .housing-card .icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-dark);
+            margin-bottom: 12px;
+        }
+
+        .housing-card .icon-box span {
+            font-size: 24px;
+            color: var(--accent);
+        }
+
+        .housing-card.main-card .icon-box {
+            background: rgba(76, 175, 80, 0.2);
+        }
+
+        .housing-card.main-card .icon-box span {
+            color: #4CAF50;
+        }
+
+        .housing-card h3 {
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 6px;
+        }
+
+        .housing-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .housing-card .badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: #4CAF50;
+            color: white;
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .cost-breakdown {
+            margin-top: 24px;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+
+        .cost-breakdown h3 {
+            font-size: 1rem;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .breakdown-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 12px;
+            background: var(--bg-dark);
+            border-radius: 8px;
+            font-size: 0.9rem;
+        }
+
+        .breakdown-item .label {
+            color: var(--text-secondary);
+        }
+
+        .breakdown-item .value {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .source-note {
+            margin-top: 24px;
+            padding: 16px;
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 8px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .source-note a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .source-note a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>주택 구매 비용</h1>
+            </div>
+            <a href="../index.html" id="back-btn">
+                <span class="material-icons-round">arrow_back</span>
+                메인으로
+            </a>
+        </header>
+
+        <!-- 워터마크 -->
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <main class="view active">
+            <div class="housing-intro">
+                <h2>🏠 주택 구매 시 필요한 모든 비용을 계산하세요</h2>
+                <p>주택을 구매할 때는 매매가 외에도 취득세, 등기비용, 복비 등 다양한 부대비용이 발생합니다.<br>
+                각 항목별로 정확한 비용을 미리 계산해보세요.</p>
+            </div>
+
+            <div class="housing-grid">
+                <a href="registration.html" class="housing-card main-card">
+                    <span class="badge">종합</span>
+                    <div class="icon-box">
+                        <span class="material-icons-round">calculate</span>
+                    </div>
+                    <h3>등기비용 계산기</h3>
+                    <p>취득세, 법무사보수, 채권, 인지세 등 모든 비용을 한 번에 계산</p>
+                </a>
+
+                <a href="fee.html" class="housing-card">
+                    <div class="icon-box">
+                        <span class="material-icons-round">handshake</span>
+                    </div>
+                    <h3>복비 계산기</h3>
+                    <p>부동산 중개수수료 계산</p>
+                </a>
+
+                <a href="lawyer-fee.html" class="housing-card">
+                    <div class="icon-box">
+                        <span class="material-icons-round">gavel</span>
+                    </div>
+                    <h3>법무사 보수</h3>
+                    <p>등기 대행 법무사 수수료 계산</p>
+                </a>
+
+                <a href="acquisition-tax.html" class="housing-card">
+                    <div class="icon-box">
+                        <span class="material-icons-round">receipt_long</span>
+                    </div>
+                    <h3>취득세 계산기</h3>
+                    <p>주택 취득 시 납부 세금 계산</p>
+                </a>
+
+                <a href="housing-bond.html" class="housing-card">
+                    <div class="icon-box">
+                        <span class="material-icons-round">account_balance</span>
+                    </div>
+                    <h3>국민주택채권</h3>
+                    <p>채권 매입액 및 할인비용 계산</p>
+                </a>
+
+                <a href="stamp-tax.html" class="housing-card">
+                    <div class="icon-box">
+                        <span class="material-icons-round">local_post_office</span>
+                    </div>
+                    <h3>인지세 계산기</h3>
+                    <p>계약서 작성 시 납부 인지세 계산</p>
+                </a>
+            </div>
+
+            <div class="cost-breakdown">
+                <h3>📋 주택 구매 시 발생 비용 항목</h3>
+                <div class="breakdown-list">
+                    <div class="breakdown-item">
+                        <span class="label">취득세</span>
+                        <span class="value">매매가의 1~12% (주택수, 가격에 따라)</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="label">중개보수 (복비)</span>
+                        <span class="value">매매가의 0.4~0.9%</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="label">법무사 보수</span>
+                        <span class="value">약 30~80만원</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="label">국민주택채권</span>
+                        <span class="value">시가표준액의 1~5% 매입</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="label">인지세</span>
+                        <span class="value">0~35만원 (계약금액에 따라)</span>
+                    </div>
+                    <div class="breakdown-item">
+                        <span class="label">등기신청수수료</span>
+                        <span class="value">약 1.5만원</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="source-note">
+                📌 <strong>참고</strong>: 계산 결과는 참고용이며, 실제 비용은 지역, 시점, 개별 상황에 따라 달라질 수 있습니다.<br>
+                정확한 금액은 해당 기관 또는 전문가에게 확인하시기 바랍니다.
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

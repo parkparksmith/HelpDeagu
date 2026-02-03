@@ -1,0 +1,446 @@
+/* === 실거래가 페이지 스타일 === */
+
+.back-link {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 8px 16px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    background: var(--bg-card-hover);
+    color: var(--text-primary);
+    border-color: var(--border-accent);
+}
+
+.real-estate-section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+}
+
+/* 필터 영역 */
+.filter-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.filter-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    min-width: 120px;
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+}
+
+.filter-group select,
+.filter-group input {
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    outline: none;
+}
+
+.filter-group select:focus,
+.filter-group input:focus {
+    border-color: var(--accent);
+}
+
+.search-btn {
+    background: var(--accent);
+    color: var(--bg-dark);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+}
+
+.search-btn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+/* 요약 카드 */
+.summary-cards {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.summary-card {
+    flex: 1;
+    min-width: 100px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+}
+
+.summary-card.highlight {
+    background: rgba(255, 87, 34, 0.1);
+    border-color: rgba(255, 87, 34, 0.3);
+}
+
+.summary-icon {
+    font-size: 24px;
+}
+
+.summary-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.summary-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* 테이블 컨테이너 */
+.table-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+
+.trades-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+    min-width: 700px;
+}
+
+.trades-table th {
+    background: var(--bg-dark);
+    color: var(--text-secondary);
+    font-weight: 600;
+    padding: 12px 10px;
+    text-align: left;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+.trades-table td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-primary);
+    vertical-align: middle;
+}
+
+.trades-table tbody tr:hover {
+    background: var(--bg-card-hover);
+}
+
+.trades-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* 신고가 행 */
+.newhigh-row {
+    background: rgba(255, 87, 34, 0.05);
+}
+
+.newhigh-row:hover {
+    background: rgba(255, 87, 34, 0.1) !important;
+}
+
+/* 유형 배지 */
+.type-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.type-badge.type-apt {
+    background: rgba(33, 150, 243, 0.15);
+    color: #2196F3;
+}
+
+.type-badge.type-presale {
+    background: rgba(156, 39, 176, 0.15);
+    color: #9C27B0;
+}
+
+/* 단지 셀 */
+.complex-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.complex-cell .dong {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.complex-cell .apt-name {
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.complex-cell .year {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+.newhigh-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    color: #FF5722;
+    margin-top: 2px;
+}
+
+/* 가격 셀 */
+.price-cell {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.price-cell .price {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.price-cell .prev-high {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+}
+
+/* 거래방식 배지 */
+.trade-badge {
+    display: inline-block;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.trade-badge.broker {
+    background: rgba(33, 150, 243, 0.15);
+    color: #2196F3;
+}
+
+.trade-badge.direct {
+    background: rgba(255, 152, 0, 0.15);
+    color: #FF9800;
+}
+
+/* 빈 상태 */
+.empty-row td {
+    padding: 60px 20px !important;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-secondary);
+}
+
+.empty-state .material-icons-round {
+    font-size: 48px;
+    opacity: 0.5;
+}
+
+.empty-state p {
+    font-size: 0.9rem;
+}
+
+/* 로딩 */
+.loading-row td {
+    padding: 40px 20px !important;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* 최근 업데이트 */
+.recent-updates {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.recent-updates h3 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.update-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.update-list .loading {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.update-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    min-width: 140px;
+}
+
+.update-item:hover {
+    border-color: var(--accent);
+    background: var(--bg-card-hover);
+}
+
+.update-item .date {
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.update-item .counts {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+/* API 테스트 섹션 */
+.test-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.test-section h3 {
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 12px;
+}
+
+.test-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.test-btn {
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.test-btn:hover {
+    border-color: var(--accent);
+    background: var(--bg-card-hover);
+}
+
+.test-result {
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px;
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    max-height: 200px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.test-result.success {
+    border-color: #4CAF50;
+    color: #4CAF50;
+}
+
+.test-result.error {
+    border-color: #f44336;
+    color: #f44336;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .filter-row {
+        flex-direction: column;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .search-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .summary-cards {
+        flex-direction: row;
+    }
+    
+    .summary-card {
+        min-width: 80px;
+        padding: 10px;
+    }
+    
+    .summary-value {
+        font-size: 1.2rem;
+    }
+}

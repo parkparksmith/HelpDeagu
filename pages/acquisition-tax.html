@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>취득세 계산기 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/housing.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>취득세 계산기</h1>
+            </div>
+            <a href="housing-cost.html" class="back-link">
+                <span class="material-icons-round">arrow_back</span>
+                주택 구매 비용
+            </a>
+        </header>
+
+        <main class="calculator-section">
+            <div class="input-card">
+                <h3>📋 주택 정보 입력</h3>
+                
+                <div class="input-group">
+                    <label>매매가</label>
+                    <div class="input-with-unit">
+                        <input type="text" id="price" placeholder="0" inputmode="numeric">
+                        <span class="unit">만원</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>주택 수 (본 주택 포함)</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="house-count" value="1" checked>
+                            <span>1주택</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="house-count" value="2">
+                            <span>2주택</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="house-count" value="3">
+                            <span>3주택+</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>조정대상지역 여부</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="regulated" value="no" checked>
+                            <span>비조정지역</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="regulated" value="yes">
+                            <span>조정대상지역</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>생애최초 주택 구입 여부</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="first-time" value="no" checked>
+                            <span>아니오</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="first-time" value="yes">
+                            <span>예 (12억 이하)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="calculate-btn" onclick="calculate()">
+                    <span class="material-icons-round">calculate</span>
+                    계산하기
+                </button>
+            </div>
+
+            <div class="result-card hidden" id="result-card">
+                <h3>💰 취득세 계산 결과</h3>
+                
+                <div class="result-summary">
+                    <div class="result-main">
+                        <span class="result-label">납부할 총 취득세</span>
+                        <span class="result-value" id="result-total">0원</span>
+                    </div>
+                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">
+                        적용 세율: <span id="applied-rate">0%</span>
+                    </p>
+                </div>
+
+                <div class="result-breakdown">
+                    <h4>📊 세금 항목별 상세</h4>
+                    
+                    <div class="breakdown-section">
+                        <div class="breakdown-detail">
+                            <div class="detail-row">
+                                <span>취득세 (본세)</span>
+                                <span id="tax-main">0원</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>지방교육세</span>
+                                <span id="tax-edu">0원</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>농어촌특별세</span>
+                                <span id="tax-rural">0원</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="result-note" id="special-note" style="display: none;"></p>
+            </div>
+
+            <details class="rate-table-details">
+                <summary>📊 취득세율표 보기</summary>
+                <div class="rate-table-content">
+                    <h4>🏠 1주택자 취득세율</h4>
+                    <table class="rate-table">
+                        <thead>
+                            <tr>
+                                <th>주택가격</th>
+                                <th>취득세</th>
+                                <th>지방교육세</th>
+                                <th>농특세</th>
+                                <th>합계</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>6억원 이하</td>
+                                <td>1%</td>
+                                <td>0.1%</td>
+                                <td>0.2%</td>
+                                <td>1.3%</td>
+                            </tr>
+                            <tr>
+                                <td>6억~9억원</td>
+                                <td>1~3%</td>
+                                <td>0.1~0.3%</td>
+                                <td>0.2%</td>
+                                <td>1.3~3.5%</td>
+                            </tr>
+                            <tr>
+                                <td>9억원 초과</td>
+                                <td>3%</td>
+                                <td>0.3%</td>
+                                <td>0.2%</td>
+                                <td>3.5%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>🏘️ 다주택자 취득세율</h4>
+                    <table class="rate-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>조정지역</th>
+                                <th>비조정지역</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2주택</td>
+                                <td>8%</td>
+                                <td>1~3%</td>
+                            </tr>
+                            <tr>
+                                <td>3주택 이상</td>
+                                <td>12%</td>
+                                <td>8%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>🌟 생애최초 주택 구입 감면</h4>
+                    <p class="rate-note">
+                        • 12억원 이하 주택 취득 시 취득세 감면<br>
+                        • 수도권 최대 200만원, 비수도권 최대 200만원 한도<br>
+                        • 부부합산 소득 7천만원 이하 등 요건 충족 필요
+                    </p>
+                </div>
+            </details>
+        </main>
+    </div>
+
+    <div class="watermark">
+        <img src="../LOGO1.png" alt="">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const priceInput = document.getElementById('price');
+            priceInput.addEventListener('input', () => {
+                let value = priceInput.value.replace(/[^\d]/g, '');
+                if (value) {
+                    priceInput.value = parseInt(value, 10).toLocaleString();
+                }
+            });
+        });
+
+        function calculate() {
+            const priceMan = parseFloat(document.getElementById('price').value.replace(/,/g, '')) || 0;
+            const houseCount = document.querySelector('input[name="house-count"]:checked').value;
+            const isRegulated = document.querySelector('input[name="regulated"]:checked').value === 'yes';
+            const isFirstTime = document.querySelector('input[name="first-time"]:checked').value === 'yes';
+
+            if (priceMan <= 0) {
+                alert('매매가를 입력해주세요.');
+                return;
+            }
+
+            const priceWon = priceMan * 10000;
+            let mainRate = 0, eduRate = 0, ruralRate = 0.002;
+            let specialNote = '';
+
+            if (houseCount === '1') {
+                if (priceWon <= 600000000) {
+                    mainRate = 0.01;
+                    eduRate = 0.001;
+                } else if (priceWon <= 900000000) {
+                    const ratio = (priceWon - 600000000) / 300000000;
+                    mainRate = 0.01 + (0.02 * ratio);
+                    eduRate = mainRate * 0.1;
+                } else {
+                    mainRate = 0.03;
+                    eduRate = 0.003;
+                }
+            } else if (houseCount === '2') {
+                if (isRegulated) {
+                    mainRate = 0.08;
+                    eduRate = 0.004;
+                    ruralRate = 0.006;
+                } else {
+                    if (priceWon <= 600000000) {
+                        mainRate = 0.01;
+                    } else if (priceWon <= 900000000) {
+                        const ratio = (priceWon - 600000000) / 300000000;
+                        mainRate = 0.01 + (0.02 * ratio);
+                    } else {
+                        mainRate = 0.03;
+                    }
+                    eduRate = mainRate * 0.1;
+                }
+            } else {
+                if (isRegulated) {
+                    mainRate = 0.12;
+                    eduRate = 0.004;
+                    ruralRate = 0.01;
+                } else {
+                    mainRate = 0.08;
+                    eduRate = 0.004;
+                    ruralRate = 0.006;
+                }
+            }
+
+            let taxMain = priceWon * mainRate;
+            const taxEdu = priceWon * eduRate;
+            const taxRural = priceWon * ruralRate;
+
+            // 생애최초 감면 적용
+            if (isFirstTime && houseCount === '1' && priceWon <= 1200000000) {
+                const reduction = Math.min(taxMain, 2000000);
+                taxMain = Math.max(0, taxMain - reduction);
+                specialNote = `🌟 생애최초 주택 구입 감면 ${reduction.toLocaleString()}원 적용됨`;
+            }
+
+            const total = taxMain + taxEdu + taxRural;
+            const totalRate = ((mainRate + eduRate + ruralRate) * 100).toFixed(2);
+
+            document.getElementById('result-card').classList.remove('hidden');
+            document.getElementById('result-total').textContent = Math.round(total).toLocaleString() + '원';
+            document.getElementById('applied-rate').textContent = totalRate + '%';
+            document.getElementById('tax-main').textContent = Math.round(taxMain).toLocaleString() + '원';
+            document.getElementById('tax-edu').textContent = Math.round(taxEdu).toLocaleString() + '원';
+            document.getElementById('tax-rural').textContent = Math.round(taxRural).toLocaleString() + '원';
+
+            const noteEl = document.getElementById('special-note');
+            if (specialNote) {
+                noteEl.textContent = specialNote;
+                noteEl.style.display = 'block';
+                noteEl.style.background = 'rgba(76, 175, 80, 0.15)';
+                noteEl.style.borderColor = 'rgba(76, 175, 80, 0.3)';
+            } else {
+                noteEl.style.display = 'none';
+            }
+
+            document.getElementById('result-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+
+</html>

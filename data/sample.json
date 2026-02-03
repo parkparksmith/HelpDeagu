@@ -1,0 +1,61 @@
+{
+  "key": "3731",
+  "export_date": "2026-02-03T10:30:00",
+  "selected_date": "2026-02-03",
+  "summary": {
+    "total_apt_count": 2,
+    "total_presale_count": 1,
+    "apt_newhigh_count": 1,
+    "presale_newhigh_count": 0
+  },
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 12345,
+      "district": "대구광역시 수성구 범어동",
+      "dong": "범어동",
+      "bunji": "123-4",
+      "apt_name": "범어센트럴자이",
+      "area": 84.92,
+      "contract_date": "2026-01-15",
+      "amount": 1250000000,
+      "floor": 15,
+      "buyer_type": "개인",
+      "construction_year": 2020,
+      "road_name": "범어로 123",
+      "transaction_type": "중개",
+      "agent_location": "대구 수성구",
+      "termination_date": null,
+      "is_newhigh": true,
+      "write_date": "2026-02-02T01:00:00",
+      "previous_high": 1180000000,
+      "trade_count_3m_total": 8,
+      "trade_count_3m_area": 3,
+      "presale_type": null
+    },
+    {
+      "trade_type": "분양권",
+      "raw_id": 67890,
+      "district": "대구광역시 달서구 신당동",
+      "dong": "신당동",
+      "bunji": "456-7",
+      "apt_name": "신당센트럴파크",
+      "area": 59.98,
+      "contract_date": "2026-01-20",
+      "amount": 520000000,
+      "floor": 22,
+      "buyer_type": "개인",
+      "presale_type": "분양권",
+      "transaction_type": "직거래",
+      "agent_location": null,
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-02-02T01:00:00",
+      "previous_high": 510000000,
+      "trade_count_3m_total": 5,
+      "trade_count_3m_area": 2,
+      "construction_year": null,
+      "road_name": null
+    }
+  ]
+}

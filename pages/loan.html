@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대출 이자 계산기 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>대출 이자 계산기</h1>
+            </div>
+            <div class="header-controls">
+                <a href="../index.html" id="back-btn">
+                    <span class="material-icons-round">arrow_back</span>
+                    메인으로
+                </a>
+            </div>
+        </header>
+
+        <section class="view active">
+            <div class="tool-container">
+                <div class="input-panel">
+                    <h3>대출 조건</h3>
+                    <div class="input-group">
+                        <label>대출 금액 (원)</label>
+                        <input type="text" id="loan-amount" placeholder="예: 100,000,000" inputmode="numeric">
+                    </div>
+                    <div class="input-group">
+                        <label>연 이자율 (%)</label>
+                        <input type="number" id="loan-rate" step="0.1" placeholder="예: 4.5">
+                    </div>
+                    <div class="input-group">
+                        <label>대출 기간 (개월)</label>
+                        <input type="number" id="loan-months" placeholder="예: 120">
+                    </div>
+                    <div class="input-group">
+                        <label>상환 방식</label>
+                        <select id="loan-type">
+                            <option value="equal-payment">원리금 균등 상환</option>
+                            <option value="equal-principal">원금 균등 상환</option>
+                            <option value="bullet">만기 일시 상환</option>
+                        </select>
+                    </div>
+                    <button class="action-btn primary" onclick="calculateLoan()">계산하기</button>
+                </div>
+
+                <div class="result-panel">
+                    <h3>상환 내역</h3>
+                    
+                    <!-- Summary Card -->
+                    <div id="loan-summary" class="summary-card" style="display: none;">
+                        <div class="summary-item">
+                            <div class="label">월 납입금</div>
+                            <div class="value" id="summary-monthly">-</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="label">총 이자</div>
+                            <div class="value negative" id="summary-interest">-</div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="label">총 상환금</div>
+                            <div class="value" id="summary-total">-</div>
+                        </div>
+                    </div>
+
+                    <!-- Monthly Detail Table -->
+                    <div id="loan-table-container" class="monthly-table-container" style="display: none;">
+                        <table class="monthly-table">
+                            <thead>
+                                <tr>
+                                    <th>회차</th>
+                                    <th>원금</th>
+                                    <th>이자</th>
+                                    <th>상환금</th>
+                                    <th>잔액</th>
+                                </tr>
+                            </thead>
+                            <tbody id="loan-table-body">
+                            </tbody>
+                            <tfoot id="loan-table-foot">
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div id="loan-placeholder" class="result-box">
+                        대출 조건을 입력하고 계산하기 버튼을 눌러주세요.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 워터마크 -->
+    <div class="watermark">
+        <img src="../LOGO1.png" alt="">
+    </div>
+
+    <script src="../js/loan.js"></script>
+</body>
+
+</html>

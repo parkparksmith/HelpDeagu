@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또 번호 추천 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/lotto.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container lotto-page">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>로또 번호 추천</h1>
+            </div>
+            <a href="../index.html" id="back-btn">
+                <span class="material-icons-round">arrow_back</span>
+                메인으로
+            </a>
+        </header>
+
+        <!-- 워터마크 -->
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <main class="view active">
+            <!-- 생성 모드 선택 -->
+            <section class="lotto-section mode-section">
+                <h3>
+                    <span class="material-icons-round">tune</span>
+                    생성 모드 선택
+                </h3>
+                <div class="mode-tabs">
+                    <button class="mode-tab active" data-mode="random">
+                        <span class="material-icons-round">shuffle</span>
+                        완전 랜덤
+                    </button>
+                    <button class="mode-tab" data-mode="stats">
+                        <span class="material-icons-round">analytics</span>
+                        통계 기반
+                    </button>
+                    <button class="mode-tab" data-mode="custom">
+                        <span class="material-icons-round">settings</span>
+                        커스텀
+                    </button>
+                </div>
+
+                <!-- 통계 기반 옵션 -->
+                <div class="mode-options stats-options hidden">
+                    <div class="option-group">
+                        <label>통계 전략</label>
+                        <select id="stats-strategy">
+                            <option value="hot">자주 나온 번호 위주</option>
+                            <option value="cold">오래 안 나온 번호 위주</option>
+                            <option value="balanced">균형 (핫+콜드 조합)</option>
+                            <option value="recent">최근 10회 패턴 분석</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 커스텀 옵션 -->
+                <div class="mode-options custom-options hidden">
+                    <div class="option-row">
+                        <div class="option-group">
+                            <label>고정 번호 (선택)</label>
+                            <input type="text" id="fixed-numbers" placeholder="예: 7, 14, 21">
+                            <span class="option-hint">콤마로 구분, 최대 5개</span>
+                        </div>
+                        <div class="option-group">
+                            <label>제외 번호 (선택)</label>
+                            <input type="text" id="exclude-numbers" placeholder="예: 1, 2, 3">
+                            <span class="option-hint">콤마로 구분</span>
+                        </div>
+                    </div>
+                    <div class="option-row">
+                        <div class="option-group">
+                            <label>홀수 개수</label>
+                            <select id="odd-count">
+                                <option value="any">자동</option>
+                                <option value="2">2개</option>
+                                <option value="3" selected>3개</option>
+                                <option value="4">4개</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label>고저 비율 (1~22:23~45)</label>
+                            <select id="high-low">
+                                <option value="any">자동</option>
+                                <option value="3:3" selected>3:3</option>
+                                <option value="2:4">2:4</option>
+                                <option value="4:2">4:2</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="option-row">
+                        <div class="option-group">
+                            <label>연속 번호</label>
+                            <select id="consecutive">
+                                <option value="allow">허용</option>
+                                <option value="require">최소 1쌍 포함</option>
+                                <option value="deny">제외</option>
+                            </select>
+                        </div>
+                        <div class="option-group">
+                            <label>AC값 (복잡도)</label>
+                            <select id="ac-value">
+                                <option value="any">자동</option>
+                                <option value="7">7 이상 (권장)</option>
+                                <option value="8">8 이상</option>
+                                <option value="9">9 이상</option>
+                            </select>
+                            <span class="option-hint">번호 간 차이의 종류 수</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 생성 개수 및 버튼 -->
+            <section class="lotto-section generate-section">
+                <div class="generate-controls">
+                    <div class="count-control">
+                        <label>생성 개수</label>
+                        <div class="count-btns">
+                            <button class="count-btn active" data-count="1">1게임</button>
+                            <button class="count-btn" data-count="5">5게임</button>
+                            <button class="count-btn" data-count="10">10게임</button>
+                        </div>
+                    </div>
+                    <button class="action-btn primary generate-btn" onclick="generateNumbers()">
+                        <span class="material-icons-round">auto_awesome</span>
+                        번호 생성
+                    </button>
+                </div>
+            </section>
+
+            <!-- 결과 표시 -->
+            <section class="lotto-section result-section hidden">
+                <h3>
+                    <span class="material-icons-round">stars</span>
+                    추천 번호
+                    <button class="copy-all-btn" onclick="copyAllNumbers()">
+                        <span class="material-icons-round">content_copy</span>
+                        전체 복사
+                    </button>
+                </h3>
+                <div id="lotto-results" class="lotto-results"></div>
+            </section>
+
+            <!-- 통계 정보 -->
+            <section class="lotto-section stats-section">
+                <h3>
+                    <span class="material-icons-round">bar_chart</span>
+                    번호별 통계 (최근 100회 기준)
+                </h3>
+                <div class="stats-tabs">
+                    <button class="stats-tab active" data-stat="frequency">출현 빈도</button>
+                    <button class="stats-tab" data-stat="recent">최근 출현</button>
+                </div>
+                <div id="stats-display" class="stats-display"></div>
+            </section>
+
+            <!-- 안내 문구 -->
+            <div class="lotto-disclaimer">
+                <span class="material-icons-round">info</span>
+                <p>본 서비스는 오락 목적으로 제공되며, 당첨을 보장하지 않습니다. 로또는 완전 무작위 추첨이므로 어떤 전략도 확률을 높일 수 없습니다.</p>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/lotto.js"></script>
+</body>
+
+</html>

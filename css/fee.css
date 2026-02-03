@@ -1,0 +1,329 @@
+/* 복비 계산기 스타일 */
+
+.calculator-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* 입력 카드 */
+.input-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.input-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+/* 라디오 그룹 */
+.radio-group {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    flex: 1;
+    min-width: 80px;
+}
+
+.radio-label input[type="radio"] {
+    display: none;
+}
+
+.radio-label span {
+    display: block;
+    padding: 12px 16px;
+    text-align: center;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.radio-label input[type="radio"]:checked + span {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.radio-label span:hover {
+    border-color: var(--accent);
+}
+
+/* 금액 입력 */
+.input-with-unit {
+    display: flex;
+    align-items: center;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.input-with-unit input {
+    flex: 1;
+    padding: 14px 16px;
+    border: none;
+    background: transparent;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    text-align: right;
+}
+
+.input-with-unit input:focus {
+    outline: none;
+}
+
+.input-with-unit .unit {
+    padding: 14px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-left: 1px solid var(--border);
+}
+
+/* 계산 버튼 */
+.calculate-btn {
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, var(--accent), #c9a227);
+    border: none;
+    border-radius: 12px;
+    color: #1a1a2e;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.3s;
+    margin-top: 10px;
+}
+
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.3);
+}
+
+.calculate-btn .material-icons-round {
+    font-size: 1.2rem;
+}
+
+/* 결과 카드 */
+.result-card {
+    background: var(--bg-card);
+    border: 1px solid var(--accent);
+    border-radius: 16px;
+    padding: 24px;
+}
+
+.result-card h3 {
+    margin: 0 0 20px 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.result-summary {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), rgba(212, 175, 55, 0.05));
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.result-main {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.result-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.result-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.result-note {
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+/* 상세 정보 */
+.result-details {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: var(--bg-dark);
+    border-radius: 10px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+.detail-row span:first-child {
+    color: var(--text-secondary);
+}
+
+.detail-row span:last-child {
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.vat-note {
+    margin-top: 16px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.vat-note span {
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* 요율표 */
+.rate-table-details {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 16px 20px;
+}
+
+.rate-table-details summary {
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.rate-table-details summary:hover {
+    color: var(--accent);
+}
+
+.rate-table-content {
+    margin-top: 20px;
+}
+
+.rate-table-content h4 {
+    color: var(--accent);
+    font-size: 0.95rem;
+    margin: 20px 0 12px 0;
+}
+
+.rate-table-content h4:first-child {
+    margin-top: 0;
+}
+
+.rate-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+}
+
+.rate-table th,
+.rate-table td {
+    padding: 10px 8px;
+    text-align: center;
+    border: 1px solid var(--border);
+}
+
+.rate-table th {
+    background: rgba(212, 175, 55, 0.1);
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.rate-table td {
+    color: var(--text-secondary);
+}
+
+.rate-table tbody tr:hover {
+    background: rgba(255, 255, 255, 0.02);
+}
+
+.rate-note {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 8px 0;
+}
+
+.rate-formula {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    background: var(--bg-dark);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* 반응형 */
+@media (max-width: 480px) {
+    .input-card,
+    .result-card,
+    .rate-table-details {
+        padding: 16px;
+    }
+
+    .result-value {
+        font-size: 1.6rem;
+    }
+
+    .radio-label {
+        min-width: 70px;
+    }
+
+    .radio-label span {
+        padding: 10px 12px;
+        font-size: 0.85rem;
+    }
+
+    .rate-table {
+        font-size: 0.75rem;
+    }
+
+    .rate-table th,
+    .rate-table td {
+        padding: 8px 4px;
+    }
+}
+
+/* Hidden 클래스 */
+.hidden {
+    display: none !important;
+}

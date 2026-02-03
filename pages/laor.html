@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>라오어 무한매수법 V2.2 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/laor.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1 id="page-title">내 포트폴리오</h1>
+            </div>
+            <div class="header-controls">
+                <button id="settings-btn" class="icon-btn hidden" onclick="openSettingsModal()">
+                    <span class="material-icons-round">settings</span>
+                </button>
+                <a href="../index.html" id="back-btn-home" class="back-link">
+                    <span class="material-icons-round">arrow_back</span>
+                    메인으로
+                </a>
+                <button id="back-btn-list" class="back-link hidden" onclick="goToPortfolioList()">
+                    <span class="material-icons-round">arrow_back</span>
+                    목록으로
+                </button>
+            </div>
+        </header>
+
+        <!-- 포트폴리오 목록 화면 -->
+        <section id="portfolio-list-view" class="view active">
+            <div class="portfolio-header">
+                <h3>📜 내 포트폴리오</h3>
+                <div class="header-actions">
+                    <button class="action-btn secondary small-btn" onclick="exportAllData()">
+                        <span class="material-icons-round">download</span> 백업
+                    </button>
+                    <button class="action-btn secondary small-btn" onclick="triggerImport()">
+                        <span class="material-icons-round">upload</span> 복원
+                    </button>
+                    <input type="file" id="import-file" style="display:none" accept=".json" onchange="importAllData(this)">
+                    <button class="action-btn primary small-btn" onclick="openCreateModal()">
+                        <span class="material-icons-round">add</span> 새 포트폴리오
+                    </button>
+                </div>
+            </div>
+            <div id="portfolio-grid" class="card-grid">
+                <!-- 포트폴리오 카드들 -->
+            </div>
+
+            <!-- 라오어 출처 -->
+            <div class="source-links">
+                <p class="source-title">📚 라오어 무한매수법 공식 채널</p>
+                <div class="source-buttons">
+                    <a href="https://cafe.naver.com/infinitebuying" target="_blank" class="source-btn naver">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/>
+                        </svg>
+                        네이버 카페
+                    </a>
+                    <a href="https://www.youtube.com/@laofus" target="_blank" class="source-btn youtube">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                        유튜브
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 포트폴리오 상세 화면 -->
+        <section id="portfolio-detail-view" class="view hidden">
+            <!-- 핵심 지표 대시보드 -->
+            <div class="metrics-dashboard">
+                <div class="metric-box">
+                    <span class="metric-label">회차 (T)</span>
+                    <span class="metric-value" id="metric-t">0.00</span>
+                </div>
+                <div class="metric-box star">
+                    <span class="metric-label">별퍼센트 (★%)</span>
+                    <span class="metric-value" id="metric-star">10.00%</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-label">보유 수량</span>
+                    <span class="metric-value" id="metric-qty">0주</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-label">평단가</span>
+                    <span class="metric-value" id="metric-avg">$0.00</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-label">누적 매수</span>
+                    <span class="metric-value" id="metric-cumulative">$0</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-label">1회 시도액</span>
+                    <span class="metric-value" id="metric-daily">$0</span>
+                </div>
+            </div>
+
+            <!-- 쿼터 손절 알림 -->
+            <div id="quarter-alert" class="quarter-alert hidden">
+                <span class="material-icons-round">warning</span>
+                <div>
+                    <strong>⚠️ 쿼터 손절 구간 (T > 39)</strong>
+                    <p>보유 수량의 1/4을 시장가 매도 후, 남은 자금으로 재진입을 고려하세요.</p>
+                </div>
+            </div>
+
+            <!-- 매매 가이드 카드 -->
+            <div class="guide-card">
+                <div class="guide-header">
+                    <h3>📊 오늘 밤 주문 가이드</h3>
+                    <span class="phase-badge" id="phase-badge">전반전</span>
+                </div>
+
+                <!-- 매수 가이드 -->
+                <div class="guide-section">
+                    <h4>📥 매수 주문</h4>
+                    <div id="buy-guide" class="guide-content"></div>
+                </div>
+
+                <!-- 매도 가이드 -->
+                <div class="guide-section">
+                    <h4>📤 매도 주문</h4>
+                    <div id="sell-guide" class="guide-content"></div>
+                </div>
+
+                <!-- 폭락 대비 -->
+                <div class="guide-section collapse-section">
+                    <h4 onclick="toggleCollapse(this)">
+                        🔻 폭락장 대비 추가 매수
+                        <span class="material-icons-round">expand_more</span>
+                    </h4>
+                    <div id="crash-guide" class="guide-content collapse-content"></div>
+                </div>
+            </div>
+
+            <!-- 거래 내역 -->
+            <div class="transaction-card">
+                <div class="transaction-header">
+                    <h3>📝 거래 내역</h3>
+                    <div class="header-btns">
+                        <button class="auto-add-btn-header" onclick="openAutoAddModal()">
+                            <span class="material-icons-round">auto_fix_high</span> 자동
+                        </button>
+                        <button class="manual-add-btn-header" onclick="openTransactionModal()">
+                            <span class="material-icons-round">add</span> 추가
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 인라인 빠른 입력 -->
+                <div class="quick-input-row">
+                    <div class="quick-type-toggle">
+                        <button type="button" id="quick-type-buy" class="active" onclick="setQuickType('buy')">매수</button>
+                        <button type="button" id="quick-type-sell" onclick="setQuickType('sell')">매도</button>
+                    </div>
+                    <input type="date" id="quick-date" class="quick-input">
+                    <input type="number" id="quick-price" class="quick-input" placeholder="가격" step="0.01">
+                    <input type="number" id="quick-qty" class="quick-input" placeholder="수량" value="1" min="1">
+                    <button class="quick-add-btn" onclick="quickAddTransaction()">
+                        <span class="material-icons-round">add_circle</span>
+                    </button>
+                </div>
+
+                <div class="transaction-list-header">
+                    <span>유형</span>
+                    <span>날짜</span>
+                    <span class="text-right">가격</span>
+                    <span class="text-right">수량</span>
+                    <span class="text-center">삭제</span>
+                </div>
+                <div id="transaction-list" class="transaction-list-body">
+                    <div class="empty-state">거래 내역이 없습니다.</div>
+                </div>
+            </div>
+
+            <!-- 공식 설명 -->
+            <details class="formula-details">
+                <summary>📐 V2.2 계산 공식 보기</summary>
+                <div class="formula-content">
+                    <h4>📌 핵심 지표</h4>
+                    <p><strong>T (회차)</strong> = 누적매수액 ÷ 1회매수시도액</p>
+                    <p class="formula-note">※ 소수점 셋째자리에서 반올림 (2024.09.05 업데이트)</p>
+                    
+                    <h4 style="margin-top:16px;">📊 ★% (별퍼센트) 공식</h4>
+                    <div style="background: rgba(255,215,0,0.1); padding: 12px; border-radius: 8px; margin: 8px 0;">
+                        <p style="margin: 0;"><strong>★% = R - T × a × (40/N)</strong></p>
+                    </div>
+                    <p><strong>변수 정의:</strong></p>
+                    <ul style="margin-top: 4px;">
+                        <li><strong>R</strong> (목표수익률): 사용자 설정값 (예: 10%, 12%)</li>
+                        <li><strong>a</strong> (가변계수): <code>R / 20</code>
+                            <ul>
+                                <li>R=10% → a=0.5</li>
+                                <li>R=12% → a=0.6</li>
+                            </ul>
+                        </li>
+                        <li><strong>N</strong> (분할일수): 사용자 설정값 (예: 40일, 80일)</li>
+                        <li><strong>T</strong> (회차): 위에서 계산된 값</li>
+                    </ul>
+                    <p class="formula-note" style="margin-top: 12px;">※ 예시) R=12%, N=40, T=1.03<br>
+                    → a = 12/20 = 0.6<br>
+                    → ★% = 12 - 1.03 × 0.6 × (40/40) = 12 - 0.618 = <strong>11.38%</strong></p>
+                    
+                    <hr>
+                    <h4>📥 매수 로직</h4>
+                    <p class="formula-note">※ "평단+★%" = 평단 × (1 + ★%/100) | 예) 평단 $50, ★%=7 → $50×1.07 = $53.50</p>
+                    <p><strong>전반전 (T &lt; 20)</strong></p>
+                    <ul>
+                        <li>0.5회분: <strong>평단가</strong>에 LOC 매수</li>
+                        <li>0.5회분: <strong>평단×(1+★%)</strong>에 LOC 매수 <span class="formula-note">(-$0.01 적용)</span></li>
+                    </ul>
+                    <p><strong>후반전 (T ≥ 20)</strong></p>
+                    <ul>
+                        <li>1회분: <strong>평단×(1+★%)</strong>에 LOC 매수 <span class="formula-note">(-$0.01 적용)</span></li>
+                    </ul>
+                    <p class="formula-note">※ 수량 계산: 매수금액 ÷ 가격 → 반올림</p>
+                    
+                    <hr>
+                    <h4>📤 매도 로직 (전후반 공통)</h4>
+                    <ul>
+                        <li>1/4 수량: <strong>평단×(1+★%)</strong>에 LOC 매도</li>
+                        <li>3/4 수량: <strong>평단×(1+목표%)</strong>에 지정가 매도</li>
+                    </ul>
+                    
+                    <hr>
+                    <h4>⚠️ 쿼터 손절</h4>
+                    <p>T > 39 시, 보유수량 1/4을 시장가 매도 후 재진입</p>
+                </div>
+            </details>
+        </section>
+    </div>
+
+    <!-- 포트폴리오 생성/수정 모달 -->
+    <div id="create-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="modal-title">새 포트폴리오</h3>
+            <div class="input-group">
+                <label>종목명</label>
+                <input type="text" id="pf-name" placeholder="예: TQQQ, SOXL">
+            </div>
+            <div class="input-group">
+                <label>원금 (USD)</label>
+                <input type="text" id="pf-budget" placeholder="예: 10,000" inputmode="numeric">
+            </div>
+            <div class="input-group">
+                <label>분할 일수 (10~80)</label>
+                <input type="number" id="pf-days" value="40" min="10" max="80">
+            </div>
+            <div class="input-group">
+                <label>목표 수익률 (%)</label>
+                <input type="number" id="pf-target" value="10" min="1" max="50" step="0.5">
+            </div>
+            <div class="modal-actions">
+                <button class="action-btn secondary" onclick="closeModal('create-modal')">취소</button>
+                <button class="action-btn primary" id="modal-save-btn" onclick="savePortfolio()">생성</button>
+            </div>
+        </div>
+        <div class="modal-backdrop" onclick="closeModal('create-modal')"></div>
+    </div>
+
+    <!-- 자동 거래 추가 모달 -->
+    <div id="auto-add-modal" class="modal hidden">
+        <div class="modal-content" style="max-width: 500px;">
+            <h3>📲 자동 거래 추가</h3>
+            <p style="font-size: 0.85rem; color: #aaa; margin-bottom: 12px;">
+                증권사 체결 알림 메시지를 붙여넣으세요
+            </p>
+            <div class="input-group">
+                <label>체결 알림 내용</label>
+                <textarea id="auto-input-text" rows="10" placeholder="*****예시*****
+                
+[메리츠증권] 해외주식 주문체결 안내
+
+계좌명 : 달팽이집
+계좌번호 : 0000000-000
+종목명 : PROSHARES QQQ 3X(TQQQ)
+매매구분 : 매수
+체결단가 : USD 55.0800
+주문수량 : 1주
+체결수량 : 1주
+체결금액 : USD 55.08
+체결일자 : 01/26"></textarea>
+            </div>
+            
+            <!-- 파싱 결과 (수정 가능) -->
+            <div id="parse-preview" class="parse-preview hidden">
+                <div class="preview-title">📋 파싱 결과 (수정 가능)</div>
+                <div class="preview-edit-row">
+                    <label>매매구분</label>
+                    <div class="type-toggle small">
+                        <button type="button" id="parsed-type-buy" class="active" onclick="setParsedType('buy')">매수</button>
+                        <button type="button" id="parsed-type-sell" onclick="setParsedType('sell')">매도</button>
+                    </div>
+                </div>
+                <div class="preview-edit-row">
+                    <label>체결단가 ($)</label>
+                    <input type="number" id="parsed-price" step="0.0001" placeholder="0.00">
+                </div>
+                <div class="preview-edit-row">
+                    <label>체결수량 (주)</label>
+                    <input type="number" id="parsed-qty" min="1" placeholder="0">
+                </div>
+                <div class="preview-edit-row">
+                    <label>체결일자</label>
+                    <input type="date" id="parsed-date">
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button class="action-btn secondary" onclick="closeModal('auto-add-modal')">취소</button>
+                <button class="action-btn" style="background: #ff9800;" onclick="parseAndPreview()">파싱하기</button>
+                <button class="action-btn primary" onclick="confirmAutoAdd()">추가</button>
+            </div>
+        </div>
+        <div class="modal-backdrop" onclick="closeModal('auto-add-modal')"></div>
+    </div>
+
+    <!-- 거래 추가 모달 -->
+    <div id="transaction-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>거래 추가</h3>
+            <div class="input-group">
+                <label>거래 유형</label>
+                <div class="type-toggle">
+                    <button type="button" id="type-buy" class="active" onclick="setTransType('buy')">매수</button>
+                    <button type="button" id="type-sell" onclick="setTransType('sell')">매도</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>날짜</label>
+                <input type="date" id="trans-date">
+            </div>
+            <div class="input-group">
+                <label>체결가 (USD)</label>
+                <input type="number" id="trans-price" step="0.01" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label>수량 (주)</label>
+                <input type="number" id="trans-qty" step="1" value="1" min="1">
+            </div>
+            <div class="modal-actions">
+                <button class="action-btn secondary" onclick="closeModal('transaction-modal')">취소</button>
+                <button class="action-btn primary" onclick="addTransaction()">추가</button>
+            </div>
+        </div>
+        <div class="modal-backdrop" onclick="closeModal('transaction-modal')"></div>
+    </div>
+
+    <!-- 워터마크 -->
+    <div class="watermark">
+        <img src="../LOGO1.png" alt="">
+    </div>
+
+    <script src="../js/laor.js"></script>
+</body>
+
+</html>

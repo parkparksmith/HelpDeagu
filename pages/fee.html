@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>복비 계산기 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/fee.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>복비 계산기</h1>
+            </div>
+            <a href="housing-cost.html" class="back-link">
+                <span class="material-icons-round">arrow_back</span>
+                주택 구매 비용
+            </a>
+        </header>
+
+        <main class="calculator-section">
+            <!-- 거래 유형 선택 -->
+            <div class="input-card">
+                <h3>📋 거래 정보</h3>
+                
+                <div class="input-group">
+                    <label>부동산 종류</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="property-type" value="house" checked>
+                            <span>주택</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="property-type" value="officetel">
+                            <span>오피스텔</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="property-type" value="commercial">
+                            <span>상가/토지</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>거래 유형</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="trade-type" value="sale" checked>
+                            <span>매매</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="trade-type" value="jeonse">
+                            <span>전세</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="trade-type" value="monthly">
+                            <span>월세</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="input-group" id="sale-input-group">
+                    <label>매매가 / 전세금</label>
+                    <div class="input-with-unit">
+                        <input type="text" id="price" placeholder="0" inputmode="numeric">
+                        <span class="unit">만원</span>
+                    </div>
+                </div>
+
+                <div class="input-group hidden" id="monthly-input-group">
+                    <label>보증금</label>
+                    <div class="input-with-unit">
+                        <input type="text" id="deposit" placeholder="0" inputmode="numeric">
+                        <span class="unit">만원</span>
+                    </div>
+                    <label style="margin-top: 12px;">월세</label>
+                    <div class="input-with-unit">
+                        <input type="text" id="monthly-rent" placeholder="0" inputmode="numeric">
+                        <span class="unit">만원</span>
+                    </div>
+                </div>
+
+                <button class="calculate-btn" onclick="calculateFee()">
+                    <span class="material-icons-round">calculate</span>
+                    계산하기
+                </button>
+            </div>
+
+            <!-- 계산 결과 -->
+            <div class="result-card hidden" id="result-card">
+                <h3>💰 중개보수 계산 결과</h3>
+                
+                <div class="result-summary">
+                    <div class="result-main">
+                        <span class="result-label">예상 중개보수</span>
+                        <span class="result-value" id="result-fee">0원</span>
+                    </div>
+                    <p class="result-note" id="result-note"></p>
+                </div>
+
+                <div class="result-details">
+                    <div class="detail-row">
+                        <span>거래금액</span>
+                        <span id="detail-price">0원</span>
+                    </div>
+                    <div class="detail-row" id="converted-price-row" style="display: none;">
+                        <span>환산보증금</span>
+                        <span id="detail-converted">0원</span>
+                    </div>
+                    <div class="detail-row">
+                        <span>적용 요율</span>
+                        <span id="detail-rate">0%</span>
+                    </div>
+                    <div class="detail-row" id="limit-row" style="display: none;">
+                        <span>상한액 적용</span>
+                        <span id="detail-limit">-</span>
+                    </div>
+                </div>
+
+                <p class="vat-note">※ 부가세(10%) 별도 시: <span id="result-with-vat">0원</span></p>
+            </div>
+
+            <!-- 요율표 -->
+            <details class="rate-table-details">
+                <summary>📊 중개보수 요율표 보기</summary>
+                <div class="rate-table-content">
+                    <h4>🏠 주택 (아파트, 빌라 등)</h4>
+                    <table class="rate-table">
+                        <thead>
+                            <tr>
+                                <th>거래금액</th>
+                                <th>매매</th>
+                                <th>임대차</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>5천만원 미만</td>
+                                <td>0.6% (한도 25만)</td>
+                                <td>0.5% (한도 20만)</td>
+                            </tr>
+                            <tr>
+                                <td>5천만~2억 미만</td>
+                                <td>0.5% (한도 80만)</td>
+                                <td>0.4% (한도 30만)</td>
+                            </tr>
+                            <tr>
+                                <td>2억~6억 미만</td>
+                                <td>0.4%</td>
+                                <td>0.3%</td>
+                            </tr>
+                            <tr>
+                                <td>6억~9억 미만</td>
+                                <td>0.4%</td>
+                                <td>0.4%</td>
+                            </tr>
+                            <tr>
+                                <td>9억~12억 미만</td>
+                                <td>0.5%</td>
+                                <td>0.4%</td>
+                            </tr>
+                            <tr>
+                                <td>12억~15억 미만</td>
+                                <td>0.6%</td>
+                                <td>0.5%</td>
+                            </tr>
+                            <tr>
+                                <td>15억 이상</td>
+                                <td>0.7%</td>
+                                <td>0.6%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>🏢 오피스텔</h4>
+                    <table class="rate-table">
+                        <thead>
+                            <tr>
+                                <th>구분</th>
+                                <th>요율</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>매매</td>
+                                <td>0.5%</td>
+                            </tr>
+                            <tr>
+                                <td>임대차</td>
+                                <td>0.4%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>🏪 상가/토지 등</h4>
+                    <p class="rate-note">0.9% 이내에서 협의</p>
+
+                    <h4>📝 월세 환산보증금</h4>
+                    <p class="rate-formula">환산보증금 = 보증금 + (월세 × 100)</p>
+                    <p class="rate-note">※ 환산보증금이 5천만원 미만이면 실제 보증금 기준으로 계산</p>
+                </div>
+            </details>
+        </main>
+    </div>
+
+    <!-- 워터마크 -->
+    <div class="watermark">
+        <img src="../LOGO1.png" alt="">
+    </div>
+
+    <script src="../js/fee.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인지세 계산기 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/housing.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>인지세 계산기</h1>
+            </div>
+            <a href="housing-cost.html" class="back-link">
+                <span class="material-icons-round">arrow_back</span>
+                주택 구매 비용
+            </a>
+        </header>
+
+        <main class="calculator-section">
+            <div class="input-card">
+                <h3>📋 계약 정보 입력</h3>
+                
+                <div class="input-group">
+                    <label>계약금액 (매매가)</label>
+                    <div class="input-with-unit">
+                        <input type="text" id="price" placeholder="0" inputmode="numeric">
+                        <span class="unit">만원</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>계약서 종류</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="contract-type" value="sale" checked>
+                            <span>부동산 매매계약서</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="contract-type" value="loan">
+                            <span>금전소비대차계약서</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="calculate-btn" onclick="calculate()">
+                    <span class="material-icons-round">calculate</span>
+                    계산하기
+                </button>
+            </div>
+
+            <div class="result-card hidden" id="result-card">
+                <h3>💰 인지세 계산 결과</h3>
+                
+                <div class="result-summary">
+                    <div class="result-main">
+                        <span class="result-label">납부할 인지세</span>
+                        <span class="result-value" id="result-tax">0원</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <div class="breakdown-section">
+                        <div class="breakdown-detail">
+                            <div class="detail-row">
+                                <span>계약금액</span>
+                                <span id="contract-amount">0원</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>적용 구간</span>
+                                <span id="tax-bracket">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="result-note">
+                    ※ 인지세는 매도인/매수인이 각각 50%씩 부담합니다.<br>
+                    ※ 전자수입인지로 납부 (정부24, 은행 등에서 구매)
+                </p>
+            </div>
+
+            <details class="rate-table-details">
+                <summary>📊 인지세 세액표 보기</summary>
+                <div class="rate-table-content">
+                    <h4>📄 부동산 매매계약서 인지세</h4>
+                    <table class="rate-table">
+                        <thead>
+                            <tr>
+                                <th>계약금액</th>
+                                <th>인지세</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1천만원 이하</td>
+                                <td>비과세</td>
+                            </tr>
+                            <tr>
+                                <td>1천만원 초과 ~ 3천만원 이하</td>
+                                <td>20,000원</td>
+                            </tr>
+                            <tr>
+                                <td>3천만원 초과 ~ 5천만원 이하</td>
+                                <td>40,000원</td>
+                            </tr>
+                            <tr>
+                                <td>5천만원 초과 ~ 1억원 이하</td>
+                                <td>70,000원</td>
+                            </tr>
+                            <tr>
+                                <td>1억원 초과 ~ 10억원 이하</td>
+                                <td>150,000원</td>
+                            </tr>
+                            <tr>
+                                <td>10억원 초과</td>
+                                <td>350,000원</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4>💳 금전소비대차계약서 인지세 (대출)</h4>
+                    <table class="rate-table">
+                        <thead>
+                            <tr>
+                                <th>차용금액</th>
+                                <th>인지세</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>5천만원 이하</td>
+                                <td>비과세</td>
+                            </tr>
+                            <tr>
+                                <td>5천만원 초과 ~ 1억원 이하</td>
+                                <td>70,000원</td>
+                            </tr>
+                            <tr>
+                                <td>1억원 초과 ~ 10억원 이하</td>
+                                <td>150,000원</td>
+                            </tr>
+                            <tr>
+                                <td>10억원 초과</td>
+                                <td>350,000원</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p class="rate-note">
+                        ※ 매매계약서 인지세는 매도인·매수인 각 50% 부담<br>
+                        ※ 대출 인지세는 금융기관·차입자 각 50% 부담
+                    </p>
+                </div>
+            </details>
+        </main>
+    </div>
+
+    <div class="watermark">
+        <img src="../LOGO1.png" alt="">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const priceInput = document.getElementById('price');
+            priceInput.addEventListener('input', () => {
+                let value = priceInput.value.replace(/[^\d]/g, '');
+                if (value) {
+                    priceInput.value = parseInt(value, 10).toLocaleString();
+                }
+            });
+        });
+
+        function calculate() {
+            const priceMan = parseFloat(document.getElementById('price').value.replace(/,/g, '')) || 0;
+            const contractType = document.querySelector('input[name="contract-type"]:checked').value;
+
+            if (priceMan <= 0) {
+                alert('계약금액을 입력해주세요.');
+                return;
+            }
+
+            const priceWon = priceMan * 10000;
+            let stampTax = 0;
+            let bracket = '';
+
+            if (contractType === 'sale') {
+                // 부동산 매매계약서
+                if (priceWon <= 10000000) {
+                    stampTax = 0;
+                    bracket = '1천만원 이하 (비과세)';
+                } else if (priceWon <= 30000000) {
+                    stampTax = 20000;
+                    bracket = '1천만원 초과 ~ 3천만원 이하';
+                } else if (priceWon <= 50000000) {
+                    stampTax = 40000;
+                    bracket = '3천만원 초과 ~ 5천만원 이하';
+                } else if (priceWon <= 100000000) {
+                    stampTax = 70000;
+                    bracket = '5천만원 초과 ~ 1억원 이하';
+                } else if (priceWon <= 1000000000) {
+                    stampTax = 150000;
+                    bracket = '1억원 초과 ~ 10억원 이하';
+                } else {
+                    stampTax = 350000;
+                    bracket = '10억원 초과';
+                }
+            } else {
+                // 금전소비대차계약서
+                if (priceWon <= 50000000) {
+                    stampTax = 0;
+                    bracket = '5천만원 이하 (비과세)';
+                } else if (priceWon <= 100000000) {
+                    stampTax = 70000;
+                    bracket = '5천만원 초과 ~ 1억원 이하';
+                } else if (priceWon <= 1000000000) {
+                    stampTax = 150000;
+                    bracket = '1억원 초과 ~ 10억원 이하';
+                } else {
+                    stampTax = 350000;
+                    bracket = '10억원 초과';
+                }
+            }
+
+            document.getElementById('result-card').classList.remove('hidden');
+            document.getElementById('result-tax').textContent = stampTax === 0 ? '비과세' : stampTax.toLocaleString() + '원';
+            document.getElementById('contract-amount').textContent = priceWon.toLocaleString() + '원';
+            document.getElementById('tax-bracket').textContent = bracket;
+
+            document.getElementById('result-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+
+</html>

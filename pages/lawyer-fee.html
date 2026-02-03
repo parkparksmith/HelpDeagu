@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>법무사 보수 계산기 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/housing.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>법무사 보수 계산기</h1>
+            </div>
+            <a href="housing-cost.html" class="back-link">
+                <span class="material-icons-round">arrow_back</span>
+                주택 구매 비용
+            </a>
+        </header>
+
+        <main class="calculator-section">
+            <div class="input-card">
+                <h3>📋 등기 정보 입력</h3>
+                
+                <div class="input-group">
+                    <label>부동산 가액 (매매가)</label>
+                    <div class="input-with-unit">
+                        <input type="text" id="price" placeholder="0" inputmode="numeric">
+                        <span class="unit">만원</span>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label>등기 종류</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="reg-type" value="ownership" checked>
+                            <span>소유권이전</span>
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="reg-type" value="mortgage">
+                            <span>근저당설정</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button class="calculate-btn" onclick="calculate()">
+                    <span class="material-icons-round">calculate</span>
+                    계산하기
+                </button>
+            </div>
+
+            <div class="result-card hidden" id="result-card">
+                <h3>💰 법무사 보수 계산 결과</h3>
+                
+                <div class="result-summary">
+                    <div class="result-main">
+                        <span class="result-label">예상 법무사 보수 (VAT 포함)</span>
+                        <span class="result-value" id="result-total">0원</span>
+                    </div>
+                </div>
+
+                <div class="result-breakdown">
+                    <h4>📊 상세 내역</h4>
+                    
+                    <div class="breakdown-section">
+                        <div class="breakdown-detail">
+                            <div class="detail-row">
+                                <span>기본보수</span>
+                                <span id="base-fee">0원</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>가산보수</span>
+                                <span id="add-fee">0원</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>소계 (VAT 제외)</span>
+                                <span id="sub-total">0원</span>
+                            </div>
+                            <div class="detail-row">
+                                <span>부가세 (10%)</span>
+                                <span id="vat">0원</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="result-note">
+                    ※ 대법원 법무사보수기준에 따른 예상 금액입니다.<br>
+                    ※ 실제 보수는 법무사 사무소마다 다를 수 있습니다.
+                </p>
+            </div>
+
+            <details class="rate-table-details">
+                <summary>📊 법무사 보수 기준표 보기</summary>
+                <div class="rate-table-content">
+                    <h4>⚖️ 소유권이전등기 보수 (대법원 기준)</h4>
+                    <table class="rate-table">
+                        <thead>
+                            <tr>
+                                <th>부동산가액</th>
+                                <th>기본보수</th>
+                                <th>가산보수</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>5천만원 이하</td>
+                                <td>110,000원</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>5천만~1억원</td>
+                                <td>110,000원</td>
+                                <td>5천만원 초과분의 1/1,000</td>
+                            </tr>
+                            <tr>
+                                <td>1억~3억원</td>
+                                <td>110,000원</td>
+                                <td>50,000 + 1억원 초과분의 8/10,000</td>
+                            </tr>
+                            <tr>
+                                <td>3억~5억원</td>
+                                <td>110,000원</td>
+                                <td>210,000 + 3억원 초과분의 6/10,000</td>
+                            </tr>
+                            <tr>
+                                <td>5억~10억원</td>
+                                <td>110,000원</td>
+                                <td>330,000 + 5억원 초과분의 4/10,000</td>
+                            </tr>
+                            <tr>
+                                <td>10억원 초과</td>
+                                <td>110,000원</td>
+                                <td>530,000 + 10억원 초과분의 2/10,000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="rate-note">※ 위 금액에 부가세 10% 별도<br>
+                    ※ 일괄신청, 공동명의 등에 따라 추가 비용 발생 가능</p>
+                </div>
+            </details>
+        </main>
+    </div>
+
+    <div class="watermark">
+        <img src="../LOGO1.png" alt="">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const priceInput = document.getElementById('price');
+            priceInput.addEventListener('input', () => {
+                let value = priceInput.value.replace(/[^\d]/g, '');
+                if (value) {
+                    priceInput.value = parseInt(value, 10).toLocaleString();
+                }
+            });
+        });
+
+        function calculate() {
+            const priceMan = parseFloat(document.getElementById('price').value.replace(/,/g, '')) || 0;
+            const regType = document.querySelector('input[name="reg-type"]:checked').value;
+
+            if (priceMan <= 0) {
+                alert('부동산 가액을 입력해주세요.');
+                return;
+            }
+
+            const priceWon = priceMan * 10000;
+            let baseFee = 110000;
+            let addFee = 0;
+
+            if (regType === 'ownership') {
+                // 소유권이전등기
+                if (priceWon <= 50000000) {
+                    addFee = 0;
+                } else if (priceWon <= 100000000) {
+                    addFee = (priceWon - 50000000) * 0.001;
+                } else if (priceWon <= 300000000) {
+                    addFee = 50000 + (priceWon - 100000000) * 0.0008;
+                } else if (priceWon <= 500000000) {
+                    addFee = 210000 + (priceWon - 300000000) * 0.0006;
+                } else if (priceWon <= 1000000000) {
+                    addFee = 330000 + (priceWon - 500000000) * 0.0004;
+                } else {
+                    addFee = 530000 + (priceWon - 1000000000) * 0.0002;
+                }
+            } else {
+                // 근저당설정등기 (채권최고액 기준, 여기서는 매매가 기준으로 간략화)
+                baseFee = 80000;
+                if (priceWon <= 50000000) {
+                    addFee = 0;
+                } else if (priceWon <= 100000000) {
+                    addFee = (priceWon - 50000000) * 0.0006;
+                } else if (priceWon <= 300000000) {
+                    addFee = 30000 + (priceWon - 100000000) * 0.0005;
+                } else if (priceWon <= 500000000) {
+                    addFee = 130000 + (priceWon - 300000000) * 0.0004;
+                } else {
+                    addFee = 210000 + (priceWon - 500000000) * 0.0002;
+                }
+            }
+
+            const subTotal = baseFee + addFee;
+            const vat = subTotal * 0.1;
+            const total = subTotal + vat;
+
+            document.getElementById('result-card').classList.remove('hidden');
+            document.getElementById('result-total').textContent = Math.round(total).toLocaleString() + '원';
+            document.getElementById('base-fee').textContent = Math.round(baseFee).toLocaleString() + '원';
+            document.getElementById('add-fee').textContent = Math.round(addFee).toLocaleString() + '원';
+            document.getElementById('sub-total').textContent = Math.round(subTotal).toLocaleString() + '원';
+            document.getElementById('vat').textContent = Math.round(vat).toLocaleString() + '원';
+
+            document.getElementById('result-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    </script>
+</body>
+
+</html>
