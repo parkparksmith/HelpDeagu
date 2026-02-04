@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>데일리 실거래가 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/trades.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <a href="../index.html" id="back-btn">
+                    <span class="material-icons-round">arrow_back</span>
+                    <span>홈으로</span>
+                </a>
+                <h1>데일리 실거래가</h1>
+            </div>
+        </header>
+
+        <!-- 워터마크 -->
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <!-- 날짜 선택 -->
+        <div class="date-selector">
+            <label for="trade-date">조회 날짜</label>
+            <select id="trade-date" class="date-select">
+                <option value="" disabled selected>날짜를 불러오는 중...</option>
+            </select>
+            <button class="action-btn primary" onclick="loadDailyTrades()">
+                <span class="material-icons-round">search</span>
+                조회하기
+            </button>
+        </div>
+
+        <!-- 로딩 인디케이터 -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>데이터를 불러오는 중...</span>
+        </div>
+
+        <!-- 에러 메시지 -->
+        <div id="error-message" class="error-message hidden"></div>
+
+        <!-- 데이터 요약 -->
+        <div id="data-summary" class="data-summary hidden">
+            <div class="summary-item">
+                <span class="label">조회 날짜</span>
+                <span class="value" id="summary-date">-</span>
+            </div>
+            <div class="summary-item">
+                <span class="label">총 거래 건수</span>
+                <span class="value" id="summary-count">0</span>
+            </div>
+            <div class="summary-item">
+                <span class="label">아파트 거래</span>
+                <span class="value" id="summary-apt">0</span>
+            </div>
+            <div class="summary-item">
+                <span class="label">분양권 거래</span>
+                <span class="value" id="summary-presale">0</span>
+            </div>
+        </div>
+
+        <!-- 거래 데이터 테이블 -->
+        <div id="trades-container" class="trades-container hidden">
+            <div class="table-header">
+                <h3>📊 전체 거래 내역</h3>
+                <div class="table-controls">
+                    <select id="filter-type" onchange="filterTrades()">
+                        <option value="all">전체</option>
+                        <option value="apt">아파트</option>
+                        <option value="presale">분양권</option>
+                    </select>
+                    <select id="filter-district" onchange="filterTrades()">
+                        <option value="all">전체 구/군</option>
+                    </select>
+                </div>
+            </div>
+            <div id="trades-table-container" class="table-wrapper">
+                <table id="trades-table">
+                    <thead>
+                        <tr>
+                            <th>유형</th>
+                            <th>구/군</th>
+                            <th>단지명</th>
+                            <th>면적(㎡)</th>
+                            <th>층</th>
+                            <th>거래금액</th>
+                            <th>계약일</th>
+                        </tr>
+                    </thead>
+                    <tbody id="trades-tbody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/daily-trades.js"></script>
+</body>
+
+</html>

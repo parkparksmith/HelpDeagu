@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>주요 데일리 실거래가 리포트 - 경제 도구 모음</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/trades.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <a href="../index.html" id="back-btn">
+                    <span class="material-icons-round">arrow_back</span>
+                    <span>홈으로</span>
+                </a>
+                <h1>주요 데일리 실거래가 리포트</h1>
+            </div>
+        </header>
+
+        <!-- 워터마크 -->
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <!-- 날짜 선택 -->
+        <div class="date-selector">
+            <label for="trade-date">조회 날짜</label>
+            <select id="trade-date" class="date-select">
+                <option value="" disabled selected>날짜를 불러오는 중...</option>
+            </select>
+            <button class="action-btn primary" onclick="loadSelectedTrades()">
+                <span class="material-icons-round">search</span>
+                조회하기
+            </button>
+        </div>
+
+        <!-- 로딩 인디케이터 -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>데이터를 불러오는 중...</span>
+        </div>
+
+        <!-- 에러 메시지 -->
+        <div id="error-message" class="error-message hidden"></div>
+
+        <!-- 리포트 헤더 -->
+        <div id="report-header" class="report-header hidden">
+            <div class="report-logo">
+                <img src="../LOGO1.png" alt="로고">
+            </div>
+            <div class="report-title">
+                <h2>🏠 주요 데일리 실거래가 리포트</h2>
+                <p id="report-date-display">-</p>
+            </div>
+        </div>
+
+        <!-- 데이터 요약 -->
+        <div id="data-summary" class="data-summary report-summary hidden">
+            <div class="summary-item">
+                <span class="label">조회 날짜</span>
+                <span class="value" id="summary-date">-</span>
+            </div>
+            <div class="summary-item">
+                <span class="label">선택된 거래</span>
+                <span class="value highlight" id="summary-count">0</span>
+            </div>
+            <div class="summary-item">
+                <span class="label">아파트</span>
+                <span class="value" id="summary-apt">0</span>
+            </div>
+            <div class="summary-item">
+                <span class="label">분양권</span>
+                <span class="value" id="summary-presale">0</span>
+            </div>
+        </div>
+
+        <!-- 리포트 컨텐츠 -->
+        <div id="report-container" class="report-container hidden">
+            <!-- 아파트 거래 섹션 -->
+            <div id="apt-section" class="report-section hidden">
+                <div class="section-header apt">
+                    <span class="material-icons-round">apartment</span>
+                    <h3>아파트 거래</h3>
+                    <span class="count" id="apt-count">0건</span>
+                </div>
+                <div class="cards-grid" id="apt-cards"></div>
+            </div>
+
+            <!-- 분양권 거래 섹션 -->
+            <div id="presale-section" class="report-section hidden">
+                <div class="section-header presale">
+                    <span class="material-icons-round">construction</span>
+                    <h3>분양권 거래</h3>
+                    <span class="count" id="presale-count">0건</span>
+                </div>
+                <div class="cards-grid" id="presale-cards"></div>
+            </div>
+        </div>
+
+        <!-- 푸터 -->
+        <div id="report-footer" class="report-footer hidden">
+            <p>📌 대구살료 부동산방 제공</p>
+            <p class="disclaimer">※ 본 데이터는 참고용이며, 실제 거래와 차이가 있을 수 있습니다.</p>
+        </div>
+    </div>
+
+    <script src="../js/selected-trades.js"></script>
+</body>
+
+</html>
