@@ -228,27 +228,60 @@ function processTrades(data) {
         // 가격 (DailyData는 amount 숫자로 옴)
         price: trade.amount || trade['거래금액'] || trade.price || 0,
 
+        // 건축년도
+        construction_year: trade.construction_year || trade['건축년도'] || null,
+
+        // 해제사유발생일 (취소된 거래)
+        cancelDate: trade.termination_date || trade['해제사유발생일'] || null,
+
+        // 이전 최고가
+        previousHigh: trade.previous_high || trade['직전최고가'] || 0,
+
         // 신고가 여부
         isNewHigh: trade.is_newhigh === true || trade._is_newhigh === true || (typeof trade['거래금액(신고가)'] === 'string' && trade['거래금액(신고가)'].includes('🔥'))
     }));
 }
 
 // 요약 정보 업데이트
+// 요약 정보 업데이트
 function updateSummary(dateStr, trades) {
-    document.getElementById('summary-date').textContent = formatDateDisplay(dateStr);
+    // 날짜 표시는 UI에서 제거됨
+    // document.getElementById('summary-date').textContent = formatDateDisplay(dateStr);
+
     document.getElementById('summary-count').textContent = trades.length.toLocaleString() + '건';
 
     const aptCount = trades.filter(t => t.type === 'apt').length;
     const presaleCount = trades.filter(t => t.type === 'presale').length;
 
+    // 신고가 집계
+    const aptNewHighCount = trades.filter(t => t.type === 'apt' && t.isNewHigh).length;
+    const presaleNewHighCount = trades.filter(t => t.type === 'presale' && t.isNewHigh).length;
+
     document.getElementById('summary-apt').textContent = aptCount.toLocaleString() + '건';
     document.getElementById('summary-presale').textContent = presaleCount.toLocaleString() + '건';
+
+    // 신고가 업데이트
+    document.getElementById('summary-apt-newhigh').textContent = aptNewHighCount.toLocaleString() + '건';
+    document.getElementById('summary-presale-newhigh').textContent = presaleNewHighCount.toLocaleString() + '건';
 }
 
 // 구/군 필터 채우기
 function populateDistrictFilter(trades) {
+    // 사용자 지정 순서
+    const priorityOrder = ['수성구', '중구', '달서구', '서구', '남구', '군위군'];
+
     const districts = [...new Set(trades.map(t => t.gu || '기타'))];
-    districts.sort((a, b) => a.localeCompare(b, 'ko'));
+
+    districts.sort((a, b) => {
+        const indexA = priorityOrder.indexOf(a);
+        const indexB = priorityOrder.indexOf(b);
+
+        if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+        if (indexA !== -1) return -1;
+        if (indexB !== -1) return 1;
+
+        return a.localeCompare(b, 'ko');
+    });
 
     const filterSelect = document.getElementById('filter-district');
     filterSelect.innerHTML = '<option value="all">전체 구/군</option>';
@@ -277,6 +310,8 @@ function filterTrades() {
 }
 
 // 구별로 정렬하여 렌더링
+// 구별로 정렬하여 렌더링
+// 구별로 정렬하여 렌더링
 function renderTradesByGu(trades) {
     const container = document.getElementById('trades-table-container');
 
@@ -284,7 +319,7 @@ function renderTradesByGu(trades) {
     // 구별로 데이터 분류
     const tradesByGu = {};
     if (trades.length === 0) {
-        container.innerHTML = '<div style="padding:40px; text-align:center; color:#888;">조건에 맞는 데이터가 없습니다.</div>';
+        container.innerHTML = '<div class="no-data"><span class="material-icons-round">inbox</span><p>조건에 맞는 데이터가 없습니다.</p></div>';
         return;
     }
 
@@ -294,72 +329,191 @@ function renderTradesByGu(trades) {
         tradesByGu[gu].push(trade);
     });
 
-    const guNames = Object.keys(tradesByGu).sort((a, b) => a.localeCompare(b, 'ko'));
+    // 사용자 지정 순서 적용
+    const priorityOrder = ['수성구', '중구', '달서구', '서구', '남구', '군위군'];
+
+    const guNames = Object.keys(tradesByGu).sort((a, b) => {
+        const indexA = priorityOrder.indexOf(a);
+        const indexB = priorityOrder.indexOf(b);
+
+        // 둘 다 우선순위 목록에 있는 경우, 목록 순서대로 정렬
+        if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+
+        // 하나만 있는 경우, 있는 것이 먼저 옴
+        if (indexA !== -1) return -1;
+        if (indexB !== -1) return 1;
+
+        // 둘 다 없는 경우, 가나다순 정렬
+        return a.localeCompare(b, 'ko');
+    });
+
     let html = '';
 
-    guNames.forEach(gu => {
+    // 정렬 함수: 동 -> 단지명 -> 전용면적
+    const sortLogic = (a, b) => {
+        // 1. 동 정렬
+        if (a.dong !== b.dong) return a.dong.localeCompare(b.dong, 'ko');
+
+        // 2. 단지명 정렬
+        const nameA = a['단지명'] || a.apt_name || a.name || '';
+        const nameB = b['단지명'] || b.apt_name || b.name || '';
+        if (nameA !== nameB) return nameA.localeCompare(nameB, 'ko');
+
+        // 3. 전용면적 정렬 (숫자로 변환 후 비교)
+        const areaA = parseFloat(a.area || a['면적'] || 0);
+        const areaB = parseFloat(b.area || b['면적'] || 0);
+        return areaA - areaB;
+    };
+
+    guNames.forEach((gu, index) => {
         const guTrades = tradesByGu[gu];
-        // 동별 정렬
-        guTrades.sort((a, b) => a.dong.localeCompare(b.dong, 'ko') || b.price - a.price);
+
+        // 아파트와 분양권 분리 및 정렬
+        const aptTrades = guTrades.filter(t => t.type === 'apt').sort(sortLogic);
+        const presaleTrades = guTrades.filter(t => t.type === 'presale').sort(sortLogic);
+
+        // Animation delay for stagger effect
+        const styleDelay = `animation-delay: ${index * 0.1}s`;
 
         html += `
-            <div class="gu-section-wrapper" style="margin-bottom: 30px;">
-                <h4 class="gu-header" style="padding-left: 10px; border-left: 4px solid var(--accent);">${gu} <span class="gu-count">(${guTrades.length})</span></h4>
-                <table class="trades-table-style" style="width:100%; border-collapse: collapse; margin-top: 10px; font-size: 0.85rem;">
-                    <thead>
-                        <tr style="background: var(--bg-card); border-bottom: 2px solid var(--border);">
-                            <th style="padding:10px; text-align:left;">유형</th>
-                            <th style="padding:10px; text-align:left;">동</th>
-                            <th style="padding:10px; text-align:left;">단지명</th>
-                            <th style="padding:10px; text-align:center;">전용(㎡)</th>
-                            <th style="padding:10px; text-align:center;">층</th>
-                            <th style="padding:10px; text-align:right;">거래금액</th>
-                            <th style="padding:10px; text-align:right;">계약일</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div class="gu-section slide-in-up" style="${styleDelay}">
+                <div class="gu-header-card">
+                    <h4 class="gu-title">${gu} <span class="badge-count">${guTrades.length}</span></h4>
+                </div>
+                <div class="table-responsive">
+                    <table class="premium-table">
+                        <thead>
+                            <tr>
+                                <th class="text-center th-dong">동</th>
+                                <th class="text-center th-name">단지명</th>
+                                <th class="text-center th-area">전용<br><span style="font-size:0.8em; opacity:0.7">층</span></th>
+                                <th class="text-center th-price">거래금액<br><span style="font-size:0.8em; opacity:0.7">계약일(거래건수)</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
         `;
 
-        guTrades.forEach(trade => {
-            const typeBadge = trade.type === 'apt'
-                ? '<span class="type-badge apt" style="font-size:0.7rem;">아파트</span>'
-                : '<span class="type-badge presale" style="font-size:0.7rem; background:rgba(255,152,0,0.2); color:#ff9800;">분양권</span>';
+        // 렌더링 헬퍼 함수
+        const renderRows = (list) => {
+            const currentYear = new Date().getFullYear();
+            let rowHtml = '';
+            list.forEach(trade => {
+                const name = trade['단지명'] || trade.apt_name || trade.name || trade.title || '-';
+                const dong = trade.dong || '-';
 
-            const name = trade['단지명'] || trade.apt_name || trade.name || trade.title || '-';
-            const dong = trade.dong || '-';
-            const area = trade.area || trade['면적'] || '-';
-            const floor = trade.floor || trade['층'] || '-';
-            const contractDate = trade.contract_date || trade['계약일'] || '-';
+                // 건축년도 및 연차 계산
+                let nameHtml = `<div class="apt-name-text">${name}</div>`;
+                if (trade.construction_year) {
+                    const buildYear = parseInt(trade.construction_year);
+                    if (!isNaN(buildYear)) {
+                        const age = currentYear - buildYear;
+                        const ageText = age <= 0 ? '신축' : `${age}년차`;
+                        nameHtml += `<div class="construction-info">${buildYear} <span class="age-badge">(${ageText})</span></div>`;
+                    }
+                }
 
-            // 가격 처리
-            const isNewHigh = trade.isNewHigh;
-            const priceVal = trade.price || 0;
-            const priceText = formatPrice(priceVal);
+                // 전용면적 포맷팅 (소수점 2자리)
+                let area = trade.area || trade['면적'] || 0;
+                area = parseFloat(area).toFixed(2);
 
-            // 신고가 스타일
-            const priceClass = isNewHigh ? 'price-cell new-high-text' : 'price-cell';
-            const priceDisplay = isNewHigh ? `🔥 ${priceText}` : priceText;
-            const rowClass = isNewHigh ? 'highlight-row' : '';
-            const rowStyle = isNewHigh ? 'background: rgba(248, 81, 73, 0.05);' : '';
+                const floor = trade.floor || trade['층'] || '-';
 
+                // 계약일 포맷팅 (MM-dd)
+                let contractDate = trade.contract_date || trade['계약일'] || '-';
+                if (contractDate.length === 8) {
+                    // YYYYMMDD -> MM-dd
+                    contractDate = `${contractDate.substring(4, 6)}-${contractDate.substring(6, 8)}`;
+                } else if (contractDate.includes('-')) {
+                    // YYYY-MM-DD -> MM-dd
+                    const parts = contractDate.split('-');
+                    if (parts.length === 3) contractDate = `${parts[1]}-${parts[2]}`;
+                }
+
+                // 거래건수 (3개월: 전체/전용)
+                const countTotal = trade.trade_count_3m_total || 0;
+                const countArea = trade.trade_count_3m_area || 0;
+                const tradeCounts = `(${countTotal}/${countArea})`;
+
+                // 가격 처리
+                const isNewHigh = trade.isNewHigh;
+                const isCancelled = !!trade.cancelDate;
+                const priceVal = trade.price || 0;
+                const priceText = formatPrice(priceVal);
+
+                let rowClass = 'trade-row';
+                if (isCancelled) rowClass += ' cancelled';
+                else if (isNewHigh) rowClass += ' new-high';
+
+                // 가격 표시 (취소된 경우 취소 태그 추가)
+                let priceHtml = '';
+
+                if (isCancelled) {
+                    priceHtml = `<span class="price-text cancelled">${priceText} <span class="cancel-badge">취소</span></span>`;
+                } else if (isNewHigh) {
+                    priceHtml = `<span class="price-text new-high">🔥 ${priceText}</span>`;
+                } else {
+                    priceHtml = `<span class="price-text">${priceText}</span>`;
+                }
+
+                // 이전 최고가 (직전최고가) 표시
+                if (!isCancelled && trade.previousHigh) {
+                    const prevHighVal = parseFloat(trade.previousHigh);
+                    if (prevHighVal > 0) {
+                        const prevHighText = formatPrice(prevHighVal);
+                        priceHtml += `<div class="prev-high-wrapper">(${prevHighText})</div>`;
+                    }
+                }
+
+                rowHtml += `
+                    <tr class="${rowClass}">
+                        <td class="td-center td-dong">${dong}</td>
+                        <td class="td-center td-name">${nameHtml}</td>
+                        <td class="td-center">
+                            <div class="cell-primary">${area}㎡</div>
+                            <div class="cell-secondary">${floor}층</div>
+                        </td>
+                        <td class="td-center">
+                            <div class="price-wrapper center-flex">${priceHtml}</div>
+                            <div class="date-wrapper">${contractDate} <span class="trade-count">${tradeCounts}</span></div>
+                        </td>
+                    </tr>
+                `;
+            });
+            return rowHtml;
+        };
+
+        // 아파트 리스트 렌더링
+        if (aptTrades.length > 0) {
             html += `
-                <tr style="border-bottom: 1px solid var(--border); ${rowStyle}">
-                    <td style="padding:10px;">${typeBadge}</td>
-                    <td style="padding:10px; color:var(--text-secondary);">${dong}</td>
-                    <td style="padding:10px; font-weight:600; color:var(--text-primary);">${name}</td>
-                    <td style="padding:10px; text-align:center;">${area}</td>
-                    <td style="padding:10px; text-align:center;">${floor}</td>
-                    <td style="padding:10px; text-align:right;" class="${priceClass}">
-                        <span style="${isNewHigh ? 'color:#ff6b6b; font-weight:bold;' : 'font-weight:bold;'}">${priceDisplay}</span>
+                <tr class="category-row">
+                    <td colspan="4" style="padding: 0;">
+                        <div class="category-header apt-header">
+                            <span class="material-icons-round">apartment</span> 아파트
+                        </div>
                     </td>
-                    <td style="padding:10px; text-align:right; color:var(--text-muted); font-size:0.8rem;">${contractDate}</td>
                 </tr>
             `;
-        });
+            html += renderRows(aptTrades);
+        }
+
+        // 분양권 리스트 렌더링
+        if (presaleTrades.length > 0) {
+            html += `
+                <tr class="category-row">
+                    <td colspan="4" style="padding: 0;">
+                        <div class="category-header presale-header">
+                            <span class="material-icons-round">receipt_long</span> 분양권
+                        </div>
+                    </td>
+                </tr>
+            `;
+            html += renderRows(presaleTrades);
+        }
 
         html += `
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         `;
     });

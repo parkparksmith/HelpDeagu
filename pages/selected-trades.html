@@ -56,34 +56,40 @@
         <!-- 에러 메시지 -->
         <div id="error-message" class="error-message hidden"></div>
 
-        <!-- 리포트 헤더 -->
-        <div id="report-header" class="report-header hidden">
-            <div class="report-logo">
-                <img src="../LOGO1.png" alt="로고">
+        <!-- 데이터 요약 (새로운 대시보드 스타일) -->
+        <div id="data-summary" class="report-dashboard hidden">
+            <!-- 리포트 날짜 헤더 -->
+            <div class="report-date-header">
+                <span class="calendar-icon">📅</span>
+                <span id="report-date-text">202X년 XX월 XX일</span>
             </div>
-            <div class="report-title">
-                <h2>🏠 주요 데일리 실거래가 리포트</h2>
-                <p id="report-date-display">-</p>
-            </div>
-        </div>
 
-        <!-- 데이터 요약 -->
-        <div id="data-summary" class="data-summary report-summary hidden">
-            <div class="summary-item">
-                <span class="label">조회 날짜</span>
-                <span class="value" id="summary-date">-</span>
+            <div class="report-section-title">
+                <span class="material-icons-round">analytics</span> 오늘의 거래 요약
             </div>
-            <div class="summary-item">
-                <span class="label">선택된 거래</span>
-                <span class="value highlight" id="summary-count">0</span>
+
+            <!-- 메인 카운트 -->
+            <div class="report-counts-row">
+                <div class="report-count-item apt">
+                    <div class="count-label"><span class="material-icons-round">apartment</span> 아파트 매매</div>
+                    <div class="count-value" id="summary-apt-count">0건</div>
+                </div>
+                <div class="report-count-item presale">
+                    <div class="count-label"><span class="material-icons-round">receipt_long</span> 분양권 매매</div>
+                    <div class="count-value" id="summary-presale-count">0건</div>
+                </div>
+                <div class="report-count-item total">
+                    <div class="count-label"><span class="material-icons-round">bar_chart</span> 총 거래</div>
+                    <div class="count-value" id="summary-total-count">0건</div>
+                </div>
             </div>
-            <div class="summary-item">
-                <span class="label">아파트</span>
-                <span class="value" id="summary-apt">0</span>
+
+            <!-- 구별 현황 (Grid) -->
+            <div class="report-section-title">
+                <span class="material-icons-round">place</span> 구별 거래 현황
             </div>
-            <div class="summary-item">
-                <span class="label">분양권</span>
-                <span class="value" id="summary-presale">0</span>
+            <div id="district-summary-grid" class="district-summary-grid">
+                <!-- JS로 생성됨 -->
             </div>
         </div>
 

@@ -151,8 +151,11 @@ function hideError() {
 }
 
 // 전체 UI 숨기기
+// 전체 UI 숨기기
 function hideAllUI() {
-    document.getElementById('report-header').classList.add('hidden');
+    const reportHeader = document.getElementById('report-header');
+    if (reportHeader) reportHeader.classList.add('hidden');
+
     document.getElementById('data-summary').classList.add('hidden');
     document.getElementById('report-container').classList.add('hidden');
     document.getElementById('report-footer').classList.add('hidden');
@@ -182,7 +185,7 @@ async function loadSelectedTrades() {
         const data = await fetchFromGitHub(filePath);
         const trades = processTrades(data);
 
-        renderReport(selectedDate, trades);
+        renderReport(selectedDate, trades, data);
     } catch (error) {
         showError(error.message);
     } finally {
@@ -197,20 +200,38 @@ function processTrades(data) {
     // 데이터 구조에 따라 처리
     if (Array.isArray(data)) {
         trades = data;
-    } else if (data.trades) {
-        trades = data.trades;
-    } else if (data.selected_trades) {
+    } else if (data.selected_trades && Array.isArray(data.selected_trades)) {
         trades = data.selected_trades;
-    } else if (data.apt_trades && data.presale_trades) {
+    } else if (data.trades && Array.isArray(data.trades)) {
+        trades = data.trades;
+    } else if (data.rows && Array.isArray(data.rows)) {
+        trades = data.rows;
+    } else if (data.list && Array.isArray(data.list)) {
+        trades = data.list;
+    } else if (data.items && Array.isArray(data.items)) {
+        trades = data.items;
+    } else if (data.apt_trades || data.presale_trades) {
         trades = [
-            ...data.apt_trades.map(t => ({ ...t, type: 'apt' })),
-            ...data.presale_trades.map(t => ({ ...t, type: 'presale' }))
+            ...(data.apt_trades || []).map(t => ({ ...t, type: 'apt' })),
+            ...(data.presale_trades || []).map(t => ({ ...t, type: 'presale' }))
         ];
     } else if (data.apt || data.presale) {
         trades = [
             ...(data.apt || []).map(t => ({ ...t, type: 'apt' })),
             ...(data.presale || []).map(t => ({ ...t, type: 'presale' }))
         ];
+    } else {
+        // Fallback: 가장 큰 배열 찾기 (district_status 제외)
+        let maxLen = 0;
+        const keys = Object.keys(data);
+        for (const key of keys) {
+            if (Array.isArray(data[key]) && key !== 'district_status') {
+                if (data[key].length > maxLen) {
+                    trades = data[key];
+                    maxLen = trades.length;
+                }
+            }
+        }
     }
 
     // 데이터 표준화 및 정렬
@@ -250,6 +271,16 @@ function processTrades(data) {
         // 건축년도
         const buildYear = trade.construction_year || trade.build_year || '';
 
+        // 추가 정보
+        let tradeCount3m = '';
+        if (trade.trade_count_3m_total !== undefined) {
+            tradeCount3m = `${trade.trade_count_3m_total}/${trade.trade_count_3m_area || 0}`;
+        } else if (trade.trade_count_3m) {
+            tradeCount3m = `${trade.trade_count_3m.total}/${trade.trade_count_3m.area}`;
+        }
+
+        const prevHigh = trade.previous_high || trade['직전최고가'] || 0;
+
         return {
             ...trade,
             type,
@@ -261,7 +292,9 @@ function processTrades(data) {
             priceDisplay,
             isNewHigh,
             contractDate,
-            buildYear
+            buildYear,
+            tradeCount3m,
+            prevHigh
         };
     });
 
@@ -276,23 +309,100 @@ function processTrades(data) {
 }
 
 // 리포트 렌더링
-function renderReport(dateStr, trades) {
-    // 헤더 업데이트
-    document.getElementById('report-date-display').textContent = formatDateDisplay(dateStr);
-    document.getElementById('report-header').classList.remove('hidden');
+// 리포트 렌더링
+function renderReport(dateStr, trades, fullData = null) {
+    // 1. 날짜 헤더 업데이트
+    document.getElementById('report-date-text').textContent = formatDateDisplay(dateStr);
 
-    // 요약 업데이트
+    let aptCount = 0;
+    let presaleCount = 0;
+    let totalCount = 0;
+    let districts = [];
+    let districtCounts = {};
+
+    // JSON의 summary 필드가 있으면 사용
+    if (fullData && fullData.summary) {
+        aptCount = fullData.summary.total_apt_count || 0;
+        presaleCount = fullData.summary.total_presale_count || 0;
+        // 총 거래 건수 (별도 필드가 없으면 합산, 있으면 사용)
+        totalCount = fullData.summary.total_count || (aptCount + presaleCount);
+
+        // 구별 통계 사용
+        if (fullData.district_status && Array.isArray(fullData.district_status)) {
+            fullData.district_status.forEach(d => {
+                // d.gu, d.count 구조
+                districtCounts[d.gu] = d.count;
+            });
+            districts = fullData.district_status.map(d => d.gu);
+        } else {
+            // district_status가 없으면 trades에서 계산
+            trades.forEach(t => {
+                const gu = t.gu || '기타';
+                districtCounts[gu] = (districtCounts[gu] || 0) + 1;
+            });
+            districts = Object.keys(districtCounts);
+        }
+
+    } else {
+        // 기존 계산 로직 (Fallback)
+        const aptTrades = trades.filter(t => t.type === 'apt');
+        const presaleTrades = trades.filter(t => t.type === 'presale');
+
+        aptCount = aptTrades.length;
+        presaleCount = presaleTrades.length;
+        totalCount = trades.length;
+
+        trades.forEach(t => {
+            const gu = t.gu || '기타';
+            districtCounts[gu] = (districtCounts[gu] || 0) + 1;
+        });
+        districts = Object.keys(districtCounts);
+    }
+
+    // 2. 메인 카운트 UI 업데이트
+    document.getElementById('summary-total-count').textContent = totalCount.toLocaleString() + '건';
+    document.getElementById('summary-apt-count').textContent = aptCount.toLocaleString() + '건';
+    document.getElementById('summary-presale-count').textContent = presaleCount.toLocaleString() + '건';
+
+    // 3. 구별 거래 현황 정렬 및 생성
+    const priorityOrder = ['수성구', '중구', '북구', '동구', '서구', '남구', '달서구', '달성군', '군위군'];
+    districts.sort((a, b) => {
+        const indexA = priorityOrder.indexOf(a);
+        const indexB = priorityOrder.indexOf(b);
+        if (indexA !== -1 && indexB !== -1) return indexA - indexB; // 둘 다 우선순위에 있으면 순서대로
+        if (indexA !== -1) return -1; // A만 있으면 A가 먼저
+        if (indexB !== -1) return 1;  // B만 있으면 B가 먼저
+        return a.localeCompare(b, 'ko'); // 나머지는 가나다순
+    });
+
+    const gridEl = document.getElementById('district-summary-grid');
+    if (gridEl) {
+        let gridHtml = '';
+        if (districts.length === 0) {
+            gridHtml = '<p class="no-stats">데이터 없음</p>';
+        } else {
+            districts.forEach(gu => {
+                gridHtml += `
+                <div class="district-stat-item">
+                    <span class="district-name">${gu}</span>
+                    <span class="district-count">${districtCounts[gu]}건</span>
+                </div>
+                `;
+            });
+        }
+        gridEl.innerHTML = gridHtml;
+    }
+
+    // 대시보드 표시
+    document.getElementById('data-summary').classList.remove('hidden');
+
+    // 리스트 렌더링을 위해 trades 분류
     const aptTrades = trades.filter(t => t.type === 'apt');
     const presaleTrades = trades.filter(t => t.type === 'presale');
 
-    document.getElementById('summary-date').textContent = formatDateDisplay(dateStr);
-    document.getElementById('summary-count').textContent = trades.length.toLocaleString() + '건';
-    document.getElementById('summary-apt').textContent = aptTrades.length.toLocaleString() + '건';
-    document.getElementById('summary-presale').textContent = presaleTrades.length.toLocaleString() + '건';
-    document.getElementById('data-summary').classList.remove('hidden');
-
     // 아파트 섹션 (구별 그룹핑)
     if (aptTrades.length > 0) {
+        // 상세 카운트는 실제 리스트 개수 기준
         document.getElementById('apt-count').textContent = aptTrades.length + '건';
         renderSectionByGu('apt-cards', aptTrades);
         document.getElementById('apt-section').classList.remove('hidden');
@@ -357,14 +467,28 @@ function createTradeCard(trade) {
     const typeClass = trade.type === 'apt' ? 'apt' : 'presale';
     const fullDistrict = trade.dong ? `${trade.gu} ${trade.dong}` : trade.gu;
 
-    // processTrades에서 이미 처리된 필드 사용
     const name = trade.name;
     const area = trade.area;
     const floor = trade.floor;
     const price = trade.priceDisplay;
     const contractDate = trade.contractDate;
-    const buildYear = trade.buildYear;
     const isNewHigh = trade.isNewHigh;
+
+    // 추가 정보 처리
+    const currentYear = new Date().getFullYear();
+    let buildYearText = '';
+    if (trade.buildYear) {
+        const by = parseInt(trade.buildYear);
+        if (!isNaN(by)) {
+            const age = currentYear - by;
+            buildYearText = `${by}년 (${age <= 0 ? '신축' : age + '년차'})`;
+        } else {
+            buildYearText = trade.buildYear;
+        }
+    }
+
+    const prevHighText = trade.prevHigh ? `(${formatPrice(trade.prevHigh)})` : '';
+    const tradeCountText = trade.tradeCount3m ? `3개월 거래: (${trade.tradeCount3m})` : '';
 
     return `
         <div class="trade-card ${typeClass}${isNewHigh ? ' new-high' : ''}">
@@ -372,11 +496,13 @@ function createTradeCard(trade) {
                 <div>
                     <div class="card-name">${name}</div>
                     <div class="card-district">${fullDistrict}</div>
-                    ${buildYear ? `<div class="card-year">${buildYear}</div>` : ''}
+                    ${buildYearText ? `<div class="card-year">${buildYearText}</div>` : ''}
                 </div>
-                <div class="card-price">
-                    ${price}
-                    <div class="card-price-unit">거래금액</div>
+                <div class="card-price-block">
+                    <div class="card-price">
+                        ${price}
+                        ${prevHighText ? `<span class="prev-high-mini">${prevHighText}</span>` : ''}
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -393,6 +519,7 @@ function createTradeCard(trade) {
                     <span class="value">${contractDate}</span>
                 </div>
             </div>
+            ${tradeCountText ? `<div class="card-footer-info">${tradeCountText}</div>` : ''}
         </div>
     `;
 }

@@ -57,22 +57,52 @@
         <div id="error-message" class="error-message hidden"></div>
 
         <!-- 데이터 요약 -->
+        <!-- 데이터 요약 -->
         <div id="data-summary" class="data-summary hidden">
-            <div class="summary-item">
-                <span class="label">조회 날짜</span>
-                <span class="value" id="summary-date">-</span>
+            <div class="summary-card bounce-in" style="animation-delay: 0s">
+                <div class="icon-wrapper total">
+                    <span class="material-icons-round">format_list_bulleted</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">총 거래 건수</span>
+                    <span class="value" id="summary-count">0</span>
+                </div>
             </div>
-            <div class="summary-item">
-                <span class="label">총 거래 건수</span>
-                <span class="value" id="summary-count">0</span>
+            <div class="summary-card bounce-in" style="animation-delay: 0.1s">
+                <div class="icon-wrapper apt">
+                    <span class="material-icons-round">apartment</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">아파트 거래</span>
+                    <span class="value" id="summary-apt">0</span>
+                </div>
             </div>
-            <div class="summary-item">
-                <span class="label">아파트 거래</span>
-                <span class="value" id="summary-apt">0</span>
+            <div class="summary-card bounce-in" style="animation-delay: 0.2s">
+                <div class="icon-wrapper presale">
+                    <span class="material-icons-round">receipt_long</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">분양권 거래</span>
+                    <span class="value" id="summary-presale">0</span>
+                </div>
             </div>
-            <div class="summary-item">
-                <span class="label">분양권 거래</span>
-                <span class="value" id="summary-presale">0</span>
+            <div class="summary-card bounce-in" style="animation-delay: 0.3s">
+                <div class="icon-wrapper new-high-apt">
+                    <span class="material-icons-round">trending_up</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">신고가(아파트)</span>
+                    <span class="value" id="summary-apt-newhigh">0</span>
+                </div>
+            </div>
+            <div class="summary-card bounce-in" style="animation-delay: 0.4s">
+                <div class="icon-wrapper new-high-presale">
+                    <span class="material-icons-round">local_fire_department</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">신고가(분양권)</span>
+                    <span class="value" id="summary-presale-newhigh">0</span>
+                </div>
             </div>
         </div>
 
