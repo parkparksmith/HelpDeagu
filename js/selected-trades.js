@@ -418,6 +418,90 @@ function renderReport(dateStr, trades, fullData = null) {
     // 컨테이너 및 푸터 표시
     document.getElementById('report-container').classList.remove('hidden');
     document.getElementById('report-footer').classList.remove('hidden');
+
+    // 테이블 뷰도 렌더링 (데이터가 있을 때 미리 만들어둠)
+    renderTableView(trades);
+
+    // 현재 선택된 뷰 모드에 따라 표시 상태 갱신
+    toggleViewMode();
+}
+
+// 뷰 모드 전환
+function toggleViewMode() {
+    const modeInput = document.querySelector('input[name="view-mode"]:checked');
+    if (!modeInput) return;
+
+    const mode = modeInput.value;
+    const cardContainer = document.getElementById('card-view-container');
+    const tableContainer = document.getElementById('table-view-container');
+
+    if (mode === 'card') {
+        cardContainer.classList.remove('hidden');
+        tableContainer.classList.add('hidden');
+    } else {
+        cardContainer.classList.add('hidden');
+        tableContainer.classList.remove('hidden');
+    }
+}
+
+// 테이블 뷰 렌더링
+function renderTableView(trades) {
+    const tbody = document.getElementById('trades-tbody');
+    if (!tbody) return;
+
+    let html = '';
+    trades.forEach(trade => {
+        const name = trade.name;
+        const dong = trade.dong;
+        const area = trade.area;
+        const floor = trade.floor;
+        const price = trade.priceDisplay; // 이미 🔥 포함됨
+        const contractDate = trade.contractDate;
+
+        // 연식 정보
+        const currentYear = new Date().getFullYear();
+        let nameHtml = `<div class="apt-name-text">${name}</div>`;
+        if (trade.buildYear) {
+            const by = parseInt(trade.buildYear);
+            if (!isNaN(by)) {
+                const age = currentYear - by;
+                const ageText = age <= 0 ? '신축' : `${age}년차`;
+                nameHtml += `<div class="construction-info">${by} <span class="age-badge">(${ageText})</span></div>`;
+            } else {
+                nameHtml += `<div class="construction-info">${trade.buildYear}</div>`;
+            }
+        }
+
+        // 추가 정보 (3개월, 전고점)
+        // tradeCount3m은 (전체/전용) 형태
+        const countText = trade.tradeCount3m ? `(${trade.tradeCount3m})` : '';
+        const prevHighText = trade.prevHigh ? `(${formatPrice(trade.prevHigh)})` : '';
+
+        let rowClass = 'trade-row';
+        if (trade.isNewHigh) rowClass += ' new-high';
+
+        // 가격 표시: priceDisplay에 이미 불꽃이 있으면 클래스 처리 주의
+        // 여기서는 priceDisplay 문자열 그대로 사용
+
+        html += `
+            <tr class="${rowClass}">
+                <td class="td-center td-dong">${dong}</td>
+                <td class="td-center td-name">${nameHtml}</td>
+                <td class="td-center">
+                    <div class="cell-primary">${area}㎡</div>
+                    <div class="cell-secondary">${floor}층</div>
+                </td>
+                <td class="td-center">
+                    <div class="price-wrapper center-flex">
+                        <span class="price-text ${trade.isNewHigh ? 'new-high' : ''}">${price}</span>
+                        ${prevHighText ? `<div class="prev-high-wrapper" style="font-size:0.8em; color:#888;">${prevHighText}</div>` : ''}
+                    </div>
+                    <div class="date-wrapper">${contractDate} <span class="trade-count" style="font-size:0.8em; color:#aaa;">${countText}</span></div>
+                </td>
+            </tr>
+        `;
+    });
+    tbody.innerHTML = html;
 }
 
 // 구별로 그룹핑하여 렌더링
@@ -440,6 +524,7 @@ function renderSectionByGu(containerId, trades) {
 
     // 구별 섹션 생성
     guNames.forEach(gu => {
+        // ... (이전 코드와 동일, 생략 가능하지만 전체 replace이므로 포함해야 함) ...
         const guTrades = tradesByGu[gu];
 
         // 구 헤더 생성
@@ -455,10 +540,6 @@ function renderSectionByGu(containerId, trades) {
         container.appendChild(guWrapper);
     });
 
-    // 기존 cards-grid 스타일을 덮어쓰기 위해 container의 클래스 조정이 필요할 수 있으나,
-    // 여기서는 container 내부에 새로운 구조를 넣었으므로 CSS 수정이 필요함.
-    // 기존 container가 'cards-grid' 클래스를 가지고 있다면 그리드 안에 그리드가 되어 깨질 수 있음.
-    // 따라서 HTML 구조 변경에 맞춰 CSS도 수정해야 함.
     container.className = 'gu-list-container';
 }
 
@@ -553,3 +634,4 @@ function formatPrice(price) {
 
 // 전역 함수로 내보내기
 window.loadSelectedTrades = loadSelectedTrades;
+window.toggleViewMode = toggleViewMode;

@@ -35,7 +35,7 @@
             <img src="../LOGO1.png" alt="">
         </div>
 
-        <!-- 날짜 선택 -->
+        <!-- 날짜 및 뷰 컨트롤 -->
         <div class="date-selector">
             <label for="trade-date">조회 날짜</label>
             <select id="trade-date" class="date-select">
@@ -45,6 +45,19 @@
                 <span class="material-icons-round">search</span>
                 조회하기
             </button>
+
+            <!-- 뷰 모드 토글 -->
+            <div class="view-mode-toggle">
+                <input type="radio" id="view-card" name="view-mode" value="card" checked onchange="toggleViewMode()">
+                <label for="view-card" class="toggle-btn left">
+                    <span class="material-icons-round">grid_view</span> 카드
+                </label>
+
+                <input type="radio" id="view-list" name="view-mode" value="list" onchange="toggleViewMode()">
+                <label for="view-list" class="toggle-btn right">
+                    <span class="material-icons-round">table_rows</span> 리스트
+                </label>
+            </div>
         </div>
 
         <!-- 로딩 인디케이터 -->
@@ -95,24 +108,47 @@
 
         <!-- 리포트 컨텐츠 -->
         <div id="report-container" class="report-container hidden">
-            <!-- 아파트 거래 섹션 -->
-            <div id="apt-section" class="report-section hidden">
-                <div class="section-header apt">
-                    <span class="material-icons-round">apartment</span>
-                    <h3>아파트 거래</h3>
-                    <span class="count" id="apt-count">0건</span>
+            <!-- 카드 뷰 컨테이너 -->
+            <div id="card-view-container">
+                <!-- 아파트 거래 섹션 -->
+                <div id="apt-section" class="report-section hidden">
+                    <div class="section-header apt">
+                        <span class="material-icons-round">apartment</span>
+                        <h3>아파트 거래</h3>
+                        <span class="count" id="apt-count">0건</span>
+                    </div>
+                    <div class="cards-grid" id="apt-cards"></div>
                 </div>
-                <div class="cards-grid" id="apt-cards"></div>
+
+                <!-- 분양권 거래 섹션 -->
+                <div id="presale-section" class="report-section hidden">
+                    <div class="section-header presale">
+                        <span class="material-icons-round">construction</span>
+                        <h3>분양권 거래</h3>
+                        <span class="count" id="presale-count">0건</span>
+                    </div>
+                    <div class="cards-grid" id="presale-cards"></div>
+                </div>
             </div>
 
-            <!-- 분양권 거래 섹션 -->
-            <div id="presale-section" class="report-section hidden">
-                <div class="section-header presale">
-                    <span class="material-icons-round">construction</span>
-                    <h3>분양권 거래</h3>
-                    <span class="count" id="presale-count">0건</span>
+            <!-- 리스트 뷰 컨테이너 (테이블) -->
+            <div id="table-view-container" class="hidden">
+                <div class="table-wrapper">
+                    <table id="trades-table" class="premium-table">
+                        <thead>
+                            <tr>
+                                <th class="text-center th-dong">동</th>
+                                <th class="text-center th-name">단지명</th>
+                                <th class="text-center th-area">전용<br><span
+                                        style="font-size:0.8em; opacity:0.7">층</span></th>
+                                <th class="text-center th-price">거래금액<br><span
+                                        style="font-size:0.8em; opacity:0.7">계약일(거래건수)</span></th>
+                            </tr>
+                        </thead>
+                        <tbody id="trades-tbody">
+                        </tbody>
+                    </table>
                 </div>
-                <div class="cards-grid" id="presale-cards"></div>
             </div>
         </div>
 

@@ -1165,3 +1165,72 @@
     border-top: 1px solid rgba(255, 255, 255, 0.05);
     margin-top: 8px;
 }
+
+/* Control Panel */
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.date-selector {
+    margin-bottom: 0;
+    /* Override */
+}
+
+/* View Mode Toggle */
+.view-mode-toggle {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.view-mode-toggle input[type="radio"] {
+    display: none;
+}
+
+.view-mode-toggle .toggle-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.view-mode-toggle .toggle-btn:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.view-mode-toggle input[type="radio"]:checked+.toggle-btn {
+    background: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Control Panel */
+@media (max-width: 600px) {
+    .control-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .view-mode-toggle {
+        justify-content: center;
+    }
+
+    .view-mode-toggle .toggle-btn {
+        flex: 1;
+        justify-content: center;
+    }
+}
