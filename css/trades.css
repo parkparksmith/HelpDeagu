@@ -765,19 +765,19 @@
 
 /* Column Widths (PC Default) */
 .th-dong {
-    width: 15%;
+    width: 10%;
 }
 
 .th-name {
-    width: 35%;
+    width: 50%;
 }
 
 .th-area {
-    width: 20%;
+    width: 15%;
 }
 
 .th-price {
-    width: 30%;
+    width: 25%;
 }
 
 /* Updated Responsive Table */
@@ -785,19 +785,19 @@
 
     /* Mobile Column Widths - Prioritize Price to avoid cutting off */
     .th-dong {
-        width: 12%;
+        width: 10%;
     }
 
     .th-name {
-        width: 25%;
+        width: 42%;
     }
 
     .th-area {
-        width: 18%;
+        width: 15%;
     }
 
     .th-price {
-        width: 45%;
+        width: 33%;
     }
 
     .premium-table {

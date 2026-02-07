@@ -14,7 +14,7 @@ let quickType = 'buy';
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
     renderPortfolioList();
-    
+
     // 금액 입력 포맷팅
     const budgetInput = document.getElementById('pf-budget');
     budgetInput.addEventListener('input', () => formatInputNumber(budgetInput));
@@ -52,7 +52,7 @@ function saveData() {
 // --- 포트폴리오 목록 ---
 function renderPortfolioList() {
     const grid = document.getElementById('portfolio-grid');
-    
+
     if (appData.portfolios.length === 0) {
         grid.innerHTML = `
             <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #ccc;">
@@ -66,7 +66,7 @@ function renderPortfolioList() {
     appData.portfolios.forEach(pf => {
         const stats = calculateStats(pf);
         const dailyAmount = pf.settings.budget / pf.settings.days;
-        
+
         html += `
             <div class="portfolio-card" onclick="openPortfolio(${pf.id})">
                 <span class="name">${pf.name}</span>
@@ -92,39 +92,67 @@ function renderPortfolioList() {
             </div>
         `;
     });
-    
+
     grid.innerHTML = html;
 }
 
-// --- 포트폴리오 통계 계산 ---
+// --- 포트폴리오 통계 계산 (HTS 이동평균법) ---
 function calculateStats(pf) {
-    const sorted = [...pf.transactions].sort((a, b) => new Date(a.date) - new Date(b.date));
-    
-    let qty = 0;
-    let totalCost = 0;
-    let cumulativeBuy = 0;
+    // 날짜 기준 1차 정렬 (과거 → 최근)
+    // 같은 날짜의 경우 id 역순 2차 정렬 (나중에 입력한 것 = 먼저 발생한 거래)
+    const sorted = [...pf.transactions].sort((a, b) => {
+        const dateCompare = new Date(a.date) - new Date(b.date);
+        if (dateCompare !== 0) return dateCompare;
+        return b.id - a.id; // 같은 날짜면 id가 큰 것(나중 입력 = 먼저 발생)이 앞으로
+    });
+
+    // HTS 이동평균법
+    // - 매수: 평단가 = (기존총액 + 신규매수액) / (기존수량 + 신규수량)
+    // - 매도: 평단가 유지, 수량만 차감, 실현수익 계산
+    let qty = 0;           // 현재 보유수량
+    let avgPrice = 0;      // 이동평균 평단가
+    let realizedProfit = 0; // 실현 수익
 
     sorted.forEach(t => {
         if (t.type === 'buy') {
-            totalCost += t.price * t.qty;
+            // 매수: 이동평균으로 평단가 갱신
+            const prevTotal = qty * avgPrice;
+            const newTotal = t.price * t.qty;
             qty += t.qty;
-            cumulativeBuy += t.price * t.qty;
+            avgPrice = qty > 0 ? (prevTotal + newTotal) / qty : 0;
         } else if (t.type === 'sell') {
-            if (qty > 0) {
-                const avgCost = totalCost / qty;
-                totalCost -= avgCost * t.qty;
-                qty -= t.qty;
+            // 매도: 실현수익 계산 후 수량 차감
+            // 실현수익 = 매도금액 - (매도수량 × 매도시점 평단가)
+            const sellAmount = t.price * t.qty;
+            const costBasis = avgPrice * t.qty;
+            realizedProfit += sellAmount - costBasis;
+
+            qty -= t.qty;
+            if (qty <= 0) {
+                qty = 0;
+                avgPrice = 0; // 전량 매도 시 평단가 리셋
             }
         }
     });
 
-    if (qty < 0) qty = 0;
-    if (totalCost < 0) totalCost = 0;
+    // 누적매수금액 = 보유수량 × 평단가 (HTS 방식)
+    const cumulativeBuy = qty * avgPrice;
+    const totalCost = cumulativeBuy;
 
-    const avgPrice = qty > 0 ? totalCost / qty : 0;
+    // 마지막 거래 가격 (가장 최근 거래의 체결가)
+    const lastTransaction = sorted.length > 0 ? sorted[sorted.length - 1] : null;
+    const lastPrice = lastTransaction ? lastTransaction.price : 0;
+
+    // 평가수익 = (마지막거래가 - 평단가) × 보유수량
+    const unrealizedProfit = qty > 0 && lastPrice > 0 ? (lastPrice - avgPrice) * qty : 0;
+
+    // 총수익 = 실현수익 + 평가수익
+    const totalProfit = realizedProfit + unrealizedProfit;
+
     const dailyAmount = pf.settings.budget / pf.settings.days;
-    const T = dailyAmount > 0 ? Math.round((cumulativeBuy / dailyAmount) * 100) / 100 : 0;
-    
+    // T(회차) = 누적매수액 ÷ 1회시도액, 소수점 둘째자리에서 올림 (2024.09.05 공식 업데이트)
+    const T = dailyAmount > 0 ? Math.ceil((cumulativeBuy / dailyAmount) * 100) / 100 : 0;
+
     // ★% 계산 공식 (v2.2)
     // - 목표수익률(R): 사용자 설정값 (예: 10%, 12%)
     // - a (가변계수): R / 20 (10%일 때 0.5, 12%일 때 0.6)
@@ -142,42 +170,46 @@ function calculateStats(pf) {
         cumulativeBuy,
         dailyAmount,
         T,
-        starPercent
+        starPercent,
+        realizedProfit,
+        unrealizedProfit,
+        totalProfit,
+        lastPrice
     };
 }
 
 // --- 포트폴리오 열기 ---
 function openPortfolio(id) {
     appData.currentId = id;
-    
+
     document.getElementById('portfolio-list-view').classList.add('hidden');
     document.getElementById('portfolio-detail-view').classList.remove('hidden');
-    
+
     document.getElementById('back-btn-home').classList.add('hidden');
     document.getElementById('back-btn-list').classList.remove('hidden');
     document.getElementById('settings-btn').classList.remove('hidden');
-    
+
     const pf = appData.portfolios.find(p => p.id === id);
     document.getElementById('page-title').textContent = pf.name;
-    
+
     // 빠른 입력 초기화
     initQuickInput();
-    
+
     updateDashboard();
 }
 
 function goToPortfolioList() {
     appData.currentId = null;
-    
+
     document.getElementById('portfolio-detail-view').classList.add('hidden');
     document.getElementById('portfolio-list-view').classList.remove('hidden');
-    
+
     document.getElementById('back-btn-list').classList.add('hidden');
     document.getElementById('back-btn-home').classList.remove('hidden');
     document.getElementById('settings-btn').classList.add('hidden');
-    
+
     document.getElementById('page-title').textContent = '내 포트폴리오';
-    
+
     renderPortfolioList();
 }
 
@@ -187,7 +219,7 @@ function updateDashboard() {
     if (!pf) return;
 
     const stats = calculateStats(pf);
-    const { qty, avgPrice, cumulativeBuy, dailyAmount, T, starPercent } = stats;
+    const { qty, avgPrice, cumulativeBuy, dailyAmount, T, starPercent, realizedProfit, unrealizedProfit, totalProfit } = stats;
     const starRate = starPercent / 100;
     const isFirstHalf = T < 20;
     const isQuarterStop = T > 39;
@@ -197,8 +229,26 @@ function updateDashboard() {
     document.getElementById('metric-star').textContent = starPercent.toFixed(2) + '%';
     document.getElementById('metric-qty').textContent = qty + '주';
     document.getElementById('metric-avg').textContent = formatUSD(avgPrice);
-    document.getElementById('metric-cumulative').textContent = '$' + cumulativeBuy.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-    document.getElementById('metric-daily').textContent = '$' + dailyAmount.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+    document.getElementById('metric-cumulative').textContent = '$' + cumulativeBuy.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('metric-daily').textContent = '$' + dailyAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    // 실현 수익 표시 (양수/음수에 따라 색상 변경)
+    const profitEl = document.getElementById('metric-profit');
+    const profitSign = realizedProfit >= 0 ? '+' : '';
+    profitEl.textContent = profitSign + '$' + realizedProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    profitEl.className = 'metric-value ' + (realizedProfit >= 0 ? 'positive' : 'negative');
+
+    // 평가 수익 표시
+    const unrealizedEl = document.getElementById('metric-unrealized');
+    const unrealizedSign = unrealizedProfit >= 0 ? '+' : '';
+    unrealizedEl.textContent = unrealizedSign + '$' + unrealizedProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    unrealizedEl.className = 'metric-value ' + (unrealizedProfit >= 0 ? 'positive' : 'negative');
+
+    // 총 수익 표시
+    const totalProfitEl = document.getElementById('metric-total-profit');
+    const totalSign = totalProfit >= 0 ? '+' : '';
+    totalProfitEl.textContent = totalSign + '$' + totalProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    totalProfitEl.className = 'metric-value ' + (totalProfit >= 0 ? 'positive' : 'negative');
 
     // 진행 단계 배지
     const badge = document.getElementById('phase-badge');
@@ -220,7 +270,7 @@ function updateDashboard() {
     let buyHtml = '';
     if (avgPrice > 0 && dailyAmount > 0) {
         const starDisplay = starPercent.toFixed(2) + '%';
-        
+
         if (isFirstHalf) {
             const halfAmount = dailyAmount / 2;
             const buy1Price = avgPrice;
@@ -271,7 +321,7 @@ function updateDashboard() {
     // --- 매도 가이드 ---
     let sellHtml = '';
     const starDisplay = starPercent.toFixed(2) + '%';
-    
+
     if (qty > 0 && avgPrice > 0) {
         const sell1Qty = Math.floor(qty / 4);
         const sell1Price = Math.round((avgPrice * (1 + starRate)) * 100) / 100;
@@ -312,57 +362,257 @@ function updateDashboard() {
     document.getElementById('sell-guide').innerHTML = sellHtml;
 
     // --- 폭락 대비 ---
+    // 공식: 가격 = 매입금액 ÷ (T × n), n = 4, 5, 6, 7, 8, 9
+    // 수량: 각 1주
     let crashHtml = '';
-    if (avgPrice > 0 && dailyAmount > 0) {
-        const drops = [10, 15, 20, 25, 30, 40, 50];
-        drops.forEach(d => {
-            const dropPrice = Math.round(avgPrice * (1 - d / 100) * 100) / 100;
-            const dropQty = Math.floor(dailyAmount / dropPrice);
+    if (cumulativeBuy > 0 && T > 0) {
+        const nValues = [4, 5, 6, 7, 8, 9];
+        nValues.forEach(n => {
+            const dropPrice = Math.round((cumulativeBuy / (T * n)) * 100) / 100;
             crashHtml += `
                 <div class="guide-row crash">
-                    <span class="label">-${d}%</span>
+                    <span class="label">LOC (n=${n})</span>
                     <span class="value">
                         <span class="price">${formatUSD(dropPrice)}</span>
-                        <span class="qty">LOC ${dropQty}주</span>
+                        <span class="qty">1주</span>
                     </span>
                 </div>
             `;
         });
     } else {
-        crashHtml = '<div class="empty-state">평단가 형성 후 표시됩니다</div>';
+        crashHtml = '<div class="empty-state">거래 내역 추가 후 표시됩니다</div>';
     }
     document.getElementById('crash-guide').innerHTML = crashHtml;
 
     // --- 거래 내역 ---
     renderTransactions(pf);
+
+    // --- 공식 예시 업데이트 ---
+    updateFormulaExample(pf, stats);
 }
 
 function renderTransactions(pf) {
     const list = document.getElementById('transaction-list');
-    
+
     if (pf.transactions.length === 0) {
         list.innerHTML = '<div class="empty-state">거래 내역이 없습니다.</div>';
         return;
     }
 
+    // 날짜순 정렬 (최신이 위로)
     const sorted = [...pf.transactions].sort((a, b) => new Date(b.date) - new Date(a.date));
-    
+    const totalCount = sorted.length;
+
     let html = '';
-    sorted.forEach(t => {
+    sorted.forEach((t, index) => {
+        const seq = totalCount - index; // 순번 (오래된 것이 1번, 최신이 큰 번호)
         html += `
-            <div class="transaction-item">
+            <div class="transaction-item" data-id="${t.id}">
+                <span class="seq-num">${seq}</span>
                 <span class="type ${t.type}">${t.type === 'buy' ? '매수' : '매도'}</span>
                 <span>${t.date}</span>
                 <span class="text-right">${formatUSD(t.price)}</span>
                 <span class="text-right">${t.qty}주</span>
+                <button class="edit-btn" onclick="openEditModal(${t.id})">
+                    <span class="material-icons-round" style="font-size:18px;">edit</span>
+                </button>
                 <button class="del-btn" onclick="deleteTransaction(${t.id})">
                     <span class="material-icons-round" style="font-size:18px;">close</span>
                 </button>
             </div>
         `;
     });
-    
+
     list.innerHTML = html;
+}
+
+// --- 드래그 앤 드롭 ---
+let draggedId = null;
+
+function handleDragStart(e, id) {
+    draggedId = id;
+    e.target.classList.add('dragging');
+    e.dataTransfer.effectAllowed = 'move';
+}
+
+function handleDragOver(e) {
+    e.preventDefault();
+    e.dataTransfer.dropEffect = 'move';
+
+    const item = e.target.closest('.transaction-item');
+    if (item && !item.classList.contains('dragging')) {
+        item.classList.add('drag-over');
+    }
+}
+
+function handleDrop(e, targetId) {
+    e.preventDefault();
+
+    if (draggedId === null || draggedId === targetId) return;
+
+    const pf = appData.portfolios.find(p => p.id === appData.currentId);
+    if (!pf) return;
+
+    // 거래 내역에서 드래그한 항목과 드롭 대상 찾기
+    const draggedIndex = pf.transactions.findIndex(t => t.id === draggedId);
+    const targetIndex = pf.transactions.findIndex(t => t.id === targetId);
+
+    if (draggedIndex === -1 || targetIndex === -1) return;
+
+    // 날짜를 서로 교환하여 순서 변경
+    const draggedItem = pf.transactions[draggedIndex];
+    const targetItem = pf.transactions[targetIndex];
+
+    // 날짜 교환
+    const tempDate = draggedItem.date;
+    draggedItem.date = targetItem.date;
+    targetItem.date = tempDate;
+
+    saveData();
+    updateDashboard();
+}
+
+function handleDragEnd(e) {
+    draggedId = null;
+    e.target.classList.remove('dragging');
+
+    // 모든 drag-over 클래스 제거
+    document.querySelectorAll('.drag-over').forEach(el => {
+        el.classList.remove('drag-over');
+    });
+}
+
+// --- 거래 수정 ---
+let editTransType = 'buy';
+
+function openEditModal(id) {
+    const pf = appData.portfolios.find(p => p.id === appData.currentId);
+    if (!pf) return;
+
+    const transaction = pf.transactions.find(t => t.id === id);
+    if (!transaction) return;
+
+    editTransType = transaction.type;
+    document.getElementById('edit-trans-id').value = id;
+    document.getElementById('edit-trans-date').value = transaction.date;
+    document.getElementById('edit-trans-price').value = transaction.price;
+    document.getElementById('edit-trans-qty').value = transaction.qty;
+
+    document.getElementById('edit-type-buy').classList.toggle('active', transaction.type === 'buy');
+    document.getElementById('edit-type-sell').classList.toggle('active', transaction.type === 'sell');
+
+    document.getElementById('edit-transaction-modal').classList.remove('hidden');
+}
+
+function setEditTransType(type) {
+    editTransType = type;
+    document.getElementById('edit-type-buy').classList.toggle('active', type === 'buy');
+    document.getElementById('edit-type-sell').classList.toggle('active', type === 'sell');
+}
+
+function saveEditTransaction() {
+    const pf = appData.portfolios.find(p => p.id === appData.currentId);
+    if (!pf) return;
+
+    const id = parseInt(document.getElementById('edit-trans-id').value);
+    const date = document.getElementById('edit-trans-date').value;
+    const price = parseFloat(document.getElementById('edit-trans-price').value);
+    const qty = parseInt(document.getElementById('edit-trans-qty').value);
+
+    if (!date || !price || !qty) {
+        alert('모든 정보를 입력해주세요.');
+        return;
+    }
+
+    const transaction = pf.transactions.find(t => t.id === id);
+    if (!transaction) return;
+
+    transaction.type = editTransType;
+    transaction.date = date;
+    transaction.price = price;
+    transaction.qty = qty;
+
+    saveData();
+    updateDashboard();
+    closeModal('edit-transaction-modal');
+}
+
+// --- 공식 예시 동적 업데이트 ---
+function updateFormulaExample(pf, stats) {
+    const exampleContainer = document.getElementById('formula-example-content');
+    if (!exampleContainer) return;
+
+    const { cumulativeBuy, dailyAmount, T, starPercent, avgPrice } = stats;
+    const R = pf.settings.targetRate;
+    const N = pf.settings.days;
+    const a = R / 20;
+
+    let html = '';
+
+    if (cumulativeBuy > 0 && dailyAmount > 0) {
+        // 현재 값으로 예시 생성
+        const starRate = starPercent / 100;
+        const isFirstHalf = T < 20;
+
+        html = `
+            <div class="example-section">
+                <p class="example-title">📊 현재 설정값</p>
+                <div class="example-values">
+                    <span><strong>R</strong> (목표수익률): ${R}%</span>
+                    <span><strong>N</strong> (분할일수): ${N}일</span>
+                    <span><strong>a</strong> (가변계수): ${a.toFixed(2)}</span>
+                </div>
+            </div>
+
+            <div class="example-section">
+                <p class="example-title">📈 T(회차) 계산</p>
+                <div class="example-calc">
+                    T = 누적매수액 ÷ 1회시도액 (올림)<br>
+                    T = $${cumulativeBuy.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} ÷ $${dailyAmount.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}<br>
+                    T = <strong class="highlight">${T.toFixed(2)}</strong> ${isFirstHalf ? '(전반전)' : '(후반전)'}
+                </div>
+            </div>
+
+            <div class="example-section">
+                <p class="example-title">⭐ ★%(별퍼센트) 계산</p>
+                <div class="example-calc">
+                    ★% = R - T × a × (40/N)<br>
+                    ★% = ${R} - ${T.toFixed(2)} × ${a.toFixed(2)} × (40/${N})<br>
+                    ★% = ${R} - ${(T * a * (40 / N)).toFixed(3)}<br>
+                    ★% = <strong class="highlight star">${starPercent.toFixed(2)}%</strong>
+                </div>
+            </div>
+        `;
+
+        if (avgPrice > 0) {
+            const buyPriceStar = Math.round((avgPrice * (1 + starRate) - 0.01) * 100) / 100;
+            const sellPriceTarget = Math.round((avgPrice * (1 + R / 100)) * 100) / 100;
+
+            html += `
+                <div class="example-section">
+                    <p class="example-title">💰 매수가/매도가 계산 예시</p>
+                    <div class="example-calc">
+                        평단가: <strong>${formatUSD(avgPrice)}</strong><br><br>
+                        <span style="color: #58a6ff;">📥 매수가 (평단+★%)</span><br>
+                        = $${avgPrice.toFixed(2)} × (1 + ${starPercent.toFixed(2)}%) - $0.01<br>
+                        = <strong class="highlight">${formatUSD(buyPriceStar)}</strong><br><br>
+                        <span style="color: #f85149;">📤 매도가 (평단+${R}%)</span><br>
+                        = $${avgPrice.toFixed(2)} × (1 + ${R}%)<br>
+                        = <strong class="highlight">${formatUSD(sellPriceTarget)}</strong>
+                    </div>
+                </div>
+            `;
+        }
+    } else {
+        html = `
+            <div class="empty-state">
+                거래 내역을 추가하면 현재 값을 기반으로<br>
+                계산 예시가 표시됩니다.
+            </div>
+        `;
+    }
+
+    exampleContainer.innerHTML = html;
 }
 
 // --- 포트폴리오 CRUD ---
@@ -534,7 +784,7 @@ function initQuickInput() {
     if (dateInput) {
         dateInput.valueAsDate = new Date();
     }
-    
+
     // Enter 키로 빠른 추가
     const quickInputs = document.querySelectorAll('.quick-input');
     quickInputs.forEach(input => {
@@ -581,19 +831,42 @@ function importAllData(input) {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
         try {
             const data = JSON.parse(e.target.result);
             if (!data.portfolios) {
                 alert('올바르지 않은 파일입니다.');
                 return;
             }
-            if (confirm('기존 데이터를 덮어씁니다. 계속하시겠습니까?')) {
-                appData = data;
-                saveData();
-                renderPortfolioList();
-                alert('복원 완료!');
-            }
+
+            // 복원 날짜 (오늘 날짜)
+            const today = new Date().toISOString().slice(0, 10);
+
+            // 기존 데이터 유지하고 모든 포트폴리오를 새로 추가
+            let addedPortfolios = 0;
+            let addedTransactions = 0;
+
+            data.portfolios.forEach(importPf => {
+                // 새 포트폴리오 추가 (이름에 복원 날짜 추가)
+                const newPf = {
+                    ...importPf,
+                    id: Date.now() + Math.random(),
+                    name: `${importPf.name} (복원: ${today})`,
+                    transactions: importPf.transactions.map(t => ({
+                        ...t,
+                        id: Date.now() + Math.random()
+                    }))
+                };
+                appData.portfolios.push(newPf);
+                addedPortfolios++;
+                addedTransactions += importPf.transactions.length;
+            });
+
+            saveData();
+            renderPortfolioList();
+
+            alert(`복원 완료!\n- 추가된 포트폴리오: ${addedPortfolios}개\n- 추가된 거래내역: ${addedTransactions}건`);
+
         } catch (err) {
             alert('파일 읽기 오류: ' + err.message);
         }
@@ -620,7 +893,7 @@ function setParsedType(type) {
 
 function parseAndPreview() {
     const text = document.getElementById('auto-input-text').value;
-    
+
     if (!text.trim()) {
         alert('체결 알림 내용을 붙여넣어주세요.');
         return;
@@ -628,7 +901,7 @@ function parseAndPreview() {
 
     // 파싱 로직
     const parsed = parseTradeMessage(text);
-    
+
     // 파싱 결과를 입력 필드에 채우기 (수정 가능)
     parsedType = parsed.type;
     document.getElementById('parsed-type-buy').classList.toggle('active', parsed.type === 'buy');
@@ -636,9 +909,9 @@ function parseAndPreview() {
     document.getElementById('parsed-price').value = parsed.price || '';
     document.getElementById('parsed-qty').value = parsed.qty || '';
     document.getElementById('parsed-date').value = parsed.date || new Date().toISOString().slice(0, 10);
-    
+
     document.getElementById('parse-preview').classList.remove('hidden');
-    
+
     // 가격 입력 필드에 포커스
     document.getElementById('parsed-price').focus();
 }
@@ -672,8 +945,8 @@ function parseTradeMessage(text) {
     // 체결일자 파싱 (01/26 또는 2024/01/26 형식)
     const dateMatch = text.match(/체결일자\s*[:：]\s*(\d{2,4})?[\/\-]?(\d{1,2})[\/\-](\d{1,2})/);
     if (dateMatch) {
-        const year = dateMatch[1] && dateMatch[1].length === 4 
-            ? dateMatch[1] 
+        const year = dateMatch[1] && dateMatch[1].length === 4
+            ? dateMatch[1]
             : new Date().getFullYear();
         const month = dateMatch[2].padStart(2, '0');
         const day = dateMatch[3].padStart(2, '0');
@@ -734,3 +1007,12 @@ window.openAutoAddModal = openAutoAddModal;
 window.parseAndPreview = parseAndPreview;
 window.confirmAutoAdd = confirmAutoAdd;
 window.setParsedType = setParsedType;
+// 드래그 앤 드롭
+window.handleDragStart = handleDragStart;
+window.handleDragOver = handleDragOver;
+window.handleDrop = handleDrop;
+window.handleDragEnd = handleDragEnd;
+// 거래 수정
+window.openEditModal = openEditModal;
+window.setEditTransType = setEditTransType;
+window.saveEditTransaction = saveEditTransaction;

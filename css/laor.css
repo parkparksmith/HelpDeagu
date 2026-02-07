@@ -105,6 +105,37 @@
     background: rgba(248, 81, 73, 0.15);
 }
 
+/* 면책 공고 */
+.disclaimer-box {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    background: linear-gradient(135deg, rgba(210, 153, 34, 0.1), rgba(13, 17, 23, 0.5));
+    border: 1px solid rgba(210, 153, 34, 0.3);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.disclaimer-box .material-icons-round {
+    color: var(--warning);
+    font-size: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.disclaimer-box p {
+    margin: 0;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.disclaimer-box strong {
+    color: var(--warning);
+}
+
 /* 지표 대시보드 */
 .metrics-dashboard {
     display: grid;
@@ -127,6 +158,16 @@
     background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(13, 17, 23, 0.5));
 }
 
+.metric-box.profit {
+    border-color: rgba(63, 185, 80, 0.4);
+    background: linear-gradient(135deg, rgba(63, 185, 80, 0.1), rgba(13, 17, 23, 0.5));
+}
+
+.metric-box.total-profit {
+    border-color: rgba(168, 85, 247, 0.5);
+    background: linear-gradient(135deg, rgba(168, 85, 247, 0.15), rgba(13, 17, 23, 0.5));
+}
+
 .metric-label {
     display: block;
     font-size: 0.65rem;
@@ -141,6 +182,14 @@
     font-size: 1.05rem;
     font-weight: 700;
     color: var(--text-primary);
+}
+
+.metric-value.positive {
+    color: var(--success);
+}
+
+.metric-value.negative {
+    color: var(--danger);
 }
 
 .metric-box.star .metric-value {
@@ -471,7 +520,7 @@
 /* 거래 리스트 */
 .transaction-list-header {
     display: grid;
-    grid-template-columns: 1fr 2fr 1.2fr 1fr 0.5fr;
+    grid-template-columns: 0.5fr 0.8fr 1.5fr 1fr 0.8fr 0.5fr 0.5fr;
     font-size: 0.7rem;
     color: var(--text-muted);
     padding: 8px 4px;
@@ -480,22 +529,53 @@
     letter-spacing: 0.03em;
 }
 
-.transaction-list-body {
+/* .transaction-list-body {
     max-height: 220px;
     overflow-y: auto;
+} */
+.transaction-list-body {
+    /* 모바일 스크롤 불편 해소를 위해 전체 표시 */
+    max-height: none !important;
+    overflow-y: visible !important;
+    height: auto !important;
 }
 
 .transaction-item {
     display: grid;
-    grid-template-columns: 1fr 2fr 1.2fr 1fr 0.5fr;
+    grid-template-columns: 0.5fr 0.8fr 1.5fr 1fr 0.8fr 0.5fr 0.5fr;
     align-items: center;
     padding: 10px 4px;
     border-bottom: 1px solid var(--border);
     font-size: 0.85rem;
+    cursor: grab;
+    transition: all 0.2s;
 }
 
 .transaction-item:hover {
     background: var(--bg-dark);
+}
+
+/* 드래그 앤 드롭 스타일 */
+.transaction-item.dragging {
+    opacity: 0.5;
+    background: var(--bg-card-hover);
+}
+
+.transaction-item.drag-over {
+    border-top: 2px solid var(--accent);
+    background: rgba(201, 162, 39, 0.1);
+}
+
+.transaction-item:active {
+    cursor: grabbing;
+}
+
+/* 순번 */
+.transaction-item .seq-num {
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-align: center;
 }
 
 .transaction-item .type {
@@ -511,6 +591,23 @@
     color: var(--danger);
 }
 
+/* 수정 버튼 */
+.transaction-item .edit-btn {
+    color: var(--text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.transaction-item .edit-btn:hover {
+    color: var(--warning);
+    background: rgba(210, 153, 34, 0.1);
+}
+
+/* 삭제 버튼 */
 .transaction-item .del-btn {
     color: var(--text-muted);
     background: none;
@@ -708,27 +805,27 @@ textarea::placeholder {
     .metrics-dashboard {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .metric-value {
         font-size: 0.95rem;
     }
-    
+
     .portfolio-header {
         flex-direction: column;
         align-items: flex-start;
     }
-    
+
     .header-actions {
         width: 100%;
         justify-content: flex-start;
     }
-    
+
     .guide-row {
         flex-direction: column;
         align-items: flex-start;
         gap: 4px;
     }
-    
+
     .guide-row .value {
         width: 100%;
         text-align: right;
@@ -801,8 +898,109 @@ textarea::placeholder {
     .source-buttons {
         flex-direction: column;
     }
-    
+
     .source-btn {
         justify-content: center;
     }
+}
+
+/* === 공식 예시 섹션 === */
+.formula-example {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.1), rgba(13, 17, 23, 0.5));
+    border: 1px solid rgba(201, 162, 39, 0.3);
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.formula-example h4 {
+    color: var(--accent) !important;
+    margin-bottom: 12px !important;
+}
+
+.example-section {
+    margin-bottom: 16px;
+}
+
+.example-section:last-child {
+    margin-bottom: 0;
+}
+
+.example-title {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px !important;
+    font-size: 0.85rem;
+}
+
+.example-values {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.example-values strong {
+    color: var(--accent);
+}
+
+.example-calc {
+    background: var(--bg-dark);
+    padding: 12px;
+    border-radius: 8px;
+    font-family: 'SF Mono', 'Roboto Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.example-calc .highlight {
+    color: var(--text-primary);
+    font-size: 0.9rem;
+}
+
+.example-calc .highlight.star {
+    color: #ffd700;
+}
+
+/* === 공식 비교 테이블 === */
+.formula-comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.formula-comparison-table th,
+.formula-comparison-table td {
+    padding: 10px 8px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+.formula-comparison-table th {
+    background: var(--bg-dark);
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.03em;
+}
+
+.formula-comparison-table td:first-child {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.formula-comparison-table td:last-child {
+    color: var(--success);
+}
+
+.formula-comparison-table tr:last-child td {
+    border-bottom: none;
+}
+
+.formula-comparison-table tr:hover td {
+    background: var(--bg-card-hover);
 }

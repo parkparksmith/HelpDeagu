@@ -53,7 +53,8 @@
                     <button class="action-btn secondary small-btn" onclick="triggerImport()">
                         <span class="material-icons-round">upload</span> 복원
                     </button>
-                    <input type="file" id="import-file" style="display:none" accept=".json" onchange="importAllData(this)">
+                    <input type="file" id="import-file" style="display:none" accept=".json"
+                        onchange="importAllData(this)">
                     <button class="action-btn primary small-btn" onclick="openCreateModal()">
                         <span class="material-icons-round">add</span> 새 포트폴리오
                     </button>
@@ -69,13 +70,14 @@
                 <div class="source-buttons">
                     <a href="https://cafe.naver.com/infinitebuying" target="_blank" class="source-btn naver">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z"/>
+                            <path d="M16.273 12.845L7.376 0H0v24h7.727V11.155L16.624 24H24V0h-7.727z" />
                         </svg>
                         네이버 카페
                     </a>
                     <a href="https://www.youtube.com/@laofus" target="_blank" class="source-btn youtube">
                         <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            <path
+                                d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
                         </svg>
                         유튜브
                     </a>
@@ -85,6 +87,13 @@
 
         <!-- 포트폴리오 상세 화면 -->
         <section id="portfolio-detail-view" class="view hidden">
+            <!-- 면책 공고 -->
+            <div class="disclaimer-box">
+                <span class="material-icons-round">info</span>
+                <p>본 사이트는 라오어 무한매수법 공식을 활용한 <strong>팬메이드 계산기</strong>이며, 라오어 님 및 공식 채널과 무관합니다. 투자 결정의 책임은 본인에게 있으며, 실제
+                    매매를 대행하거나 종목을 추천하지 않습니다.</p>
+            </div>
+
             <!-- 핵심 지표 대시보드 -->
             <div class="metrics-dashboard">
                 <div class="metric-box">
@@ -111,6 +120,18 @@
                     <span class="metric-label">1회 시도액</span>
                     <span class="metric-value" id="metric-daily">$0</span>
                 </div>
+                <div class="metric-box profit">
+                    <span class="metric-label">실현 수익</span>
+                    <span class="metric-value" id="metric-profit">$0.00</span>
+                </div>
+                <div class="metric-box">
+                    <span class="metric-label">평가 수익</span>
+                    <span class="metric-value" id="metric-unrealized">$0.00</span>
+                </div>
+                <div class="metric-box total-profit">
+                    <span class="metric-label">총 수익</span>
+                    <span class="metric-value" id="metric-total-profit">$0.00</span>
+                </div>
             </div>
 
             <!-- 쿼터 손절 알림 -->
@@ -125,7 +146,7 @@
             <!-- 매매 가이드 카드 -->
             <div class="guide-card">
                 <div class="guide-header">
-                    <h3>📊 오늘 밤 주문 가이드</h3>
+                    <h3>📊 계산 결과</h3>
                     <span class="phase-badge" id="phase-badge">전반전</span>
                 </div>
 
@@ -151,54 +172,24 @@
                 </div>
             </div>
 
-            <!-- 거래 내역 -->
-            <div class="transaction-card">
-                <div class="transaction-header">
-                    <h3>📝 거래 내역</h3>
-                    <div class="header-btns">
-                        <button class="auto-add-btn-header" onclick="openAutoAddModal()">
-                            <span class="material-icons-round">auto_fix_high</span> 자동
-                        </button>
-                        <button class="manual-add-btn-header" onclick="openTransactionModal()">
-                            <span class="material-icons-round">add</span> 추가
-                        </button>
-                    </div>
-                </div>
-                
-                <!-- 인라인 빠른 입력 -->
-                <div class="quick-input-row">
-                    <div class="quick-type-toggle">
-                        <button type="button" id="quick-type-buy" class="active" onclick="setQuickType('buy')">매수</button>
-                        <button type="button" id="quick-type-sell" onclick="setQuickType('sell')">매도</button>
-                    </div>
-                    <input type="date" id="quick-date" class="quick-input">
-                    <input type="number" id="quick-price" class="quick-input" placeholder="가격" step="0.01">
-                    <input type="number" id="quick-qty" class="quick-input" placeholder="수량" value="1" min="1">
-                    <button class="quick-add-btn" onclick="quickAddTransaction()">
-                        <span class="material-icons-round">add_circle</span>
-                    </button>
-                </div>
-
-                <div class="transaction-list-header">
-                    <span>유형</span>
-                    <span>날짜</span>
-                    <span class="text-right">가격</span>
-                    <span class="text-right">수량</span>
-                    <span class="text-center">삭제</span>
-                </div>
-                <div id="transaction-list" class="transaction-list-body">
-                    <div class="empty-state">거래 내역이 없습니다.</div>
-                </div>
-            </div>
-
-            <!-- 공식 설명 -->
+            <!-- V2.2 공식 설명 (주문 가이드 아래로 이동) -->
             <details class="formula-details">
                 <summary>📐 V2.2 계산 공식 보기</summary>
                 <div class="formula-content">
+                    <!-- 현재 포트폴리오 기준 예시 (동적) -->
+                    <div id="formula-example" class="formula-example">
+                        <h4>📌 현재 포트폴리오 기준 예시</h4>
+                        <div id="formula-example-content">
+                            <!-- JS에서 동적으로 채움 -->
+                        </div>
+                    </div>
+
+                    <hr>
+
                     <h4>📌 핵심 지표</h4>
                     <p><strong>T (회차)</strong> = 누적매수액 ÷ 1회매수시도액</p>
-                    <p class="formula-note">※ 소수점 셋째자리에서 반올림 (2024.09.05 업데이트)</p>
-                    
+                    <p class="formula-note">※ 소수점 둘째자리에서 <strong>올림</strong> (2024.09.05 업데이트)</p>
+
                     <h4 style="margin-top:16px;">📊 ★% (별퍼센트) 공식</h4>
                     <div style="background: rgba(255,215,0,0.1); padding: 12px; border-radius: 8px; margin: 8px 0;">
                         <p style="margin: 0;"><strong>★% = R - T × a × (40/N)</strong></p>
@@ -215,10 +206,7 @@
                         <li><strong>N</strong> (분할일수): 사용자 설정값 (예: 40일, 80일)</li>
                         <li><strong>T</strong> (회차): 위에서 계산된 값</li>
                     </ul>
-                    <p class="formula-note" style="margin-top: 12px;">※ 예시) R=12%, N=40, T=1.03<br>
-                    → a = 12/20 = 0.6<br>
-                    → ★% = 12 - 1.03 × 0.6 × (40/40) = 12 - 0.618 = <strong>11.38%</strong></p>
-                    
+
                     <hr>
                     <h4>📥 매수 로직</h4>
                     <p class="formula-note">※ "평단+★%" = 평단 × (1 + ★%/100) | 예) 평단 $50, ★%=7 → $50×1.07 = $53.50</p>
@@ -232,19 +220,113 @@
                         <li>1회분: <strong>평단×(1+★%)</strong>에 LOC 매수 <span class="formula-note">(-$0.01 적용)</span></li>
                     </ul>
                     <p class="formula-note">※ 수량 계산: 매수금액 ÷ 가격 → 반올림</p>
-                    
+
                     <hr>
                     <h4>📤 매도 로직 (전후반 공통)</h4>
                     <ul>
                         <li>1/4 수량: <strong>평단×(1+★%)</strong>에 LOC 매도</li>
                         <li>3/4 수량: <strong>평단×(1+목표%)</strong>에 지정가 매도</li>
                     </ul>
-                    
+
                     <hr>
                     <h4>⚠️ 쿼터 손절</h4>
                     <p>T > 39 시, 보유수량 1/4을 시장가 매도 후 재진입</p>
+
+                    <hr>
+                    <h4>🔻 폭락장 대비 추가매수</h4>
+                    <div style="background: rgba(168,85,247,0.1); padding: 12px; border-radius: 8px; margin: 8px 0;">
+                        <p style="margin: 0;"><strong>폭락 대비 가격 = 매입금액 ÷ (T × n)</strong></p>
+                    </div>
+                    <p><strong>변수 정의:</strong></p>
+                    <ul style="margin-top: 4px;">
+                        <li><strong>매입금액</strong>: 현재 보유 주식의 총 매입금액 (LIFO 기준)</li>
+                        <li><strong>T</strong>: 회차 (누적매수액 ÷ 1회시도액, 올림)</li>
+                        <li><strong>n</strong>: 4, 5, 6, 7, 8, 9 (6단계)</li>
+                        <li><strong>수량</strong>: 각 단계별 1주씩</li>
+                    </ul>
+                    <p class="formula-note" style="margin-top: 12px;">※ 예시) 매입금액=$1,515.26, T=7.98<br>
+                        → n=4: $1,515.26 ÷ (7.98 × 4) = <strong>$47.50</strong><br>
+                        → n=5: $1,515.26 ÷ (7.98 × 5) = <strong>$38.00</strong><br>
+                        → n=6: $1,515.26 ÷ (7.98 × 6) = <strong>$31.67</strong></p>
+
+                    <hr>
+                    <h4>🔗 공식 vs 인터넷 비교</h4>
+                    <table class="formula-comparison-table">
+                        <thead>
+                            <tr>
+                                <th>항목</th>
+                                <th>공식 기준</th>
+                                <th>본 계산기</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>T 계산</td>
+                                <td>올림 처리</td>
+                                <td>✅ 올림</td>
+                            </tr>
+                            <tr>
+                                <td>★% 공식</td>
+                                <td>R - T×a×(40/N)</td>
+                                <td>✅ 동일</td>
+                            </tr>
+                            <tr>
+                                <td>가변계수 a</td>
+                                <td>R / 20</td>
+                                <td>✅ 동일</td>
+                            </tr>
+                            <tr>
+                                <td>LOC 가격</td>
+                                <td>-$0.01 적용</td>
+                                <td>✅ 동일</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </details>
+
+            <!-- 거래 내역 -->
+            <div class="transaction-card">
+                <div class="transaction-header">
+                    <h3>📝 거래 내역</h3>
+                    <div class="header-btns">
+                        <button class="auto-add-btn-header" onclick="openAutoAddModal()">
+                            <span class="material-icons-round">auto_fix_high</span> 자동
+                        </button>
+                        <button class="manual-add-btn-header" onclick="openTransactionModal()">
+                            <span class="material-icons-round">add</span> 추가
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 인라인 빠른 입력 -->
+                <div class="quick-input-row">
+                    <div class="quick-type-toggle">
+                        <button type="button" id="quick-type-buy" class="active"
+                            onclick="setQuickType('buy')">매수</button>
+                        <button type="button" id="quick-type-sell" onclick="setQuickType('sell')">매도</button>
+                    </div>
+                    <input type="date" id="quick-date" class="quick-input">
+                    <input type="number" id="quick-price" class="quick-input" placeholder="가격" step="0.01">
+                    <input type="number" id="quick-qty" class="quick-input" placeholder="수량" value="1" min="1">
+                    <button class="quick-add-btn" onclick="quickAddTransaction()">
+                        <span class="material-icons-round">add_circle</span>
+                    </button>
+                </div>
+
+                <div class="transaction-list-header">
+                    <span class="text-center">#</span>
+                    <span>유형</span>
+                    <span>날짜</span>
+                    <span class="text-right">가격</span>
+                    <span class="text-right">수량</span>
+                    <span class="text-center">수정</span>
+                    <span class="text-center">삭제</span>
+                </div>
+                <div id="transaction-list" class="transaction-list-body">
+                    <div class="empty-state">거래 내역이 없습니다.</div>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -299,14 +381,15 @@
 체결금액 : USD 55.08
 체결일자 : 01/26"></textarea>
             </div>
-            
+
             <!-- 파싱 결과 (수정 가능) -->
             <div id="parse-preview" class="parse-preview hidden">
                 <div class="preview-title">📋 파싱 결과 (수정 가능)</div>
                 <div class="preview-edit-row">
                     <label>매매구분</label>
                     <div class="type-toggle small">
-                        <button type="button" id="parsed-type-buy" class="active" onclick="setParsedType('buy')">매수</button>
+                        <button type="button" id="parsed-type-buy" class="active"
+                            onclick="setParsedType('buy')">매수</button>
                         <button type="button" id="parsed-type-sell" onclick="setParsedType('sell')">매도</button>
                     </div>
                 </div>
@@ -323,7 +406,7 @@
                     <input type="date" id="parsed-date">
                 </div>
             </div>
-            
+
             <div class="modal-actions">
                 <button class="action-btn secondary" onclick="closeModal('auto-add-modal')">취소</button>
                 <button class="action-btn" style="background: #ff9800;" onclick="parseAndPreview()">파싱하기</button>
@@ -362,6 +445,39 @@
             </div>
         </div>
         <div class="modal-backdrop" onclick="closeModal('transaction-modal')"></div>
+    </div>
+
+    <!-- 거래 수정 모달 -->
+    <div id="edit-transaction-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>거래 수정</h3>
+            <input type="hidden" id="edit-trans-id">
+            <div class="input-group">
+                <label>거래 유형</label>
+                <div class="type-toggle">
+                    <button type="button" id="edit-type-buy" class="active"
+                        onclick="setEditTransType('buy')">매수</button>
+                    <button type="button" id="edit-type-sell" onclick="setEditTransType('sell')">매도</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label>날짜</label>
+                <input type="date" id="edit-trans-date">
+            </div>
+            <div class="input-group">
+                <label>체결가 (USD)</label>
+                <input type="number" id="edit-trans-price" step="0.01" placeholder="0.00">
+            </div>
+            <div class="input-group">
+                <label>수량 (주)</label>
+                <input type="number" id="edit-trans-qty" step="1" value="1" min="1">
+            </div>
+            <div class="modal-actions">
+                <button class="action-btn secondary" onclick="closeModal('edit-transaction-modal')">취소</button>
+                <button class="action-btn primary" onclick="saveEditTransaction()">저장</button>
+            </div>
+        </div>
+        <div class="modal-backdrop" onclick="closeModal('edit-transaction-modal')"></div>
     </div>
 
     <!-- 워터마크 -->
