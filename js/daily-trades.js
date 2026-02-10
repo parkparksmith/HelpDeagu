@@ -1,12 +1,7 @@
 // === 오늘의 실거래가 전부 - JavaScript ===
 
 // GitHub 설정
-const GITHUB_CONFIG = {
-    token: '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',
-    repo: 'parkparksmith/HelpDeagu',
-    branch: 'main'
-};
-
+//
 // 전역 변수
 let allTrades = [];
 let filteredTrades = [];
