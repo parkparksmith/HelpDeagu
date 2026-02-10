@@ -1,6 +1,8 @@
 // === 선택된 실거래가 리포트 - JavaScript ===
 
 // GitHub 설정
+//
+
 const GITHUB_CONFIG = {
     token: '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',
     repo: 'parkparksmith/HelpDeagu',
