@@ -6,11 +6,13 @@
         crossorigin="anonymous"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>취득세 계산기 - 경제 도구 모음</title>
+    <title>취득세 가이드 - 2025년 주택 취득세율 및 계산기</title>
+    <meta name="description"
+        content="2025년 최신 주택 취득세율 가이드. 생애최초 감면 연장, 다주택자 중과세율, 1주택자 세율표 등 필수 정보를 확인하고 간편 계산기로 예상 세액을 계산해보세요.">
+    <meta name="keywords" content="취득세 가이드, 2025 취득세, 생애최초 취득세 감면, 다주택자 취득세 중과, 주택 취득세율, 취득세 계산기">
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/housing.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 </head>
 
@@ -25,188 +27,300 @@
         <header class="app-header">
             <div class="title-with-logo">
                 <img src="../LOGO1.png" alt="Logo" class="header-logo">
-                <h1>취득세 계산기</h1>
+                <h1>취득세 가이드</h1>
             </div>
-            <a href="housing-cost.html" class="back-link">
+            <!-- 헤더 버튼 스타일 통일 (id="back-btn") -->
+            <a href="tax-menu.html" id="back-btn">
                 <span class="material-icons-round">arrow_back</span>
-                주택 구매 비용
+                세금 메뉴
             </a>
         </header>
 
-        <main class="calculator-section">
-            <div class="input-card">
-                <h3>📋 주택 정보 입력</h3>
-                
-                <div class="input-group">
-                    <label>매매가</label>
-                    <div class="input-with-unit">
-                        <input type="text" id="price" placeholder="0" inputmode="numeric">
-                        <span class="unit">만원</span>
+        <main class="calculator-section guide-mode">
+            <!-- 1. 취득세 상세 가이드 (글 위주) -->
+            <section class="tax-guide-article" style="margin-bottom: 56px;">
+                <div class="intro-box"
+                    style="margin-bottom: 32px; background: rgba(255,255,255,0.05); padding: 24px; border-radius: 16px; border: 1px solid var(--border);">
+                    <!-- 제목 색상 밝은 흰색으로 변경 -->
+                    <h2 style="font-size: 1.4rem; margin-bottom: 12px; color: #ffffff;">📚 2025년 주택 취득세 완전 정복</h2>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6;">부동산 취득세는 매매가, 주택 수, 지역(조정/비조정)에 따라 세율이
+                        복잡하게 달라집니다.<br>2025년까지 연장된 생애최초 감면 혜택과 다주택자 중과 규정을 핵심만 정리했습니다.</p>
+                </div>
+
+                <div class="guide-chapter" style="margin-bottom: 40px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round" style="color: var(--accent);">looks_one</span> 1주택자 취득세율 (기본)
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 16px;">무주택자가 주택을 취득하거나, 일시적 2주택자가 되는 경우
+                        기본세율(1~3%)이 적용됩니다.</p>
+
+                    <div
+                        style="overflow-x: auto; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border);">
+                        <table class="rate-table" style="width: 100%; border-collapse: collapse; text-align: center;">
+                            <thead>
+                                <tr style="background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.95);">
+                                    <th style="padding: 12px;">주택 가액</th>
+                                    <th style="padding: 12px;">취득세율</th>
+                                    <th style="padding: 12px;">지방교육세 포함</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: 0.95rem; color: rgba(255,255,255,0.9);">
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 12px;">6억원 이하</td>
+                                    <!-- 세율 색상 밝은 하늘색으로 변경 -->
+                                    <td style="color: #74c0fc; font-weight: bold;">1.0%</td>
+                                    <td>1.1%</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 12px;">6억 ~ 9억원</td>
+                                    <td style="color: #74c0fc; font-weight: bold;">1.01 ~ 2.99%</td>
+                                    <td>1.11 ~ 3.29%</td>
+                                </tr>
+                                <tr>
+                                    <td style="padding: 12px;">9억원 초과</td>
+                                    <td style="color: #74c0fc; font-weight: bold;">3.0%</td>
+                                    <td>3.3% ~ 3.5%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 8px;">* 전용면적 85㎡ 초과 시
+                        농어촌특별세(0.2%)가 별도로 부과됩니다.</p>
+                </div>
+
+                <div class="guide-chapter" style="margin-bottom: 40px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round" style="color: var(--accent);">star</span> 2025년 생애최초 감면 (연장)
+                    </h3>
+                    <div
+                        style="background: rgba(var(--primary-rgb), 0.1); border: 1px solid var(--primary); border-radius: 12px; padding: 20px;">
+                        <p style="margin-bottom: 12px; color: rgba(255,255,255,0.95);"><strong>2025년 12월 31일</strong>까지
+                            생애최초 주택 구입 감면 혜택이 연장되었습니다. 소득 요건이 폐지되어 맞벌이 부부도 혜택을 받을 수 있습니다.</p>
+                        <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.9);">
+                            <li style="margin-bottom: 6px;">✅ <strong>대상:</strong> 주택가액 12억원 이하</li>
+                            <li style="margin-bottom: 6px;">✅ <strong>한도:</strong> 최대 200만원 (산출세액 200만원 미만 시 전액 면제)</li>
+                            <li style="margin-bottom: 6px;">✅ <strong>조건:</strong> 본인 및 배우자 모두 과거 주택 소유 사실이 없을 것</li>
+                            <li>⚠️ <strong>의무:</strong> 취득 후 3개월 내 전입 및 3년 실거주 (위반 시 추징)</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="input-group">
-                    <label>주택 수 (본 주택 포함)</label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="house-count" value="1" checked>
-                            <span>1주택</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="house-count" value="2">
-                            <span>2주택</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="house-count" value="3">
-                            <span>3주택+</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label>조정대상지역 여부</label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="regulated" value="no" checked>
-                            <span>비조정지역</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="regulated" value="yes">
-                            <span>조정대상지역</span>
-                        </label>
-                    </div>
-                </div>
-
-                <div class="input-group">
-                    <label>생애최초 주택 구입 여부</label>
-                    <div class="radio-group">
-                        <label class="radio-label">
-                            <input type="radio" name="first-time" value="no" checked>
-                            <span>아니오</span>
-                        </label>
-                        <label class="radio-label">
-                            <input type="radio" name="first-time" value="yes">
-                            <span>예 (12억 이하)</span>
-                        </label>
-                    </div>
-                </div>
-
-                <button class="calculate-btn" onclick="calculate()">
-                    <span class="material-icons-round">calculate</span>
-                    계산하기
-                </button>
-            </div>
-
-            <div class="result-card hidden" id="result-card">
-                <h3>💰 취득세 계산 결과</h3>
-                
-                <div class="result-summary">
-                    <div class="result-main">
-                        <span class="result-label">납부할 총 취득세</span>
-                        <span class="result-value" id="result-total">0원</span>
-                    </div>
-                    <p style="text-align: center; color: var(--text-secondary); font-size: 0.9rem; margin-top: 8px;">
-                        적용 세율: <span id="applied-rate">0%</span>
+                <div class="guide-chapter">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round" style="color: var(--accent);">warning</span> 다주택자 중과세율 (현행
+                        유지)
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 16px;">다주택자 취득세 중과 완화안은 아직 국회 계류 중이므로,
+                        <strong>기존 중과세율</strong>이 적용됩니다.
                     </p>
-                </div>
 
-                <div class="result-breakdown">
-                    <h4>📊 세금 항목별 상세</h4>
-                    
-                    <div class="breakdown-section">
-                        <div class="breakdown-detail">
-                            <div class="detail-row">
-                                <span>취득세 (본세)</span>
-                                <span id="tax-main">0원</span>
-                            </div>
-                            <div class="detail-row">
-                                <span>지방교육세</span>
-                                <span id="tax-edu">0원</span>
-                            </div>
-                            <div class="detail-row">
-                                <span>농어촌특별세</span>
-                                <span id="tax-rural">0원</span>
-                            </div>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+                        <div
+                            style="background: var(--bg-card); padding: 16px; border-radius: 12px; border: 1px solid var(--border);">
+                            <h4 style="color: var(--text-primary); margin-bottom: 8px;">비조정대상지역 (대구 등)</h4>
+                            <p style="margin-bottom: 4px; color: rgba(255,255,255,0.7);">• 2주택: <strong
+                                    style="color: rgba(255,255,255,0.95);">1~3% (기본세율)</strong></p>
+                            <p style="margin-bottom: 4px; color: rgba(255,255,255,0.7);">• 3주택: <strong
+                                    style="color: rgba(255,255,255,0.95);">8%</strong></p>
+                            <p style="color: rgba(255,255,255,0.7);">• 4주택 이상/법인: <strong
+                                    style="color: rgba(255,255,255,0.95);">12%</strong></p>
+                        </div>
+                        <div
+                            style="background: var(--bg-card); padding: 16px; border-radius: 12px; border: 1px solid var(--border);">
+                            <h4 style="color: var(--text-primary); margin-bottom: 8px;">조정대상지역 (강남3구+용산)</h4>
+                            <p style="margin-bottom: 4px; color: rgba(255,255,255,0.7);">• 2주택: <strong
+                                    style="color: rgba(255,255,255,0.95);">8%</strong></p>
+                            <p style="color: rgba(255,255,255,0.7);">• 3주택 이상/법인: <strong
+                                    style="color: rgba(255,255,255,0.95);">12%</strong></p>
                         </div>
                     </div>
                 </div>
 
-                <p class="result-note" id="special-note" style="display: none;"></p>
-            </div>
+                <div class="guide-chapter" style="margin-top: 40px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round" style="color: #ffd43b;">tips_and_updates</span> 다주택자 취득세 중과
+                        배제 (예외)
+                    </h3>
+                    <p style="color: rgba(255,255,255,0.9); margin-bottom: 16px;">다음 주택은 주택 수에 포함되더라도 취득 시 중과세율(8~12%)이
+                        아닌 <strong>기본세율(1~3%)</strong>이 적용됩니다.</p>
 
-            <details class="rate-table-details">
-                <summary>📊 취득세율표 보기</summary>
-                <div class="rate-table-content">
-                    <h4>🏠 1주택자 취득세율</h4>
-                    <table class="rate-table">
-                        <thead>
-                            <tr>
-                                <th>주택가격</th>
-                                <th>취득세</th>
-                                <th>지방교육세</th>
-                                <th>농특세</th>
-                                <th>합계</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>6억원 이하</td>
-                                <td>1%</td>
-                                <td>0.1%</td>
-                                <td>0.2%</td>
-                                <td>1.3%</td>
-                            </tr>
-                            <tr>
-                                <td>6억~9억원</td>
-                                <td>1~3%</td>
-                                <td>0.1~0.3%</td>
-                                <td>0.2%</td>
-                                <td>1.3~3.5%</td>
-                            </tr>
-                            <tr>
-                                <td>9억원 초과</td>
-                                <td>3%</td>
-                                <td>0.3%</td>
-                                <td>0.2%</td>
-                                <td>3.5%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h4>🏘️ 다주택자 취득세율</h4>
-                    <table class="rate-table">
-                        <thead>
-                            <tr>
-                                <th>구분</th>
-                                <th>조정지역</th>
-                                <th>비조정지역</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2주택</td>
-                                <td>8%</td>
-                                <td>1~3%</td>
-                            </tr>
-                            <tr>
-                                <td>3주택 이상</td>
-                                <td>12%</td>
-                                <td>8%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h4>🌟 생애최초 주택 구입 감면</h4>
-                    <p class="rate-note">
-                        • 12억원 이하 주택 취득 시 취득세 감면<br>
-                        • 수도권 최대 200만원, 비수도권 최대 200만원 한도<br>
-                        • 부부합산 소득 7천만원 이하 등 요건 충족 필요
-                    </p>
+                    <div
+                        style="background: rgba(255, 212, 59, 0.1); border: 1px solid rgba(255, 212, 59, 0.3); border-radius: 12px; padding: 20px;">
+                        <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.95);">
+                            <li style="margin-bottom: 12px;">✅ <strong>공시가격 1억원 이하 주택:</strong><br>
+                                <span style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">주택 수 산정 제외 및 취득세 1.1% 적용
+                                    (단, 정비구역 등 제외)</span>
+                            </li>
+                            <li style="margin-bottom: 12px;">✅ <strong>일시적 2주택:</strong><br>
+                                <span style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">종전주택 처분 기한(3년) 내 신규주택 취득
+                                    시 기본세율 적용</span>
+                            </li>
+                            <li style="margin-bottom: 12px;">✅ <strong>상속 주택:</strong><br>
+                                <span style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">상속개시일로부터 5년 이내에는 주택 수 미포함
+                                    (이후 포함)</span>
+                            </li>
+                            <li style="margin-bottom: 0;">✅ <strong>농어촌 주택:</strong><br>
+                                <span style="font-size: 0.9rem; color: rgba(255,255,255,0.7);">읍·면 지역, 대지 660㎡/건물 150㎡
+                                    이내, 공시가 6,500만원 이하 등 요건 충족 시</span>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-            </details>
+            </section>
+
+            <div style="height: 1px; background: var(--border); margin-bottom: 48px;"></div>
+
+            <!-- 2. 계산기 (하단 배치 & UI 개선) -->
+            <section id="calculator-area">
+                <div style="text-align: center; margin-bottom: 32px;">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 8px;">🧮 취득세 간편 계산기</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem;">매매가와 조건을 입력하면 예상 세액을 계산해드립니다.</p>
+                </div>
+
+                <div
+                    style="max-width: 480px; margin: 0 auto; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(0,0,0,0.25); overflow: hidden; text-align: center;">
+                    <div style="padding: 24px;">
+                        <h3
+                            style="font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+                            📋 정보 입력</h3>
+
+                        <!-- 매매가 Input도 가운데 정렬 -->
+                        <div class="input-group">
+                            <label style="color: rgba(255,255,255,0.9); display: block; margin-bottom: 8px;">매매가</label>
+                            <div class="input-with-unit"
+                                style="justify-content: center; max-width: 300px; margin: 0 auto;">
+                                <input type="text" id="price" placeholder="0" inputmode="numeric"
+                                    style="text-align: center;">
+                                <span class="unit">만원</span>
+                            </div>
+                        </div>
+
+                        <!-- 주택 수 (가운데 정렬 justify-content: center 추가) -->
+                        <div class="input-group" style="margin-bottom: 24px;">
+                            <label style="color: rgba(255,255,255,0.9); display: block; margin-bottom: 8px;">주택 수 (본 주택
+                                포함)</label>
+                            <div class="radio-group"
+                                style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                                <label class="radio-label">
+                                    <input type="radio" name="house-count" value="1" checked>
+                                    <span>1주택</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="house-count" value="2">
+                                    <span>2주택</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="house-count" value="3">
+                                    <span>3주택+</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 조정대상지역 (가운데 정렬) -->
+                        <div class="input-group" style="margin-bottom: 24px;">
+                            <label style="color: rgba(255,255,255,0.9); display: block; margin-bottom: 8px;">조정대상지역
+                                여부</label>
+                            <div class="radio-group"
+                                style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                                <label class="radio-label">
+                                    <input type="radio" name="regulated" value="no" checked>
+                                    <span>비조정지역</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="regulated" value="yes">
+                                    <span>조정대상지역</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 생애최초 (가운데 정렬) -->
+                        <div class="input-group" style="margin-bottom: 24px;">
+                            <label style="color: rgba(255,255,255,0.9); display: block; margin-bottom: 8px;">생애최초 주택 구입
+                                여부</label>
+                            <div class="radio-group"
+                                style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                                <label class="radio-label">
+                                    <input type="radio" name="first-time" value="no" checked>
+                                    <span>아니오</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="first-time" value="yes">
+                                    <span>예 (12억 이하)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="calculate-btn" onclick="calculate()"
+                            style="width: 100%; justify-content: center; margin-top: 16px; padding: 14px; font-size: 1.05rem;">
+                            <span class="material-icons-round">calculate</span>
+                            계산하기
+                        </button>
+                    </div>
+
+                    <!-- 결과창 -->
+                    <div class="result-card hidden" id="result-card"
+                        style="margin: 0; border: none; border-top: 1px solid var(--border); border-radius: 0; background: rgba(0,0,0,0.2); padding: 24px; box-shadow: none;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 20px;">💰 계산 결과</h3>
+
+                        <div class="result-summary" style="padding: 16px; background: rgba(var(--primary-rgb), 0.1);">
+                            <div class="result-main">
+                                <span class="result-label" style="font-size: 0.95rem;">총 납부할 취득세</span>
+                                <span class="result-value" id="result-total" style="font-size: 1.5rem;">0원</span>
+                            </div>
+                            <p
+                                style="text-align: center; color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 8px;">
+                                적용 세율: <span id="applied-rate"
+                                    style="color: var(--primary); font-weight: 700;">0%</span>
+                            </p>
+                        </div>
+
+                        <div class="result-breakdown"
+                            style="background: transparent; padding: 0; margin-top: 20px; text-align: left;">
+                            <h4 style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px;">항목별 상세 내역
+                            </h4>
+                            <div class="breakdown-section"
+                                style="border: 1px solid var(--border); background: rgba(255,255,255,0.03);">
+                                <div class="breakdown-detail">
+                                    <div class="detail-row">
+                                        <span>취득세 (본세)</span>
+                                        <span id="tax-main">0원</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>지방교육세</span>
+                                        <span id="tax-edu">0원</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>농어촌특별세</span>
+                                        <span id="tax-rural">0원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="result-note" id="special-note" style="display: none; margin-top: 16px;"></p>
+                    </div>
+                </div>
+
+                <!-- 다른 계산기 링크 Card -->
+                <div style="text-align: center; margin-top: 60px;">
+                    <a href="housing-cost.html" class="guide-card"
+                        style="display: inline-block; text-decoration: none; max-width: 400px; cursor: pointer; padding: 24px; border: 1px solid var(--primary); background: rgba(var(--primary-rgb), 0.05); transition: all 0.2s ease; text-align: center;">
+                        <div class="icon-box"
+                            style="margin: 0 auto 16px; width: 56px; height: 56px; background: rgba(var(--primary-rgb), 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <span class="material-icons-round"
+                                style="font-size: 28px; color: var(--primary);">home_work</span>
+                        </div>
+                        <h3 style="margin: 0; color: var(--text-primary); font-size: 1.15rem; margin-bottom: 8px;">주택 구매
+                            비용 한 번에 계산하기</h3>
+                        <p style="margin: 0; color: rgba(255,255,255,0.7); font-size: 0.9rem; line-height: 1.5;">취득세는 물론
+                            중개보수, 채권할인액,<br>법무사 비용까지 총 예산을 확인하세요.</p>
+                    </a>
+                </div>
+            </section>
         </main>
     </div>
 
+    <!-- 워터마크 -->
     <div class="watermark">
         <img src="../LOGO1.png" alt="">
     </div>
@@ -308,7 +422,20 @@
                 noteEl.style.display = 'none';
             }
 
-            document.getElementById('result-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            // 스크롤 위치 조정 (결과창이 잘 보이도록)
+            setTimeout(() => {
+                const resultCard = document.getElementById('result-card');
+                const offset = 80; // 상단 여백 보정
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = resultCard.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }, 100);
         }
     </script>
 </body>

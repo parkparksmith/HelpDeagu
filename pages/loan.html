@@ -4,7 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>대출 이자 계산기 - 경제 도구 모음</title>
+    <title>대출 이자 계산기 - 원리금균등, 원금균등, 만기일시 상환 계산</title>
+    <meta name="description"
+        content="주택담보대출, 신용대출 등 다양한 대출의 월 상환금과 총 이자를 계산해보세요. 원리금균등상환, 원금균등상환, 만기일시상환 방식별 비교 분석이 가능합니다.">
+    <meta name="keywords" content="대출 이자 계산기, 원리금균등상환, 원금균등상환, 만기일시상환, 주택담보대출, 월 상환금, 총 이자, 대출 비교">
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="../css/common.css">
@@ -63,7 +66,7 @@
 
                 <div class="result-panel">
                     <h3>상환 내역</h3>
-                    
+
                     <!-- Summary Card -->
                     <div id="loan-summary" class="summary-card" style="display: none;">
                         <div class="summary-item">
@@ -102,6 +105,145 @@
                     <div id="loan-placeholder" class="result-box">
                         대출 조건을 입력하고 계산하기 버튼을 눌러주세요.
                     </div>
+                </div>
+            </div>
+
+            <!-- 대출 상환 방식 설명 -->
+            <div class="info-section">
+                <h3>📚 대출 상환 방식 이해하기</h3>
+
+                <!-- 상환 방식 비교 그래프 -->
+                <div class="chart-container">
+                    <h4>📊 상환 방식별 월 상환액 비교 (예시: 1억원, 연 5%, 10년)</h4>
+                    <div class="chart-legend">
+                        <span class="legend-item"><span class="legend-color equal-payment"></span>원리금균등</span>
+                        <span class="legend-item"><span class="legend-color equal-principal"></span>원금균등</span>
+                        <span class="legend-item"><span class="legend-color bullet"></span>만기일시</span>
+                    </div>
+                    <div class="chart-wrapper">
+                        <div class="chart-y-axis">
+                            <span>125만</span>
+                            <span>100만</span>
+                            <span>75만</span>
+                            <span>50만</span>
+                            <span>25만</span>
+                            <span>0</span>
+                        </div>
+                        <div class="chart-area" id="repayment-chart">
+                            <!-- 1년차 -->
+                            <div class="chart-bar-group">
+                                <div class="chart-bar equal-payment" style="height: 170px;" title="원리금균등: 106만원"></div>
+                                <div class="chart-bar equal-principal" style="height: 200px;" title="원금균등: 125만원"></div>
+                                <div class="chart-bar bullet" style="height: 67px;" title="만기일시: 42만원"></div>
+                            </div>
+                            <!-- 3년차 -->
+                            <div class="chart-bar-group">
+                                <div class="chart-bar equal-payment" style="height: 170px;" title="원리금균등: 106만원"></div>
+                                <div class="chart-bar equal-principal" style="height: 166px;" title="원금균등: 104만원"></div>
+                                <div class="chart-bar bullet" style="height: 67px;" title="만기일시: 42만원"></div>
+                            </div>
+                            <!-- 5년차 -->
+                            <div class="chart-bar-group">
+                                <div class="chart-bar equal-payment" style="height: 170px;" title="원리금균등: 106만원"></div>
+                                <div class="chart-bar equal-principal" style="height: 133px;" title="원금균등: 83만원"></div>
+                                <div class="chart-bar bullet" style="height: 67px;" title="만기일시: 42만원"></div>
+                            </div>
+                            <!-- 7년차 -->
+                            <div class="chart-bar-group">
+                                <div class="chart-bar equal-payment" style="height: 170px;" title="원리금균등: 106만원"></div>
+                                <div class="chart-bar equal-principal" style="height: 99px;" title="원금균등: 62만원"></div>
+                                <div class="chart-bar bullet" style="height: 67px;" title="만기일시: 42만원"></div>
+                            </div>
+                            <!-- 10년차 -->
+                            <div class="chart-bar-group">
+                                <div class="chart-bar equal-payment" style="height: 170px;" title="원리금균등: 106만원"></div>
+                                <div class="chart-bar equal-principal" style="height: 53px;" title="원금균등: 33만원"></div>
+                                <div class="chart-bar bullet" style="height: 67px;" title="만기일시: 42만원"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-x-axis">
+                        <span>1년차</span>
+                        <span>3년차</span>
+                        <span>5년차</span>
+                        <span>7년차</span>
+                        <span>10년차</span>
+                    </div>
+                    <p class="chart-note">* 막대가 높을수록 해당 월의 상환 부담이 큽니다</p>
+                </div>
+
+                <!-- 총 이자 비교 -->
+                <div class="interest-comparison">
+                    <h4>💰 총 이자 비교 (1억원, 연 5%, 10년 기준)</h4>
+                    <div class="interest-bars">
+                        <div class="interest-bar-item">
+                            <span class="interest-label">원리금균등</span>
+                            <div class="interest-bar-wrapper">
+                                <div class="interest-bar equal-payment" style="width: 85%;">
+                                    <span class="interest-value">약 2,728만원</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="interest-bar-item">
+                            <span class="interest-label">원금균등</span>
+                            <div class="interest-bar-wrapper">
+                                <div class="interest-bar equal-principal" style="width: 78%;">
+                                    <span class="interest-value">약 2,521만원</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="interest-bar-item">
+                            <span class="interest-label">만기일시</span>
+                            <div class="interest-bar-wrapper">
+                                <div class="interest-bar bullet" style="width: 100%;">
+                                    <span class="interest-value">약 5,000만원</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="chart-note">* 원금균등 방식이 총 이자 부담이 가장 적습니다</p>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>원리금균등상환</h4>
+                        <p>매월 동일한 금액(원금+이자)을 상환합니다. 초기에는 이자 비중이 높고, 시간이 지날수록 원금 비중이 높아집니다.</p>
+                        <ul>
+                            <li><strong>장점:</strong> 매월 상환액이 일정해 자금 계획이 용이</li>
+                            <li><strong>단점:</strong> 총 이자 부담이 원금균등보다 큼</li>
+                            <li><strong>추천:</strong> 안정적인 월 지출을 원하는 경우</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>원금균등상환</h4>
+                        <p>매월 동일한 원금을 상환하고, 이자는 남은 원금에 따라 줄어듭니다.</p>
+                        <ul>
+                            <li><strong>장점:</strong> 총 이자 부담이 가장 적음</li>
+                            <li><strong>단점:</strong> 초기 상환액이 높아 부담될 수 있음</li>
+                            <li><strong>추천:</strong> 초기에 여유가 있고 이자를 줄이고 싶은 경우</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>만기일시상환</h4>
+                        <p>대출 기간 동안 이자만 납부하고, 만기에 원금을 한꺼번에 상환합니다.</p>
+                        <ul>
+                            <li><strong>장점:</strong> 매월 상환 부담이 가장 적음</li>
+                            <li><strong>단점:</strong> 총 이자가 가장 많고, 만기에 목돈 필요</li>
+                            <li><strong>추천:</strong> 단기 자금 운용 또는 투자 목적</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 대출 이자 절약 팁</h4>
+                    <ul>
+                        <li>여러 은행의 금리를 비교하고, 우대금리 조건을 확인하세요.</li>
+                        <li>중도상환수수료가 없다면 여유 자금으로 조기 상환을 고려하세요.</li>
+                        <li>금리 인하 요구권을 활용해 더 낮은 금리를 협상할 수 있습니다.</li>
+                        <li>변동금리와 고정금리의 장단점을 이해하고 상황에 맞게 선택하세요.</li>
+                    </ul>
                 </div>
             </div>
         </section>

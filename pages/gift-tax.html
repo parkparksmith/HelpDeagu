@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>증여세 가이드 - 2025년 증여세율 및 면제한도 계산기</title>
+    <meta name="description"
+        content="2025년 증여세 면제한도(배우자 6억, 자녀 5천만원)와 세율표를 확인하고 간편 계산기로 예상 증여세를 계산해보세요. 신고세액공제 3%까지 자동 반영됩니다.">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>증여세 가이드</h1>
+            </div>
+            <a href="tax-menu.html" id="back-btn">
+                <span class="material-icons-round">arrow_back</span>
+                세금 메뉴
+            </a>
+        </header>
+
+        <main class="calculator-section guide-mode">
+            <!-- 1. 증여세 가이드 -->
+            <section class="tax-guide-article" style="margin-bottom: 56px;">
+                <div class="intro-box"
+                    style="margin-bottom: 32px; background: rgba(255,255,255,0.05); padding: 24px; border-radius: 16px; border: 1px solid var(--border);">
+                    <h2 style="font-size: 1.4rem; margin-bottom: 12px; color: #ffffff;">📚 2025년 증여세 완전 정복</h2>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6;">가족에게 재산을 무상으로 줄 때 내는
+                        세금입니다.<br><strong>10년간 합산</strong>되는 증여재산 공제 한도를 잘 활용하면 세금을 아낄 수 있습니다.</p>
+                </div>
+
+                <div class="guide-chapter" style="margin-bottom: 40px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round" style="color: var(--accent);">family_restroom</span> 증여재산 공제
+                        한도 (10년 합산)
+                    </h3>
+                    <div
+                        style="background: rgba(var(--primary-rgb), 0.1); border: 1px solid var(--primary); border-radius: 12px; padding: 20px;">
+                        <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.9);">
+                            <li style="margin-bottom: 8px;">💑 <strong>배우자:</strong> 6억원 공제</li>
+                            <li style="margin-bottom: 8px;">👶 <strong>성인 자녀:</strong> 5,000만원 (미성년자 2,000만원)</li>
+                            <li style="margin-bottom: 0;">👵 <strong>기타 친족:</strong> 1,000만원 (며느리, 사위 등)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="guide-chapter" style="margin-bottom: 40px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round" style="color: var(--accent);">table_view</span> 증여세율 (누진세)
+                    </h3>
+                    <div
+                        style="overflow-x: auto; background: var(--bg-card); border-radius: 12px; border: 1px solid var(--border);">
+                        <table class="rate-table" style="width: 100%; border-collapse: collapse; text-align: center;">
+                            <thead>
+                                <tr style="background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.95);">
+                                    <th style="padding: 12px;">과세표준</th>
+                                    <th style="padding: 12px;">세율</th>
+                                    <th style="padding: 12px;">누진공제</th>
+                                </tr>
+                            </thead>
+                            <tbody style="font-size: 0.95rem; color: rgba(255,255,255,0.9);">
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 12px;">1억원 이하</td>
+                                    <td style="color: #74c0fc; font-weight: bold;">10%</td>
+                                    <td>-</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 12px;">5억원 이하</td>
+                                    <td style="color: #74c0fc; font-weight: bold;">20%</td>
+                                    <td>1,000만원</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 12px;">10억원 이하</td>
+                                    <td style="color: #74c0fc; font-weight: bold;">30%</td>
+                                    <td>6,000만원</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 12px;">30억원 이하</td>
+                                    <td style="color: #74c0fc; font-weight: bold;">40%</td>
+                                    <td>1억 6,000만원</td>
+                                </tr>
+                                <tr style="border-bottom: 1px solid var(--border);">
+                                    <td style="padding: 12px;">30억원 초과</td>
+                                    <td style="color: #74c0fc; font-weight: bold;">50%</td>
+                                    <td>4억 6,000만원</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 8px;">* 신고 기한 내(3개월) 신고 시
+                        산출세액의 3%를 공제받을 수 있습니다.</p>
+                </div>
+            </section>
+
+            <div style="height: 1px; background: var(--border); margin-bottom: 48px;"></div>
+
+            <!-- 2. 계산기 섹션 -->
+            <section id="calculator-area">
+                <div style="text-align: center; margin-bottom: 32px;">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 8px;">🎁 증여세 간편 계산기</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem;">증여 금액과 받는 사람과의 관계를 선택하세요.</p>
+                </div>
+
+                <div
+                    style="max-width: 480px; margin: 0 auto; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(0,0,0,0.25); overflow: hidden; text-align: center;">
+                    <div style="padding: 24px;">
+                        <h3
+                            style="font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+                            📋 정보 입력</h3>
+
+                        <!-- 증여가액 -->
+                        <div class="input-group">
+                            <label style="color: rgba(255,255,255,0.9); display: block; margin-bottom: 8px;">증여가액 (줄
+                                금액)</label>
+                            <div class="input-with-unit"
+                                style="justify-content: center; max-width: 300px; margin: 0 auto;">
+                                <input type="text" id="gift-price" placeholder="0" inputmode="numeric"
+                                    style="text-align: center;">
+                                <span class="unit">만원</span>
+                            </div>
+                        </div>
+
+                        <!-- 받는 사람 관계 -->
+                        <div class="input-group" style="margin-bottom: 24px;">
+                            <label style="color: rgba(255,255,255,0.9); display: block; margin-bottom: 8px;">받는 사람과의
+                                관계</label>
+                            <div class="radio-group"
+                                style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                                <label class="radio-label">
+                                    <input type="radio" name="relation" value="spouse" checked>
+                                    <span>배우자</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="relation" value="child_adult">
+                                    <span>성인 자녀</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="relation" value="child_minor">
+                                    <span>미성년 자녀</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="relation" value="others">
+                                    <span>기타 친족</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="calculate-btn" onclick="calculate()"
+                            style="width: 100%; justify-content: center; margin-top: 16px; padding: 14px; font-size: 1.05rem;">
+                            <span class="material-icons-round">calculate</span>
+                            계산하기
+                        </button>
+                    </div>
+
+                    <!-- 결과창 -->
+                    <div class="result-card hidden" id="result-card"
+                        style="margin: 0; border: none; border-top: 1px solid var(--border); border-radius: 0; background: rgba(0,0,0,0.2); padding: 24px; box-shadow: none;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 20px;">💰 예상 증여세</h3>
+
+                        <div class="result-summary" style="padding: 16px; background: rgba(var(--primary-rgb), 0.1);">
+                            <div class="result-main">
+                                <span class="result-label" style="font-size: 0.95rem;">총 납부할 세액</span>
+                                <span class="result-value" id="result-total" style="font-size: 1.5rem;">0원</span>
+                            </div>
+                            <p
+                                style="text-align: center; color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 8px;">
+                                신고세액공제(3%) 적용 후 금액
+                            </p>
+                        </div>
+
+                        <div class="result-breakdown"
+                            style="background: transparent; padding: 0; margin-top: 20px; text-align: left;">
+                            <h4 style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px;">항목별 상세 내역
+                            </h4>
+                            <div class="breakdown-section"
+                                style="border: 1px solid var(--border); background: rgba(255,255,255,0.03);">
+                                <div class="breakdown-detail">
+                                    <div class="detail-row">
+                                        <span>증여재산 공제</span>
+                                        <span id="deduction">0원</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>과세 표준</span>
+                                        <span id="tax-base">0원</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>산출 세액</span>
+                                        <span id="tax-calc">0원</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>세액 공제 (3%)</span>
+                                        <span id="tax-credit">0원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="result-note" id="special-note" style="display: none; margin-top: 16px;"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 워터마크 -->
+    <div class="watermark">
+        <img src="../LOGO1.png" alt="">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('gift-price');
+            el.addEventListener('input', () => {
+                let value = el.value.replace(/[^\d]/g, '');
+                if (value) el.value = parseInt(value, 10).toLocaleString();
+            });
+        });
+
+        function calculate() {
+            const priceMan = parseFloat(document.getElementById('gift-price').value.replace(/,/g, '')) || 0;
+            const price = priceMan * 10000;
+            const relation = document.querySelector('input[name="relation"]:checked').value;
+
+            if (price <= 0) {
+                alert('증여가액을 입력해주세요.');
+                return;
+            }
+
+            let deductionAmount = 0;
+            switch (relation) {
+                case 'spouse': deductionAmount = 600000000; break;
+                case 'child_adult': deductionAmount = 50000000; break;
+                case 'child_minor': deductionAmount = 20000000; break;
+                case 'others': deductionAmount = 10000000; break;
+            }
+
+            let taxBase = price - deductionAmount;
+            let noteText = '';
+
+            if (taxBase <= 0) {
+                taxBase = 0;
+                noteText = '🌟 공제 한도 이내여서 납부할 세금이 없습니다.';
+            } else {
+                noteText = '⚠️ 취득세(주택의 경우)는 별도로 발생합니다.';
+            }
+
+            // 산출세액 계산 (누진세)
+            let tax = 0;
+            let deduction = 0;
+
+            if (taxBase > 0) {
+                if (taxBase <= 100000000) { tax = taxBase * 0.1; deduction = 0; }
+                else if (taxBase <= 500000000) { tax = taxBase * 0.2; deduction = 10000000; }
+                else if (taxBase <= 1000000000) { tax = taxBase * 0.3; deduction = 60000000; }
+                else if (taxBase <= 3000000000) { tax = taxBase * 0.4; deduction = 160000000; }
+                else { tax = taxBase * 0.5; deduction = 460000000; }
+
+                tax = tax - deduction;
+            }
+
+            // 신고세액공제 3%
+            const credit = tax * 0.03;
+            const finalTax = tax - credit;
+
+            document.getElementById('result-card').classList.remove('hidden');
+            document.getElementById('result-total').textContent = Math.floor(finalTax).toLocaleString() + '원';
+
+            document.getElementById('deduction').textContent = Math.floor(deductionAmount).toLocaleString() + '원';
+            document.getElementById('tax-base').textContent = Math.floor(taxBase).toLocaleString() + '원';
+            document.getElementById('tax-calc').textContent = Math.floor(tax).toLocaleString() + '원';
+            document.getElementById('tax-credit').textContent = Math.floor(credit).toLocaleString() + '원';
+
+            const noteEl = document.getElementById('special-note');
+            noteEl.textContent = noteText;
+            noteEl.style.display = 'block';
+            noteEl.style.background = taxBase === 0 ? 'rgba(76, 175, 80, 0.15)' : 'rgba(255, 193, 7, 0.15)';
+            noteEl.style.borderColor = taxBase === 0 ? 'rgba(76, 175, 80, 0.3)' : 'rgba(255, 193, 7, 0.3)';
+            noteEl.style.color = '#fff';
+
+            setTimeout(() => {
+                const resultCard = document.getElementById('result-card');
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = resultCard.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            }, 100);
+        }
+    </script>
+</body>
+
+</html>

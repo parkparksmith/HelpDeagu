@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>예적금 이자 계산기 - 경제 도구 모음</title>
+    <title>예적금 이자 계산기 - 예금·적금 만기 수령액 계산</title>
+    <meta name="description" content="정기예금과 정기적금의 만기 수령액을 계산해보세요. 일반과세, 세금우대, 비과세 적용 시 세후 이자와 실수령액을 한눈에 비교할 수 있습니다.">
+    <meta name="keywords" content="예금 계산기, 적금 계산기, 이자 계산, 만기 수령액, 세후 이자, 비과세, 세금우대, 정기예금, 정기적금">
     <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
     <link rel="stylesheet" href="../css/common.css">
@@ -38,7 +40,7 @@
             <div class="tool-container">
                 <div class="input-panel">
                     <h3>저축 조건</h3>
-                    
+
                     <!-- Tab Switch -->
                     <div class="tab-switch">
                         <button id="tab-deposit" class="active" onclick="switchTab('deposit')">예금 (목돈 거치)</button>
@@ -70,7 +72,7 @@
 
                 <div class="result-panel">
                     <h3>만기 수령액</h3>
-                    
+
                     <!-- Summary Card -->
                     <div id="savings-summary" class="summary-card" style="display: none;">
                         <div class="summary-item">
@@ -117,6 +119,59 @@
                     <div id="savings-placeholder" class="result-box">
                         저축 조건을 입력하고 계산하기 버튼을 눌러주세요.
                     </div>
+                </div>
+            </div>
+
+            <!-- 예적금 설명 -->
+            <div class="info-section">
+                <h3>📚 예금과 적금의 차이</h3>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>정기예금 (목돈 거치)</h4>
+                        <p>목돈을 한 번에 예치하고 만기에 원금과 이자를 함께 받는 방식입니다.</p>
+                        <ul>
+                            <li><strong>특징:</strong> 가입 시 전액을 한 번에 예치</li>
+                            <li><strong>이자 계산:</strong> 예치 금액 전체에 대해 이자 발생</li>
+                            <li><strong>추천:</strong> 목돈이 있고 일정 기간 사용하지 않을 경우</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-card">
+                        <h4>정기적금 (매월 납입)</h4>
+                        <p>매월 일정 금액을 납입하고 만기에 원금과 이자를 받는 방식입니다.</p>
+                        <ul>
+                            <li><strong>특징:</strong> 매월 정해진 금액을 납입</li>
+                            <li><strong>이자 계산:</strong> 납입 시점부터 만기까지 이자 발생</li>
+                            <li><strong>추천:</strong> 매월 꾸준히 저축하고 싶은 경우</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h3 style="margin-top: 24px;">💰 이자 과세 유형</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>일반과세 (15.4%)</h4>
+                        <p>이자소득세 14%와 지방소득세 1.4%를 합산한 세율입니다. 대부분의 금융상품에 적용됩니다.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>세금우대 (9.5%)</h4>
+                        <p>조합 등의 예탁금, 일부 저축성 보험에 적용됩니다. 가입 자격이 제한될 수 있습니다.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>비과세</h4>
+                        <p>세금이 부과되지 않습니다. 청년우대저축, 장애인/국가유공자 전용상품 등에 적용됩니다.</p>
+                    </div>
+                </div>
+
+                <div class="tip-box">
+                    <h4>💡 예·적금 수익 극대화 팁</h4>
+                    <ul>
+                        <li>비과세 또는 세금우대 상품의 가입 자격을 확인하세요.</li>
+                        <li>여러 은행의 금리를 비교하고, 특판 상품을 활용하세요.</li>
+                        <li>주거래 은행 우대금리, 급여이체 우대 등 추가 혜택을 챙기세요.</li>
+                        <li>예금자보호 한도(1인당 5천만원)를 고려해 분산 예치하세요.</li>
+                    </ul>
                 </div>
             </div>
         </section>

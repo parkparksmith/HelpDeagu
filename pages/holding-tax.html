@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>보유세 가이드 - 2025년 재산세/종부세 계산기</title>
+    <meta name="description"
+        content="2025년 주택 보유세(재산세, 종합부동산세) 가이드. 과세기준일(6월 1일), 1세대 1주택 종부세 비과세 기준(12억), 재산세 감면 등 세금 정보를 확인하세요.">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>보유세 가이드</h1>
+            </div>
+            <a href="tax-menu.html" id="back-btn">
+                <span class="material-icons-round">arrow_back</span>
+                세금 메뉴
+            </a>
+        </header>
+
+        <main class="calculator-section guide-mode">
+            <!-- 1. 보유세 가이드 -->
+            <section class="tax-guide-article" style="margin-bottom: 56px;">
+                <div class="intro-box"
+                    style="margin-bottom: 32px; background: rgba(255,255,255,0.05); padding: 24px; border-radius: 16px; border: 1px solid var(--border);">
+                    <h2 style="font-size: 1.4rem; margin-bottom: 12px; color: #ffffff;">📚 2025년 보유세 완전 정복</h2>
+                    <p style="color: rgba(255,255,255,0.9); line-height: 1.6;">보유세는 매년 <strong>6월 1일</strong> 현재 주택
+                        소유자에게 부과됩니다.<br>재산세와 종합부동산세(종부세)의 과세 기준과 공정시장가액비율을 확인하세요.</p>
+                </div>
+
+                <div class="guide-chapter" style="margin-bottom: 40px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round" style="color: var(--accent);">calendar_today</span> 과세 기준일 및
+                        납부 시기
+                    </h3>
+                    <div
+                        style="background: var(--bg-card); padding: 16px; border-radius: 12px; border: 1px solid var(--border);">
+                        <p style="margin-bottom: 8px; color: rgba(255,255,255,0.9);">📅 <strong>기준일:</strong> 매년 6월 1일
+                            (이 날 소유자가 1년치 세금 부담)</p>
+                        <p style="margin-bottom: 8px; color: rgba(255,255,255,0.9);">💰 <strong>재산세:</strong> 7월(1/2),
+                            9월(1/2) 분납</p>
+                        <p style="margin-bottom: 0; color: rgba(255,255,255,0.9);">💰 <strong>종부세:</strong> 12월 1일 ~ 15일
+                            납부</p>
+                    </div>
+                </div>
+
+                <div class="guide-chapter" style="margin-bottom: 40px;">
+                    <h3 style="font-size: 1.2rem; margin-bottom: 16px; display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round" style="color: var(--accent);">home</span> 종합부동산세 공제 금액 (2025)
+                    </h3>
+                    <div
+                        style="background: rgba(var(--primary-rgb), 0.1); border: 1px solid var(--primary); border-radius: 12px; padding: 20px;">
+                        <ul style="list-style: none; padding: 0; color: rgba(255,255,255,0.9);">
+                            <li style="margin-bottom: 8px;">✅ <strong>1세대 1주택자:</strong> 공시가격 <strong>12억원</strong> 공제
+                            </li>
+                            <li style="margin-bottom: 0;">✅ <strong>다주택자:</strong> 공시가격 합계 <strong>9억원</strong> 공제</li>
+                        </ul>
+                        <p style="font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 12px;">* 공정시장가액비율: 재산세
+                            43~45%, 종부세 60% 적용 예상</p>
+                    </div>
+                </div>
+            </section>
+
+            <div style="height: 1px; background: var(--border); margin-bottom: 48px;"></div>
+
+            <!-- 2. 계산기 섹션 -->
+            <section id="calculator-area">
+                <div style="text-align: center; margin-bottom: 32px;">
+                    <h3 style="font-size: 1.4rem; margin-bottom: 8px;">🏠 보유세 간편 계산기</h3>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.95rem;">공시가격 합계를 입력하면 재산세와 종부세 예상액을 보여드립니다.</p>
+                </div>
+
+                <div
+                    style="max-width: 480px; margin: 0 auto; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border); box-shadow: 0 4px 24px rgba(0,0,0,0.25); overflow: hidden; text-align: center;">
+                    <div style="padding: 24px;">
+                        <h3
+                            style="font-size: 1rem; color: var(--text-muted); margin-bottom: 16px; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+                            📋 정보 입력</h3>
+
+                        <!-- 공시가격 -->
+                        <div class="input-group">
+                            <label style="color: rgba(255,255,255,0.9); display: block; margin-bottom: 8px;">주택 공시가격
+                                합계</label>
+                            <div class="input-with-unit"
+                                style="justify-content: center; max-width: 300px; margin: 0 auto;">
+                                <input type="text" id="official-price" placeholder="0" inputmode="numeric"
+                                    style="text-align: center;">
+                                <span class="unit">만원</span>
+                            </div>
+                            <p style="font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-top: 6px;">* 실거래가가 아닌
+                                공시가격을 입력하세요.</p>
+                        </div>
+
+                        <!-- 1주택 여부 -->
+                        <div class="input-group" style="margin-bottom: 24px;">
+                            <label style="color: rgba(255,255,255,0.9); display: block; margin-bottom: 8px;">1세대 1주택자
+                                여부</label>
+                            <div class="radio-group"
+                                style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                                <label class="radio-label">
+                                    <input type="radio" name="one-house" value="yes" checked>
+                                    <span>예 (1주택)</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="one-house" value="no">
+                                    <span>아니오 (다주택)</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- 연령/보유기간 공제 (종부세용) -->
+                        <div class="input-group" style="margin-bottom: 24px;">
+                            <label style="color: rgba(255,255,255,0.9); display: block; margin-bottom: 8px;">고령자/장기보유
+                                세액공제 (종부세)</label>
+                            <div class="radio-group"
+                                style="display: flex; flex-direction: row; gap: 12px; flex-wrap: wrap; justify-content: center;">
+                                <label class="radio-label">
+                                    <input type="radio" name="deduction" value="0" checked>
+                                    <span>해당 없음</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="deduction" value="20">
+                                    <span>20%</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="deduction" value="50">
+                                    <span>50%</span>
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="deduction" value="80">
+                                    <span>최대 80%</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button class="calculate-btn" onclick="calculate()"
+                            style="width: 100%; justify-content: center; margin-top: 16px; padding: 14px; font-size: 1.05rem;">
+                            <span class="material-icons-round">calculate</span>
+                            계산하기
+                        </button>
+                    </div>
+
+                    <!-- 결과창 -->
+                    <div class="result-card hidden" id="result-card"
+                        style="margin: 0; border: none; border-top: 1px solid var(--border); border-radius: 0; background: rgba(0,0,0,0.2); padding: 24px; box-shadow: none;">
+                        <h3 style="font-size: 1.1rem; margin-bottom: 20px;">💰 예상 보유세</h3>
+
+                        <div class="result-summary" style="padding: 16px; background: rgba(var(--primary-rgb), 0.1);">
+                            <div class="result-main">
+                                <span class="result-label" style="font-size: 0.95rem;">총 납부 예상액</span>
+                                <span class="result-value" id="result-total" style="font-size: 1.5rem;">0원</span>
+                            </div>
+                            <p
+                                style="text-align: center; color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-top: 8px;">
+                                재산세 + 종부세 합계
+                            </p>
+                        </div>
+
+                        <div class="result-breakdown"
+                            style="background: transparent; padding: 0; margin-top: 20px; text-align: left;">
+                            <h4 style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 12px;">항목별 상세 내역
+                            </h4>
+                            <div class="breakdown-section"
+                                style="border: 1px solid var(--border); background: rgba(255,255,255,0.03);">
+                                <div class="breakdown-detail">
+                                    <div class="detail-row">
+                                        <span>재산세 (지방교육세 포함)</span>
+                                        <span id="tax-property">0원</span>
+                                    </div>
+                                    <div class="detail-row">
+                                        <span>종합부동산세 (농특세 포함)</span>
+                                        <span id="tax-holding">0원</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="result-note" id="special-note" style="display: none; margin-top: 16px;"></p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- 워터마크 -->
+    <div class="watermark">
+        <img src="../LOGO1.png" alt="">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const el = document.getElementById('official-price');
+            el.addEventListener('input', () => {
+                let value = el.value.replace(/[^\d]/g, '');
+                if (value) el.value = parseInt(value, 10).toLocaleString();
+            });
+        });
+
+        function calculate() {
+            const priceMan = parseFloat(document.getElementById('official-price').value.replace(/,/g, '')) || 0;
+            const price = priceMan * 10000;
+            const isOneHouse = document.querySelector('input[name="one-house"]:checked').value === 'yes';
+            const deductionRate = parseInt(document.querySelector('input[name="deduction"]:checked').value) / 100;
+
+            if (price <= 0) {
+                alert('공시가격을 입력해주세요.');
+                return;
+            }
+
+            // [재산세 계산] (약식: 공정시장가액 45% * 세율)
+            // 과세표준
+            const assessmentRatio = isOneHouse && price <= 900000000 ? 0.43 : 0.45; // 1주택 중저가는 43% 등 감면
+            const taxBaseProp = price * assessmentRatio;
+            let taxProp = 0;
+
+            if (taxBaseProp <= 60000000) taxProp = taxBaseProp * 0.001;
+            else if (taxBaseProp <= 150000000) taxProp = 60000 + (taxBaseProp - 60000000) * 0.0015;
+            else if (taxBaseProp <= 300000000) taxProp = 195000 + (taxBaseProp - 150000000) * 0.0025;
+            else taxProp = 570000 + (taxBaseProp - 300000000) * 0.004;
+
+            // 1세대 1주택 특례세율 (공시가 9억 이하 감면 - 약식 반영: 세율 0.05%p 인하 효과이나 복잡하므로 단순 재산세 5% 감면 처리)
+            if (isOneHouse && price <= 900000000) {
+                taxProp = taxProp * 0.95;
+            }
+
+            const eduTax = taxProp * 0.2; // 지방교육세
+            const totalPropTax = taxProp + eduTax + (taxProp * 0.14); // 도시계획세(0.14%) 포함 약식
+
+            // [종부세 계산]
+            // 공제금액: 1주택 12억, 다주택 9억
+            const deductionAmount = isOneHouse ? 1200000000 : 900000000;
+            let taxBaseHold = (price - deductionAmount) * 0.6; // 공정시장가액비율 60%
+            if (taxBaseHold < 0) taxBaseHold = 0;
+
+            let taxHold = 0;
+            if (taxBaseHold > 0) {
+                // 세율 (주택수 무관 기본세율 가정 0.5~2.7%)
+                if (taxBaseHold <= 300000000) taxHold = taxBaseHold * 0.005;
+                else if (taxBaseHold <= 600000000) taxHold = 1500000 + (taxBaseHold - 300000000) * 0.007;
+                else if (taxBaseHold <= 1200000000) taxHold = 3600000 + (taxBaseHold - 600000000) * 0.01;
+                else taxHold = 9600000 + (taxBaseHold - 1200000000) * 0.013; // 12억 초과구간 생략
+
+                // 세액공제 (고령자/장기보유)
+                taxHold = taxHold * (1 - deductionRate);
+            }
+
+            const ruralTax = taxHold * 0.2; // 농특세
+            const totalHoldTax = taxHold + ruralTax;
+
+            const total = totalPropTax + totalHoldTax;
+
+            document.getElementById('result-card').classList.remove('hidden');
+            document.getElementById('result-total').textContent = Math.floor(total).toLocaleString() + '원';
+            document.getElementById('tax-property').textContent = Math.floor(totalPropTax).toLocaleString() + '원';
+            document.getElementById('tax-holding').textContent = Math.floor(totalHoldTax).toLocaleString() + '원';
+
+            let noteText = '';
+            if (taxBaseHold === 0) {
+                noteText = isOneHouse ? '🌟 종부세 비과세 대상 (공시가 12억 이하)' : '🌟 종부세 비과세 대상 (공시가 9억 이하)';
+            } else {
+                noteText = '⚠️ 재산세 도시계획세 포함됨';
+            }
+
+            const noteEl = document.getElementById('special-note');
+            noteEl.textContent = noteText;
+            noteEl.style.display = 'block';
+            noteEl.style.background = 'rgba(76, 175, 80, 0.15)';
+            noteEl.style.borderColor = 'rgba(76, 175, 80, 0.3)';
+            noteEl.style.color = '#fff';
+
+            setTimeout(() => {
+                const resultCard = document.getElementById('result-card');
+                const offset = 80;
+                const bodyRect = document.body.getBoundingClientRect().top;
+                const elementRect = resultCard.getBoundingClientRect().top;
+                const elementPosition = elementRect - bodyRect;
+                const offsetPosition = elementPosition - offset;
+
+                window.scrollTo({ top: offsetPosition, behavior: "smooth" });
+            }, 100);
+        }
+    </script>
+</body>
+
+</html>
