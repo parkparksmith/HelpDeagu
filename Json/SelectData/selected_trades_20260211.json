@@ -1,14 +1,47 @@
 {
   "key": "3731",
-  "export_date": "2026-02-11T13:35:38.110668",
+  "export_date": "2026-02-11T22:25:18.257339",
   "selected_date": "2026-02-11",
   "summary": {
-    "total_apt_count": 16,
-    "total_presale_count": 5,
-    "apt_newhigh_count": 9,
-    "presale_newhigh_count": 1
+    "total_apt_count": 104,
+    "total_presale_count": 16,
+    "apt_newhigh_count": 24,
+    "presale_newhigh_count": 2
   },
-  "district_status": [],
+  "district_status": [
+    {
+      "gu": "달서구",
+      "count": 29
+    },
+    {
+      "gu": "수성구",
+      "count": 28
+    },
+    {
+      "gu": "동구",
+      "count": 12
+    },
+    {
+      "gu": "달성군",
+      "count": 11
+    },
+    {
+      "gu": "북구",
+      "count": 10
+    },
+    {
+      "gu": "서구",
+      "count": 10
+    },
+    {
+      "gu": "중구",
+      "count": 10
+    },
+    {
+      "gu": "남구",
+      "count": 10
+    }
+  ],
   "trades": [
     {
       "trade_type": "분양권",
