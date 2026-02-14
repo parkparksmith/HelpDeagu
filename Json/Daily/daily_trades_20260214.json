@@ -1,6 +1,6 @@
 {
   "key": "3731",
-  "export_date": "2026-02-14T08:54:41.727845",
+  "export_date": "2026-02-14T10:06:42.952302",
   "selected_date": "2026-02-14",
   "summary": {
     "total_apt_count": 94,
@@ -2463,8 +2463,8 @@
       "is_newhigh": false,
       "write_date": "2026-02-14T08:53:20.586193",
       "previous_high": 432000000,
-      "trade_count_3m_total": 296,
-      "trade_count_3m_area": 123,
+      "trade_count_3m_total": 295,
+      "trade_count_3m_area": 122,
       "construction_year": null,
       "road_name": null
     },
@@ -2513,7 +2513,7 @@
       "is_newhigh": false,
       "write_date": "2026-02-14T08:53:20.586193",
       "previous_high": 607490000,
-      "trade_count_3m_total": 296,
+      "trade_count_3m_total": 295,
       "trade_count_3m_area": 49,
       "construction_year": null,
       "road_name": null
@@ -2538,7 +2538,7 @@
       "is_newhigh": false,
       "write_date": "2026-02-14T08:53:20.586193",
       "previous_high": 644480000,
-      "trade_count_3m_total": 49,
+      "trade_count_3m_total": 51,
       "trade_count_3m_area": 10,
       "construction_year": null,
       "road_name": null
@@ -2563,7 +2563,7 @@
       "is_newhigh": true,
       "write_date": "2026-02-14T08:53:20.586193",
       "previous_high": 650140000,
-      "trade_count_3m_total": 47,
+      "trade_count_3m_total": 48,
       "trade_count_3m_area": 19,
       "construction_year": null,
       "road_name": null
@@ -2613,8 +2613,8 @@
       "is_newhigh": false,
       "write_date": "2026-02-14T08:53:20.586193",
       "previous_high": 432000000,
-      "trade_count_3m_total": 298,
-      "trade_count_3m_area": 128,
+      "trade_count_3m_total": 297,
+      "trade_count_3m_area": 127,
       "construction_year": null,
       "road_name": null
     },
@@ -2638,7 +2638,7 @@
       "is_newhigh": true,
       "write_date": "2026-02-14T08:53:20.586193",
       "previous_high": 635640000,
-      "trade_count_3m_total": 38,
+      "trade_count_3m_total": 39,
       "trade_count_3m_area": 9,
       "construction_year": null,
       "road_name": null
