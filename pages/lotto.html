@@ -74,6 +74,16 @@
                             <option value="recent">최근 10회 패턴 분석</option>
                         </select>
                     </div>
+                    <div class="option-group date-range-group">
+                        <label>회차 설정</label>
+                        <div class="date-inputs">
+                            <select id="start-drw" class="date-input"></select>
+                            <span style="color:var(--text-muted)">~</span>
+                            <select id="end-drw" class="date-input"></select>
+                        </div>
+                        <button id="apply-date-range" class="small-btn">범위 적용</button>
+                        <div id="filtered-count" class="filtered-count"></div>
+                    </div>
                 </div>
 
                 <!-- 커스텀 옵션 -->
@@ -168,13 +178,28 @@
             <section class="lotto-section stats-section">
                 <h3>
                     <span class="material-icons-round">bar_chart</span>
-                    번호별 통계 (최근 100회 기준)
+                    번호별 통계 (선택 범위 기준)
                 </h3>
                 <div class="stats-tabs">
                     <button class="stats-tab active" data-stat="frequency">출현 빈도</button>
                     <button class="stats-tab" data-stat="recent">최근 출현</button>
                 </div>
                 <div id="stats-display" class="stats-display"></div>
+            </section>
+
+            <!-- 온라인 구매 안내 -->
+            <section class="lotto-section online-purchase-section">
+                <h3>
+                    <span class="material-icons-round">shopping_cart</span>
+                    온라인 구매 안내
+                </h3>
+                <div class="online-purchase-content">
+                    <p>이번 주부터 <strong>온라인에서도</strong> 로또 구매가 가능해졌습니다!<br>편리하게 당첨의 기회를 잡으세요.</p>
+                    <a href="https://www.dhlottery.co.kr" target="_blank" class="purchase-link">
+                        <span class="material-icons-round">open_in_new</span>
+                        동행복권 사이트 바로가기
+                    </a>
+                </div>
             </section>
 
             <!-- 안내 문구 -->
@@ -185,6 +210,8 @@
         </main>
     </div>
 
+    <!-- Static Data Load -->
+    <script src="../js/lotto_data.js"></script>
     <script src="../js/lotto.js"></script>
 </body>
 

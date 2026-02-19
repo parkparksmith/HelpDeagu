@@ -11,6 +11,9 @@ let transType = 'buy';
 let quickType = 'buy';
 
 // --- 초기화 ---
+let currentTab = 'active'; // 'active' or 'history'
+
+// --- 초기화 ---
 document.addEventListener('DOMContentLoaded', () => {
     loadData();
     renderPortfolioList();
@@ -49,27 +52,82 @@ function saveData() {
     localStorage.setItem('laor_v22_portfolios', JSON.stringify(appData));
 }
 
+// --- 탭 전환 ---
+function switchPortfolioTab(tab) {
+    currentTab = tab;
+
+    // 탭 버튼 스타일 업데이트
+    document.querySelectorAll('.pf-tab').forEach(btn => btn.classList.remove('active'));
+    document.getElementById(`tab-${tab}`).classList.add('active');
+
+    renderPortfolioList();
+}
+
 // --- 포트폴리오 목록 ---
 function renderPortfolioList() {
     const grid = document.getElementById('portfolio-grid');
 
-    if (appData.portfolios.length === 0) {
+    // 현재 탭에 맞는 포트폴리오 필터링
+    const filteredPortfolios = appData.portfolios.filter(pf => {
+        const stats = calculateStats(pf);
+        // 종료된 포트폴리오: 보유 수량이 0이고, 거래 내역이 있어야 함 (단, 막 생성된 빈 포트폴리오는 제외)
+        const isCompleted = stats.qty <= 0 && pf.transactions.length > 0;
+
+        if (currentTab === 'active') {
+            return !isCompleted;
+        } else {
+            return isCompleted;
+        }
+    });
+
+    if (filteredPortfolios.length === 0) {
+        const msg = currentTab === 'active'
+            ? '진행 중인 포트폴리오가 없습니다.<br>새 포트폴리오를 만들어보세요!'
+            : '종료된 포트폴리오(History)가 없습니다.';
+
         grid.innerHTML = `
             <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #ccc;">
-                포트폴리오가 없습니다.<br>새 포트폴리오를 만들어보세요!
+                ${msg}
             </div>
         `;
         return;
     }
 
     let html = '';
-    appData.portfolios.forEach(pf => {
+    // 정렬: 최신 생성 순
+    filteredPortfolios.sort((a, b) => b.id - a.id);
+
+    filteredPortfolios.forEach(pf => {
         const stats = calculateStats(pf);
         const dailyAmount = pf.settings.budget / pf.settings.days;
 
+        const realizedColor = stats.realizedProfit >= 0 ? 'color: var(--success);' : 'color: var(--danger);';
+        const unrealizedColor = stats.unrealizedProfit >= 0 ? 'color: var(--success);' : 'color: var(--danger);';
+        const totalColor = stats.totalProfit >= 0 ? 'color: var(--success);' : 'color: var(--danger);';
+
+        const isCompleted = stats.qty <= 0 && pf.transactions.length > 0;
+        const completedBadge = isCompleted ? '<span class="phase-badge late" style="margin-left:8px; font-size: 0.6rem;">종료됨</span>' : '';
+        const cardStyle = isCompleted ? 'border: 1px solid var(--border-accent); background: var(--bg-card-hover);' : '';
+
+        // 날짜 계산
+        let dateInfo = '거래 없음';
+        if (pf.transactions.length > 0) {
+            const sortedDates = pf.transactions.map(t => t.date).sort();
+            const startDate = sortedDates[0].replace(/-/g, '.');
+            const lastDate = sortedDates[sortedDates.length - 1].replace(/-/g, '.');
+            dateInfo = `<span style="font-size: 0.75rem;">${startDate} ~ ${lastDate}</span>`;
+        }
+
         html += `
-            <div class="portfolio-card" onclick="openPortfolio(${pf.id})">
-                <span class="name">${pf.name}</span>
+            <div class="portfolio-card" style="${cardStyle}" onclick="openPortfolio(${pf.id})">
+                <span class="name">
+                    ${pf.name}
+                    ${completedBadge}
+                </span>
+                <div class="info" style="margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px dashed var(--border);">
+                    <span>기간</span>
+                    <span>${dateInfo}</span>
+                </div>
                 <div class="info">
                     <span>시드</span>
                     <span>$${pf.settings.budget.toLocaleString()}</span>
@@ -85,6 +143,18 @@ function renderPortfolioList() {
                 <div class="info">
                     <span>설정</span>
                     <span>${pf.settings.days}분할 / ${pf.settings.targetRate}%</span>
+                </div>
+                <div class="info" style="margin-top: 8px; padding-top: 8px; border-top: 1px dashed var(--border);">
+                    <span>실현구간</span>
+                    <span style="${realizedColor}">$${stats.realizedProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                </div>
+                <div class="info">
+                    <span>평가구간</span>
+                    <span style="${unrealizedColor}">$${stats.unrealizedProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
+                </div>
+                <div class="info">
+                    <span><strong>총 수익</strong></span>
+                    <span style="font-weight: 700; ${totalColor}">$${stats.totalProfit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                 </div>
                 <button class="delete-btn" onclick="deletePortfolio(event, ${pf.id})">
                     <span class="material-icons-round">delete</span>
@@ -196,6 +266,7 @@ function openPortfolio(id) {
     initQuickInput();
 
     updateDashboard();
+    checkCycleCompletion(pf);
 }
 
 function goToPortfolioList() {
@@ -470,6 +541,7 @@ function handleDrop(e, targetId) {
 
     saveData();
     updateDashboard();
+    checkCycleCompletion(pf);
 }
 
 function handleDragEnd(e) {
@@ -534,6 +606,7 @@ function saveEditTransaction() {
 
     saveData();
     updateDashboard();
+    checkCycleCompletion(pf);
     closeModal('edit-transaction-modal');
 }
 
@@ -724,6 +797,7 @@ function addTransaction() {
 
     saveData();
     updateDashboard();
+    checkCycleCompletion(pf);
     closeModal('transaction-modal');
 }
 
@@ -736,6 +810,7 @@ function deleteTransaction(id) {
     pf.transactions = pf.transactions.filter(t => t.id !== id);
     saveData();
     updateDashboard();
+    checkCycleCompletion(pf);
 }
 
 // --- 빠른 입력 (인라인) ---
@@ -772,6 +847,7 @@ function quickAddTransaction() {
 
     saveData();
     updateDashboard();
+    checkCycleCompletion(pf);
 
     // 입력 필드 초기화 (날짜는 유지, 가격/수량 초기화)
     priceInput.value = '';
@@ -997,6 +1073,164 @@ window.setTransType = setTransType;
 window.addTransaction = addTransaction;
 window.deleteTransaction = deleteTransaction;
 window.setQuickType = setQuickType;
+
+// --- 결과 리포트 모달 로직 ---
+function checkCycleCompletion(pf) {
+    if (!pf || pf.transactions.length === 0) return;
+
+    // 현재 상태 계산
+    const stats = calculateStats(pf);
+
+    // 보유 수량이 0이고, 거래 내역이 있으면서, 마지막 거래가 매도인 경우 (혹은 그냥 끝난경우)
+    // calculateStats에서 qty가 0이면 종료된 것.
+    if (stats.qty <= 0) {
+        // 마지막 사이클 통계 계산
+        const cycleStats = calculateLastCycleStats(pf);
+        if (cycleStats) {
+            showResultModal(pf, cycleStats);
+        }
+    }
+}
+
+function calculateLastCycleStats(pf) {
+    // calculateStats와 동일한 정렬 로직 사용 (일관성 유지)
+    const sorted = [...pf.transactions].sort((a, b) => {
+        const dateCompare = new Date(a.date) - new Date(b.date);
+        if (dateCompare !== 0) return dateCompare;
+        return b.id - a.id;
+    });
+
+    let cycleStartIdx = 0;
+    let qty = 0;
+    let cycles = [];
+
+    for (let i = 0; i < sorted.length; i++) {
+        const t = sorted[i];
+        if (t.type === 'buy') {
+            qty += t.qty;
+        } else {
+            qty -= t.qty;
+        }
+
+        if (qty <= 0) {
+            qty = 0; // 보정
+
+            // 사이클 종료 감지
+            // 현재 인덱스(i)까지가 하나의 사이클
+            const currentCycleTrans = sorted.slice(cycleStartIdx, i + 1);
+
+            // 통계 집계
+            let buyAmt = 0;
+            let sellAmt = 0;
+            let startDate = currentCycleTrans[0].date;
+            let endDate = currentCycleTrans[currentCycleTrans.length - 1].date;
+
+            currentCycleTrans.forEach(ct => {
+                if (ct.type === 'buy') buyAmt += ct.price * ct.qty;
+                else sellAmt += ct.price * ct.qty;
+            });
+
+            cycles.push({
+                startDate,
+                endDate,
+                totalBuy: buyAmt,
+                totalSell: sellAmt,
+                netProfit: sellAmt - buyAmt,
+                returnRate: buyAmt > 0 ? ((sellAmt - buyAmt) / buyAmt) * 100 : 0
+            });
+
+            cycleStartIdx = i + 1;
+        }
+    }
+
+    if (cycles.length === 0) return null;
+
+    // 가장 최근 완료된 사이클 반환
+    const lastCycle = cycles[cycles.length - 1];
+
+    // 진행률 계산 (설정된 분할일수 대비 경과일수)
+    const start = new Date(lastCycle.startDate);
+    const end = new Date(lastCycle.endDate);
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1;
+
+    const targetDays = pf.settings.days || 40;
+    let progress = (diffDays / targetDays) * 100;
+    // progress = Math.min(progress, 100); // 100% 넘을 수 있음 (연장전)
+
+    lastCycle.progress = progress;
+    lastCycle.dateRange = `${lastCycle.startDate.replace(/-/g, '. ')} ~ ${lastCycle.endDate.replace(/-/g, '. ')}`;
+
+    return lastCycle;
+}
+
+function showResultModal(pf, stats) {
+    document.getElementById('res-name').textContent = pf.name;
+
+    // 수익금
+    const profit = stats.netProfit;
+    const profitSign = profit >= 0 ? '+' : '';
+    const profitEl = document.getElementById('res-profit');
+    profitEl.textContent = profitSign + '$' + profit.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    // 색상 클래스 초기화 후 적용
+    profitEl.classList.remove('positive', 'negative');
+    profitEl.classList.add(profit >= 0 ? 'positive' : 'negative'); // CSS에서 positive: red, negative: blue
+
+    // 수익률
+    const rate = stats.returnRate;
+    const rateSign = rate >= 0 ? '+' : '';
+    const rateEl = document.getElementById('res-rate');
+    rateEl.textContent = rateSign + rate.toFixed(2) + '%';
+    rateEl.classList.remove('positive', 'negative');
+    rateEl.classList.add(rate >= 0 ? 'positive' : 'negative');
+
+    document.getElementById('res-total-buy').textContent = '$' + stats.totalBuy.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    document.getElementById('res-total-sell').textContent = '$' + stats.totalSell.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+    document.getElementById('res-progress').textContent = stats.progress.toFixed(1) + '%';
+    document.getElementById('res-date-range').textContent = stats.dateRange;
+
+    // 양도세 (가정: 수익의 22%, 환율 1400원)
+    // 사용자가 환율 설정을 할 수 없으므로 고정값 사용하거나 1400원 명시
+    const exchangeRate = 1400;
+    const tax = Math.max(0, profit * exchangeRate * 0.22);
+    document.getElementById('res-tax').textContent = '₩' + Math.floor(tax).toLocaleString() + '원';
+
+    // 이미지 변경 (수익: LOGO1.png / 손실: LOGO.png)
+    const imgEl = document.querySelector('.result-image-header img');
+    if (imgEl) {
+        imgEl.src = profit >= 0 ? '../LOGO1.png' : '../LOGO.png';
+        imgEl.alt = profit >= 0 ? 'Success' : 'Loss';
+    }
+
+    document.getElementById('result-modal').classList.remove('hidden');
+}
+
+// --- 포트폴리오 열기 ---
+// 원본 openPortfolio 함수를 덮어쓰거나, export 된 것을 통해 접근해야 함.
+// 하지만 이 파일 내에 정의된 openPortfolio를 직접 수정하는 것이 가장 확실함.
+// 따라서 사용자가 요청한 대로 '포트폴리오 상세내역 들어갈때' 체크하도록 openPortfolio 함수 내에 추가해야 함.
+// 여기서는 showResultModal 함수만 수정하고, openPortfolio는 별도 replace로 처리하는 것이 안전함.
+
+function shareResult() {
+    // 간단한 공유 기능 (클립보드 복사 등)
+    // 실제 이미지 공유는 html2canvas 등이 필요하지만 여기서는 텍스트 복사로 대체하거나 알림
+    const name = document.getElementById('res-name').textContent;
+    const profit = document.getElementById('res-profit').textContent;
+    const rate = document.getElementById('res-rate').textContent;
+
+    const text = `[라오어 무한매수법] ${name} 매도 완료!\n수익: ${profit} (${rate})`;
+
+    if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+            alert('결과 내용이 클립보드에 복사되었습니다.');
+        });
+    } else {
+        alert('공유하기: ' + text);
+    }
+}
+
+// --- Window Export ---
 window.quickAddTransaction = quickAddTransaction;
 window.closeModal = closeModal;
 window.toggleCollapse = toggleCollapse;
@@ -1016,3 +1250,6 @@ window.handleDragEnd = handleDragEnd;
 window.openEditModal = openEditModal;
 window.setEditTransType = setEditTransType;
 window.saveEditTransaction = saveEditTransaction;
+window.shareResult = shareResult;
+window.checkCycleCompletion = checkCycleCompletion;
+

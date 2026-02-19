@@ -80,6 +80,7 @@
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -232,6 +233,7 @@
         opacity: 0;
         transform: scale(0.95);
     }
+
     to {
         opacity: 1;
         transform: scale(1);
@@ -263,25 +265,43 @@
     font-weight: 700;
     color: #fff;
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    box-shadow: 
+    box-shadow:
         inset 0 -3px 6px rgba(0, 0, 0, 0.2),
         inset 0 3px 6px rgba(255, 255, 255, 0.2),
         0 2px 8px rgba(0, 0, 0, 0.3);
     animation: ballPop 0.3s ease backwards;
 }
 
-.lotto-ball:nth-child(1) { animation-delay: 0.05s; }
-.lotto-ball:nth-child(2) { animation-delay: 0.1s; }
-.lotto-ball:nth-child(3) { animation-delay: 0.15s; }
-.lotto-ball:nth-child(4) { animation-delay: 0.2s; }
-.lotto-ball:nth-child(5) { animation-delay: 0.25s; }
-.lotto-ball:nth-child(6) { animation-delay: 0.3s; }
+.lotto-ball:nth-child(1) {
+    animation-delay: 0.05s;
+}
+
+.lotto-ball:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.lotto-ball:nth-child(3) {
+    animation-delay: 0.15s;
+}
+
+.lotto-ball:nth-child(4) {
+    animation-delay: 0.2s;
+}
+
+.lotto-ball:nth-child(5) {
+    animation-delay: 0.25s;
+}
+
+.lotto-ball:nth-child(6) {
+    animation-delay: 0.3s;
+}
 
 @keyframes ballPop {
     from {
         opacity: 0;
         transform: scale(0) rotate(-180deg);
     }
+
     to {
         opacity: 1;
         transform: scale(1) rotate(0);
@@ -289,11 +309,31 @@
 }
 
 /* 번호 색상 (동행복권 기준) */
-.lotto-ball.range-1 { background: linear-gradient(135deg, #fbc400, #e5a800); } /* 1-10 노랑 */
-.lotto-ball.range-2 { background: linear-gradient(135deg, #69c8f2, #4ab3e6); } /* 11-20 파랑 */
-.lotto-ball.range-3 { background: linear-gradient(135deg, #ff7272, #e65555); } /* 21-30 빨강 */
-.lotto-ball.range-4 { background: linear-gradient(135deg, #aaaaaa, #888888); } /* 31-40 회색 */
-.lotto-ball.range-5 { background: linear-gradient(135deg, #b0d840, #96c428); } /* 41-45 초록 */
+.lotto-ball.range-1 {
+    background: linear-gradient(135deg, #fbc400, #e5a800);
+}
+
+/* 1-10 노랑 */
+.lotto-ball.range-2 {
+    background: linear-gradient(135deg, #69c8f2, #4ab3e6);
+}
+
+/* 11-20 파랑 */
+.lotto-ball.range-3 {
+    background: linear-gradient(135deg, #ff7272, #e65555);
+}
+
+/* 21-30 빨강 */
+.lotto-ball.range-4 {
+    background: linear-gradient(135deg, #aaaaaa, #888888);
+}
+
+/* 31-40 회색 */
+.lotto-ball.range-5 {
+    background: linear-gradient(135deg, #b0d840, #96c428);
+}
+
+/* 41-45 초록 */
 
 .game-copy-btn {
     padding: 8px;
@@ -371,10 +411,14 @@
     position: relative;
     cursor: default;
     transition: transform 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+    /* 기본 테두리 */
 }
 
 .stat-ball:hover {
     transform: scale(1.1);
+    z-index: 10;
 }
 
 .stat-ball .stat-count {
@@ -388,12 +432,37 @@
     border: 1px solid var(--border);
 }
 
+/* Hot Number Highlight (뜨거운 번호: 또렷하고 큼) */
 .stat-ball.hot {
-    box-shadow: 0 0 12px rgba(248, 81, 73, 0.5);
+    border: 3px solid #ff4757;
+    box-shadow: 0 0 15px rgba(255, 71, 87, 0.6);
+    /* 강한 붉은 광 */
+    transform: scale(1.15);
+    /* 크기 확대 */
+    z-index: 10;
+    opacity: 1 !important;
+    /* 무조건 선명하게 */
+    filter: none;
 }
 
+/* Cold Number Highlight (차가운 번호: 흐릿하고 작음) */
+.stat-ball.cold-highlight {
+    border: 2px solid #3498db;
+    box-shadow: inset 0 0 10px rgba(52, 152, 219, 0.3);
+    /* 안쪽으로 차가운 느낌 */
+    transform: scale(0.9);
+    /* 크기 축소 */
+    opacity: 0.6;
+    /* 반투명 (흐릿함) */
+    filter: saturate(0.5);
+    /* 채도 감소 */
+}
+
+/* Original Cold Style (Used for 'recent' stats mostly) */
 .stat-ball.cold {
-    opacity: 0.5;
+    opacity: 0.4;
+    filter: grayscale(0.8);
+    transform: scale(0.9);
 }
 
 /* 면책 조항 */
@@ -426,61 +495,170 @@
     .lotto-section {
         padding: 16px;
     }
-    
+
     .mode-tab {
         min-width: 100px;
         padding: 12px 14px;
         font-size: 0.8rem;
     }
-    
+
     .option-row {
         flex-direction: column;
         gap: 12px;
     }
-    
+
     .generate-controls {
         flex-direction: column;
         align-items: stretch;
     }
-    
+
     .count-control {
         width: 100%;
     }
-    
+
     .count-btns {
         width: 100%;
     }
-    
+
     .count-btn {
         flex: 1;
     }
-    
+
     .generate-btn {
         width: 100%;
     }
-    
+
     .lotto-game {
         flex-direction: column;
         align-items: stretch;
         gap: 10px;
     }
-    
+
     .game-label {
         text-align: center;
     }
-    
+
     .lotto-balls {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .lotto-ball {
         width: 38px;
         height: 38px;
         font-size: 0.9rem;
     }
-    
+
     .game-copy-btn {
         align-self: center;
     }
+}
+
+/* 온라인 구매 안내 섹션 */
+.online-purchase-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+    padding: 10px;
+}
+
+.online-purchase-content p {
+    font-size: 1rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.online-purchase-content strong {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.purchase-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #00C73C, #009E30);
+    /* 동행복권 느낌의 초록색 */
+    color: white;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 199, 60, 0.2);
+}
+
+.purchase-link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 199, 60, 0.3);
+    background: linear-gradient(135deg, #00D640, #00B336);
+}
+
+.purchase-link .material-icons-round {
+    font-size: 20px;
+}
+
+/* Date Range Picker */
+.date-range-group .date-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.date-input {
+    flex: 1;
+    padding: 8px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.85rem;
+    min-width: 0;
+    cursor: pointer;
+}
+
+select.date-input {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23888' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 16px;
+    padding-right: 30px;
+}
+
+.date-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.small-btn {
+    width: 100%;
+    padding: 8px;
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 4px;
+}
+
+.small-btn:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.filtered-count {
+    margin-top: 8px;
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-align: right;
 }

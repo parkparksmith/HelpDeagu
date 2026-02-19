@@ -4,7 +4,7 @@
 //
 
 const GITHUB_CONFIG = {
-    token: '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',
+    token: '', // 토큰이 없으면 공개 리포지토리로 접근 (Rate Limit 주의: 60회/시간)
     repo: 'parkparksmith/HelpDeagu',
     branch: 'main'
 };
@@ -21,12 +21,14 @@ async function initializeDateSelect() {
     try {
         // GitHub API로 SelectData 폴더의 파일 목록 조회
         const url = `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/Json/SelectData?ref=${GITHUB_CONFIG.branch}`;
-        const response = await fetch(url, {
-            headers: {
-                'Authorization': `token ${GITHUB_CONFIG.token}`,
-                'Accept': 'application/vnd.github.v3+json'
-            }
-        });
+        const headers = {
+            'Accept': 'application/vnd.github.v3+json'
+        };
+        if (GITHUB_CONFIG.token) {
+            headers['Authorization'] = `token ${GITHUB_CONFIG.token}`;
+        }
+
+        const response = await fetch(url, { headers });
 
         if (!response.ok) throw new Error('날짜 목록을 불러오는데 실패했습니다.');
 
@@ -101,12 +103,14 @@ function formatDateDisplay(dateStr) {
 async function fetchFromGitHub(filePath) {
     const url = `https://api.github.com/repos/${GITHUB_CONFIG.repo}/contents/${filePath}?ref=${GITHUB_CONFIG.branch}`;
 
-    const response = await fetch(url, {
-        headers: {
-            'Authorization': `token ${GITHUB_CONFIG.token}`,
-            'Accept': 'application/vnd.github.v3+json'
-        }
-    });
+    const headers = {
+        'Accept': 'application/vnd.github.v3+json'
+    };
+    if (GITHUB_CONFIG.token) {
+        headers['Authorization'] = `token ${GITHUB_CONFIG.token}`;
+    }
+
+    const response = await fetch(url, { headers });
 
     if (!response.ok) {
         if (response.status === 404) {

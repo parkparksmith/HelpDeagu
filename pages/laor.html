@@ -49,6 +49,10 @@
         <section id="portfolio-list-view" class="view active">
             <div class="portfolio-header">
                 <h3>📜 내 포트폴리오</h3>
+                <div class="portfolio-tabs">
+                    <button id="tab-active" class="pf-tab active" onclick="switchPortfolioTab('active')">진행 중</button>
+                    <button id="tab-history" class="pf-tab" onclick="switchPortfolioTab('history')">History</button>
+                </div>
                 <div class="header-actions">
                     <button class="action-btn secondary small-btn" onclick="exportAllData()">
                         <span class="material-icons-round">download</span> 백업
@@ -63,6 +67,58 @@
                     </button>
                 </div>
             </div>
+
+            <style>
+                .portfolio-tabs {
+                    display: flex;
+                    gap: 8px;
+                    margin-left: 20px;
+                    flex: 1;
+                    /* 남은 공간 차지 */
+                }
+
+                .pf-tab {
+                    padding: 6px 16px;
+                    background: transparent;
+                    border: 1px solid var(--border);
+                    border-radius: 20px;
+                    color: var(--text-secondary);
+                    font-size: 0.85rem;
+                    cursor: pointer;
+                    transition: all 0.2s;
+                }
+
+                .pf-tab:hover {
+                    background: var(--bg-card-hover);
+                    color: var(--text-primary);
+                }
+
+                .pf-tab.active {
+                    background: var(--accent);
+                    border-color: var(--accent);
+                    color: #fff;
+                    font-weight: 600;
+                }
+
+                @media (max-width: 600px) {
+                    .portfolio-header {
+                        flex-direction: column;
+                        align-items: flex-start;
+                        gap: 12px;
+                    }
+
+                    .portfolio-tabs {
+                        margin-left: 0;
+                        width: 100%;
+                        justify-content: flex-start;
+                    }
+
+                    .header-actions {
+                        width: 100%;
+                        justify-content: flex-end;
+                    }
+                }
+            </style>
             <div id="portfolio-grid" class="card-grid">
                 <!-- 포트폴리오 카드들 -->
             </div>
@@ -448,6 +504,57 @@
             </div>
         </div>
         <div class="modal-backdrop" onclick="closeModal('transaction-modal')"></div>
+    </div>
+
+    <!-- 결과 리포트 모달 -->
+    <div id="result-modal" class="modal hidden" style="z-index: 2000;">
+        <div class="modal-content result-modal-content">
+            <div class="result-image-header">
+                <img src="../LOGO.png" alt="Success Logo" class="cheers-img">
+            </div>
+
+            <div class="result-body">
+                <h2 id="res-name" class="res-title">TQQQ</h2>
+                <div class="res-profit-box">
+                    <span id="res-profit" class="res-profit-amount">+$452.15</span>
+                    <span id="res-rate" class="res-profit-rate">+8.61%</span>
+                </div>
+
+                <div class="res-grid">
+                    <div class="res-item">
+                        <span id="res-total-buy">$5,250.74</span>
+                        <label>매입 금액</label>
+                    </div>
+                    <div class="res-item">
+                        <span id="res-total-sell">$5,702.89</span>
+                        <label>매도 금액</label>
+                    </div>
+                </div>
+
+                <div class="res-details">
+                    <p>진행 회차 <strong id="res-progress">75.0%</strong></p>
+                    <p id="res-date-range" class="res-date">2026. 01. 29 ~ 2026. 02. 10</p>
+
+                    <div class="res-tax-box">
+                        예상 양도세 <span id="res-tax">₩129,315원</span><br>
+                        <span class="tax-note">(기준 환율 1,400원)</span>
+                    </div>
+
+                    <p class="res-footer-msg">
+                        포트폴리오를 종료합니다.<br>
+                        리포트에서 확인할 수 있습니다.
+                    </p>
+                </div>
+
+                <div class="res-actions">
+                    <button class="action-btn secondary text-btn" onclick="closeModal('result-modal')">닫기</button>
+                    <button class="action-btn primary share-btn" onclick="shareResult()">
+                        공유하기
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop" onclick="closeModal('result-modal')"></div>
     </div>
 
     <!-- 거래 수정 모달 -->
