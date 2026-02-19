@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-02-15T09:15:30.056802",
+  "selected_date": "2026-02-15",
+  "summary": {
+    "total_apt_count": 1,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "남구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 181568,
+      "district": "대구광역시 남구 봉덕동",
+      "gu": "남구",
+      "dong": "봉덕동",
+      "bunji": "1329-2",
+      "apt_name": "대덕1차",
+      "area": 114.77,
+      "contract_date": "2026-02-10",
+      "amount": 230000000,
+      "floor": 1,
+      "buyer_type": "개인",
+      "construction_year": 1990,
+      "road_name": "앞산순환로 657",
+      "transaction_type": "직거래",
+      "agent_location": "",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-02-15T09:15:20.096321",
+      "previous_high": 230000000,
+      "trade_count_3m_total": 8,
+      "trade_count_3m_area": 1,
+      "presale_type": null
+    }
+  ]
+}

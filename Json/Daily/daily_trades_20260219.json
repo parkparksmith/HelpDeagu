@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-02-19T22:29:03.121014",
+  "selected_date": "2026-02-19",
+  "summary": {
+    "total_apt_count": 0,
+    "total_presale_count": 1,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 1
+  },
+  "district_status": [
+    {
+      "gu": "수성구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "분양권",
+      "raw_id": 15957,
+      "district": "대구광역시 수성구 범어동",
+      "gu": "수성구",
+      "dong": "범어동",
+      "bunji": "1",
+      "apt_name": "어나드범어",
+      "area": 139.3956,
+      "contract_date": "2026-02-03",
+      "amount": 2177000000,
+      "floor": 19,
+      "buyer_type": "개인",
+      "presale_type": "분양권",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 수성구",
+      "termination_date": null,
+      "is_newhigh": true,
+      "write_date": "2026-02-19T22:28:56.641629",
+      "previous_high": null,
+      "trade_count_3m_total": 1,
+      "trade_count_3m_area": 1,
+      "construction_year": null,
+      "road_name": null
+    }
+  ]
+}
