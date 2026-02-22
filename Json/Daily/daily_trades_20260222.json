@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-02-22T10:00:07.253576",
+  "selected_date": "2026-02-22",
+  "summary": {
+    "total_apt_count": 1,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 1,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "중구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 191634,
+      "district": "대구광역시 중구 삼덕동2가",
+      "gu": "중구",
+      "dong": "삼덕동2가",
+      "bunji": "166",
+      "apt_name": "빌리브프리미어",
+      "area": 104.4608,
+      "contract_date": "2026-02-12",
+      "amount": 1030000000,
+      "floor": 44,
+      "buyer_type": "개인",
+      "construction_year": 2023,
+      "road_name": "공평로 6",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 중구",
+      "termination_date": null,
+      "is_newhigh": true,
+      "write_date": "2026-02-22T09:59:57.343977",
+      "previous_high": 970000000,
+      "trade_count_3m_total": 3,
+      "trade_count_3m_area": 2,
+      "presale_type": null
+    }
+  ]
+}
