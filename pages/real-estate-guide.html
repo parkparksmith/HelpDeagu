@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부동산 가이드 & 꿀팁 - 대구살료</title>
+    <meta name="description"
+        content="부동산 필수 용어(LTV, DTI, DSR) 정리, 아파트 임장 체크리스트, 실거래가 조회 및 활용법 등 부동산 투자와 내 집 마련을 위한 핵심 가이드입니다.">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        .guide-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .guide-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+
+        .guide-section h2 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--accent);
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .guide-section h3 {
+            color: var(--text-primary);
+            font-size: 1.1rem;
+            margin: 25px 0 10px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .guide-section h3::before {
+            content: '';
+            display: block;
+            width: 4px;
+            height: 18px;
+            background: var(--accent);
+            border-radius: 2px;
+        }
+
+        .guide-content p {
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin-bottom: 15px;
+            word-break: keep-all;
+        }
+
+        .guide-box {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+        }
+
+        .guide-box strong {
+            color: var(--text-primary);
+        }
+
+        .term-list dt {
+            font-weight: 700;
+            color: var(--accent);
+            margin-top: 15px;
+            font-size: 1.05rem;
+        }
+
+        .term-list dd {
+            margin-left: 0;
+            margin-top: 5px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .check-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .check-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .check-list li::before {
+            content: 'check_circle';
+            font-family: 'Material Icons Round';
+            position: absolute;
+            left: 0;
+            top: 2px;
+            color: var(--accent);
+            font-size: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .guide-section {
+                padding: 20px;
+            }
+
+            .guide-section h2 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>부동산 가이드</h1>
+            </div>
+            <a href="../index.html" id="back-btn">
+                <span class="material-icons-round">arrow_back</span>
+                메인으로
+            </a>
+        </header>
+
+        <main class="view active guide-container">
+
+            <!-- 1. 부동산 용어 정리 -->
+            <section class="guide-section">
+                <h2>
+                    <span class="material-icons-round">menu_book</span>
+                    필수 부동산 대출 용어 (LTV, DTI, DSR)
+                </h2>
+                <div class="guide-content">
+                    <p>
+                        주택 담보 대출을 받을 때 가장 많이 접하게 되는 세 가지 용어입니다.
+                        이 비율들에 따라 내 집 마련 시 대출 가능한 금액이 결정되므로 정확히 이해하는 것이 중요합니다.
+                    </p>
+
+                    <dl class="term-list">
+                        <dt>1. LTV (Loan To Value ratio) - 주택담보대출비율</dt>
+                        <dd>
+                            집값 대비 대출을 얼마나 받을 수 있는지를 나타내는 비율입니다.<br>
+                            예를 들어, <strong>LTV가 70%</strong>이고 <strong>5억짜리 아파트</strong>를 산다면, 최대 <strong>3억
+                                5천만원</strong>까지 대출이 가능합니다.
+                            <div class="guide-box">
+                                💡 <strong>핵심:</strong> "집값이 얼마냐"를 기준으로 대출 한도를 정하는 것.
+                            </div>
+                        </dd>
+
+                        <dt>2. DTI (Debt To Income ratio) - 총부채상환비율</dt>
+                        <dd>
+                            내 연봉(소득)에서 <strong>주택담보대출 원리금 + 기타 대출의 '이자'</strong>가 차지하는 비율입니다.<br>
+                            소득이 높을수록 대출 한도가 늘어납니다.
+                        </dd>
+
+                        <dt>3. DSR (Debt Service Ratio) - 총부채원리금상환비율</dt>
+                        <dd>
+                            내 연봉(소득)에서 <strong>모든 대출의 '원금 + 이자'</strong>가 차지하는 비율입니다.<br>
+                            DTI보다 훨씬 강력한 규제로, 마이너스 통장, 신용대출, 자동차 할부금 등의 <strong>원금 상환액까지 포함</strong>하여 계산합니다.
+                            <div class="guide-box">
+                                💡 <strong>핵심:</strong> 최근 대출 규제의 핵심은 DSR입니다. "갚을 능력이 되는 만큼만 빌려라"라는 뜻으로, 기존에 빚이 많으면 주택
+                                담보 대출 한도가 확 줄어듭니다.
+                            </div>
+                        </dd>
+                    </dl>
+                </div>
+            </section>
+
+            <!-- 2. 임장 체크리스트 -->
+            <section class="guide-section">
+                <h2>
+                    <span class="material-icons-round">checklist</span>
+                    아파트 임장(현장 답사) 필수 체크리스트
+                </h2>
+                <div class="guide-content">
+                    <p>
+                        '임장'은 현장에 임한다는 뜻으로, 직접 가서 눈으로 확인하는 과정입니다.
+                        단순히 집 내부만 보는 것이 아니라, 주변 환경과 입지까지 꼼꼼히 체크해야 합니다.
+                    </p>
+
+                    <h3>🏠 단지 외부 및 주변 환경</h3>
+                    <ul class="check-list">
+                        <li><strong>교통:</strong> 지하철역/버스정류장까지 실제 도보 시간 (직접 걸어보세요!)</li>
+                        <li><strong>학군:</strong> 초등학교 등교길 안전(횡단보도 유무), 학원가 형성 여부</li>
+                        <li><strong>편의시설:</strong> 마트, 병원, 은행 등 상권과의 거리</li>
+                        <li><strong>경사도:</strong> 평지인지, 가파른 언덕인지 (유모차나 휠체어 이동 편의성)</li>
+                        <li><strong>혐오시설:</strong> 주변에 소각장, 유흥가 등 기피 시설 유무 확인</li>
+                    </ul>
+
+                    <h3>🚪 세대 내부 확인 (집 볼 때)</h3>
+                    <ul class="check-list">
+                        <li><strong>누수/결로:</strong> 베란다 모서리, 창틀 주변 곰팡이 흔적 확인</li>
+                        <li><strong>채광/조망:</strong> 낮 시간에 방문하여 햇빛이 잘 드는지, 앞 건물에 가리지 않는지 확인</li>
+                        <li><strong>수압/배수:</strong> 화장실 변기 물 내림과 세면대/싱크대 물 동시에 틀어보기</li>
+                        <li><strong>소음:</strong> 층간소음 외에도 도로변 소음, 배달 오토바이 소음 확인</li>
+                    </ul>
+
+                    <div class="guide-box">
+                        💡 <strong>팁:</strong> 가급적 <strong>낮과 밤</strong>, 두 번 방문해보세요. 낮에는 채광을, 밤에는 주차 공간과 가로등/치안 상태를 확인할
+                        수 있습니다.
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. 부동산 실거래가 활용 -->
+            <section class="guide-section">
+                <h2>
+                    <span class="material-icons-round">trending_up</span>
+                    실거래가 조회 및 시세 파악
+                </h2>
+                <div class="guide-content">
+                    <p>
+                        호가(집주인이 부르는 가격)와 실거래가(실제 거래된 가격)는 다를 수 있습니다.
+                        정확한 시세 파악을 위해서는 <strong>'국토교통부 실거래가'</strong>를 기준으로 데이터를 분석해야 합니다.
+                    </p>
+
+                    <h3>분석 포인트</h3>
+                    <ul class="check-list">
+                        <li><strong>거래량:</strong> 거래량이 늘어나면서 가격이 오르는지, 줄어들면서 호가만 높은지 확인</li>
+                        <li><strong>최고가 대비 하락폭:</strong> 전고점 대비 현재 얼마나 떨어졌는지 비율(%) 확인</li>
+                        <li><strong>전세가율:</strong> 매매가 대비 전세가 비율이 높다면 갭투자가 활발할 수 있음을 의미</li>
+                    </ul>
+
+                    <p style="margin-top: 20px;">
+                        대구 지역의 최신 실거래 정보는 <a href="daily-trades.html"
+                            style="color: var(--accent); font-weight: 600;">데일리 실거래가</a> 메뉴에서 간편하게 확인하실 수 있습니다.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 공통 하단 푸터 (AdSense) -->
+            <footer class="site-footer"
+                style="padding-top: 20px; text-align: center; color: var(--text-muted); border-top: 1px solid var(--border);">
+                <div class="footer-links" style="margin-bottom: 15px;">
+                    <a href="about.html"
+                        style="margin: 0 10px; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">소개
+                        (About)</a>
+                    <span style="color: var(--border);">|</span>
+                    <a href="terms.html"
+                        style="margin: 0 10px; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">이용약관</a>
+                    <span style="color: var(--border);">|</span>
+                    <a href="privacy.html"
+                        style="margin: 0 10px; color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">개인정보처리방침</a>
+                </div>
+                <p class="copyright" style="font-size: 0.8rem;">© 2024 대구살료. All rights reserved.</p>
+            </footer>
+
+        </main>
+    </div>
+</body>
+
+</html>
