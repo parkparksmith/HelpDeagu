@@ -141,11 +141,6 @@
             <div class="table-header">
                 <h3>📊 전체 거래 내역 (v2)</h3>
                 <div class="table-controls">
-                    <select id="filter-type" onchange="filterTrades()">
-                        <option value="all">전체</option>
-                        <option value="apt">아파트</option>
-                        <option value="presale">분양권</option>
-                    </select>
                     <select id="filter-district" onchange="filterTrades()">
                         <option value="all">전체 구/군</option>
                     </select>
@@ -156,6 +151,64 @@
             </div>
         </div>
     </div>
+
+    <!-- 상세 모달 -->
+    <div id="trade-detail-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeDetailModal()">&times;</span>
+            <div class="modal-header">
+                <h3 id="modal-apt-name">단지명</h3>
+                <span id="modal-dong" class="modal-subtitle">동이름</span>
+            </div>
+            <div id="modal-price" class="modal-price-box">가격</div>
+            <div id="modal-info" class="modal-info-box">
+                <!-- 정보 채워짐 -->
+            </div>
+            <div class="modal-tabs-wrapper"
+                style="margin-top:20px; display:flex; justify-content:space-between; align-items:flex-end;">
+                <h4 style="margin: 0; font-size: 0.95rem; color: var(--text-primary);">실거래가 추이 및 내역</h4>
+                <div id="modal-period-tabs" class="period-tabs" style="display:flex; gap:8px;">
+                    <!-- JS 동적 버튼 렌더링 -->
+                </div>
+            </div>
+
+            <div id="modal-loading" style="display:none; text-align:center; padding: 20px; color: var(--text-muted);">
+                <div class="spinner"
+                    style="width:24px; height:24px; display:inline-block; vertical-align:middle; border-width: 2px;">
+                </div>
+                <span style="display:inline-block; vertical-align:middle; margin-left: 8px;">전체 데이터 불러오는 중...</span>
+            </div>
+
+            <div id="modal-content-area">
+                <div id="modal-chart">
+                    <!-- 차트 그려짐 -->
+                </div>
+
+                <div id="modal-trade-list-container"
+                    style="margin-top: 15px; height: 250px; min-height: 250px; overflow-y: auto; background: rgba(0,0,0,0.2); border-radius: 8px; border: 1px solid var(--border);">
+                    <table class="premium-table"
+                        style="width:100%; font-size: 0.85rem; text-align:center; table-layout: fixed;">
+                        <thead style="position: sticky; top: 0; background: var(--bg-card); z-index: 1;">
+                            <tr>
+                                <th style="padding: 10px; text-align: center; width: 33%;">계약일</th>
+                                <th style="padding: 10px; text-align: center; width: 44%;">거래가</th>
+                                <th style="padding: 10px; text-align: center; width: 23%;">층</th>
+                            </tr>
+                        </thead>
+                        <tbody id="modal-trade-list">
+                            <!-- 거래 내역 표 생성됨 -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart.js 및 플러그인 추가 -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="https://cdn.jsdelivr.net/npm/hammerjs@2.0.8"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2.0.1"></script>
 
     <script src="../js/daily-trades-v2.js"></script>
 </body>

@@ -141,6 +141,7 @@ async function loadDailyTrades() {
         const aptNamesSet = new Set(rawTrades.filter(t => t.apt_name).map(t => t.apt_name));
         const aptNamesList = Array.from(aptNamesSet);
         let pastTrades = [];
+        let aptInfoList = [];
 
         try {
             const chunkSize = 20;
@@ -158,6 +159,7 @@ async function loadDailyTrades() {
                         .gte('contractdate', threeYearsAgoStr)
                         .lte('contractdate', tradeDateStr)
                         .is('termination_date', null)
+                        .order('contractdate', { ascending: false })
                         .limit(2000)
                 );
 
@@ -170,21 +172,40 @@ async function loadDailyTrades() {
                         .gte('contractdate', threeYearsAgoStr)
                         .lte('contractdate', tradeDateStr)
                         .is('termination_date', null)
+                        .order('contractdate', { ascending: false })
+                        .limit(2000)
+                );
+                // aptinfo 테이블에서 해당 단지의 최고가(high_price) 정보 가져오기용 프로미스
+                pastPromises.push(
+                    supabaseClient
+                        .from('aptinfo')
+                        .select('apt_name, area, high_price, household_count')
+                        .in('apt_name', chunk)
                         .limit(2000)
                 );
             }
 
             // 병렬로 모두 실행하여 쿼리 타임아웃/병목 해소
             const results = await Promise.allSettled(pastPromises);
-            results.forEach(res => {
+            results.forEach((res, index) => {
                 if (res.status === 'fulfilled' && res.value.data) {
-                    pastTrades.push(...res.value.data);
+                    // pastPromises의 인덱스 중 3의 배수+2(즉 2, 5, 8...)가 aptinfo임
+                    if (index % 3 === 2) {
+                        aptInfoList.push(...res.value.data);
+                    } else {
+                        pastTrades.push(...res.value.data);
+                    }
                 }
             });
 
         } catch (e) {
             console.error("과거 데이터 로딩 실패:", e);
         }
+
+        const tradeDateStrForFilter = document.getElementById('trade-date').value;
+        const qDateFiltered3M = new Date(tradeDateStrForFilter);
+        qDateFiltered3M.setMonth(qDateFiltered3M.getMonth() - 3);
+        const limitStr3M = qDateFiltered3M.toISOString().split('T')[0];
 
         // v1 구조로 데이터 정제
         allTrades = rawTrades.map(t => {
@@ -194,22 +215,34 @@ async function loadDailyTrades() {
             const cityParts = (t.city || '').trim().split(/\s+/);
             const adminDong = cityParts.length >= 3 ? cityParts.slice(2).join(' ') : (t.dong || '-');
 
-            // 3개월 이내 전체 타입 거래
-            // DB날짜 형식 YYYY-MM-DD 를 문자열 비교
-            const past3MAll = pastTrades.filter(pt =>
-                pt.apt_name === t.apt_name &&
-                (pt.contractdate || '') >= threeMonthsAgoStr
-            );
-            // 3개월 이내 같은 타입 거래
+            const tDate = (t.contractdate || '').substring(0, 10);
+            let limitStr3M = '1900-01-01';
+            if (tDate.length >= 10) {
+                const tObj = new Date(tDate);
+                tObj.setMonth(tObj.getMonth() - 3);
+                limitStr3M = tObj.toISOString().split('T')[0];
+            }
+
+            // 개별 거래건의 계약일(tDate)을 기준으로 3개월 전 ~ 계약일까지를 카운트
+            const past3MAll = pastTrades.filter(pt => {
+                const ptDate = (pt.contractdate || '').substring(0, 10);
+                return pt.apt_name === t.apt_name &&
+                    ptDate >= limitStr3M &&
+                    ptDate <= tDate;
+            });
+
+            // 3개월 이내 같은 타입(면적) 거래
             const past3MSame = past3MAll.filter(pt =>
                 Math.abs(parseFloat(pt.area || 0) - parseFloat(t.area || 0)) < 1.0
             );
 
-            // 3년 이내 같은 타입 거래 (그래프용)
-            const past3YSame = pastTrades.filter(pt =>
-                pt.apt_name === t.apt_name &&
-                Math.abs(parseFloat(pt.area || 0) - parseFloat(t.area || 0)) < 1.0
-            ).sort((a, b) => (a.contractdate || '').localeCompare(b.contractdate || ''));
+            // 3년 이내 같은 타입 거래 (풀 이력, 모달/그래프용, 계약일 이전(포함) 이력)
+            const past3YSame = pastTrades.filter(pt => {
+                const ptDate = (pt.contractdate || '').substring(0, 10);
+                return pt.apt_name === t.apt_name &&
+                    Math.abs(parseFloat(pt.area || 0) - parseFloat(t.area || 0)) < 1.0 &&
+                    ptDate <= tDate;
+            }).sort((a, b) => (a.contractdate || '').localeCompare(b.contractdate || ''));
 
             let currentPriceNum = t.amount;
             if (typeof currentPriceNum === 'string') {
@@ -217,15 +250,50 @@ async function loadDailyTrades() {
             }
             if (isNaN(currentPriceNum)) currentPriceNum = 0;
 
-            let highestPrice = currentPriceNum;
-            if (past3YSame.length > 0) {
-                const prices = past3YSame.map(pt => {
+            // 이전 최고가는 '현재 거래의 계약일보다 이전(미만)'인 거래들 중에서 찾음
+            const pastBeforeContractAllTime = past3YSame.filter(pt => {
+                const ptDate = (pt.contractdate || '').substring(0, 10);
+                return ptDate < tDate;
+            });
+            const pastBeforeContract3M = pastBeforeContractAllTime.filter(pt => {
+                const ptDate = (pt.contractdate || '').substring(0, 10);
+                return ptDate >= limitStr3M;
+            });
+
+            let highestPrice3M = 0;
+            if (pastBeforeContract3M.length > 0) {
+                const prices = pastBeforeContract3M.map(pt => {
                     let val = pt.amount;
                     if (typeof val === 'string') val = parseInt(val.replace(/[^0-9]/g, ''));
                     return isNaN(val) ? 0 : val;
                 });
-                const maxPast = Math.max(...prices);
-                if (maxPast > highestPrice) highestPrice = maxPast;
+                highestPrice3M = Math.max(...prices);
+            }
+
+            let highestPriceAllTime = 0;
+            if (pastBeforeContractAllTime.length > 0) {
+                const prices = pastBeforeContractAllTime.map(pt => {
+                    let val = pt.amount;
+                    if (typeof val === 'string') val = parseInt(val.replace(/[^0-9]/g, ''));
+                    return isNaN(val) ? 0 : val;
+                });
+                highestPriceAllTime = Math.max(...prices);
+            }
+
+            // aptinfo에서 high_price 및 household_count 반영
+            const matchedAptInfo = aptInfoList.filter(info =>
+                info.apt_name === t.apt_name &&
+                Math.abs(parseFloat(info.area || 0) - parseFloat(t.area || 0)) < 1.0
+            );
+
+            let household_count = 0;
+            if (matchedAptInfo.length > 0) {
+                const infoMax = Math.max(...matchedAptInfo.map(i => i.high_price || 0));
+                if (infoMax > highestPriceAllTime) {
+                    highestPriceAllTime = infoMax;
+                }
+                const counts = matchedAptInfo.map(i => i.household_count || 0).filter(c => c > 0);
+                if (counts.length > 0) household_count = Math.max(...counts);
             }
 
             return {
@@ -238,12 +306,16 @@ async function loadDailyTrades() {
                 price: t.amount,
                 contract_date: t.contractdate,
                 construction_year: t.construction_year,
+                household_count: household_count,
                 cancelDate: t.termination_date,
                 isNewHigh: t.newhigh === true || t.newhigh === 1,
-                previousHigh: highestPrice,
+                previousHigh: highestPrice3M, // 기본 호환용
+                highestPrice3M: highestPrice3M,
+                highestPriceAllTime: highestPriceAllTime,
                 recentVolumeAll: past3MAll.length,
                 recentVolumeSame: past3MSame.length,
-                recentHistory: past3YSame.map(pt => pt.amount)
+                recentHistory: past3YSame.map(pt => pt.amount),
+                recentHistoryFull: past3YSame.map(pt => ({ date: pt.contractdate, amount: pt.amount }))
             };
         });
 
@@ -290,11 +362,9 @@ function filterBySummary(type) {
 }
 
 function filterTrades() {
-    const typeFilter = document.getElementById('filter-type').value;
     const districtFilter = document.getElementById('filter-district').value;
 
     filteredTrades = allTrades.filter(trade => {
-        const typeMatch = typeFilter === 'all' || trade.type === typeFilter;
         const district = trade.gu || '기타';
         const districtMatch = districtFilter === 'all' || district === districtFilter;
 
@@ -303,7 +373,7 @@ function filterTrades() {
         else if (currentSummaryFilter === 'presale') summaryMatch = trade.type === 'presale';
         else if (currentSummaryFilter === 'newhigh') summaryMatch = trade.isNewHigh;
 
-        return typeMatch && districtMatch && summaryMatch;
+        return districtMatch && summaryMatch;
     });
 
     renderTradesByGu(filteredTrades);
@@ -499,8 +569,20 @@ function renderTradesByGu(trades) {
                 // td-dong은 기본 padding, td-name도 padding 적용
                 let flexStyleSimple = viewMode === 'simple' ? 'display:flex; justify-content:flex-start; align-items:center; gap:6px;' : '';
 
+                // 전체 인덱스 찾기
+                const gIndex = allTrades.indexOf(trade);
+                const isDetailedMenu = viewMode === 'detailed';
+                let doubleClickAction = isDetailedMenu ? `ondblclick="showDetailModal(${gIndex})"` : '';
+
+                // 모바일에서도 클릭으로 동작하게 할지 고려 (툴팁/모달)
+                // 우선 PC에서 더블클릭 가능하게 처리
+                if (isDetailedMenu) {
+                    // 모바일 사용자 배려로 oncontextmenu (길게 누르기) 등을 쓸수도 있지만, 일단 onclick 추가 (더블클릭/클릭 등)
+                    doubleClickAction += ` onclick="showDetailModal(${gIndex})"`;
+                }
+
                 rowHtml += `
-                    <tr class="${rowClass}" style="${viewMode === 'simple' ? 'height:30px;' : ''}">
+                    <tr class="${rowClass}" style="${viewMode === 'simple' ? 'height:30px;' : (isDetailedMenu ? 'cursor:pointer;' : '')}" ${doubleClickAction}>
                         <td class="${viewMode === 'simple' ? 'td-dong' : 'td-center td-dong'}" style="${tdStyleSimple} ${viewMode === 'simple' ? 'font-size:0.85em; padding-left:10px;' : ''}">${dong}</td>
                         <td class="${viewMode === 'simple' ? 'td-name' : 'td-center td-name'}" style="${tdStyleSimple}">${nameHtml}</td>
                         ${viewMode !== 'simple' ? `
@@ -630,4 +712,599 @@ function generateSparkline(historyPrices) {
             </svg>
         </div>
     `;
+}
+
+let currentModalTradeHistory = [];
+let currentModalTrade = null;
+let currentModalActivePeriod = 'all';
+let modalChartInstance = null;
+
+// 모달 표시 함수
+async function showDetailModal(globalIndex) {
+    if (currentViewMode() !== 'detailed') return;
+    const trade = allTrades[globalIndex];
+    if (!trade) return;
+
+    currentModalTrade = trade;
+
+    // 모달 DOM 가져오기
+    const modal = document.getElementById('trade-detail-modal');
+    if (!modal) return;
+
+    // 상세 내용 채우기
+    document.getElementById('modal-apt-name').textContent = trade.apt_name + ` (${trade.area}㎡ / ${trade.floor}층)`;
+
+    // 동 이름 옆에 준공년도, 세대수 추가
+    let subInfoArr = [trade.dong];
+    if (trade.construction_year) subInfoArr.push(`${trade.construction_year}년`);
+    if (trade.household_count) subInfoArr.push(`${trade.household_count}세대`);
+
+    document.getElementById('modal-dong').innerHTML = subInfoArr.join('<span style="margin:0 8px; color:var(--border);">|</span>');
+    document.getElementById('modal-price').innerHTML = trade.isNewHigh ? `🔥 ${formatPrice(trade.price)} <span style="font-size:0.6em; color:#fff; background:#ff5252; padding:2px 6px; border-radius:4px; vertical-align:middle; margin-left:4px;">신고가</span>` : formatPrice(trade.price);
+
+    // 모달 인포를 작게 한 줄(또는 유연한 두 줄)로 표시
+    let infoHtml = `
+        <div style="font-size: 0.85em; display: flex; flex-wrap: wrap; gap: 15px; justify-content: flex-start; align-items: center; color: var(--text-secondary); background: rgba(0,0,0,0.15); padding: 10px 15px; border-radius: 8px; border: 1px solid var(--border);">
+            <div><span style="color:var(--text-muted); margin-right:4px;">계약일</span><span style="color:var(--text-primary); font-weight:500;">${trade.contract_date || '-'}</span></div>
+            <div><span style="color:var(--text-muted); margin-right:4px;">역대최고</span><span style="color:#ef4444; font-weight:bold;">${trade.highestPriceAllTime ? formatPrice(trade.highestPriceAllTime) : '-'}</span></div>
+            <div><span style="color:var(--text-muted); margin-right:4px;">3개월최고</span><span style="color:#ef4444; font-weight:bold;">${trade.highestPrice3M ? formatPrice(trade.highestPrice3M) : '-'}</span></div>
+            <div><span style="color:var(--text-muted); margin-right:4px;">최근3개월 동일거래</span><span style="color:var(--text-primary); font-weight:500;">${trade.recentVolumeSame}건</span></div>
+        </div>
+    `;
+
+    document.getElementById('modal-info').innerHTML = infoHtml;
+
+    document.getElementById('modal-loading').style.display = 'block';
+    document.getElementById('modal-content-area').style.display = 'none';
+    modal.classList.add('active');
+
+    // 비동기 전체 내역 로딩
+    const tableName = trade.type === 'apt' ? 'apt_trades' : 'presale_trades';
+    const areaFloat = parseFloat(trade.area || 0);
+    const { data, error } = await supabaseClient
+        .from(tableName)
+        .select('contractdate, amount, floor, newhigh, termination_date')
+        .eq('apt_name', trade.apt_name)
+        .gte('area', areaFloat - 1.0)
+        .lte('area', areaFloat + 1.0)
+        .order('contractdate', { ascending: true })
+        .limit(5000);
+
+    if (error) {
+        console.error("모달 데이터 로딩 실패:", error);
+        currentModalTradeHistory = [];
+    } else {
+        currentModalTradeHistory = data || [];
+    }
+
+    document.getElementById('modal-loading').style.display = 'none';
+    document.getElementById('modal-content-area').style.display = 'block';
+
+    renderModalTabs();
+}
+
+function renderModalTabs() {
+    if (currentModalTradeHistory.length === 0) {
+        document.getElementById('modal-period-tabs').innerHTML = '';
+        selectModalPeriod('all');
+        return;
+    }
+
+    // 가장 오래된 날짜 찾기
+    const oldestDateStr = currentModalTradeHistory[0].contractdate || '';
+    const today = new Date();
+    let oldestDate = new Date(oldestDateStr);
+    if (isNaN(oldestDate)) oldestDate = today;
+
+    // 햇수 차이 계산
+    const diffYears = (today - oldestDate) / (1000 * 60 * 60 * 24 * 365.25);
+
+    let tabsHtml = '';
+    let tabs = [];
+    if (diffYears >= 3) {
+        tabs = [{ label: '3년', val: '3y' }, { label: '전체', val: 'all' }];
+    } else {
+        tabs = [{ label: '6개월', val: '6m' }, { label: '1년', val: '1y' }, { label: '전체', val: 'all' }];
+    }
+
+    tabs.forEach((tab, index) => {
+        tabsHtml += `<button class="icon-toggle-btn ${index === 0 ? 'active' : ''}" data-val="${tab.val}" onclick="selectModalPeriod('${tab.val}')" style="font-size:0.8rem; padding:4px 10px;">${tab.label}</button>`;
+    });
+
+    document.getElementById('modal-period-tabs').innerHTML = tabsHtml;
+    selectModalPeriod(tabs[0].val);
+}
+
+function selectModalPeriod(period) {
+    currentModalActivePeriod = period;
+
+    // 탭 UI 업데이트
+    const buttons = document.querySelectorAll('#modal-period-tabs button');
+    buttons.forEach(btn => {
+        if (btn.dataset.val === period) btn.classList.add('active');
+        else btn.classList.remove('active');
+    });
+
+    // 필터 기준 날짜 구하기
+    const targetDate = new Date();
+    if (period === '3y') targetDate.setFullYear(targetDate.getFullYear() - 3);
+    else if (period === '1y') targetDate.setFullYear(targetDate.getFullYear() - 1);
+    else if (period === '6m') targetDate.setMonth(targetDate.getMonth() - 6);
+    else targetDate.setFullYear(1900); // 'all'
+
+    const targetDateStr = targetDate.toISOString().split('T')[0];
+
+    // 선택 기간에 맞춰 기록 필터링 (오름차순 유지)
+    const filteredHistory = currentModalTradeHistory.filter(t => {
+        const d = (t.contractdate || '').substring(0, 10);
+        return d >= targetDateStr;
+    });
+
+    const chartContainer = document.getElementById('modal-chart');
+    if (filteredHistory.length > 0) {
+        chartContainer.innerHTML = `
+            <div id="chart-growth-info" style="min-height:20px; text-align:right; font-size:0.85em; margin-bottom:4px; font-weight:bold; color:var(--text-secondary);">
+                <!-- 범위 선택 시 상승률 표시 -->
+            </div>
+            <div style="position: relative; height: 250px; width: 100%; user-select: none;">
+                <canvas id="detail-chart-canvas"></canvas>
+            </div>
+            <div style="text-align:right; font-size:0.75em; color:var(--text-muted); margin-top:4px;">
+                👆 차트 위를 <b>드래그(영역 선택)</b>하면 선택한 기간의 상승률을 볼 수 있습니다. (빈 공간 클릭 시 해제)
+            </div>
+        `;
+        renderModalChartJS(filteredHistory);
+    } else {
+        if (modalChartInstance) {
+            modalChartInstance.destroy();
+            modalChartInstance = null;
+        }
+        chartContainer.innerHTML = '<div style="padding: 20px; text-align: center; color: var(--text-muted);">조건에 맞는 거래 기록이 충분하지 않습니다.</div>';
+    }
+
+    // 목록 그리기 (최신순이므로 역순 정렬)
+    let listHtml = '';
+    const reversedHistory = [...filteredHistory].reverse();
+    reversedHistory.forEach(t => {
+        const isCancelled = !!t.termination_date;
+        const isNewHigh = (t.newhigh === true || t.newhigh === 1 || t.newhigh === '1');
+        const priceText = formatPrice(t.amount);
+        const cDate = (t.contractdate || '').substring(0, 10);
+        const floor = t.floor || '-';
+
+        let displayPrice = priceText;
+        if (isCancelled) {
+            displayPrice = `<span style="text-decoration: line-through; color: var(--text-muted);">${priceText}</span> <span class="cancel-badge" style="font-size:0.7em;">취소</span>`;
+        } else if (isNewHigh) {
+            displayPrice = `<span style="color: #ff5252; font-weight: bold;">🔥 ${priceText}</span> <span style="font-size:0.65em; color:#fff; background:#ff5252; padding:2px 4px; border-radius:4px;">신고가</span>`;
+        }
+
+        listHtml += `
+            <tr style="border-bottom: 1px solid var(--border);">
+                <td style="padding: 10px; color: var(--text-secondary);">${cDate}</td>
+                <td style="padding: 10px;">${displayPrice}</td>
+                <td style="padding: 10px; color: var(--text-secondary);">${floor}층</td>
+            </tr>
+        `;
+    });
+
+    if (reversedHistory.length === 0) {
+        listHtml = '<tr><td colspan="3" style="padding: 20px; color: var(--text-muted);">거래 내역이 없습니다.</td></tr>';
+    }
+    document.getElementById('modal-trade-list').innerHTML = listHtml;
+}
+
+function closeDetailModal() {
+    const modal = document.getElementById('trade-detail-modal');
+    if (modal) modal.classList.remove('active');
+}
+
+// 모달 바깥쪽 클릭 시 닫기
+window.addEventListener('click', function (event) {
+    const modal = document.getElementById('trade-detail-modal');
+    if (event.target === modal) {
+        closeDetailModal();
+    }
+});
+
+function renderModalChartJS(history) {
+    const ctx = document.getElementById('detail-chart-canvas').getContext('2d');
+
+    if (modalChartInstance) {
+        modalChartInstance.destroy();
+    }
+
+    const scatterData = [];
+    const monthlyGroups = {};
+
+    history.forEach(t => {
+        if (!t.contractdate) return;
+        const amount = typeof t.amount === 'string' ? parseInt(t.amount.replace(/[^0-9]/g, '')) : t.amount;
+        if (isNaN(amount) || amount === 0) return;
+
+        const dateStr = t.contractdate.replace(/\./g, '-').substring(0, 10);
+        const isNewHigh = (t.newhigh === true || t.newhigh === 1 || t.newhigh === '1');
+        scatterData.push({ x: dateStr, y: amount, isNewHigh: isNewHigh, original: t });
+
+        const monthKey = dateStr.substring(0, 7) + '-01';
+        if (!monthlyGroups[monthKey]) {
+            monthlyGroups[monthKey] = { sum: 0, count: 0 };
+        }
+        monthlyGroups[monthKey].sum += amount;
+        monthlyGroups[monthKey].count += 1;
+    });
+
+    const months = Object.keys(monthlyGroups).sort();
+    const lineData = months.map(m => ({ x: m, y: monthlyGroups[m].sum / monthlyGroups[m].count }));
+    const barData = months.map(m => ({ x: m, y: monthlyGroups[m].count }));
+
+    modalChartInstance = new Chart(ctx, {
+        type: 'line',
+        data: {
+            datasets: [
+                {
+                    type: 'bar',
+                    label: '거래량',
+                    data: barData,
+                    backgroundColor: 'rgba(255, 255, 255, 0.12)',
+                    yAxisID: 'y1',
+                    barThickness: 'flex',
+                    maxBarThickness: 15,
+                    order: 3 // 가장 뒤에 (바닥) 그려짐
+                },
+                {
+                    type: 'scatter',
+                    label: '실거래',
+                    data: scatterData,
+                    backgroundColor: function (ctx) {
+                        return ctx.raw && ctx.raw.isNewHigh ? '#ef4444' : 'rgba(255, 255, 255, 0.25)';
+                    },
+                    borderColor: function (ctx) {
+                        return ctx.raw && ctx.raw.isNewHigh ? '#ef4444' : 'rgba(255, 255, 255, 0.4)';
+                    },
+                    pointRadius: 3,
+                    yAxisID: 'y',
+                    order: 2 // 선보다 뒤에, 바보다 앞에
+                },
+                {
+                    type: 'line',
+                    label: '월평균',
+                    data: lineData,
+                    borderColor: '#fbbf24', // 고급스러운 금색 (amber-400)
+                    backgroundColor: 'rgba(251, 191, 36, 0.15)', // 금색 그라데이션 베이스
+                    borderWidth: 2,
+                    tension: 0, // 꺾은선 형태
+                    stepped: false,
+                    pointRadius: 0, // 선에 점 표시 안함
+                    pointHoverRadius: 0,
+                    yAxisID: 'y',
+                    order: 1 // 가장 위쪽(앞쪽)에 그려짐
+                }
+            ]
+        },
+        options: {
+            events: ['mousemove', 'mouseout', 'click', 'touchstart', 'touchmove', 'mousedown', 'mouseup'],
+            responsive: true,
+            maintainAspectRatio: false,
+            interaction: {
+                mode: 'index',
+                intersect: false,
+            },
+            plugins: {
+                legend: {
+                    display: false // 범례 숨김
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            if (context.dataset.type === 'bar') {
+                                return `거래량: ${context.parsed.y}건`;
+                            }
+                            return `${context.dataset.label}: ${formatPrice(context.parsed.y)}`;
+                        }
+                    }
+                },
+                dragSelectPlugin: {
+                    // Custom plugin logic attached via global or inline
+                }
+            },
+            scales: {
+                x: {
+                    type: 'time',
+                    time: {
+                        unit: 'month',
+                        displayFormats: {
+                            month: 'yyyy.MM'
+                        },
+                        tooltipFormat: 'yyyy.MM'
+                    },
+                    grid: {
+                        display: false
+                    },
+                    ticks: {
+                        color: '#ffffff', // 뚜렷한 흰색
+                        font: { size: 10 }
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    display: true,
+                    position: 'left',
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.08)' // 백그라운드 선도 살짝 밝게
+                    },
+                    ticks: {
+                        color: '#ffffff', // 뚜렷한 흰색
+                        font: { size: 11 },
+                        callback: function (value) {
+                            if (value >= 100000000) {
+                                const uk = value / 100000000;
+                                return Number.isInteger(uk) ? uk + '억' : uk.toFixed(1) + '억';
+                            }
+                            return (value / 10000) + '만';
+                        }
+                    }
+                },
+                y1: {
+                    type: 'linear',
+                    display: true,
+                    position: 'right',
+                    grid: { display: false },
+                    min: 0,
+                    // 거래량 바가 위쪽 차트와 겹치지 않게 하기 위해 max를 여유있게 (약 4~5배)
+                    suggestedMax: Math.max(...barData.map(d => d.y), 1) * 4,
+                    ticks: { display: false }
+                }
+            }
+        },
+        plugins: [{
+            id: 'dragSelectPlugin',
+            beforeEvent(chart, args, options) {
+                const event = args.event;
+                if (!chart.dragState) {
+                    chart.dragState = { isDragging: false, startX: null, currentX: null, completed: false };
+                }
+                const state = chart.dragState;
+
+                if (event.type === 'mousedown') {
+                    // Start drag
+                    state.isDragging = true;
+                    state.startX = event.x;
+                    state.currentX = event.x;
+                    state.completed = false;
+                } else if (event.type === 'mousemove' && state.isDragging) {
+                    // Update drag
+                    state.currentX = event.x;
+                    args.changed = true; // 강제 재렌더링
+                    if (Math.abs(state.currentX - state.startX) > 5) {
+                        updateChartSelectionInfo(chart, Math.min(state.startX, state.currentX), Math.max(state.startX, state.currentX));
+                    }
+                } else if (event.type === 'mouseup' || event.type === 'mouseout') {
+                    if (state.isDragging) {
+                        state.isDragging = false;
+                        args.changed = true;
+                        if (Math.abs(state.currentX - state.startX) > 10) {
+                            state.completed = true;
+                            // Trigger calculation
+                            updateChartSelectionInfo(chart, Math.min(state.startX, state.currentX), Math.max(state.startX, state.currentX));
+                        } else {
+                            // 단순 클릭이면 리셋
+                            state.completed = false;
+                            state.startX = null;
+                            state.currentX = null;
+                            updateChartSelectionInfo(chart, null, null);
+                        }
+                    }
+                }
+            },
+            afterDraw(chart, args, options) {
+                const ctx = chart.ctx;
+                const chartArea = chart.chartArea;
+                const xScale = chart.scales.x;
+                const yScale = chart.scales.y;
+
+                // 1. 역대 최고/최저가 텍스트 표시 (전체 데이터 기준)
+                const scatterDataset = chart.data.datasets.find(d => d.type === 'scatter');
+                if (scatterDataset && scatterDataset.data && scatterDataset.data.length > 0) {
+                    let maxPt = scatterDataset.data[0];
+                    let minPt = scatterDataset.data[0];
+                    scatterDataset.data.forEach(d => {
+                        if (d.y > maxPt.y) maxPt = d;
+                        if (d.y < minPt.y) minPt = d;
+                    });
+
+                    ctx.save();
+                    ctx.font = 'bold 11px sans-serif';
+                    ctx.textAlign = 'center';
+
+                    // 최고점
+                    let maxPxX = xScale.getPixelForValue(new Date(maxPt.x).getTime());
+                    let maxPxY = yScale.getPixelForValue(maxPt.y) - 10;
+                    if (maxPxY < chartArea.top + 10) maxPxY = chartArea.top + 15; // 짤림 방지
+                    ctx.fillStyle = '#ef4444'; // 빨간색
+                    ctx.fillText('최고가', maxPxX, maxPxY);
+
+                    // 최저점
+                    let minPxX = xScale.getPixelForValue(new Date(minPt.x).getTime());
+                    let minPxY = yScale.getPixelForValue(minPt.y) + 15;
+                    if (minPxY > chartArea.bottom - 10) minPxY = chartArea.bottom - 10;
+                    ctx.fillStyle = '#3b82f6'; // 파란색
+                    ctx.fillText('최저가', minPxX, minPxY);
+
+                    ctx.restore();
+                }
+
+                // 2. 드래그 오버레이 및 선택된 양 끝 점(실선 기준) 표시
+                const state = chart.dragState;
+                if (!state || (!state.isDragging && !state.completed) || state.startX === null || state.currentX === null) return;
+
+                const xStart = Math.max(chartArea.left, Math.min(state.startX, state.currentX));
+                const xEnd = Math.min(chartArea.right, Math.max(state.startX, state.currentX));
+                const width = xEnd - xStart;
+
+                if (width <= 0) return;
+
+                ctx.save();
+                ctx.fillStyle = 'rgba(59, 130, 246, 0.2)'; // 파란색 반투명 선택영역
+                ctx.fillRect(xStart, chartArea.top, width, chartArea.bottom - chartArea.top);
+                ctx.restore();
+
+                // 선택 기간 양 끝점에 뚜렷한 마커 그리기 (실선 위)
+                const minTime = xScale.getValueForPixel(xStart);
+                const maxTime = xScale.getValueForPixel(xEnd);
+                const lineDataset = chart.data.datasets.find(d => d.type === 'line');
+
+                if (scatterDataset && scatterDataset.data && lineDataset && lineDataset.data) {
+                    let visibleTrades = scatterDataset.data.filter(d => {
+                        const tTime = new Date(d.x).getTime();
+                        return tTime >= minTime && tTime <= maxTime;
+                    });
+
+                    if (visibleTrades.length >= 2) {
+                        visibleTrades.sort((a, b) => new Date(a.x) - new Date(b.x));
+                        const startX = new Date(visibleTrades[0].x).getTime();
+                        const endX = new Date(visibleTrades[visibleTrades.length - 1].x).getTime();
+
+                        // 실선(월평균선) 위에서 가장 가까운 포인트 찾기
+                        const findLinePt = (targetX) => {
+                            let nearest = lineDataset.data[0];
+                            let minDist = Infinity;
+                            lineDataset.data.forEach(d => {
+                                const dx = new Date(d.x).getTime();
+                                const dist = Math.abs(dx - targetX);
+                                if (dist < minDist) { minDist = dist; nearest = d; }
+                            });
+                            return nearest;
+                        };
+
+                        const ptStart = findLinePt(startX);
+                        const ptEnd = findLinePt(endX);
+
+                        const sx = xScale.getPixelForValue(new Date(ptStart.x).getTime());
+                        const sy = yScale.getPixelForValue(ptStart.y);
+                        const ex = xScale.getPixelForValue(new Date(ptEnd.x).getTime());
+                        const ey = yScale.getPixelForValue(ptEnd.y);
+
+                        ctx.save();
+                        ctx.lineWidth = 2;
+                        ctx.strokeStyle = '#ffffff';
+
+                        // 시작점 원 (파란색)
+                        ctx.fillStyle = '#3b82f6';
+                        ctx.beginPath(); ctx.arc(sx, sy, 6, 0, 2 * Math.PI); ctx.fill(); ctx.stroke();
+
+                        // 끝점 원 (상승 빨강 / 하락 파랑)
+                        ctx.fillStyle = (ptEnd.y >= ptStart.y) ? '#ef4444' : '#3b82f6';
+                        ctx.beginPath(); ctx.arc(ex, ey, 6, 0, 2 * Math.PI); ctx.fill(); ctx.stroke();
+                        ctx.restore();
+                    }
+                }
+            }
+        }]
+    });
+}
+
+function updateChartSelectionInfo(chart, pixMinX, pixMaxX) {
+    const infoDiv = document.getElementById('chart-growth-info');
+
+    if (pixMinX === null || pixMaxX === null) {
+        if (infoDiv) infoDiv.innerHTML = '';
+        const scatterDataset = chart.data.datasets.find(d => d.type === 'scatter');
+        if (scatterDataset && scatterDataset.data) {
+            renderModalTradeList(scatterDataset.data.map(t => t.original)); // 전체 리셋
+        }
+        return;
+    }
+
+    const xScale = chart.scales.x;
+    const minTime = xScale.getValueForPixel(pixMinX);
+    const maxTime = xScale.getValueForPixel(pixMaxX);
+
+    // 현재 보이는 범위 내의 실거래 데이타(scatter) 추출
+    const scatterDataset = chart.data.datasets.find(d => d.type === 'scatter');
+    if (!scatterDataset || !scatterDataset.data) return;
+
+    let visibleTrades = scatterDataset.data.filter(d => {
+        const tTime = new Date(d.x).getTime();
+        return tTime >= minTime && tTime <= maxTime;
+    });
+
+    if (visibleTrades.length < 2) {
+        if (infoDiv) infoDiv.innerHTML = '<span style="color:var(--text-muted); font-weight:normal;">선택 구간 내 비교할 거래가 부족합니다.</span>';
+        renderModalTradeList(visibleTrades.map(t => t.original));
+        return;
+    }
+
+    // 날짜 오름차순
+    visibleTrades.sort((a, b) => new Date(a.x) - new Date(b.x));
+
+    const startTrade = visibleTrades[0];
+    const endTrade = visibleTrades[visibleTrades.length - 1];
+
+    const diffVal = endTrade.y - startTrade.y;
+    const pct = startTrade.y !== 0 ? ((endTrade.y - startTrade.y) / startTrade.y) * 100 : 0;
+
+    let color = '#94a3b8';
+    let sign = '';
+    let icon = '';
+
+    if (diffVal > 0) {
+        color = '#ef4444'; // 빨강 (상승)
+        sign = '+';
+        icon = '▲';
+    } else if (diffVal < 0) {
+        color = '#3b82f6'; // 파랑 (하락)
+        icon = '▼';
+    }
+
+    const startYM = startTrade.x.substring(0, 7).replace('-', '.');
+    const endYM = endTrade.x.substring(0, 7).replace('-', '.');
+
+    if (infoDiv) {
+        infoDiv.innerHTML = `
+            선택기간: ${startYM} ~ ${endYM} 
+            <span style="color:${color}; margin-left:8px; font-size:1.1em;">
+                ${icon} ${formatPrice(Math.abs(diffVal))} (${sign}${pct.toFixed(1)}%)
+            </span>
+        `;
+    }
+
+    renderModalTradeList(visibleTrades.map(t => t.original));
+}
+
+function renderModalTradeList(tradeList) {
+    const tbody = document.getElementById('modal-trade-list');
+    if (!tbody) return;
+
+    let listHtml = '';
+    const reversedHistory = [...tradeList].reverse();
+    reversedHistory.forEach(t => {
+        // t는 x, y를 가지는 scatter 데이터이거나 원본 필터데이터일 수 있음
+        const rawDate = t.x ? t.x : (t.contractdate ? t.contractdate.substring(0, 10) : '-');
+        const priceVal = t.y ? t.y : t.amount;
+        const priceText = formatPrice(priceVal);
+        const isCancelled = t.termination_date ? !!t.termination_date : false;
+        const isNewHigh = t.isNewHigh !== undefined ? t.isNewHigh : (t.newhigh === true || t.newhigh === 1 || t.newhigh === '1');
+        const floor = t.floor || '-';
+
+        // UI에 맞게 표시
+        let displayPrice = priceText;
+        if (isCancelled) {
+            displayPrice = `<span style="text-decoration: line-through; color: var(--text-muted);">${priceText}</span> <span class="cancel-badge" style="font-size:0.7em;">취소</span>`;
+        } else if (isNewHigh) {
+            displayPrice = `<span style="color: #ff5252; font-weight: bold;">🔥 ${priceText}</span> <span style="font-size:0.65em; color:#fff; background:#ff5252; padding:2px 4px; border-radius:4px;">신고가</span>`;
+        }
+        listHtml += `
+        <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 10px; color: var(--text-secondary);">${rawDate}</td>
+            <td style="padding: 10px;">${displayPrice}</td>
+            <td style="padding: 10px; color: var(--text-secondary);">${floor}${floor === '-' ? '' : '층'}</td>
+        </tr>
+        `;
+    });
+
+    if (reversedHistory.length === 0) {
+        listHtml = '<tr><td colspan="3" style="padding: 20px; color: var(--text-muted);">표시할 거래 내역이 없습니다.</td></tr>';
+    }
+    tbody.innerHTML = listHtml;
 }
