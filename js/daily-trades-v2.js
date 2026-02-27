@@ -13,13 +13,25 @@ if (SUPABASE_ANON_KEY !== '여기에_ANON_KEY_를_입력해주세요') {
     supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 }
 
+let activeViewMode = 'detailed';
+
 // 뷰 모드 가져오기
 function currentViewMode() {
-    const el = document.getElementById('view-mode');
-    return el ? el.value : 'normal';
+    return activeViewMode;
 }
 
-function changeViewMode() {
+function setViewMode(mode) {
+    activeViewMode = mode;
+
+    // 스타일 업데이트: active 클래스 토글
+    document.querySelectorAll('.icon-toggle-btn').forEach(btn => {
+        if (btn.dataset.mode === mode) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
     if (filteredTrades.length > 0) {
         renderTradesByGu(filteredTrades);
     }
@@ -44,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 let allTrades = [];
 let filteredTrades = [];
+let currentSummaryFilter = 'all'; // 'all', 'apt', 'presale', 'newhigh'
 
 async function loadDailyTrades() {
     if (!supabaseClient) {
@@ -69,44 +82,49 @@ async function loadDailyTrades() {
         let aptTrades = [];
         let presaleTrades = [];
 
-        // Supabase DB 쿼리
-        // date_type 이 write_date 이면 등록일 기준 검색
-        // contract_date 이면 계약일 기준 검색
-        // (APTAPT 프로젝트 db_manager.py의 쿼리와 흡사하게 작성하되, 여기서는 단순 조회 후 JS에서 조작합니다)
+        // 35일 이전 날짜 계산 (python의 min_contract_date 로직 복원 - DB 풀스캔 방지용)
+        const targetDateObj = new Date(tradeDateStr);
+        const minContractDate = new Date(targetDateObj);
+        minContractDate.setDate(minContractDate.getDate() - 40); // 여유있게 40일
+        const minContractStr = minContractDate.toISOString().split('T')[0];
 
-        let targetField = dateType === 'write_date' ? 'write_date' : 'contractdate';
-
-        // 아파트 쿼리
-        const { data: aptData, error: aptError } = await supabaseClient
+        // 아파트 쿼리 만들기
+        let aptQuery = supabaseClient
             .from('apt_trades')
-            .select(`
-                city, dong, apt_name, area, contractdate, amount, floor, 
-                buyer_type, transaction_type, newhigh, write_date, construction_year
-            `)
-            .gte(targetField, tradeDateStr + ' 00:00:00')
-            .lte(targetField, tradeDateStr + ' 23:59:59')
-            .is('termination_date', null)
-            .order('amount', { ascending: false })
-            .limit(2000);
+            .select('city, dong, apt_name, area, contractdate, amount, floor, buyer_type, transaction_type, newhigh, write_date, construction_year');
 
-        if (aptError) throw aptError;
-        if (aptData) aptTrades = aptData.map(item => ({ ...item, isPresale: false }));
-
-        // 분양권 쿼리
-        const { data: presaleData, error: presaleError } = await supabaseClient
+        let presaleQuery = supabaseClient
             .from('presale_trades')
-            .select(`
-                city, dong, apt_name, area, contractdate, amount, floor, 
-                buyer_type, transaction_type, newhigh, write_date, presale_type
-            `)
-            .gte(targetField, tradeDateStr + ' 00:00:00')
-            .lte(targetField, tradeDateStr + ' 23:59:59')
-            .is('termination_date', null)
-            .order('amount', { ascending: false })
-            .limit(2000);
+            .select('city, dong, apt_name, area, contractdate, amount, floor, buyer_type, transaction_type, newhigh, write_date, presale_type');
 
-        if (presaleError) throw presaleError;
-        if (presaleData) presaleTrades = presaleData.map(item => ({ ...item, isPresale: true }));
+        if (dateType === 'write_date') {
+            // 등록일 기준: write_date 조건과 함께 DB 스캔을 줄이기 위해 계약일 범위도 추가
+            aptQuery = aptQuery
+                .gte('write_date', tradeDateStr + ' 00:00:00')
+                .lte('write_date', tradeDateStr + ' 23:59:59')
+                .gte('contractdate', minContractStr);
+
+            presaleQuery = presaleQuery
+                .gte('write_date', tradeDateStr + ' 00:00:00')
+                .lte('write_date', tradeDateStr + ' 23:59:59')
+                .gte('contractdate', minContractStr);
+        } else {
+            // 계약일 기준: 문자열 매칭
+            aptQuery = aptQuery.eq('contractdate', tradeDateStr);
+            presaleQuery = presaleQuery.eq('contractdate', tradeDateStr);
+        }
+
+        // 공통 조건 추가 후 실행
+        const [aptRes, presaleRes] = await Promise.all([
+            aptQuery.is('termination_date', null).order('amount', { ascending: false }).limit(2000),
+            presaleQuery.is('termination_date', null).order('amount', { ascending: false }).limit(2000)
+        ]);
+
+        if (aptRes.error) throw aptRes.error;
+        if (presaleRes.error) throw presaleRes.error;
+
+        if (aptRes.data) aptTrades = aptRes.data.map(item => ({ ...item, isPresale: false }));
+        if (presaleRes.data) presaleTrades = presaleRes.data.map(item => ({ ...item, isPresale: true }));
 
         const rawTrades = [...aptTrades, ...presaleTrades];
 
@@ -125,33 +143,45 @@ async function loadDailyTrades() {
         let pastTrades = [];
 
         try {
-            const chunkSize = 30; // 범위가 3년이므로 청크를 줄임
+            const chunkSize = 20;
+            const pastPromises = [];
+
             for (let i = 0; i < aptNamesList.length; i += chunkSize) {
                 const chunk = aptNamesList.slice(i, i + chunkSize);
-                // 아파트 과거 거래
-                const { data: pastAptData } = await supabaseClient
-                    .from('apt_trades')
-                    .select('apt_name, area, contractdate, amount')
-                    .in('apt_name', chunk)
-                    .gte('contractdate', threeYearsAgoStr)
-                    .lte('contractdate', tradeDateStr)
-                    .is('termination_date', null)
-                    .order('contractdate', { ascending: false })
-                    .limit(3000); // supabase default limit 1000 대비 안전하게
-                if (pastAptData) pastTrades.push(...pastAptData);
 
-                // 분양권 과거 거래
-                const { data: pastPresaleData } = await supabaseClient
-                    .from('presale_trades')
-                    .select('apt_name, area, contractdate, amount')
-                    .in('apt_name', chunk)
-                    .gte('contractdate', threeYearsAgoStr)
-                    .lte('contractdate', tradeDateStr)
-                    .is('termination_date', null)
-                    .order('contractdate', { ascending: false })
-                    .limit(3000);
-                if (pastPresaleData) pastTrades.push(...pastPresaleData);
+                // 아파트 과거 거래 프로미스
+                pastPromises.push(
+                    supabaseClient
+                        .from('apt_trades')
+                        .select('apt_name, area, contractdate, amount')
+                        .in('apt_name', chunk)
+                        .gte('contractdate', threeYearsAgoStr)
+                        .lte('contractdate', tradeDateStr)
+                        .is('termination_date', null)
+                        .limit(2000)
+                );
+
+                // 분양권 과거 거래 프로미스
+                pastPromises.push(
+                    supabaseClient
+                        .from('presale_trades')
+                        .select('apt_name, area, contractdate, amount')
+                        .in('apt_name', chunk)
+                        .gte('contractdate', threeYearsAgoStr)
+                        .lte('contractdate', tradeDateStr)
+                        .is('termination_date', null)
+                        .limit(2000)
+                );
             }
+
+            // 병렬로 모두 실행하여 쿼리 타임아웃/병목 해소
+            const results = await Promise.allSettled(pastPromises);
+            results.forEach(res => {
+                if (res.status === 'fulfilled' && res.value.data) {
+                    pastTrades.push(...res.value.data);
+                }
+            });
+
         } catch (e) {
             console.error("과거 데이터 로딩 실패:", e);
         }
@@ -222,7 +252,7 @@ async function loadDailyTrades() {
         // UI 렌더링
         updateSummary(allTrades);
         populateDistrictFilter(allTrades);
-        renderTradesByGu(filteredTrades);
+        filterBySummary('all');
 
         document.getElementById('loading').classList.add('hidden');
         document.getElementById('data-summary').classList.remove('hidden');
@@ -237,6 +267,28 @@ async function loadDailyTrades() {
     }
 }
 
+function filterBySummary(type) {
+    currentSummaryFilter = type;
+
+    // UI 업데이트: 선택된 카드 강조
+    const cards = document.querySelectorAll('.summary-card');
+    cards.forEach(card => {
+        card.style.border = '1px solid var(--border)';
+        card.style.transform = 'translateY(0)';
+        card.style.boxShadow = '0 4px 6px -1px var(--shadow)';
+    });
+
+    // 선택된 카드 찾기
+    const indexMap = { 'all': 0, 'apt': 1, 'presale': 2, 'newhigh': 3 };
+    if (cards[indexMap[type]]) {
+        cards[indexMap[type]].style.border = '2px solid var(--primary)';
+        cards[indexMap[type]].style.transform = 'translateY(-4px)';
+        cards[indexMap[type]].style.boxShadow = '0 10px 15px -3px var(--shadow)';
+    }
+
+    filterTrades();
+}
+
 function filterTrades() {
     const typeFilter = document.getElementById('filter-type').value;
     const districtFilter = document.getElementById('filter-district').value;
@@ -245,7 +297,13 @@ function filterTrades() {
         const typeMatch = typeFilter === 'all' || trade.type === typeFilter;
         const district = trade.gu || '기타';
         const districtMatch = districtFilter === 'all' || district === districtFilter;
-        return typeMatch && districtMatch;
+
+        let summaryMatch = true;
+        if (currentSummaryFilter === 'apt') summaryMatch = trade.type === 'apt';
+        else if (currentSummaryFilter === 'presale') summaryMatch = trade.type === 'presale';
+        else if (currentSummaryFilter === 'newhigh') summaryMatch = trade.isNewHigh;
+
+        return typeMatch && districtMatch && summaryMatch;
     });
 
     renderTradesByGu(filteredTrades);
@@ -256,14 +314,12 @@ function updateSummary(trades) {
     const aptCount = trades.filter(t => t.type === 'apt').length;
     const presaleCount = trades.filter(t => t.type === 'presale').length;
 
-    const aptNewHighCount = trades.filter(t => t.type === 'apt' && t.isNewHigh).length;
-    const presaleNewHighCount = trades.filter(t => t.type === 'presale' && t.isNewHigh).length;
+    const newHighCount = trades.filter(t => t.isNewHigh).length;
 
     document.getElementById('summary-count').textContent = totalCount.toLocaleString() + '건';
     document.getElementById('summary-apt').textContent = aptCount.toLocaleString() + '건';
     document.getElementById('summary-presale').textContent = presaleCount.toLocaleString() + '건';
-    document.getElementById('summary-apt-newhigh').textContent = aptNewHighCount.toLocaleString() + '건';
-    document.getElementById('summary-presale-newhigh').textContent = presaleNewHighCount.toLocaleString() + '건';
+    document.getElementById('summary-newhigh').textContent = newHighCount.toLocaleString() + '건';
 }
 
 function populateDistrictFilter(trades) {

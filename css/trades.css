@@ -37,6 +37,35 @@
     font-size: 20px;
 }
 
+/* UI 유형 토글 버튼 */
+.icon-toggle-btn {
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    padding: 6px 14px;
+    cursor: pointer;
+    color: var(--text-muted);
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-toggle-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+}
+
+.icon-toggle-btn.active {
+    background: rgba(58, 166, 255, 0.15);
+    color: #58a6ff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.icon-toggle-btn .material-icons-round {
+    font-size: 20px;
+}
+
 /* 로딩 인디케이터 */
 .loading {
     display: flex;
@@ -84,22 +113,28 @@
 /* === Premium Data Summary === */
 .data-summary {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
     margin-bottom: 30px;
+}
+
+@media (min-width: 600px) {
+    .data-summary {
+        grid-template-columns: repeat(4, 1fr);
+    }
 }
 
 .summary-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 20px;
+    border-radius: 10px;
+    padding: 10px;
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
     backdrop-filter: blur(10px);
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .summary-card:hover {
@@ -110,9 +145,9 @@
 }
 
 .icon-wrapper {
-    width: 52px;
-    height: 52px;
-    border-radius: 14px;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -120,7 +155,7 @@
 }
 
 .icon-wrapper .material-icons-round {
-    font-size: 26px;
+    font-size: 16px;
     color: white;
 }
 
@@ -161,17 +196,21 @@
 .summary-content {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
 }
 
 .summary-content .label {
-    font-size: 0.85rem;
+    font-size: 0.7rem;
     color: var(--text-muted);
-    margin-bottom: 4px;
+    margin-bottom: 2px;
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .summary-content .value {
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: 800;
     color: var(--text-primary);
     letter-spacing: 0.5px;

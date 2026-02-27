@@ -62,12 +62,20 @@
             <input type="date" id="trade-date" class="date-select"
                 style="min-width: 150px; padding: 10px; border-radius: 8px;">
 
-            <label for="view-mode" style="margin-left: 10px;">UI 유형</label>
-            <select id="view-mode" class="date-select" style="min-width: 100px;" onchange="changeViewMode()">
-                <option value="normal" selected>일반형</option>
-                <option value="detailed">자세히</option>
-                <option value="simple">간단히</option>
-            </select>
+            <label style="margin-left: 10px;">UI 유형</label>
+            <div class="view-mode-toggle"
+                style="display: flex; gap: 4px; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 8px; border: 1px solid var(--border);">
+                <button class="icon-toggle-btn" onclick="setViewMode('normal')" data-mode="normal" title="일반형 (기본)">
+                    <span class="material-icons-round">view_list</span>
+                </button>
+                <button class="icon-toggle-btn active" onclick="setViewMode('detailed')" data-mode="detailed"
+                    title="자세히 (그래프 포함)">
+                    <span class="material-icons-round">assessment</span>
+                </button>
+                <button class="icon-toggle-btn" onclick="setViewMode('simple')" data-mode="simple" title="간단히 (압축형)">
+                    <span class="material-icons-round">view_headline</span>
+                </button>
+            </div>
 
             <button class="action-btn primary" onclick="loadDailyTrades()">
                 <span class="material-icons-round">search</span>
@@ -86,7 +94,8 @@
 
         <!-- 데이터 요약 -->
         <div id="data-summary" class="data-summary hidden">
-            <div class="summary-card bounce-in" style="animation-delay: 0s">
+            <div class="summary-card bounce-in" style="animation-delay: 0s; cursor: pointer;"
+                onclick="filterBySummary('all')">
                 <div class="icon-wrapper total">
                     <span class="material-icons-round">format_list_bulleted</span>
                 </div>
@@ -95,7 +104,8 @@
                     <span class="value" id="summary-count">0</span>
                 </div>
             </div>
-            <div class="summary-card bounce-in" style="animation-delay: 0.1s">
+            <div class="summary-card bounce-in" style="animation-delay: 0.1s; cursor: pointer;"
+                onclick="filterBySummary('apt')">
                 <div class="icon-wrapper apt">
                     <span class="material-icons-round">apartment</span>
                 </div>
@@ -104,7 +114,8 @@
                     <span class="value" id="summary-apt">0</span>
                 </div>
             </div>
-            <div class="summary-card bounce-in" style="animation-delay: 0.2s">
+            <div class="summary-card bounce-in" style="animation-delay: 0.2s; cursor: pointer;"
+                onclick="filterBySummary('presale')">
                 <div class="icon-wrapper presale">
                     <span class="material-icons-round">receipt_long</span>
                 </div>
@@ -113,22 +124,14 @@
                     <span class="value" id="summary-presale">0</span>
                 </div>
             </div>
-            <div class="summary-card bounce-in" style="animation-delay: 0.3s">
+            <div class="summary-card bounce-in" style="animation-delay: 0.3s; cursor: pointer;"
+                onclick="filterBySummary('newhigh')">
                 <div class="icon-wrapper new-high-apt">
                     <span class="material-icons-round">trending_up</span>
                 </div>
                 <div class="summary-content">
-                    <span class="label">신고가(아파트)</span>
-                    <span class="value" id="summary-apt-newhigh">0</span>
-                </div>
-            </div>
-            <div class="summary-card bounce-in" style="animation-delay: 0.4s">
-                <div class="icon-wrapper new-high-presale">
-                    <span class="material-icons-round">local_fire_department</span>
-                </div>
-                <div class="summary-content">
-                    <span class="label">신고가(분양권)</span>
-                    <span class="value" id="summary-presale-newhigh">0</span>
+                    <span class="label">신고가(아파트/분양권)</span>
+                    <span class="value" id="summary-newhigh">0</span>
                 </div>
             </div>
         </div>
