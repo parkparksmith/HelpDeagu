@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대구 아파트·분양권 실거래가 조회 - 데일리 실거래 v2</title>
+    <meta name="description" content="대구 지역 아파트 및 분양권 실거래가를 조회합니다. DB 연동을 통해 실시간 데이터를 확인하세요.">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/trades.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <a href="../index.html" id="back-btn">
+                    <span class="material-icons-round">arrow_back</span>
+                    <span>홈으로</span>
+                </a>
+                <h1>데일리 실거래가 v2</h1>
+            </div>
+        </header>
+
+        <!-- 워터마크 -->
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <section class="intro-box"
+            style="margin-bottom: 30px; background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1px solid var(--border);">
+            <h2 style="font-size: 1.2rem; color: var(--text-primary); margin-bottom: 10px;">클라우드 DB 실시간 조회 (v2)</h2>
+            <p style="color: var(--text-secondary); line-height: 1.6; font-size: 0.95rem;">
+                기존 JSON 데이터 구조에서 벗어나 <strong>클라우드 데이터베이스(Supabase)</strong>에서 직접 최신 데이터를 불러옵니다.
+                등록일, 계약일 기준으로 선택하여 실거래 내역을 조회해보세요.
+            </p>
+        </section>
+
+        <!-- 날짜 및 기준 선택 -->
+        <div class="date-selector"
+            style="display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 20px;">
+            <label for="date-type">기준일</label>
+            <select id="date-type" class="date-select" style="min-width: 120px;">
+                <option value="write_date" selected>등록일 기준</option>
+                <option value="contract_date">계약일 기준</option>
+            </select>
+
+            <label for="trade-date">조회 날짜</label>
+            <input type="date" id="trade-date" class="date-select"
+                style="min-width: 150px; padding: 10px; border-radius: 8px;">
+
+            <label for="view-mode" style="margin-left: 10px;">UI 유형</label>
+            <select id="view-mode" class="date-select" style="min-width: 100px;" onchange="changeViewMode()">
+                <option value="normal" selected>일반형</option>
+                <option value="detailed">자세히</option>
+                <option value="simple">간단히</option>
+            </select>
+
+            <button class="action-btn primary" onclick="loadDailyTrades()">
+                <span class="material-icons-round">search</span>
+                조회하기
+            </button>
+        </div>
+
+        <!-- 로딩 인디케이터 -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <span>DB에서 데이터를 불러오는 중...</span>
+        </div>
+
+        <!-- 에러 메시지 -->
+        <div id="error-message" class="error-message hidden"></div>
+
+        <!-- 데이터 요약 -->
+        <div id="data-summary" class="data-summary hidden">
+            <div class="summary-card bounce-in" style="animation-delay: 0s">
+                <div class="icon-wrapper total">
+                    <span class="material-icons-round">format_list_bulleted</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">총 거래 건수</span>
+                    <span class="value" id="summary-count">0</span>
+                </div>
+            </div>
+            <div class="summary-card bounce-in" style="animation-delay: 0.1s">
+                <div class="icon-wrapper apt">
+                    <span class="material-icons-round">apartment</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">아파트 거래</span>
+                    <span class="value" id="summary-apt">0</span>
+                </div>
+            </div>
+            <div class="summary-card bounce-in" style="animation-delay: 0.2s">
+                <div class="icon-wrapper presale">
+                    <span class="material-icons-round">receipt_long</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">분양권 거래</span>
+                    <span class="value" id="summary-presale">0</span>
+                </div>
+            </div>
+            <div class="summary-card bounce-in" style="animation-delay: 0.3s">
+                <div class="icon-wrapper new-high-apt">
+                    <span class="material-icons-round">trending_up</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">신고가(아파트)</span>
+                    <span class="value" id="summary-apt-newhigh">0</span>
+                </div>
+            </div>
+            <div class="summary-card bounce-in" style="animation-delay: 0.4s">
+                <div class="icon-wrapper new-high-presale">
+                    <span class="material-icons-round">local_fire_department</span>
+                </div>
+                <div class="summary-content">
+                    <span class="label">신고가(분양권)</span>
+                    <span class="value" id="summary-presale-newhigh">0</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- 거래 데이터 테이블 -->
+        <div id="trades-container" class="trades-container hidden">
+            <div class="table-header">
+                <h3>📊 전체 거래 내역 (v2)</h3>
+                <div class="table-controls">
+                    <select id="filter-type" onchange="filterTrades()">
+                        <option value="all">전체</option>
+                        <option value="apt">아파트</option>
+                        <option value="presale">분양권</option>
+                    </select>
+                    <select id="filter-district" onchange="filterTrades()">
+                        <option value="all">전체 구/군</option>
+                    </select>
+                </div>
+            </div>
+            <div id="trades-table-container">
+                <!-- JS에서 구별(gu) 테이블을 마크업으로 렌더링합니다 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/daily-trades-v2.js"></script>
+</body>
+
+</html>

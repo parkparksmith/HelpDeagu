@@ -718,7 +718,7 @@
 
 /* Center Alignment Utilities */
 .td-center {
-    text-align: center !important;
+    text-align: center;
 }
 
 /* Stacked Cell Layout */
