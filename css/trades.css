@@ -1369,3 +1369,80 @@
     padding: 20px 10px 10px 10px;
     margin-top: 10px;
 }
+
+/* === 모바일 핏 맞춤 (단독 상세 페이지 느낌의 모달) === */
+@media (max-width: 600px) {
+    .modal {
+        align-items: flex-end;
+        /* 모바일에서 하단에서 올라오는 느낌 고려 또는 중앙 */
+        padding: 0;
+    }
+
+    .modal-content {
+        width: 100vw;
+        max-width: 100vw;
+        height: 100%;
+        max-height: 100dvh;
+        border-radius: 16px 16px 0 0;
+        margin: 0;
+        padding: 20px 16px;
+        display: flex;
+        flex-direction: column;
+        border: none;
+    }
+
+    #modal-content-area {
+        flex: 1;
+        overflow-y: auto;
+        min-height: 0;
+        padding-bottom: 30px;
+        /* 스크롤바 숨김 처리 */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    #modal-content-area::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 인라인 스타일 강제 오버라이드 (이중 스크롤 방지) */
+    #modal-trade-list-container {
+        height: auto !important;
+        min-height: 0 !important;
+        overflow-y: visible !important;
+        margin-top: 10px !important;
+    }
+
+    /* 차트 높이 조정 (모바일) */
+    .modal-chart-wrapper {
+        height: 200px !important;
+    }
+
+    .modal-price-box {
+        margin: 10px 0;
+        font-size: 1.5rem;
+    }
+
+    .modal-info-grid {
+        padding: 12px;
+        gap: 10px;
+    }
+
+    .modal-tabs-wrapper {
+        margin-top: 10px !important;
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 8px;
+    }
+
+    #modal-period-tabs {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    #modal-period-tabs button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+        flex: 1;
+    }
+}

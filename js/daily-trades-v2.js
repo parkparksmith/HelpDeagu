@@ -572,17 +572,13 @@ function renderTradesByGu(trades) {
                 // 전체 인덱스 찾기
                 const gIndex = allTrades.indexOf(trade);
                 const isDetailedMenu = viewMode === 'detailed';
-                let doubleClickAction = isDetailedMenu ? `ondblclick="showDetailModal(${gIndex})"` : '';
+                let doubleClickAction = '';
 
-                // 모바일에서도 클릭으로 동작하게 할지 고려 (툴팁/모달)
-                // 우선 PC에서 더블클릭 가능하게 처리
-                if (isDetailedMenu) {
-                    // 모바일 사용자 배려로 oncontextmenu (길게 누르기) 등을 쓸수도 있지만, 일단 onclick 추가 (더블클릭/클릭 등)
-                    doubleClickAction += ` onclick="showDetailModal(${gIndex})"`;
-                }
+                // 모달 팝업 액션을 전역(모든 모드)으로 확대
+                doubleClickAction = `onclick="showDetailModal(${gIndex})"`;
 
                 rowHtml += `
-                    <tr class="${rowClass}" style="${viewMode === 'simple' ? 'height:30px;' : (isDetailedMenu ? 'cursor:pointer;' : '')}" ${doubleClickAction}>
+                    <tr class="${rowClass}" style="cursor:pointer; ${viewMode === 'simple' ? 'height:30px;' : ''}" ${doubleClickAction}>
                         <td class="${viewMode === 'simple' ? 'td-dong' : 'td-center td-dong'}" style="${tdStyleSimple} ${viewMode === 'simple' ? 'font-size:0.85em; padding-left:10px;' : ''}">${dong}</td>
                         <td class="${viewMode === 'simple' ? 'td-name' : 'td-center td-name'}" style="${tdStyleSimple}">${nameHtml}</td>
                         ${viewMode !== 'simple' ? `
@@ -721,7 +717,6 @@ let modalChartInstance = null;
 
 // 모달 표시 함수
 async function showDetailModal(globalIndex) {
-    if (currentViewMode() !== 'detailed') return;
     const trade = allTrades[globalIndex];
     if (!trade) return;
 
@@ -846,7 +841,7 @@ function selectModalPeriod(period) {
             <div id="chart-growth-info" style="min-height:20px; text-align:right; font-size:0.85em; margin-bottom:4px; font-weight:bold; color:var(--text-secondary);">
                 <!-- 범위 선택 시 상승률 표시 -->
             </div>
-            <div style="position: relative; height: 250px; width: 100%; user-select: none;">
+            <div class="modal-chart-wrapper" style="position: relative; width: 100%; user-select: none; height: 250px;">
                 <canvas id="detail-chart-canvas"></canvas>
             </div>
             <div style="text-align:right; font-size:0.75em; color:var(--text-muted); margin-top:4px;">
@@ -865,6 +860,24 @@ function selectModalPeriod(period) {
     // 목록 그리기 (최신순이므로 역순 정렬)
     let listHtml = '';
     const reversedHistory = [...filteredHistory].reverse();
+
+    // 기간 내 유효 거래 중 최고가/최저가 계산
+    const validTrades = filteredHistory.filter(t => !t.termination_date);
+    let maxPrice = -1;
+    let minPrice = Infinity;
+
+    validTrades.forEach(t => {
+        let p = t.amount;
+        if (typeof p === 'string') p = parseInt(p.replace(/[^0-9]/g, ''));
+        if (!isNaN(p)) {
+            if (p > maxPrice) maxPrice = p;
+            if (p < minPrice) minPrice = p;
+        }
+    });
+
+    if (maxPrice === -1) maxPrice = null;
+    if (minPrice === Infinity) minPrice = null;
+
     reversedHistory.forEach(t => {
         const isCancelled = !!t.termination_date;
         const isNewHigh = (t.newhigh === true || t.newhigh === 1 || t.newhigh === '1');
@@ -872,11 +885,42 @@ function selectModalPeriod(period) {
         const cDate = (t.contractdate || '').substring(0, 10);
         const floor = t.floor || '-';
 
+        let pVal = t.amount;
+        if (typeof pVal === 'string') pVal = parseInt(pVal.replace(/[^0-9]/g, ''));
+
         let displayPrice = priceText;
+
         if (isCancelled) {
             displayPrice = `<span style="text-decoration: line-through; color: var(--text-muted);">${priceText}</span> <span class="cancel-badge" style="font-size:0.7em;">취소</span>`;
-        } else if (isNewHigh) {
-            displayPrice = `<span style="color: #ff5252; font-weight: bold;">🔥 ${priceText}</span> <span style="font-size:0.65em; color:#fff; background:#ff5252; padding:2px 4px; border-radius:4px;">신고가</span>`;
+        } else {
+            let tags = '';
+
+            if (isNewHigh) {
+                tags += `<span style="font-size:0.65em; color:#fff; background:#ff5252; padding:2px 4px; border-radius:4px; margin-left:4px;">신고가</span>`;
+            }
+
+            // 기간 내 최고가/최저가 태그
+            // (신고가와 기간내 최고가가 겹칠 수 있으나 태그 모두 표시)
+            if (maxPrice && pVal === maxPrice) {
+                tags += `<span style="font-size:0.65em; color:#ef4444; border: 1px solid #ef4444; padding:1px 4px; border-radius:4px; margin-left:4px;">최고가</span>`;
+            }
+            // 거래내역 하나뿐이거나 같은 가격이면 최저가는 표시 생략
+            if (minPrice && pVal === minPrice && minPrice !== maxPrice) {
+                tags += `<span style="font-size:0.65em; color:#3b82f6; border: 1px solid #3b82f6; padding:1px 4px; border-radius:4px; margin-left:4px;">최저가</span>`;
+            }
+
+            let priceDisplayHtml = priceText;
+            if (isNewHigh) {
+                priceDisplayHtml = `🔥 ${priceText}`;
+            }
+
+            if (isNewHigh || pVal === maxPrice) {
+                displayPrice = `<span style="color: #ff5252; font-weight: bold;">${priceDisplayHtml}</span>${tags}`;
+            } else if (pVal === minPrice && minPrice !== maxPrice) {
+                displayPrice = `<span style="color: #3b82f6; font-weight: bold;">${priceDisplayHtml}</span>${tags}`;
+            } else {
+                displayPrice = `<span>${priceDisplayHtml}</span>${tags}`;
+            }
         }
 
         listHtml += `
