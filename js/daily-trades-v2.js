@@ -996,6 +996,11 @@ async function showDetailModal(globalIndex) {
     await loadModalData();
 
     incrementAptClickCount();
+
+    // 모바일 뒤로가기 처리를 위한 상태 추가
+    if (!history.state || !history.state.isModalOpen) {
+        history.pushState({ isModalOpen: true }, '', '');
+    }
 }
 
 async function fetchModalAreaOptions() {
@@ -1319,7 +1324,7 @@ function selectModalPeriod(period) {
     const chartContainer = document.getElementById('modal-chart');
     if (chartHistory.length > 0) {
         chartContainer.innerHTML = `
-            <div id="chart-growth-info" style="min-height:20px; text-align:right; font-size:0.85em; margin-bottom:4px; font-weight:bold; color:var(--text-secondary);">
+            <div id="chart-growth-info" style="min-height:45px; display:flex; flex-direction:column; justify-content:flex-end; align-items:flex-end; text-align:right; font-size:0.85em; margin-bottom:4px; font-weight:bold; color:var(--text-secondary);">
                 <!-- 범위 선택 시 상승률 표시 -->
             </div>
             <div class="modal-chart-wrapper" style="position: relative; width: 100%; user-select: none; height: 250px;">
@@ -1432,8 +1437,22 @@ function selectModalPeriod(period) {
 
 function closeDetailModal() {
     const modal = document.getElementById('trade-detail-modal');
-    if (modal) modal.classList.remove('active');
+    if (modal && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+        // 뒤로가기 상태 보정을 위해 (x버튼이나 바깥영역 클릭으로 닫을 때)
+        if (history.state && history.state.isModalOpen) {
+            history.back();
+        }
+    }
 }
+
+// 모바일 기기 등에서 뒤로가기 버튼 누를 시 모달만 닫히도록 처리
+window.addEventListener('popstate', function (event) {
+    const modal = document.getElementById('trade-detail-modal');
+    if (modal && modal.classList.contains('active')) {
+        modal.classList.remove('active');
+    }
+});
 
 // 모달 바깥쪽 클릭 시 닫기
 window.addEventListener('click', function (event) {
