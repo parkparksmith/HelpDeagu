@@ -62,6 +62,15 @@
             <input type="date" id="trade-date" class="date-select"
                 style="min-width: 150px; padding: 10px; border-radius: 8px;">
 
+            <label style="margin-left: 10px;">거래유형</label>
+            <div class="view-mode-toggle"
+                style="display: flex; gap: 4px; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 8px; border: 1px solid var(--border);">
+                <button class="icon-toggle-btn active deal-toggle-btn" onclick="setDealMode('sale')" data-deal="sale"
+                    style="padding: 4px 12px; font-size: 0.9rem; border-radius:6px;">매매</button>
+                <button class="icon-toggle-btn deal-toggle-btn" onclick="setDealMode('rent')" data-deal="rent"
+                    style="padding: 4px 12px; font-size: 0.9rem; border-radius:6px;">전월세</button>
+            </div>
+
             <label style="margin-left: 10px;">UI 유형</label>
             <div class="view-mode-toggle"
                 style="display: flex; gap: 4px; background: rgba(255, 255, 255, 0.05); padding: 4px; border-radius: 8px; border: 1px solid var(--border);">
@@ -136,6 +145,26 @@
             </div>
         </div>
 
+        <div id="sort-controls" class="sort-controls hidden"
+            style="display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; padding-bottom: 8px; border-bottom: 1px solid var(--border); align-items: center;">
+            <button id="group-by-gu-btn" class="icon-toggle-btn active" onclick="toggleGroupByGu()"
+                style="padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px; border-color: var(--primary-color); color: var(--primary-color);">구별
+                그룹 <span class="material-icons-round" style="font-size: 14px;">check</span></button>
+            <div style="width: 1px; height: 16px; background: var(--border); margin: 0 4px;"></div>
+            <button class="icon-toggle-btn sort-btn" data-sort="price" onclick="toggleSort('price')"
+                style="padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">거래금액순 <span
+                    class="sort-icon">-</span></button>
+            <button class="icon-toggle-btn sort-btn" data-sort="volume_same" onclick="toggleSort('volume_same')"
+                style="padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">동일면적건수순
+                <span class="sort-icon">-</span></button>
+            <button class="icon-toggle-btn sort-btn" data-sort="volume_all" onclick="toggleSort('volume_all')"
+                style="padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">전체거래건수순
+                <span class="sort-icon">-</span></button>
+            <button class="icon-toggle-btn sort-btn" data-sort="newhigh_price" onclick="toggleSort('newhigh_price')"
+                style="padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">신고가/거래금액순
+                <span class="sort-icon">-</span></button>
+        </div>
+
         <!-- 거래 데이터 테이블 -->
         <div id="trades-container" class="trades-container hidden">
             <div class="table-header">
@@ -157,8 +186,64 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeDetailModal()">&times;</span>
             <div class="modal-header">
-                <h3 id="modal-apt-name">단지명</h3>
-                <span id="modal-dong" class="modal-subtitle">동이름</span>
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom: 8px;">
+                    <div style="position: relative; width: 100%;">
+                        <div
+                            style="font-size: 0.75rem; background: var(--primary-color, #3b82f6); color: white; display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 6px;">
+                            APT Info</div>
+                        <div id="modal-apt-type-badge"
+                            style="font-size: 0.75rem; background: #6b7280; color: white; display: inline-block; padding: 2px 8px; border-radius: 4px; font-weight: bold; margin-bottom: 6px; margin-left: 4px;">
+                            아파트</div>
+
+                        <div style="position: relative; display: block;">
+                            <h3 id="modal-apt-name-trigger"
+                                style="margin:0; cursor: pointer; display: inline-flex; align-items: center; border-radius: 4px; padding: 2px 6px 2px 0;"
+                                onclick="openModalAptSearch()" title="다른 아파트 검색">
+                                <span id="modal-apt-name">단지명</span> <span class="material-icons-round"
+                                    style="font-size: 1.2rem; margin-left: 2px; color: var(--text-muted);">arrow_drop_down</span>
+                            </h3>
+
+                            <div id="modal-apt-search-container"
+                                style="display:none; position: absolute; top:-4px; left:-4px; min-width: 260px; z-index: 10000; background: var(--bg-card); border-radius: 6px; box-shadow: 0 4px 16px rgba(0,0,0,0.3); border: 2px solid var(--primary-color);">
+                                <div
+                                    style="display: flex; align-items: center; border-bottom: 1px solid var(--border); padding: 4px 8px;">
+                                    <span class="material-icons-round"
+                                        style="color: var(--primary-color); font-size: 1.2rem; margin-right: 4px;">search</span>
+                                    <input type="text" id="modal-apt-search" placeholder="아파트명 검색..."
+                                        oninput="handleModalSearch(this.value)" autocomplete="off"
+                                        style="flex: 1; padding: 6px 4px; font-size: 1.1rem; font-weight: bold; border: none; background: transparent; color: var(--text-primary); outline: none;">
+                                    <span class="material-icons-round"
+                                        style="cursor: pointer; color: var(--text-muted); font-size: 1.2rem; padding: 4px;"
+                                        onclick="closeModalAptSearch()">close</span>
+                                </div>
+                                <ul id="modal-apt-search-results"
+                                    style="display:none; list-style:none; padding:0; margin:0; max-height:250px; overflow-y:auto; border-bottom-left-radius:6px; border-bottom-right-radius:6px; text-align: left;">
+                                </ul>
+                            </div>
+                        </div>
+
+                        <span id="modal-dong" class="modal-subtitle"
+                            style="display:inline-block; margin-top:2px;">동이름</span>
+                    </div>
+                </div>
+
+                <div class="modal-controls"
+                    style="display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; align-items:center; background:var(--bg-card); padding:10px; border-radius:8px; border:1px solid var(--border);">
+                    <div id="modal-deal-mode-toggle" class="view-toggle group"
+                        style="background:var(--bg-body); padding:2px;">
+                        <button class="icon-toggle-btn active" data-deal="sale" onclick="changeModalDealMode('sale')"
+                            style="font-size:0.8rem; padding:4px 10px;">매매</button>
+                        <button class="icon-toggle-btn" data-deal="rent" onclick="changeModalDealMode('rent')"
+                            style="font-size:0.8rem; padding:4px 10px;">전월세</button>
+                        <button class="icon-toggle-btn" data-deal="sale-rent" onclick="changeModalDealMode('sale-rent')"
+                            style="font-size:0.8rem; padding:4px 10px;">매매+전세평균</button>
+                    </div>
+
+                    <select id="modal-area-select" onchange="changeModalArea(this.value)"
+                        style="flex:1; min-width:120px; font-size:0.85rem; padding:6px 10px; border:1px solid var(--border); border-radius:6px; background:var(--bg-body); color:var(--text-primary); outline:none;">
+                        <!-- Options generated dynamically -->
+                    </select>
+                </div>
             </div>
             <div id="modal-price" class="modal-price-box">가격</div>
             <div id="modal-info" class="modal-info-box">
