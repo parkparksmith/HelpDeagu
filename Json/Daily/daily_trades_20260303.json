@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-03-03T08:11:56.971629",
+  "selected_date": "2026-03-03",
+  "summary": {
+    "total_apt_count": 1,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "서구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 208276,
+      "district": "대구광역시 서구 평리동",
+      "gu": "서구",
+      "dong": "평리동",
+      "bunji": "1703",
+      "apt_name": "서대구역반도유보라센텀",
+      "area": 72.9266,
+      "contract_date": "2026-02-24",
+      "amount": 412000000,
+      "floor": 12,
+      "buyer_type": "개인",
+      "construction_year": 2023,
+      "road_name": "문화로 230",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 달서구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-03-03T08:11:46.018899",
+      "previous_high": 436000000,
+      "trade_count_3m_total": 33,
+      "trade_count_3m_area": 4,
+      "presale_type": null
+    }
+  ]
+}
