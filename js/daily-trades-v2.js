@@ -399,8 +399,8 @@ async function loadDailyTrades() {
                 area: t.area,
                 floor: t.floor,
                 price: t.amount,
-                _deposit: t._deposit,
-                _monthly_rent: t._monthly_rent,
+                _deposit: t.deposit || t._deposit,
+                _monthly_rent: t.monthly_rent || t._monthly_rent,
                 contract_date: t.contractdate,
                 construction_year: t.construction_year,
                 household_count: household_count,
@@ -548,7 +548,7 @@ function populateDistrictFilter(trades) {
 }
 
 // 정렬 관련 상태 변수
-let currentSortMode = 'default';
+let currentSortMode = 'price';
 let currentSortOrder = 'desc';
 
 function getPriceVal(t) {
@@ -587,7 +587,7 @@ function toggleSort(mode) {
     renderTradesByGu(filteredTrades);
 }
 
-let isGroupByGu = true;
+let isGroupByGu = false;
 
 function toggleGroupByGu() {
     isGroupByGu = !isGroupByGu;
@@ -760,7 +760,7 @@ function renderTradesByGu(trades) {
                 if (isCancelled) {
                     priceHtmlForSimple = `<span class="price-text cancelled" style="font-size:0.85em;">${priceText} <span class="cancel-badge">취소</span></span>`;
                     priceHtml = `<span class="price-text cancelled">${priceText} <span class="cancel-badge">취소</span></span>`;
-                } else if (isNewHigh) {
+                } else if (isNewHigh && activeDealMode !== 'rent') { // 전월세는 신고가 아이콘 렌더링 안함
                     priceHtmlForSimple = `<span class="price-text new-high" style="font-size:0.85em;">🔥 ${priceText}</span>`;
                     priceHtml = `<span class="price-text new-high">🔥 ${priceText}</span>`;
                 } else {
@@ -768,7 +768,8 @@ function renderTradesByGu(trades) {
                     priceHtml = `<span class="price-text">${priceText}</span>`;
                 }
 
-                if (!isCancelled && trade.previousHigh > 0 && viewMode !== 'simple') {
+                // 전월세가 아닐 때만 이전최고가 및 퍼센티지(상승률) 표시
+                if (!isCancelled && trade.previousHigh > 0 && viewMode !== 'simple' && activeDealMode !== 'rent') {
                     const prevHighText = formatPrice(trade.previousHigh);
                     let pctHtml = '';
                     const pVal = getPriceVal(trade);

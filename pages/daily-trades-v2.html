@@ -140,13 +140,13 @@
 
         <div id="sort-controls" class="sort-controls hidden"
             style="display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; padding-bottom: 8px; border-bottom: 1px solid var(--border); align-items: center;">
-            <button id="group-by-gu-btn" class="icon-toggle-btn active" onclick="toggleGroupByGu()"
-                style="padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px; border-color: var(--primary-color); color: var(--primary-color);">구별
-                그룹 <span class="material-icons-round" style="font-size: 14px;">check</span></button>
+            <button id="group-by-gu-btn" class="icon-toggle-btn" onclick="toggleGroupByGu()"
+                style="padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">그룹 해제 <span
+                    class="material-icons-round" style="font-size: 14px;">close</span></button>
             <div style="width: 1px; height: 16px; background: var(--border); margin: 0 4px;"></div>
-            <button class="icon-toggle-btn sort-btn" data-sort="price" onclick="toggleSort('price')"
+            <button class="icon-toggle-btn sort-btn active" data-sort="price" onclick="toggleSort('price')"
                 style="padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">거래금액순 <span
-                    class="sort-icon">-</span></button>
+                    class="sort-icon">▼</span></button>
             <button class="icon-toggle-btn sort-btn" data-sort="volume_same" onclick="toggleSort('volume_same')"
                 style="padding: 6px 12px; font-size: 0.85rem; display: flex; align-items: center; gap: 4px;">동일면적건수순
                 <span class="sort-icon">-</span></button>

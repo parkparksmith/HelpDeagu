@@ -1,0 +1,266 @@
+.hotdeal-page .date-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--surface);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px var(--shadow);
+    border: 1px solid var(--border);
+}
+
+.hotdeal-page .date-header h2 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 1.25rem;
+    color: var(--text);
+}
+
+.hotdeal-page .date-header h2 .material-icons-round {
+    color: #f43f5e;
+}
+
+.date-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.icon-btn:hover:not(:disabled) {
+    background: var(--surface-hover);
+    color: #f43f5e;
+    border-color: #f43f5e;
+}
+
+.icon-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--surface-hover);
+}
+
+.hotdeal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.hotdeal-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 6px -1px var(--shadow);
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+}
+
+.hotdeal-image-container {
+    width: 100%;
+    height: 180px;
+    background: var(--surface-hover);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hotdeal-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.hotdeal-image.loaded {
+    opacity: 1;
+}
+
+.hotdeal-image-placeholder {
+    position: absolute;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+}
+
+.hotdeal-image-placeholder .material-icons-round {
+    font-size: 32px;
+    opacity: 0.5;
+}
+
+.hotdeal-card-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+}
+
+.hotdeal-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px -3px var(--shadow);
+    border-color: #f43f5e;
+}
+
+.hotdeal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.hotdeal-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--text);
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.hotdeal-stats {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-item .material-icons-round {
+    font-size: 1rem;
+}
+
+.hotdeal-category {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.hotdeal-store {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background: rgba(244, 63, 94, 0.1);
+    color: #f43f5e;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.hotdeal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border);
+}
+
+.hotdeal-time {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.hotdeal-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    background: #f43f5e;
+    color: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.hotdeal-card:hover .hotdeal-btn {
+    background: #e11d48;
+}
+
+.empty-state,
+.error-state,
+.loading-state {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    background: var(--surface);
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+}
+
+.empty-state .material-icons-round,
+.error-state .material-icons-round {
+    font-size: 48px;
+    margin-bottom: 16px;
+    color: var(--border);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(244, 63, 94, 0.2);
+    border-left-color: #f43f5e;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .hotdeal-grid {
+        grid-template-columns: 1fr;
+    }
+}
