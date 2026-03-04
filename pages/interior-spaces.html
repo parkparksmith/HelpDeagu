@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공간별 인테리어 풍수 - 생기를 깨우는 집안 가이드</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        .content-section {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16 heart_brokenpx;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+            line-height: 1.8;
+            border-radius: 16px;
+        }
+
+        .content-section h3 {
+            color: var(--warning);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feng-shui-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feng-shui-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .feng-shui-list li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .space-detail {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 10px;
+        }
+
+        .space-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 12px;
+        }
+
+        .space-card h4 {
+            color: var(--text-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>공간별 인테리어 풍수</h1>
+            </div>
+            <a href="feng-shui-menu.html" id="back-btn">
+                <span class="material-icons-round">arrow_back</span>
+                이전으로
+            </a>
+        </header>
+
+        <!-- 워터마크 -->
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <main class="view active">
+            <div class="content-section">
+                <h3><span class="material-icons-round">home</span> 집안 공간별 상세 가이드</h3>
+                <p>집은 외부의 기운을 받아들이고 거주자가 휴식하며 에너지를 채우는 성소입니다.</p>
+
+                <div class="space-detail">
+                    <div class="space-card">
+                        <h4><span class="material-icons-round">sensor_door</span> 현관 (기운의 입구)</h4>
+                        <ul class="feng-shui-list">
+                            <li><strong>정면 거울 금지:</strong> 들어오는 복을 반사하여 내보냅니다. 거울은 좌/우측 벽면에 두세요.</li>
+                            <li><strong>조명 밝기:</strong> 현관이 어두우면 좋은 기운이 들어오지 못합니다. 센서 조명을 밝게 유지하세요.</li>
+                            <li><strong>맑은 소리:</strong> 문에 달린 종(종)은 나쁜 기운을 정화하고 생기를 불러옵니다.</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-card">
+                        <h4><span class="material-icons-round">weekend</span> 거실 (가족의 화목)</h4>
+                        <ul class="feng-shui-list">
+                            <li><strong>최고의 명당:</strong> 현관에서 들어오는 사람을 바로 볼 수 있는 문 대각선 방향이 '주인'의 자리입니다.</li>
+                            <li><strong>튼튼한 배후:</strong> 소파 바로 뒤가 창문이면 심리적으로 불안정해집니다. 벽을 등지고 배치하세요.</li>
+                            <li><strong>식물의 배치:</strong> 거실 모서리에 관엽식물을 두면 정체된 기운을 순환시킵니다.</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-card">
+                        <h4><span class="material-icons-round">bed</span> 침실 (건강과 재충전)</h4>
+                        <ul class="feng-shui-list">
+                            <li><strong>침대 머리 방향:</strong> 방문에서 멀고 대각선 방향이 좋으며, 머리 방향은 창문을 향하는 것이 가장 이상적입니다.</li>
+                            <li><strong>피해야 할 배치:</strong> 화장실 문과 침대가 마주 보는 구조는 탁한 기운을 받을 수 있어 피해야 합니다.</li>
+                            <li><strong>안정적인 조명:</strong> 숙면 중에는 양기보다 음기가 필요하므로 낮은 조도의 따뜻한 조명이 권장됩니다.</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-card">
+                        <h4><span class="material-icons-round">edit</span> 공부방 (학업과 집중)</h4>
+                        <ul class="feng-shui-list">
+                            <li><strong>책상 배치:</strong> 문을 등지지 않고, 방문을 대각선으로 바라보는 위치가 심리적 안정감과 집중력을 높여줍니다.</li>
+                            <li><strong>조명과 색상:</strong> 창문으로 들어오는 자연광과 함께 차분한 그린/블루 톤의 소품을 활용하세요.</li>
+                            <li><strong>벽면 정돈:</strong> 책상 앞 벽면에 너무 많은 사진이나 달력이 있으면 시선이 분산되어 기운이 흩어집니다.</li>
+                        </ul>
+                    </div>
+
+                    <div class="space-card">
+                        <h4><span class="material-icons-round">soup_kitchen</span> 주방 (건강과 재물)</h4>
+                        <ul class="feng-shui-list">
+                            <li><strong>조화로운 배치:</strong> 물(싱크대)과 불(가스레인지)이 너무 가깝지 않게 배치하는 것이 상극의 에너지를 다스리는 법입니다.</li>
+                            <li><strong>청결과 비움:</strong> 주방 칼을 외부에 노출하면 금전적 손실이 생길 수 있으므로 서랍에 보관하며, 식탁 위는 항상 비워두세요.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3><span class="material-icons-round">tips_and_updates</span> 풍수 인테리어의 핵심 Tip</h3>
+                <ul class="feng-shui-list">
+                    <li><strong>비우는 것이 먼저 (비움의 미학):</strong> 발코니와 현관에 쌓인 불필요한 짐은 기의 흐름을 막는 독소입니다. 정리 정돈만으로도 집안의 생기는 30%
+                        이상 향상됩니다.</li>
+                    <li><strong>환기의 중요성:</strong> 매일 아침 10분 이상의 환기를 통해 밤새 침전된 탁한 기운을 내보내고 새로운 에너지를 수혈하세요.</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p class="copyright">© 2026 대구부동산. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

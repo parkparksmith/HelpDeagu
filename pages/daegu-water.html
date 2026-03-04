@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부의 흐름, 대구의 물길 - 신천과 금호강의 풍수</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        .content-section {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+            line-height: 1.8;
+        }
+
+        .content-section h3 {
+            color: var(--info);
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content-section p {
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .feng-shui-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feng-shui-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .feng-shui-list li::before {
+            content: "🌊";
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .highlight-card {
+            background: rgba(88, 166, 255, 0.05);
+            border-left: 4px solid var(--info);
+            padding: 15px 20px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-card h4 {
+            color: var(--info);
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>부의 흐름, 대구의 물길</h1>
+            </div>
+            <a href="feng-shui-menu.html" id="back-btn">
+                <span class="material-icons-round">arrow_back</span>
+                이전으로
+            </a>
+        </header>
+
+        <!-- 워터마크 -->
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <main class="view active">
+            <div class="content-section">
+                <h3><span class="material-icons-round">water</span> 신천(新川) - 도심의 혈맥과 투자처</h3>
+                <p>대구 도심을 남에서 북으로 가로지르는 신천은 재물을 불러들이는 핵심 줄기입니다.</p>
+                <ul class="feng-shui-list">
+                    <li><strong>범어동, 봉덕동:</strong> 신천의 맑은 흐름이 닿는 곳으로, 주거 안정성과 교육운이 매우 강한 대표적 길지입니다.</li>
+                    <li><strong>구곡수(九曲水)의 재물운:</strong> 물길이 굽이쳐 흐를수록 재물이 머무는 시간이 길어져 부가 축적된다고 봅니다.</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h3><span class="material-icons-round">hub</span> 수계의 합수와 부의 집중</h3>
+                <p>두 물길이 만나는 '합수처'와 거대한 강물은 지역의 경제적 기반을 결정합니다.</p>
+                <div class="highlight-card">
+                    <h4>💎 주요 수계별 핵심 지역</h4>
+                    <table
+                        style="width: 100%; border-collapse: collapse; font-size: 0.9rem; color: var(--text-secondary);">
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <th style="padding: 8px; text-align: left;">구분</th>
+                            <th style="padding: 8px; text-align: left;">풍수적 특성</th>
+                            <th style="padding: 8px; text-align: left;">해당 투자 지역</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 8px; font-weight: bold; color: var(--info);">합수처</td>
+                            <td style="padding: 8px;">기운의 응축 (득수명당)</td>
+                            <td style="padding: 8px;">침산동 일대</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 8px; font-weight: bold; color: var(--info);">금호강</td>
+                            <td style="padding: 8px;">재물의 거대한 저장소</td>
+                            <td style="padding: 8px;">침산동, 신서동</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 8px; font-weight: bold; color: var(--info);">낙동강</td>
+                            <td style="padding: 8px;">거대 장벽, 신도시 입지</td>
+                            <td style="padding: 8px;">다사, 화원</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3><span class="material-icons-round">directions_car</span> 달구벌대로 - 현대판 '대구천'</h3>
+                <p>현대 도시 풍수에서 끊임없이 차량이 흐르는 도로는 곧 재물이 흐르는 '물길'입니다.</p>
+                <ul class="feng-shui-list">
+                    <li><strong>재물의 중추:</strong> 대구의 동서 축을 잇는 <b>달구벌대로</b>는 현대판 '대구천'으로 불리며, 대구에서 가장 거대한 재물의 에너지가 흐르는
+                        선입니다.</li>
+                    <li><strong>환포(環抱) vs 반배(反背):</strong> 건물을 도로가 감싸 안는 '환포' 형태의 입지는 기운을 모으지만, 도로가 등을 지고 휘어지는 '반배' 형태는
+                        기운이 달아납니다.</li>
+                    <li><strong>핵심 요충지:</strong> 달구벌대로 중심의 <b>반월당</b>과 <b>계산 오거리</b>는 여러 물길(교통로)이 교차하며 에너지가 분출되는 최고의
+                        혈(穴)자리입니다.</li>
+                </ul>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p class="copyright">© 2026 대구부동산. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

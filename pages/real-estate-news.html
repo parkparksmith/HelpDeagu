@@ -112,23 +112,46 @@
             font-size: 1rem;
         }
 
-        .load-more-btn {
-            display: block;
-            width: 100%;
-            padding: 15px;
-            margin-top: 30px;
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            color: var(--text-primary);
-            border-radius: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
+        .info-section-static {
+            margin-top: 60px;
+            padding-bottom: 40px;
         }
 
-        .load-more-btn:hover {
-            background: var(--bg-hover);
-            border-color: var(--accent);
+        .content-card-static {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .content-card-static h4 {
+            color: var(--accent);
+            margin-top: 25px;
+            margin-bottom: 12px;
+            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .content-card-static h4::before {
+            content: '•';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .content-card-static p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        @media (max-width: 600px) {
+            .content-card-static {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -164,6 +187,88 @@
                     뉴스를 불러오는 중입니다...
                 </div>
             </div>
+
+            <!-- 2026년 대구 시장 전망 섹션 (추가 정적 콘텐츠) -->
+            <section class="info-section-static" style="margin-top: 40px;">
+                <div class="news-header" style="text-align: left; margin-bottom: 20px;">
+                    <h3 style="font-size: 1.4rem; color: var(--accent); display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round">analytics</span>
+                        2026년 대구 부동산 시장 핵심 전망
+                    </h3>
+                </div>
+
+                <div class="content-card-static">
+                    <table
+                        style="width: 100%; border-collapse: collapse; margin-bottom: 25px; font-size: 0.9rem; color: var(--text-secondary);">
+                        <tr style="border-bottom: 2px solid var(--border); background: var(--bg-dark);">
+                            <th style="padding: 12px; text-align: left; color: var(--accent);">핵심 키워드</th>
+                            <th style="padding: 12px; text-align: left; color: var(--accent);">예상 흐름</th>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 12px; font-weight: 600; color: var(--text-primary);">입주 물량</td>
+                            <td style="padding: 12px;">공급 과잉 해소 단계 진입, 2027년 이후 공급 부족 우려 시작</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 12px; font-weight: 600; color: var(--text-primary);">금리 영향</td>
+                            <td style="padding: 12px;">하반기 기준금리 인하 기대감 반영, 모기지 대출 금리 안정세</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border);">
+                            <td style="padding: 12px; font-weight: 600; color: var(--text-primary);">선호 지역</td>
+                            <td style="padding: 12px;">수성구 범어동 및 중구 신축 단지 중심의 '똘똘한 한 채' 현상 심화</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; font-weight: 600; color: var(--text-primary);">전세 시장</td>
+                            <td style="padding: 12px;">매매 관망세로 인한 전세 수요 증가, 전세가 소폭 상승세 유지</td>
+                        </tr>
+                    </table>
+
+                    <p style="color: var(--text-secondary); line-height: 1.8;">
+                        2026년 대구 시장은 지난 몇 년간의 침체기를 지나 <strong>'바닥 다지기'</strong>에서 <strong>'완만한 회복'</strong>으로 넘어가는 변곡점에
+                        서 있습니다.
+                        특히 미분양 물량이 점진적으로 감소하고 있고, 신규 분양 승인이 중단된 효과가 본격적으로 나타나면서 공급 측면에서의 압박이 상당 부분 해소될 것으로 보입니다.
+                    </p>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-top: 15px;">
+                        투자 전략 측면에서는 단순히 싼 매물을 찾는 것보다, 향후 대구의 핵심 물길과 용맥(풍수적 입지)에 해당하는 <b>전통적 선호 입지</b>와 <b>역세권 신축</b>에
+                        집중하는 것이 자산 가치 방어에 유리할 것입니다.
+                    </p>
+                </div>
+            </section>
+
+            <!-- 정적 콘텐츠 섹션 (AdSense 및 정보 가치 강화) -->
+            <section class="info-section-static" style="margin-top: 60px;">
+                <div class="news-header" style="text-align: left; margin-bottom: 20px;">
+                    <h3 style="font-size: 1.4rem; color: var(--accent); display: flex; align-items: center; gap: 8px;">
+                        <span class="material-icons-round">insights</span>
+                        부동산 뉴스, 어떻게 읽어야 할까요?
+                    </h3>
+                </div>
+
+                <div class="content-card-static"
+                    style="background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 25px; line-height: 1.8;">
+                    <p style="color: var(--text-secondary); margin-bottom: 20px;">
+                        홍수처럼 쏟아지는 부동산 뉴스 속에서 나에게 필요한 진짜 정보를 골라내는 능력이 중요합니다.
+                        단순히 헤드라인만 보는 것이 아니라, 데이터와 정책의 이면을 읽는 눈을 길러야 합니다.
+                    </p>
+
+                    <h4 style="color: var(--text-primary); margin-bottom: 10px;">1. 거래량의 변화를 먼저 확인하세요</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+                        가격지표는 사후적인 성격이 강합니다. 실제 시장의 온도계를 보려면 거래량을 확인해야 합니다.
+                        거래량이 늘어나면서 가격이 오르는지, 아니면 거래 없이 호가만 오르는 중인지 구분하는 것이 시장의 바닥을 판단하는 핵심입니다.
+                    </p>
+
+                    <h4 style="color: var(--text-primary); margin-bottom: 10px;">2. 금리와 정책의 연결고리를 이해하세요</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 20px;">
+                        미 연준의 기준금리 변화는 우리나라 주택담보대출 금리에 직접적인 영향을 줍니다.
+                        이와 더불어 정부의 대출 규제(DSR 등) 완화 여부를 함께 모니터링해야 내 집 마련 자금 계획을 정확하게 세울 수 있습니다.
+                    </p>
+
+                    <h4 style="color: var(--text-primary); margin-bottom: 10px;">3. 지역별 '양극화'를 인정해야 합니다</h4>
+                    <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                        이제 전국적으로 동시에 오르는 시장은 지났습니다. 수도권 상급지와 지방 광역시, 그리고 소도시 간의 가격 차이가 벌어지는 양극화 시대입니다.
+                        '전체 시장'이 아닌 '내가 관심 있는 지역'의 수급 상황과 미분양 추이를 꼼꼼히 살피는 습관을 들여보세요.
+                    </p>
+                </div>
+            </section>
 
             <!-- 공통 하단 푸터 (AdSense) -->
             <footer class="site-footer"

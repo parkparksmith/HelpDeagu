@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>운을 부르는 컬러 & 소품 - 공간의 에너지를 보완하는 풍수</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        .content-section {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+            line-height: 1.8;
+            border-radius: 16px;
+        }
+
+        .content-section h3 {
+            color: #ec4899;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .feng-shui-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .feng-shui-list li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+        }
+
+        .feng-shui-list li::before {
+            content: "🎨";
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+
+        .color-palette {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .color-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .color-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .prop-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .prop-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+        }
+
+        .prop-text h4 {
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .prop-text p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>운을 부르는 컬러 & 소품</h1>
+            </div>
+            <a href="feng-shui-menu.html" id="back-btn">
+                <span class="material-icons-round">arrow_back</span>
+                이전으로
+            </a>
+        </header>
+
+        <!-- 워터마크 -->
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <main class="view active">
+            <div class="content-section">
+                <h3><span class="material-icons-round">palette</span> 컬러 풍수 - 기운을 보강하는 색상</h3>
+                <p>공간의 색상은 거주자의 감정과 운기에 직접적인 영향을 미칩니다.</p>
+
+                <div class="color-palette">
+                    <div class="color-card">
+                        <div class="color-circle" style="background: linear-gradient(135deg, #fff 0%, #ffd700 100%);">
+                        </div>
+                        <h4>현관 (재물운)</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">화이트, 골드, 옐로</p>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-circle"
+                            style="background: linear-gradient(135deg, #f5f5dc 0%, #98fb98 100%);"></div>
+                        <h4>거실 (가족 화목)</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">베이지, 아이보리, 연녹색</p>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-circle"
+                            style="background: linear-gradient(135deg, #aaddff 0%, #b0ffb0 100%);"></div>
+                        <h4>공부방 (집중력)</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">연파랑, 연초록</p>
+                    </div>
+                    <div class="color-card">
+                        <div class="color-circle" style="background: linear-gradient(135deg, #fff 0%, #ffa500 100%);">
+                        </div>
+                        <h4>주방 (활력/건강)</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);">화이트, 연한 오렌지</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3><span class="material-icons-round">category</span> 행운을 부르는 풍수 소품</h3>
+                <p>작은 소품 하나가 집안의 나쁜 기운을 정화하고 좋은 에너지를 증폭시킵니다.</p>
+
+                <div class="prop-item">
+                    <div class="prop-icon">🪴</div>
+                    <div class="prop-text">
+                        <h4>관엽식물 (생기 순환)</h4>
+                        <p>잎이 둥글고 넓은 고무나무, 금전수 등은 재물운을 북돋아줍니다. 시든 식물은 즉시 치워야 하며, 가시가 있는 선인장은 현관이나 침실에 두지 않는 것이 좋습니다.</p>
+                    </div>
+                </div>
+
+                <div class="prop-item">
+                    <div class="prop-icon">🖼️</div>
+                    <div class="prop-text">
+                        <h4>그림과 액자 (기운의 보완)</h4>
+                        <p>밝고 화사한 꽃 그림이나 해바라기(재물) 그림은 부족한 기운을 채워줍니다. 어두운 추상화나 날카로운 조형물은 시선을 분산시키고 기운을 깎습니다.</p>
+                    </div>
+                </div>
+
+                <div class="prop-item">
+                    <div class="prop-icon">🪞</div>
+                    <div class="prop-text">
+                        <h4>거울 (에너지 확장과 방어)</h4>
+                        <p>거울은 좁은 공간의 에너지를 확장시키지만, 문 정면이나 침대 앞에 두면 복을 반사하거나 잠자는 동안 기를 뺏으므로 주의해서 배치해야 합니다.</p>
+                    </div>
+                </div>
+
+                <div class="prop-item">
+                    <div class="prop-icon">🍋</div>
+                    <div class="prop-text">
+                        <h4>향기 전략 (생기 유발)</h4>
+                        <p>감귤계(레몬, 오렌지)나 은은한 꽃향기는 나쁜 냄새를 제거할 뿐만 아니라 공간에 '생기'를 불어넣어 방문객에게 긍정적인 인상을 줍니다.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <p class="copyright">© 2026 대구부동산. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
