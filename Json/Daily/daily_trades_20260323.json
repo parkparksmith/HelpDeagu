@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-03-23T07:16:46.133410",
+  "selected_date": "2026-03-23",
+  "summary": {
+    "total_apt_count": 1,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 1,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "수성구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 514062,
+      "district": "대구광역시 수성구 범어동",
+      "gu": "수성구",
+      "dong": "범어동",
+      "bunji": "177-1",
+      "apt_name": "범어서한포레스트",
+      "area": 84.9961,
+      "contract_date": "2026-03-14",
+      "amount": 994000000,
+      "floor": 16,
+      "buyer_type": "개인",
+      "construction_year": 2020,
+      "road_name": "동대구로 346",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 수성구",
+      "termination_date": null,
+      "is_newhigh": true,
+      "write_date": "2026-03-23T07:12:38.098521",
+      "previous_high": 990000000,
+      "trade_count_3m_total": 2,
+      "trade_count_3m_area": 1,
+      "presale_type": null
+    }
+  ]
+}
