@@ -1,11 +1,11 @@
 {
   "key": "3731",
-  "export_date": "2026-04-05T00:05:25.667238",
+  "export_date": "2026-04-05T07:15:23.530476",
   "selected_date": "2026-04-05",
   "summary": {
     "total_apt_count": 64,
     "total_presale_count": 5,
-    "apt_newhigh_count": 2,
+    "apt_newhigh_count": 0,
     "presale_newhigh_count": 0
   },
   "district_status": [
@@ -239,7 +239,7 @@
       "is_newhigh": false,
       "write_date": "2026-04-05T00:02:08.518566",
       "previous_high": 260000000,
-      "trade_count_3m_total": 3,
+      "trade_count_3m_total": 2,
       "trade_count_3m_area": 1,
       "presale_type": null
     },
@@ -761,7 +761,7 @@
       "transaction_type": "중개거래",
       "agent_location": "대구 달서구",
       "termination_date": null,
-      "is_newhigh": true,
+      "is_newhigh": false,
       "write_date": "2026-04-05T00:02:08.518566",
       "previous_high": 549000000,
       "trade_count_3m_total": 16,
@@ -1561,7 +1561,7 @@
       "transaction_type": "중개거래",
       "agent_location": "대구 북구",
       "termination_date": null,
-      "is_newhigh": true,
+      "is_newhigh": false,
       "write_date": "2026-04-05T00:02:08.518566",
       "previous_high": 594500000,
       "trade_count_3m_total": 19,
@@ -1714,7 +1714,7 @@
       "write_date": "2026-04-05T00:02:13.190428",
       "previous_high": 438000000,
       "trade_count_3m_total": 265,
-      "trade_count_3m_area": 111,
+      "trade_count_3m_area": 112,
       "construction_year": null,
       "road_name": null
     },
@@ -1764,7 +1764,7 @@
       "write_date": "2026-04-05T00:02:13.190428",
       "previous_high": 438000000,
       "trade_count_3m_total": 271,
-      "trade_count_3m_area": 112,
+      "trade_count_3m_area": 113,
       "construction_year": null,
       "road_name": null
     }
