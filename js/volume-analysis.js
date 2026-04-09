@@ -466,24 +466,56 @@ function updateLegend(datasets, useOneMonth, maWin) {
 // ══════════════════════════════════════════════════
 
 function renderChart(buckets, datasets, totalVol, ma, oneMonthDate, dateType, agg) {
-    const ctx = document.getElementById('volume-chart').getContext('2d');
+    const canvas = document.getElementById('volume-chart');
     if (volumeChart) volumeChart.destroy();
+    Chart.defaults.set('plugins.datalabels', { display: false });
 
     const showBound = dateType !== 'write_date' && oneMonthDate;
     let bIdx = -1;
     if (showBound) { const i = buckets.indexOf(oneMonthDate); bIdx = i >= 0 ? i : -1; }
 
-    const bars = datasets.map((ds, i) => ({
+    const barCount = datasets.length;
+    const pctData = {};
+    if (barCount > 1) {
+        buckets.forEach((_, bi) => {
+            const sum = datasets.reduce((s, ds) => s + ds.data[bi], 0);
+            pctData[bi] = datasets.map(ds => sum > 0 ? Math.round(ds.data[bi] / sum * 1000) / 10 : 0);
+        });
+    }
+
+    const bars = datasets.map((ds, di) => ({
         label: ds.name, data: ds.data,
         backgroundColor: ds.color.bg, borderColor: ds.color.border,
-        borderWidth: 1, borderRadius: i === datasets.length - 1 ? 2 : 0,
+        borderWidth: 1, borderRadius: di === datasets.length - 1 ? 2 : 0,
         order: 2, barPercentage: 0.85, categoryPercentage: 0.9, stack: 'total',
+        datalabels: {
+            display(ctx) {
+                const chart = ctx.chart;
+                const xScale = chart.scales.x;
+                const visibleCount = xScale.max - xScale.min + 1;
+                if (visibleCount > 40) return false;
+                const val = ctx.dataset.data[ctx.dataIndex];
+                if (!val) return false;
+                const yScale = chart.scales.y;
+                const barPixelH = Math.abs(yScale.getPixelForValue(0) - yScale.getPixelForValue(val));
+                return barPixelH > 16;
+            },
+            formatter(val, ctx) {
+                if (barCount <= 1) return val + '건';
+                const p = pctData[ctx.dataIndex]?.[di];
+                return p != null ? p + '%' : '';
+            },
+            color: '#fff',
+            font: { size: 9, weight: '600' },
+            anchor: 'center',
+            align: 'center',
+            textShadowColor: 'rgba(0,0,0,0.5)',
+            textShadowBlur: 3,
+        },
     }));
 
     const maWin = agg === 'day' ? 7 : (agg === 'week' ? 4 : 3);
-    const canvas = document.getElementById('volume-chart');
 
-    let lastShownTicks = [];
     volumeChart = new Chart(canvas.getContext('2d'), {
         type: 'bar',
         data: {
@@ -493,6 +525,7 @@ function renderChart(buckets, datasets, totalVol, ma, oneMonthDate, dateType, ag
                 borderColor: '#f59e0b', backgroundColor: 'transparent',
                 borderWidth: 2.5, pointRadius: 0, pointHoverRadius: 4,
                 pointHoverBackgroundColor: '#f59e0b', tension: 0.3, order: 1, spanGaps: false,
+                datalabels: { display: false },
             }]
         },
         options: {
@@ -508,18 +541,18 @@ function renderChart(buckets, datasets, totalVol, ma, oneMonthDate, dateType, ag
                         title(items) { return formatLabel(items[0].label, agg); },
                         label(item) {
                             if (item.raw === null) return null;
-                            return `  ${item.dataset.label}: ${item.raw}건`;
+                            if (item.dataset.type === 'line') return `  ${item.dataset.label}: ${item.raw}건`;
+                            if (barCount <= 1) return `  ${item.dataset.label}: ${item.raw}건`;
+                            const bi = buckets.indexOf(item.label);
+                            const di = item.datasetIndex;
+                            const p = pctData[bi]?.[di];
+                            return p != null ? `  ${item.dataset.label}: ${item.raw}건 (${p}%)` : `  ${item.dataset.label}: ${item.raw}건`;
                         },
                         afterBody(items) {
                             const lines = [];
-                            if (datasets.length > 1) {
-                                const idx = buckets.indexOf(items[0].label);
-                                lines.push(`\n  합계: ${totalVol[idx]}건`);
-                            }
-                            if (showBound && bIdx >= 0) {
-                                const idx = buckets.indexOf(items[0].label);
-                                if (idx >= bIdx) lines.push('  \u26A0 1달 이내: 추가 데이터 반영 가능');
-                            }
+                            const idx = buckets.indexOf(items[0].label);
+                            if (barCount > 1) lines.push(`\n  합계: ${totalVol[idx]}건`);
+                            if (showBound && bIdx >= 0 && idx >= bIdx) lines.push('  \u26A0 1달 이내: 추가 데이터 반영 가능');
                             return lines.join('\n');
                         }
                     }
@@ -562,7 +595,7 @@ function renderChart(buckets, datasets, totalVol, ma, oneMonthDate, dateType, ag
                 }
             }
         },
-        plugins: [{
+        plugins: [ChartDataLabels, {
             id: 'oneMonthBoundary',
             beforeDraw(chart) {
                 if (!showBound || bIdx < 0 || bIdx >= buckets.length) return;
