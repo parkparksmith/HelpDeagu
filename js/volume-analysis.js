@@ -65,6 +65,16 @@ function setStackMode(btn) {
     if (cachedRecords) applyFilters();
 }
 
+function setAggMode(btn) {
+    document.getElementById('agg-chips').querySelectorAll('.district-chip').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    if (cachedRecords) applyFilters();
+}
+
+function resetZoom() {
+    if (volumeChart) { volumeChart.resetZoom(); document.getElementById('zoom-reset-btn').style.display = 'none'; }
+}
+
 function onAmountChange() {
     clearTimeout(amountTimer);
     amountTimer = setTimeout(() => { if (cachedRecords) applyFilters(); }, 400);
@@ -84,6 +94,7 @@ function getSelectedTrades()    { return getChips('trade-chips', 'data-trade') |
 function getSelectedDistricts() { return getChips('district-chips', 'data-gu'); }
 function getSelectedAreas()     { return getChips('area-chips', 'data-area'); }
 function getStackMode()         { return document.querySelector('#stack-chips .district-chip.active')?.dataset.stack || 'type'; }
+function getAggMode()           { return document.querySelector('#agg-chips .district-chip.active')?.dataset.agg || 'auto'; }
 
 // ══════════════════════════════════════════════════
 // 유틸
@@ -97,6 +108,21 @@ function getKSTDateStr(daysAgo = 0) {
 }
 
 function formatDate(s) { const d = new Date(s); return `${d.getMonth()+1}/${d.getDate()}`; }
+function formatLabel(s, agg) {
+    const d = new Date(s);
+    if (agg === 'month') return `${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}`;
+    if (agg === 'week')  return `${d.getMonth()+1}/${d.getDate()}~`;
+    return formatDate(s);
+}
+function formatTickLabel(s, agg, prevDateStr) {
+    const d = new Date(s);
+    const prevYear = prevDateStr ? new Date(prevDateStr).getFullYear() : null;
+    const year = d.getFullYear();
+    const showYear = prevYear === null || year !== prevYear;
+    if (agg === 'month') return showYear ? `${year}.${String(d.getMonth()+1).padStart(2,'0')}` : `${String(d.getMonth()+1).padStart(2,'0')}월`;
+    if (agg === 'week')  return showYear ? `${year} ${d.getMonth()+1}/${d.getDate()}~` : `${d.getMonth()+1}/${d.getDate()}~`;
+    return showYear ? `${year} ${d.getMonth()+1}/${d.getDate()}` : `${d.getMonth()+1}/${d.getDate()}`;
+}
 
 function calcMovingAverage(data, win) {
     return data.map((_, i) => {
@@ -137,6 +163,59 @@ function extractDistrict(city) {
 function getAreaLabel(area) {
     for (const r of AREA_DEFS) if (area >= r.min && area < r.max) return r.label;
     return '90㎡~';
+}
+
+// ══════════════════════════════════════════════════
+// 집계 (주별/월별)
+// ══════════════════════════════════════════════════
+
+function resolveAgg(mode, totalDays) {
+    if (mode !== 'auto') return mode;
+    if (totalDays > 1095) return 'month';
+    if (totalDays > 365)  return 'week';
+    return 'day';
+}
+
+function getWeekStart(dateStr) {
+    const d = new Date(dateStr);
+    const day = d.getDay();
+    const diff = day === 0 ? 6 : day - 1;
+    d.setDate(d.getDate() - diff);
+    return d.toISOString().split('T')[0];
+}
+
+function getMonthKey(dateStr) {
+    return dateStr.substring(0, 7) + '-01';
+}
+
+function buildAggBuckets(startDate, endDate, agg) {
+    if (agg === 'day') return fillDateRange(startDate, endDate);
+    const buckets = [];
+    const seen = new Set();
+    if (agg === 'week') {
+        const cur = new Date(startDate);
+        const e = new Date(endDate);
+        while (cur <= e) {
+            const ws = getWeekStart(cur.toISOString().split('T')[0]);
+            if (!seen.has(ws)) { seen.add(ws); buckets.push(ws); }
+            cur.setDate(cur.getDate() + 1);
+        }
+    } else {
+        const cur = new Date(startDate);
+        const e = new Date(endDate);
+        while (cur <= e) {
+            const mk = getMonthKey(cur.toISOString().split('T')[0]);
+            if (!seen.has(mk)) { seen.add(mk); buckets.push(mk); }
+            cur.setMonth(cur.getMonth() + 1);
+        }
+    }
+    return buckets;
+}
+
+function bucketKey(dateStr, agg) {
+    if (agg === 'day') return dateStr;
+    if (agg === 'week') return getWeekStart(dateStr);
+    return getMonthKey(dateStr);
 }
 
 // ══════════════════════════════════════════════════
@@ -207,7 +286,7 @@ async function loadData() {
     document.getElementById('error-message').classList.add('hidden');
     document.getElementById('stat-cards').classList.add('hidden');
     document.getElementById('chart-panel').classList.add('hidden');
-    document.getElementById('stack-selector').style.display = 'none';
+    document.getElementById('chart-controls').style.display = 'none';
 
     try {
         const tables = ['apt_trades', 'presale_trades', 'apt_rent_trades'];
@@ -241,15 +320,16 @@ function matchAreaRanges(area, ranges) {
     return false;
 }
 
-function groupBy(records, mode) {
+function groupBy(records, mode, agg) {
     const groups = {};
     records.forEach(r => {
         let key;
         if (mode === 'type')          key = TYPE_META[r.type].label;
         else if (mode === 'district') key = extractDistrict(r.city);
         else                          key = getAreaLabel(r.area);
+        const bk = bucketKey(r.date, agg);
         if (!groups[key]) groups[key] = {};
-        groups[key][r.date] = (groups[key][r.date] || 0) + 1;
+        groups[key][bk] = (groups[key][bk] || 0) + 1;
     });
     return groups;
 }
@@ -267,12 +347,12 @@ function getGroupColor(mode, name) {
     return AREA_META[name] || fb;
 }
 
-function buildDatasets(filtered, allDates, mode) {
-    const groups = groupBy(filtered, mode);
+function buildDatasets(filtered, buckets, mode, agg) {
+    const groups = groupBy(filtered, mode, agg);
     const order = getGroupOrder(mode, groups);
     return order.map(name => ({
         name,
-        data: allDates.map(d => groups[name]?.[d] || 0),
+        data: buckets.map(d => groups[name]?.[d] || 0),
         color: getGroupColor(mode, name),
     }));
 }
@@ -300,27 +380,36 @@ function applyFilters() {
         return true;
     });
 
-    const allDates = fillDateRange(startDate, endDate);
+    const totalDays = Math.round((new Date(endDate) - new Date(startDate)) / 86400000) + 1;
+    const aggMode = getAggMode();
+    const agg = resolveAgg(aggMode, totalDays);
+    const buckets = buildAggBuckets(startDate, endDate, agg);
+
     const totalCounts = {};
-    filtered.forEach(r => { totalCounts[r.date] = (totalCounts[r.date] || 0) + 1; });
-    const totalVol = allDates.map(d => totalCounts[d] || 0);
-    const ma7 = calcMovingAverage(totalVol, 7);
+    filtered.forEach(r => {
+        const bk = bucketKey(r.date, agg);
+        totalCounts[bk] = (totalCounts[bk] || 0) + 1;
+    });
+    const totalVol = buckets.map(d => totalCounts[d] || 0);
+    const maWin = agg === 'day' ? 7 : (agg === 'week' ? 4 : 3);
+    const ma = calcMovingAverage(totalVol, maWin);
 
     const useOneMonth = dateType !== 'write_date';
-    const oneMonthDate = useOneMonth ? getKSTDateStr(30) : null;
+    const oneMonthDate = useOneMonth ? bucketKey(getKSTDateStr(30), agg) : null;
 
     const stackMode = getStackMode();
-    const datasets = buildDatasets(filtered, allDates, stackMode);
+    const datasets = buildDatasets(filtered, buckets, stackMode, agg);
 
-    updateStats(allDates, totalVol, ma7);
-    renderChart(allDates, datasets, totalVol, ma7, oneMonthDate, dateType);
-    updateLegend(datasets, useOneMonth);
+    updateStats(buckets, totalVol, ma, agg);
+    renderChart(buckets, datasets, totalVol, ma, oneMonthDate, dateType, agg);
+    updateLegend(datasets, useOneMonth, maWin);
 
     const titles = { type: '거래유형별 거래량', district: '구/군별 거래량', area: '평형별 거래량' };
-    document.getElementById('chart-title-text').textContent = titles[stackMode];
+    const aggLabel = { day: '(일별)', week: '(주별)', month: '(월별)' };
+    document.getElementById('chart-title-text').textContent = titles[stackMode] + ' ' + aggLabel[agg];
     document.getElementById('stat-cards').classList.remove('hidden');
     document.getElementById('chart-panel').classList.remove('hidden');
-    document.getElementById('stack-selector').style.display = '';
+    document.getElementById('chart-controls').style.display = 'flex';
 
     const w = document.getElementById('data-warning');
     (dateType === 'write_date' && startDate < '2026-02-24') ? w.classList.remove('hidden') : w.classList.add('hidden');
@@ -330,19 +419,20 @@ function applyFilters() {
 // 통계
 // ══════════════════════════════════════════════════
 
-function updateStats(dates, vol, ma7) {
+function updateStats(buckets, vol, ma, agg) {
     const trading = vol.filter(v => v > 0);
     const total = vol.reduce((a, b) => a + b, 0);
     const avg = trading.length ? Math.round(total / trading.length) : 0;
     const max = Math.max(...vol);
-    const maxDate = dates[vol.indexOf(max)];
-    const lastMa = [...ma7].reverse().find(v => v !== null);
+    const maxBucket = buckets[vol.indexOf(max)];
+    const lastMa = [...ma].reverse().find(v => v !== null);
 
+    const unitLabel = { day: '일', week: '주', month: '월' };
     document.getElementById('stat-total').textContent = total.toLocaleString() + '건';
-    document.getElementById('stat-period-range').textContent = `${formatDate(dates[0])} ~ ${formatDate(dates[dates.length-1])}`;
+    document.getElementById('stat-period-range').textContent = `${formatLabel(buckets[0], agg)} ~ ${formatLabel(buckets[buckets.length-1], agg)}`;
     document.getElementById('stat-avg').textContent = avg.toLocaleString() + '건';
     document.getElementById('stat-max').textContent = max.toLocaleString() + '건';
-    document.getElementById('stat-max-date').textContent = maxDate ? formatDate(maxDate) : '-';
+    document.getElementById('stat-max-date').textContent = maxBucket ? formatLabel(maxBucket, agg) : '-';
     document.getElementById('stat-recent-avg').textContent = lastMa != null ? lastMa.toLocaleString() + '건' : '-';
 }
 
@@ -350,7 +440,7 @@ function updateStats(dates, vol, ma7) {
 // 범례
 // ══════════════════════════════════════════════════
 
-function updateLegend(datasets, useOneMonth) {
+function updateLegend(datasets, useOneMonth, maWin) {
     const box = document.getElementById('chart-legend');
     box.innerHTML = '';
     datasets.forEach(ds => {
@@ -359,10 +449,10 @@ function updateLegend(datasets, useOneMonth) {
         el.innerHTML = `<div class="legend-dot" style="background:${ds.color.bg}"></div><span>${ds.name}</span>`;
         box.appendChild(el);
     });
-    const ma7El = document.createElement('div');
-    ma7El.className = 'legend-item';
-    ma7El.innerHTML = '<div class="legend-dot" style="background:#f59e0b"></div><span>7일 이동평균</span>';
-    box.appendChild(ma7El);
+    const maEl = document.createElement('div');
+    maEl.className = 'legend-item';
+    maEl.innerHTML = `<div class="legend-dot" style="background:#f59e0b"></div><span>${maWin}구간 이동평균</span>`;
+    box.appendChild(maEl);
     if (useOneMonth) {
         const bEl = document.createElement('div');
         bEl.className = 'legend-item';
@@ -375,13 +465,13 @@ function updateLegend(datasets, useOneMonth) {
 // 차트 렌더링
 // ══════════════════════════════════════════════════
 
-function renderChart(dates, datasets, totalVol, ma7, oneMonthDate, dateType) {
+function renderChart(buckets, datasets, totalVol, ma, oneMonthDate, dateType, agg) {
     const ctx = document.getElementById('volume-chart').getContext('2d');
     if (volumeChart) volumeChart.destroy();
 
     const showBound = dateType !== 'write_date' && oneMonthDate;
     let bIdx = -1;
-    if (showBound) { const i = dates.indexOf(oneMonthDate); bIdx = i >= 0 ? i : dates.length - 30; }
+    if (showBound) { const i = buckets.indexOf(oneMonthDate); bIdx = i >= 0 ? i : -1; }
 
     const bars = datasets.map((ds, i) => ({
         label: ds.name, data: ds.data,
@@ -390,12 +480,16 @@ function renderChart(dates, datasets, totalVol, ma7, oneMonthDate, dateType) {
         order: 2, barPercentage: 0.85, categoryPercentage: 0.9, stack: 'total',
     }));
 
-    volumeChart = new Chart(ctx, {
+    const maWin = agg === 'day' ? 7 : (agg === 'week' ? 4 : 3);
+    const canvas = document.getElementById('volume-chart');
+
+    let lastShownTicks = [];
+    volumeChart = new Chart(canvas.getContext('2d'), {
         type: 'bar',
         data: {
-            labels: dates,
+            labels: buckets,
             datasets: [...bars, {
-                label: '7일 이동평균', data: ma7, type: 'line',
+                label: `${maWin}구간 이동평균`, data: ma, type: 'line',
                 borderColor: '#f59e0b', backgroundColor: 'transparent',
                 borderWidth: 2.5, pointRadius: 0, pointHoverRadius: 4,
                 pointHoverBackgroundColor: '#f59e0b', tension: 0.3, order: 1, spanGaps: false,
@@ -411,11 +505,7 @@ function renderChart(dates, datasets, totalVol, ma7, oneMonthDate, dateType) {
                     borderColor: 'rgba(255,255,255,0.1)', borderWidth: 1, padding: 12,
                     titleFont: { size: 13, weight: '600' }, bodyFont: { size: 12 },
                     callbacks: {
-                        title(items) {
-                            const d = new Date(items[0].label);
-                            const dn = ['일','월','화','수','목','금','토'];
-                            return `${d.getFullYear()}.${d.getMonth()+1}.${d.getDate()} (${dn[d.getDay()]})`;
-                        },
+                        title(items) { return formatLabel(items[0].label, agg); },
                         label(item) {
                             if (item.raw === null) return null;
                             return `  ${item.dataset.label}: ${item.raw}건`;
@@ -423,22 +513,46 @@ function renderChart(dates, datasets, totalVol, ma7, oneMonthDate, dateType) {
                         afterBody(items) {
                             const lines = [];
                             if (datasets.length > 1) {
-                                const idx = dates.indexOf(items[0].label);
+                                const idx = buckets.indexOf(items[0].label);
                                 lines.push(`\n  합계: ${totalVol[idx]}건`);
                             }
                             if (showBound && bIdx >= 0) {
-                                const idx = dates.indexOf(items[0].label);
-                                if (idx >= bIdx) lines.push('  ⚠ 1달 이내: 추가 데이터 반영 가능');
+                                const idx = buckets.indexOf(items[0].label);
+                                if (idx >= bIdx) lines.push('  \u26A0 1달 이내: 추가 데이터 반영 가능');
                             }
                             return lines.join('\n');
                         }
                     }
                 },
+                zoom: {
+                    pan: {
+                        enabled: true,
+                        mode: 'x',
+                        threshold: 5,
+                        onPanComplete() { document.getElementById('zoom-reset-btn').style.display = 'flex'; },
+                    },
+                    zoom: {
+                        wheel: { enabled: true, speed: 0.1 },
+                        pinch: { enabled: true },
+                        drag: { enabled: true, backgroundColor: 'rgba(201,162,39,0.15)', borderColor: 'rgba(201,162,39,0.5)', borderWidth: 1 },
+                        mode: 'x',
+                        onZoomComplete() { document.getElementById('zoom-reset-btn').style.display = 'flex'; },
+                    },
+                },
             },
             scales: {
                 x: {
                     type: 'category', stacked: true,
-                    ticks: { color: '#6e7681', font: { size: 10 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 20, callback: (_, i) => formatDate(dates[i]) },
+                    ticks: {
+                        color: '#6e7681', font: { size: 10 }, maxRotation: 45, autoSkip: true, maxTicksLimit: 25,
+                        callback(_, i) {
+                            const visibleTicks = this.chart.scales.x.ticks;
+                            const myVisIdx = visibleTicks.findIndex(t => t.value === i);
+                            const prevVisIdx = myVisIdx > 0 ? visibleTicks[myVisIdx - 1].value : null;
+                            const prevDateStr = prevVisIdx !== null ? buckets[prevVisIdx] : null;
+                            return formatTickLabel(buckets[i], agg, prevDateStr);
+                        }
+                    },
                     grid: { color: 'rgba(255,255,255,0.04)' }
                 },
                 y: {
@@ -451,7 +565,7 @@ function renderChart(dates, datasets, totalVol, ma7, oneMonthDate, dateType) {
         plugins: [{
             id: 'oneMonthBoundary',
             beforeDraw(chart) {
-                if (!showBound || bIdx < 0 || bIdx >= dates.length) return;
+                if (!showBound || bIdx < 0 || bIdx >= buckets.length) return;
                 const { ctx: dc, chartArea, scales } = chart;
                 const x = scales.x.getPixelForValue(bIdx);
                 if (x < chartArea.left || x > chartArea.right) return;
@@ -465,6 +579,8 @@ function renderChart(dates, datasets, totalVol, ma7, oneMonthDate, dateType) {
             }
         }]
     });
+
+    canvas.ondblclick = () => { if (volumeChart) { volumeChart.resetZoom(); document.getElementById('zoom-reset-btn').style.display = 'none'; } };
 }
 
 // ══════════════════════════════════════════════════

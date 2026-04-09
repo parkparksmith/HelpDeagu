@@ -14,6 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2"></script>
     <style>
         .controls-panel {
             background: var(--bg-card);
@@ -304,13 +305,28 @@
             </button>
         </div>
 
-        <div class="district-filter" id="stack-selector" style="background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:14px 20px;margin-bottom:20px;display:none;">
-            <label>분류</label>
-            <div class="district-chips" id="stack-chips">
-                <button class="district-chip active" data-stack="type" onclick="setStackMode(this)">거래유형</button>
-                <button class="district-chip" data-stack="district" onclick="setStackMode(this)">구/군</button>
-                <button class="district-chip" data-stack="area" onclick="setStackMode(this)">평형</button>
+        <div id="chart-controls" style="background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:14px 20px;margin-bottom:20px;display:none;flex-wrap:wrap;gap:14px;align-items:center;">
+            <div class="district-filter" style="flex:1;min-width:200px;">
+                <label>분류</label>
+                <div class="district-chips" id="stack-chips">
+                    <button class="district-chip active" data-stack="type" onclick="setStackMode(this)">거래유형</button>
+                    <button class="district-chip" data-stack="district" onclick="setStackMode(this)">구/군</button>
+                    <button class="district-chip" data-stack="area" onclick="setStackMode(this)">평형</button>
+                </div>
             </div>
+            <div class="district-filter" style="flex:1;min-width:200px;">
+                <label>집계</label>
+                <div class="district-chips" id="agg-chips">
+                    <button class="district-chip active" data-agg="auto" onclick="setAggMode(this)">자동</button>
+                    <button class="district-chip" data-agg="day" onclick="setAggMode(this)">일별</button>
+                    <button class="district-chip" data-agg="week" onclick="setAggMode(this)">주별</button>
+                    <button class="district-chip" data-agg="month" onclick="setAggMode(this)">월별</button>
+                </div>
+            </div>
+            <button class="action-btn" id="zoom-reset-btn" onclick="resetZoom()" style="display:none;padding:6px 14px;font-size:0.8rem;gap:4px;">
+                <span class="material-icons-round" style="font-size:1rem;">zoom_out_map</span>
+                전체보기
+            </button>
         </div>
 
         <div id="loading" class="loading hidden">
@@ -355,6 +371,10 @@
             </h3>
             <div class="chart-wrapper"><canvas id="volume-chart"></canvas></div>
             <div class="legend-row" id="chart-legend"></div>
+            <div style="margin-top:8px;font-size:0.72rem;color:var(--text-muted);text-align:right;">
+                <span class="material-icons-round" style="font-size:0.85rem;vertical-align:middle;">mouse</span>
+                마우스 휠 또는 드래그로 확대 · 더블클릭으로 초기화
+            </div>
         </div>
     </div>
 
