@@ -246,14 +246,15 @@
                 <option value="contract_date" selected>계약일 기준</option>
             </select>
 
-            <label for="trade-type">거래유형</label>
-            <select id="trade-type">
-                <option value="total">전체</option>
-                <option value="all">매매(아파트/분양권)</option>
-                <option value="apt" selected>매매(아파트)</option>
-                <option value="presale">매매(분양권)</option>
-                <option value="rent">전세</option>
-            </select>
+            <div class="district-filter">
+                <label>거래유형</label>
+                <div class="district-chips" id="trade-chips">
+                    <button class="district-chip" data-trade="all" onclick="toggleTrade(this)">전체</button>
+                    <button class="district-chip active" data-trade="apt" onclick="toggleTrade(this)">아파트매매</button>
+                    <button class="district-chip" data-trade="presale" onclick="toggleTrade(this)">분양권매매</button>
+                    <button class="district-chip" data-trade="rent" onclick="toggleTrade(this)">전세</button>
+                </div>
+            </div>
 
             <div class="district-filter">
                 <label>구/군</label>
@@ -278,18 +279,38 @@
                 <input type="date" id="end-date">
             </div>
 
+            <div class="district-filter">
+                <label>평형</label>
+                <div class="district-chips" id="area-chips">
+                    <button class="district-chip active" data-area="all" onclick="toggleArea(this)">전체</button>
+                    <button class="district-chip" data-area="0-50" onclick="toggleArea(this)">~50㎡</button>
+                    <button class="district-chip" data-area="50-80" onclick="toggleArea(this)">50~80㎡</button>
+                    <button class="district-chip" data-area="80-90" onclick="toggleArea(this)">80~90㎡</button>
+                    <button class="district-chip" data-area="90-" onclick="toggleArea(this)">90㎡~</button>
+                </div>
+            </div>
+
             <div class="control-row">
                 <label for="min-amount">금액</label>
-                <input type="number" id="min-amount" placeholder="최소 (억)" step="0.1" min="0" style="min-width: 100px;">
+                <input type="number" id="min-amount" placeholder="최소 (억)" step="0.1" min="0" style="min-width: 100px;" oninput="onAmountChange()">
                 <span class="separator">~</span>
-                <input type="number" id="max-amount" placeholder="최대 (억)" step="0.1" min="0" style="min-width: 100px;">
+                <input type="number" id="max-amount" placeholder="최대 (억)" step="0.1" min="0" style="min-width: 100px;" oninput="onAmountChange()">
                 <span style="font-size: 0.75rem; color: var(--text-muted); white-space: nowrap;">억원</span>
             </div>
 
-            <button class="action-btn primary" onclick="loadVolumeData()" style="width: auto; padding: 12px 24px; display: flex; align-items: center; gap: 8px;">
+            <button class="action-btn primary" onclick="loadData()" style="width: auto; padding: 12px 24px; display: flex; align-items: center; gap: 8px;">
                 <span class="material-icons-round">search</span>
                 조회하기
             </button>
+        </div>
+
+        <div class="district-filter" id="stack-selector" style="background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:14px 20px;margin-bottom:20px;display:none;">
+            <label>분류</label>
+            <div class="district-chips" id="stack-chips">
+                <button class="district-chip active" data-stack="type" onclick="setStackMode(this)">거래유형</button>
+                <button class="district-chip" data-stack="district" onclick="setStackMode(this)">구/군</button>
+                <button class="district-chip" data-stack="area" onclick="setStackMode(this)">평형</button>
+            </div>
         </div>
 
         <div id="loading" class="loading hidden">
@@ -328,23 +349,12 @@
         </div>
 
         <div id="chart-panel" class="chart-panel hidden">
-            <h3>
+            <h3 id="chart-title">
                 <span class="material-icons-round">show_chart</span>
-                일별 거래량 추이
+                <span id="chart-title-text">거래유형별 거래량</span>
             </h3>
-            <div class="chart-wrapper">
-                <canvas id="volume-chart"></canvas>
-            </div>
-            <div class="legend-row" id="chart-legend">
-                <div class="legend-item">
-                    <div class="legend-dot" style="background: #f59e0b;"></div>
-                    <span>7일 이동평균</span>
-                </div>
-                <div class="legend-item" id="legend-boundary">
-                    <div class="legend-dot" style="background: rgba(248, 81, 73, 0.6); border: 1px dashed #f85149;"></div>
-                    <span>1달 기준선 (데이터 추가 가능 구간)</span>
-                </div>
-            </div>
+            <div class="chart-wrapper"><canvas id="volume-chart"></canvas></div>
+            <div class="legend-row" id="chart-legend"></div>
         </div>
     </div>
 
