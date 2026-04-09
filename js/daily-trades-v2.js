@@ -73,8 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } catch (e) { }
     } else {
-        const today = new Date();
-        const dateStr = today.toISOString().split('T')[0];
+        const now = new Date();
+        const kstTime = new Date(now.getTime() + (9 * 60 * 60 * 1000));
+        const dateStr = kstTime.toISOString().split('T')[0];
         document.getElementById('trade-date').value = dateStr;
     }
 
@@ -168,8 +169,8 @@ async function loadDailyTrades() {
 
         const promises = [];
         if (activeDealMode === 'sale') {
-            promises.push(aptQuery.is('termination_date', null).order('amount', { ascending: false }).limit(2000));
-            promises.push(presaleQuery.is('termination_date', null).order('amount', { ascending: false }).limit(2000));
+            promises.push(aptQuery.order('amount', { ascending: false }).limit(2000));
+            promises.push(presaleQuery.order('amount', { ascending: false }).limit(2000));
         } else {
             promises.push(aptQuery.order('deposit', { ascending: false }).limit(2000));
         }
@@ -325,7 +326,7 @@ async function loadDailyTrades() {
 
             // 3개월 이내 같은 타입(면적) 거래
             const past3MSame = past3MAll.filter(pt =>
-                Math.abs(parseFloat(pt.area || 0) - parseFloat(t.area || 0)) < 1.0
+                Math.round(parseFloat(pt.area || 0) * 100) / 100 === Math.round(parseFloat(t.area || 0) * 100) / 100
             );
 
             // 3년 이내 같은 타입 거래 (풀 이력, 모달/그래프용, 계약일 이전(포함) 이력)
@@ -334,7 +335,7 @@ async function loadDailyTrades() {
                 const ptDate = (pt.contractdate || '').substring(0, 10);
                 const isRentWithMonthly = activeDealMode === 'rent' && (pt.monthly_rent > 0 || pt._monthly_rent > 0);
                 return pt.apt_name === t.apt_name &&
-                    Math.abs(parseFloat(pt.area || 0) - parseFloat(t.area || 0)) < 1.0 &&
+                    Math.round(parseFloat(pt.area || 0) * 100) / 100 === Math.round(parseFloat(t.area || 0) * 100) / 100 &&
                     ptDate <= tDate && !isRentWithMonthly;
             }).sort((a, b) => (a.contractdate || '').localeCompare(b.contractdate || ''));
 
@@ -377,7 +378,7 @@ async function loadDailyTrades() {
             // aptinfo에서 high_price 및 household_count 반영
             const matchedAptInfo = aptInfoList.filter(info =>
                 info.apt_name === t.apt_name &&
-                Math.abs(parseFloat(info.area || 0) - parseFloat(t.area || 0)) < 1.0
+                Math.round(parseFloat(info.area || 0) * 100) / 100 === Math.round(parseFloat(t.area || 0) * 100) / 100
             );
 
             let household_count = 0;
@@ -405,6 +406,7 @@ async function loadDailyTrades() {
                 construction_year: t.construction_year,
                 household_count: household_count,
                 cancelDate: t.termination_date,
+                transactionType: t.transaction_type,
                 isNewHigh: t.newhigh === true || t.newhigh === 1,
                 previousHigh: highestPrice3M, // 기본 호환용
                 highestPrice3M: highestPrice3M,
@@ -697,6 +699,7 @@ function renderTradesByGu(trades) {
                     <table class="premium-table">
                         <thead>
                             <tr>
+                                <th class="col-chk" style="width: 36px; padding: 10px 0;"><input type="checkbox" class="header-checkbox" onclick="toggleAllInGu(this)"></th>
                                 <th class="th-dong" style="${alignStyle}; ${viewMode === 'simple' ? 'width:15%;' : ''}">동</th>
                                 <th class="th-name" style="${alignStyle}; ${viewMode === 'simple' ? 'width:55%;' : ''}">단지명 ${viewMode === 'simple' ? '<span style="font-size:0.8em; opacity:0.7">(전용/층)</span>' : ''}</th>
                                 ${viewMode !== 'simple' ? `<th class="th-area" style="${alignStyle}">전용<br><span style="font-size:0.8em; opacity:0.7">층</span></th>` : ''}
@@ -716,12 +719,16 @@ function renderTradesByGu(trades) {
 
                 let area = trade.area || 0;
                 area = parseFloat(area).toFixed(2);
-                const floor = trade.floor || '-';
+
+                let floorHtml = `${trade.floor || '-'}층`;
+                if (trade.transactionType === '직거래') {
+                    floorHtml += ` <span style="color:#ef4444; font-size: 0.9em; font-weight: bold;">(직)</span>`;
+                }
 
                 let nameHtml = '';
                 if (viewMode === 'simple') {
                     // 한 줄 텍스트로 결합 (단지명 전용 층)
-                    nameHtml = `<div class="apt-name-text" style="font-size:0.9em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${name} <span style="font-size:0.85em; color:var(--text-secondary); margin-left:2px; font-weight:normal;">${area}㎡(${floor}층)</span></div>`;
+                    nameHtml = `<div class="apt-name-text" style="font-size:0.9em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">${name} <span style="font-size:0.85em; color:var(--text-secondary); margin-left:2px; font-weight:normal;">${area}㎡(${floorHtml})</span></div>`;
                 } else {
                     nameHtml = `<div class="apt-name-text">${name}</div>`;
                     if (trade.construction_year) {
@@ -758,8 +765,8 @@ function renderTradesByGu(trades) {
                 let priceHtmlForSimple = '';
                 let priceHtml = '';
                 if (isCancelled) {
-                    priceHtmlForSimple = `<span class="price-text cancelled" style="font-size:0.85em;">${priceText} <span class="cancel-badge">취소</span></span>`;
-                    priceHtml = `<span class="price-text cancelled">${priceText} <span class="cancel-badge">취소</span></span>`;
+                    priceHtmlForSimple = `<span class="price-text cancelled" style="font-size:0.85em;"><span style="text-decoration:line-through;color:var(--text-muted,#94a3b8);">${priceText}</span> <span class="cancel-badge" style="color:#ef4444;font-weight:700;font-size:0.8rem;background:rgba(239,68,68,0.1);padding:2px 6px;border-radius:4px;margin-left:4px;">취소</span></span>`;
+                    priceHtml = `<span class="price-text cancelled"><span style="text-decoration:line-through;color:var(--text-muted,#94a3b8);">${priceText}</span> <span class="cancel-badge" style="color:#ef4444;font-weight:700;font-size:0.8rem;background:rgba(239,68,68,0.1);padding:2px 6px;border-radius:4px;margin-left:4px;">취소</span></span>`;
                 } else if (isNewHigh && activeDealMode !== 'rent') { // 전월세는 신고가 아이콘 렌더링 안함
                     priceHtmlForSimple = `<span class="price-text new-high" style="font-size:0.85em;">🔥 ${priceText}</span>`;
                     priceHtml = `<span class="price-text new-high">🔥 ${priceText}</span>`;
@@ -815,11 +822,14 @@ function renderTradesByGu(trades) {
 
                 rowHtml += `
                     <tr class="${rowClass}" style="cursor:pointer; ${viewMode === 'simple' ? 'height:30px;' : ''}" ${doubleClickAction}>
+                        <td class="col-chk" onclick="event.stopPropagation();" style="text-align: center; vertical-align: middle;">
+                            <input type="checkbox" class="trade-row-checkbox">
+                        </td>
                         <td class="${viewMode === 'simple' ? 'td-dong' : 'td-center td-dong'}" style="${tdStyleSimple} ${viewMode === 'simple' ? 'font-size:0.85em; padding-left:10px;' : ''}">${dong}</td>
                         <td class="${viewMode === 'simple' ? 'td-name' : 'td-center td-name'}" style="${tdStyleSimple}">${nameHtml}</td>
                         ${viewMode !== 'simple' ? `
                         <td class="td-center">
-                            <div class="cell-primary">${area}㎡</div><div class="cell-secondary">${floor}층</div>
+                            <div class="cell-primary">${area}㎡</div><div class="cell-secondary">${floorHtml}</div>
                         </td>` : ''}
                         <td class="${viewMode === 'simple' ? '' : 'td-center'}" style="${tdStyleSimple}">
                             ${viewMode === 'simple'
@@ -840,7 +850,7 @@ function renderTradesByGu(trades) {
         if (aptTrades.length > 0) {
             html += `
                 <tr class="category-row">
-                    <td colspan="${viewMode === 'simple' ? 3 : 4}" style="padding: 0;">
+                    <td colspan="${viewMode === 'simple' ? 4 : 5}" style="padding: 0;">
                         <div class="category-header apt-header">
                             <span class="material-icons-round">apartment</span> 아파트
                         </div>
@@ -853,7 +863,7 @@ function renderTradesByGu(trades) {
         if (presaleTrades.length > 0) {
             html += `
                 <tr class="category-row">
-                    <td colspan="${viewMode === 'simple' ? 3 : 4}" style="padding: 0;">
+                    <td colspan="${viewMode === 'simple' ? 4 : 5}" style="padding: 0;">
                         <div class="category-header presale-header">
                             <span class="material-icons-round">receipt_long</span> 분양권
                         </div>
@@ -1047,7 +1057,7 @@ async function fetchModalAreaOptions() {
     let foundCurrent = false;
     sizes.forEach(sz => {
         let isSelected = false;
-        if (!foundCurrent && Math.abs(sz - currentModalArea) < 1.0) {
+        if (!foundCurrent && sz === currentModalArea) {
             isSelected = true;
             foundCurrent = true;
         }
@@ -1109,9 +1119,14 @@ async function loadModalData() {
             rentQuery = rentQuery.eq('apt_name', currentModalAptName);
         }
 
-        saleQuery = saleQuery.gte('area', currentModalArea - 1.0).lte('area', currentModalArea + 1.0)
+        // 면적 소수점 오차 대응: 해당 면적으로 반올림되는 모든 값을 포함하도록 범위 쿼리
+        const areaTarget = Math.round(currentModalArea * 100) / 100;
+        const areaMin = areaTarget - 0.005;
+        const areaMax = areaTarget + 0.005;
+
+        saleQuery = saleQuery.gte('area', areaMin).lt('area', areaMax)
             .order('contractdate', { ascending: true }).limit(5000);
-        rentQuery = rentQuery.gte('area', currentModalArea - 1.0).lte('area', currentModalArea + 1.0)
+        rentQuery = rentQuery.gte('area', areaMin).lt('area', areaMax)
             .order('contractdate', { ascending: true }).limit(5000);
 
         const [saleRes, rentRes] = await Promise.all([saleQuery, rentQuery]);
@@ -1139,13 +1154,17 @@ async function loadModalData() {
             queryCols = 'contractdate, amount, floor, newhigh, termination_date';
         }
 
+        const areaTarget = Math.round(currentModalArea * 100) / 100;
+        const areaMin = areaTarget - 0.005;
+        const areaMax = areaTarget + 0.005;
+
         let query = supabaseClient.from(tableName).select(queryCols);
         if (currentModalType === 'presale' && currentModalPreaptinfoRawid) {
             query = query.eq('preaptinfo_rawid', currentModalPreaptinfoRawid);
         } else {
             query = query.eq('apt_name', currentModalAptName);
         }
-        query = query.gte('area', currentModalArea - 1.0).lte('area', currentModalArea + 1.0)
+        query = query.gte('area', areaMin).lt('area', areaMax)
             .order('contractdate', { ascending: true }).limit(5000);
 
         const res = await query;
@@ -2365,4 +2384,210 @@ function renderModalTradeList(tradeList) {
         listHtml = '<tr><td colspan="3" style="padding: 20px; color: var(--text-muted);">표시할 거래 내역이 없습니다.</td></tr>';
     }
     tbody.innerHTML = listHtml;
+}
+
+// 캡처 기능
+async function captureTrades() {
+    const container = document.getElementById('trades-container');
+    if (!container) return;
+
+    // 캡처하는 동안 캡처 버튼 및 조작부 숨기기 (워터마크 공간 확보)
+    const tableControls = container.querySelector('.table-controls');
+    if (tableControls) tableControls.style.display = 'none';
+
+    // 선택 모드 처리 (체크된 항목만 표시)
+    let wasSelectionMode = false;
+    const hideEls = [];
+
+    if (isSelectionMode) {
+        wasSelectionMode = true;
+        let hasChecked = false;
+
+        // 체크 안 된 행 숨기기
+        const rows = container.querySelectorAll('.trade-row');
+        rows.forEach(r => {
+            const chk = r.querySelector('.trade-row-checkbox');
+            if (chk && chk.checked) {
+                hasChecked = true;
+            } else {
+                hideEls.push(r);
+                r.style.display = 'none';
+            }
+        });
+
+        if (hasChecked) {
+            // 카테고리 헤더 숨기기: 뒤에 보이는 행이 없으면 숨김
+            const catRows = container.querySelectorAll('.category-row');
+            catRows.forEach(c => {
+                let next = c.nextElementSibling;
+                let visibleRows = 0;
+                while (next && !next.classList.contains('category-row')) {
+                    if (next.classList.contains('trade-row') && next.style.display !== 'none') {
+                        visibleRows++;
+                    }
+                    next = next.nextElementSibling;
+                }
+                if (visibleRows === 0) {
+                    hideEls.push(c);
+                    c.style.display = 'none';
+                }
+            });
+
+            // 각 지역(gu) 섹션 숨기기
+            const guSections = container.querySelectorAll('.gu-section');
+            guSections.forEach(sec => {
+                const visibleRows = sec.querySelectorAll('.trade-row');
+                let hasVisible = false;
+                visibleRows.forEach(r => { if (r.style.display !== 'none') hasVisible = true; });
+                if (!hasVisible) {
+                    hideEls.push(sec);
+                    sec.style.display = 'none';
+                }
+            });
+        }
+
+        // 캡처 중엔 체크박스 컬럼이 찍히지 않도록 제거
+        container.classList.remove('selection-mode-active');
+    }
+
+    try {
+        // html2canvas 실행 (배경을 어둡지 않게 카드색 지정)
+        const canvas = await html2canvas(container, {
+            scale: 2, // 고해상도 옵션
+            useCORS: true,
+            backgroundColor: '#161b22', // 카드색 배경 지정하여 흰글씨 가독성 향상
+            logging: false
+        });
+
+        const dateInput = document.getElementById('trade-date').value;
+        const dealModeText = activeDealMode === 'sale' ? '매매' : '전월세';
+        const baseFileName = `데일리실거래가_${dealModeText}_${dateInput.replace(/-/g, '')}`;
+
+        // 상단 우측에 찍힐 텍스트(날짜 + 닉네임) 생성
+        const nicknameInput = document.getElementById('capture-nickname')?.value || '';
+        let watermarkText = dateInput;
+        if (nicknameInput.trim() !== '') {
+            watermarkText = `${nicknameInput} | ${watermarkText}`;
+        }
+
+        const SPLIT_HEIGHT = 3000;
+        const totalHeight = canvas.height;
+        const totalWidth = canvas.width;
+
+        // 워터마크를 위한 캡처본 상단 여백 (픽셀, scale=2 기준 - 눈으로 보기엔 약 60px)
+        const TOP_PADDING = 120;
+
+        // 새 캔버스를 만들어 상단 여백을 주고 안전하게 워터마크를 분리해 그리는 함수
+        function addWatermarkAndPadding(sourceCanvas, sx, sy, sWidth, sHeight) {
+            const cvs = document.createElement('canvas');
+            cvs.width = sWidth;
+            cvs.height = sHeight + TOP_PADDING;
+            const ctx = cvs.getContext('2d');
+
+            // 새로운 캔버스 배경 채우기 (상단 여백 포함)
+            ctx.fillStyle = '#161b22';
+            ctx.fillRect(0, 0, cvs.width, cvs.height);
+
+            // 원본 데이터는 여백(TOP_PADDING) 만큼 아래로 밀어서 복사하기
+            ctx.drawImage(sourceCanvas, sx, sy, sWidth, sHeight, 0, TOP_PADDING, sWidth, sHeight);
+
+            // 만들어둔 텅 빈 여백(TOP_PADDING) 구역에 워터마크 안전하게 그리기
+            ctx.save();
+            ctx.font = 'bold 36px "Pretendard", -apple-system, sans-serif';
+            ctx.fillStyle = '#ffffff';
+            ctx.textAlign = 'right';
+            ctx.textBaseline = 'middle';
+
+            ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+            ctx.shadowBlur = 8;
+            ctx.shadowOffsetX = 2;
+            ctx.shadowOffsetY = 2;
+
+            // 우측 상단 여백 중앙에 출력
+            ctx.fillText(watermarkText, cvs.width - 40, TOP_PADDING / 2);
+
+
+
+            ctx.restore();
+            return cvs;
+        }
+
+        if (totalHeight <= SPLIT_HEIGHT) {
+            // 자를 필요 없이 원본 1장 다운로드
+            const finalCanvas = addWatermarkAndPadding(canvas, 0, 0, totalWidth, totalHeight);
+            const imgData = finalCanvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            link.download = `${baseFileName}.png`;
+            link.href = imgData;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        } else {
+            // 너무 길면 여백+워터마크를 포함해 여러 장으로 나누어서 다운로드
+            let currentY = 0;
+            let partNum = 1;
+
+            while (currentY < totalHeight) {
+                const sliceHeight = Math.min(SPLIT_HEIGHT, totalHeight - currentY);
+
+                const finalCanvas = addWatermarkAndPadding(canvas, 0, currentY, totalWidth, sliceHeight);
+                const imgData = finalCanvas.toDataURL('image/png');
+
+                const link = document.createElement('a');
+                link.download = `${baseFileName}_${partNum}장.png`;
+                link.href = imgData;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+
+                currentY += sliceHeight;
+                partNum++;
+
+                if (currentY < totalHeight) {
+                    await new Promise(resolve => setTimeout(resolve, 300));
+                }
+            }
+        }
+
+    } catch (error) {
+        console.error('캡처 중 오류 발생:', error);
+        alert('화면 캡처 중 오류가 발생했습니다.');
+    } finally {
+        // 캡처 완료 후 조작부 버튼 및 숨긴 엘리먼트들 복구
+        if (tableControls) tableControls.style.display = 'flex';
+
+        if (wasSelectionMode) {
+            container.classList.add('selection-mode-active');
+            hideEls.forEach(el => el.style.display = '');
+        }
+    }
+}
+
+// 캡처 선택 기능 관련
+let isSelectionMode = false;
+
+function toggleSelectionMode() {
+    isSelectionMode = !isSelectionMode;
+    const btn = document.getElementById('selection-mode-btn');
+    const container = document.getElementById('trades-container');
+
+    if (isSelectionMode) {
+        btn.style.background = '#10b981';
+        btn.style.color = 'white';
+        container.classList.add('selection-mode-active');
+    } else {
+        btn.style.background = 'rgba(16, 185, 129, 0.1)';
+        btn.style.color = '#10b981';
+        container.classList.remove('selection-mode-active');
+        // 선택 모드 해제시 모든 체크박스 리셋
+        document.querySelectorAll('.trade-row-checkbox').forEach(c => c.checked = false);
+        document.querySelectorAll('.header-checkbox').forEach(c => c.checked = false);
+    }
+}
+
+function toggleAllInGu(checkbox) {
+    const table = checkbox.closest('table');
+    if (table) {
+        table.querySelectorAll('.trade-row-checkbox').forEach(chk => chk.checked = checkbox.checked);
+    }
 }

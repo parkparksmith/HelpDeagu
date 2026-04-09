@@ -15,6 +15,27 @@
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
         crossorigin="anonymous"></script>
+    <style>
+        .col-chk {
+            display: none;
+            width: 36px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .trades-container.selection-mode-active .col-chk {
+            display: table-cell;
+        }
+
+        .trade-row-checkbox,
+        .header-checkbox {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary-color);
+            margin: 0;
+        }
+    </style>
 </head>
 
 <body>
@@ -162,7 +183,18 @@
         <div id="trades-container" class="trades-container hidden">
             <div class="table-header">
                 <h3>📊 전체 거래 내역 (v2)</h3>
-                <div class="table-controls">
+                <div class="table-controls" style="display: flex; gap: 8px; align-items: center;">
+                    <input type="text" id="capture-nickname" placeholder="닉네임 입력" title="캡처 이미지 우측 상단에 표시될 닉네임"
+                        style="width: 80px; padding: 4px 8px; font-size: 0.85rem; border-radius: 6px; border: 1px solid var(--border); background: var(--bg-card); color: var(--text-primary); outline: none;">
+                    <button class="icon-toggle-btn" id="selection-mode-btn" onclick="toggleSelectionMode()"
+                        title="캡처 선택 모드"
+                        style="padding: 6px; display: flex; align-items: center; justify-content: center; background: rgba(16, 185, 129, 0.1); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.2);">
+                        <span class="material-icons-round" style="font-size: 1.2rem;">checklist_rtl</span>
+                    </button>
+                    <button class="icon-toggle-btn" id="capture-btn" onclick="captureTrades()" title="화면 캡처"
+                        style="padding: 6px; display: flex; align-items: center; justify-content: center; background: rgba(59, 130, 246, 0.1); color: var(--primary-color);">
+                        <span class="material-icons-round" style="font-size: 1.2rem;">photo_camera</span>
+                    </button>
                     <select id="filter-district" onchange="filterTrades()">
                         <option value="all">전체 구/군</option>
                     </select>
@@ -281,6 +313,9 @@
             </div>
         </div>
     </div>
+
+    <!-- html2canvas 추가 (스크린샷 캡처용) -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 
     <!-- Chart.js 및 플러그인 추가 -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
