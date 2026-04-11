@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-04-12T07:14:15.487811",
+  "selected_date": "2026-04-12",
+  "summary": {
+    "total_apt_count": 1,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "북구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 552052,
+      "district": "대구광역시 북구 국우동",
+      "gu": "북구",
+      "dong": "국우동",
+      "bunji": "1080",
+      "apt_name": "그린빌6단지",
+      "area": 51.49,
+      "contract_date": "2026-04-02",
+      "amount": 139000000,
+      "floor": 9,
+      "buyer_type": "개인",
+      "construction_year": 2002,
+      "road_name": "학정동로 10",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 북구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-04-12T07:12:30.910589",
+      "previous_high": 182000000,
+      "trade_count_3m_total": 16,
+      "trade_count_3m_area": 7,
+      "presale_type": null
+    }
+  ]
+}
