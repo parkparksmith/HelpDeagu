@@ -1,5 +1,5 @@
 {
-  "created_date": "2026-04-24 11:30:09",
+  "created_date": "2026-04-24 21:00:23",
   "list": [
     {
       "No": 14530826,
@@ -22,12 +22,52 @@
       "ShortenUrl": null
     },
     {
+      "No": 14532987,
+      "Title": "토스 소진cj더마켓 장바구니 15000원쿠폰 타킷 토스 20%랑 같이쓰믄대박",
+      "ViewCount": 5868,
+      "LikeCount": 147,
+      "WroteDate": "2026-04-24T18:27:00",
+      "GetUrl": "https://m.cjthemarket.com/the/product/product-main?prdCd=40217350&ctgrId=&plnId=&giftSetEvntId=",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=cjbrand&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.cjthemarket.com%2Fthe%2Fproduct%2Fproduct-main%3FprdCd%3D40217350%26ctgrId%3D%26plnId%3D%26giftSetEvntId%3D",
+      "ShortenUrl": null
+    },
+    {
       "No": 14530738,
       "Title": "우체국) 이거 맛있어요~ 호떡쌀군만두 1.2kg+1.2kg 9,520원",
       "ViewCount": 4236,
       "LikeCount": 143,
       "WroteDate": "2026-04-24T07:00:00",
       "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA1071766&pavlnDivCd=02&goodsDispTypeCd=03&goodsDispTypeDtlCd=10025161&ctgryCd=104206302",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14531646,
+      "Title": "지마켓 공지채널 오픈 (10% 중복할인쿠폰)",
+      "ViewCount": 2596,
+      "LikeCount": 134,
+      "WroteDate": "2026-04-24T11:28:00",
+      "GetUrl": "http://rpp.gmarket.co.kr/?exhib=250190\r\nhttps://forms.gle/def6QkLYkfvcPPDx9",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Frpp.gmarket.co.kr%2F%3Fexhib%3D250190",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14532375,
+      "Title": "카카오페이) 에이블리 선착순 5천원 할인쿠폰 (5100원이상 5000원 할인)",
+      "ViewCount": 4861,
+      "LikeCount": 95,
+      "WroteDate": "2026-04-24T15:06:00",
+      "GetUrl": "https://play.google.com/store/apps/details?id=com.kakaopay.app",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14531829,
+      "Title": "토스뱅크)간편결제하고 지원금 받아요",
+      "ViewCount": 3789,
+      "LikeCount": 100,
+      "WroteDate": "2026-04-24T12:22:00",
+      "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -52,6 +92,36 @@
       "ShortenUrl": null
     },
     {
+      "No": 14532124,
+      "Title": "품절/2시 남도장터)우렁색시미 새청무 쌀 상등급 10kg 24,780원/20kg 45,780원",
+      "ViewCount": 2943,
+      "LikeCount": 63,
+      "WroteDate": "2026-04-24T13:52:00",
+      "GetUrl": "https://www.jnmall.kr/product/24431",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14531848,
+      "Title": "포켓cu 퍼플위크 1만할쿠 3천할쿠 1천할쿠 교환권 2시오픈",
+      "ViewCount": 2285,
+      "LikeCount": 69,
+      "WroteDate": "2026-04-24T12:26:00",
+      "GetUrl": "https://www.pocketcu.co.kr/deepLink/checkAppInstall?viewType=1&viewUrl=/event/eventView/9005260409881",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14531345,
+      "Title": "토스 배달의민족 랜덤할인쿠폰",
+      "ViewCount": 3451,
+      "LikeCount": 45,
+      "WroteDate": "2026-04-24T10:29:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14530725,
       "Title": "김정문알로에)배송비딜 3천원",
       "ViewCount": 3225,
@@ -68,6 +138,26 @@
       "LikeCount": 64,
       "WroteDate": "2026-04-24T02:24:00",
       "GetUrl": "https://play.google.com/store/apps/details?id=com.kakaopay.app",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14532304,
+      "Title": "무신사) 아디다스 도쿄 베이지블랙 67,900원",
+      "ViewCount": 3010,
+      "LikeCount": 44,
+      "WroteDate": "2026-04-24T14:45:00",
+      "GetUrl": "https://www.musinsa.com/products/4409448",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14532767,
+      "Title": "알뜰 KTM모바일 7GB+1Mps 통화문자무제한 12갤사용시 +네페18만원",
+      "ViewCount": 1095,
+      "LikeCount": 62,
+      "WroteDate": "2026-04-24T16:57:00",
+      "GetUrl": "https://www.ktmmobile.com/event/eventDetail.do?ntcartSeq=1818&sbstCtg=E&pageNo=1",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -99,6 +189,116 @@
       "WroteDate": "2026-04-24T01:35:00",
       "GetUrl": "http://www.11st.co.kr/products/5744279518/share",
       "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F5744279518%2Fshare",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14530955,
+      "Title": "ok캐쉬백) 컴포즈 아아 900원, 공차 밀크티 3500원, 이마트 8500원",
+      "ViewCount": 1695,
+      "LikeCount": 50,
+      "WroteDate": "2026-04-24T09:03:00",
+      "GetUrl": "https://m.okcashbag.com/g/w/v2/shopping/group-purchase/1073",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14531287,
+      "Title": "이마트24 쿠폰등록 (선착순) 서울우유 100원",
+      "ViewCount": 1928,
+      "LikeCount": 45,
+      "WroteDate": "2026-04-24T10:19:00",
+      "GetUrl": "https://play.google.com/store/apps/details?id=kr.co.emart24.everse",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14530590,
+      "Title": "품절) 롯데리아 e쿠폰 선물하기) 롯데리아 5만원권 40,500원",
+      "ViewCount": 1722,
+      "LikeCount": 47,
+      "WroteDate": "2026-04-24T00:11:00",
+      "GetUrl": "https://m.smartstore.naver.com/lotteria_gift/products/13348080248\r\nhttps://shopping.naver.com/festa/gift/69b749a21598d745dca2155c\r\nhttps://naver.me/FWTrZL9w",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14530794,
+      "Title": "네이버) 국내산 냉장 닭다리살 정육 1kg 12860원",
+      "ViewCount": 1402,
+      "LikeCount": 50,
+      "WroteDate": "2026-04-24T07:39:00",
+      "GetUrl": "https://naver.me/xM5bn8tH",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14531864,
+      "Title": "지오다노) 여름용 나일론 풀밴딩 팬츠 29,800원 무배",
+      "ViewCount": 1450,
+      "LikeCount": 49,
+      "WroteDate": "2026-04-24T12:30:00",
+      "GetUrl": "https://www.giordano.co.kr/shop/detail.php?pno=C162223EAA6B3CF8E04D8CA10E533196&ctype=1",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14532598,
+      "Title": "롯데아이몰) MLB키즈 베이직 스트릿 빅로고 레터링 티셔츠 20,820원",
+      "ViewCount": 1702,
+      "LikeCount": 46,
+      "WroteDate": "2026-04-24T16:06:00",
+      "GetUrl": "https://www.lotteimall.com/goods/viewGoodsDetail.lotte?goods_no=3250257288",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=woori&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fwww.lotteimall.com%2Fgoods%2FviewGoodsDetail.lotte%3Fgoods_no%3D3250257288",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14531274,
+      "Title": "cj더마켓/토스20%)비비고왕교자 1.05kg 2개 12,768원",
+      "ViewCount": 1483,
+      "LikeCount": 45,
+      "WroteDate": "2026-04-24T10:16:00",
+      "GetUrl": "https://m.cjthemarket.com/the/membership/introduce\r\nhttps://m.cjthemarket.com/the/product/product-main?prdCd=40219028&spclCtgrId=&ctgrId=&plnId=109407&giftSetEvntId=&areaNum=1",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=cjbrand&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.cjthemarket.com%2Fthe%2Fmembership%2Fintroduce",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14531397,
+      "Title": "배달의민족 신한카드결제 2천원 할인쿠폰",
+      "ViewCount": 1348,
+      "LikeCount": 45,
+      "WroteDate": "2026-04-24T10:38:00",
+      "GetUrl": "https://baemin.go.link/hbSvs",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14532681,
+      "Title": "퀸잇) 휠라 남여공용 우븐 하프 셋업 반팔, 반바지 세트 26,900원",
+      "ViewCount": 1885,
+      "LikeCount": 38,
+      "WroteDate": "2026-04-24T16:31:00",
+      "GetUrl": "https://web.queenit.kr/product/e8a98fe60f87ad61a06aa28761452476",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14530583,
+      "Title": "네이버) 춘천그린식품 강명희 국내산 냉장 생 닭안심살 1kg 5,660원",
+      "ViewCount": 1449,
+      "LikeCount": 40,
+      "WroteDate": "2026-04-24T00:08:00",
+      "GetUrl": "https://brand.naver.com/ccdakgalbi/products/11827827178\r\nhttps://shopping.naver.com/festa/onsale/wfashion/69ba541d9f0c9f0e2f10f935",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14531579,
+      "Title": "ssf) 제너럴아이디어 신상 할인 에어리 에센셜 니트 1+1 체감가 4만원대",
+      "ViewCount": 1638,
+      "LikeCount": 38,
+      "WroteDate": "2026-04-24T11:11:00",
+      "GetUrl": "https://m.ssfshop.com/GENERAL-IDEA/GP2N26040349554/good?dspCtgryNo=SFM&brandShopNo=BDMA19K98&brndShopId=GRGNI&leftBrandNM=&utag=ref_cat:SFM$ref_brn:BDMA19K98$ref_br:GRGNI$set:1$set:2$dpos:31",
+      "ProfitLink": null,
       "ShortenUrl": null
     }
   ]
