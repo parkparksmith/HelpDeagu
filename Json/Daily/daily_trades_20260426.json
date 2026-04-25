@@ -1,0 +1,73 @@
+{
+  "key": "3731",
+  "export_date": "2026-04-26T07:13:54.824466",
+  "selected_date": "2026-04-26",
+  "summary": {
+    "total_apt_count": 2,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "달성군",
+      "count": 1
+    },
+    {
+      "gu": "수성구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 574283,
+      "district": "대구광역시 달성군 다사읍 매곡리",
+      "gu": "달성군",
+      "dong": "매곡리",
+      "bunji": "1537",
+      "apt_name": "대실역청아람1단지",
+      "area": 59.9748,
+      "contract_date": "2026-04-22",
+      "amount": 275000000,
+      "floor": 5,
+      "buyer_type": "개인",
+      "construction_year": 2008,
+      "road_name": "대실역북로 38",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 달성군",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-04-26T07:12:12.625785",
+      "previous_high": 336000000,
+      "trade_count_3m_total": 7,
+      "trade_count_3m_area": 6,
+      "presale_type": null
+    },
+    {
+      "trade_type": "아파트",
+      "raw_id": 573871,
+      "district": "대구광역시 수성구 두산동",
+      "gu": "수성구",
+      "dong": "두산동",
+      "bunji": "105",
+      "apt_name": "대우트럼프월드수성",
+      "area": 98.93,
+      "contract_date": "2026-04-12",
+      "amount": 685000000,
+      "floor": 37,
+      "buyer_type": "개인",
+      "construction_year": 2007,
+      "road_name": "동대구로 59",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 달서구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-04-26T07:12:12.625785",
+      "previous_high": 845000000,
+      "trade_count_3m_total": 12,
+      "trade_count_3m_area": 3,
+      "presale_type": null
+    }
+  ]
+}
