@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-05-17T07:13:56.350536",
+  "selected_date": "2026-05-17",
+  "summary": {
+    "total_apt_count": 1,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "수성구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 602352,
+      "district": "대구광역시 수성구 두산동",
+      "gu": "수성구",
+      "dong": "두산동",
+      "bunji": "105",
+      "apt_name": "대우트럼프월드수성",
+      "area": 116.27,
+      "contract_date": "2026-04-19",
+      "amount": 700000000,
+      "floor": 22,
+      "buyer_type": "개인",
+      "construction_year": 2007,
+      "road_name": "동대구로 59",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 수성구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-05-17T07:12:14.417442",
+      "previous_high": 1040000000,
+      "trade_count_3m_total": 14,
+      "trade_count_3m_area": 2,
+      "presale_type": null
+    }
+  ]
+}
