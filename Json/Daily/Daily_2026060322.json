@@ -1,4 +1,17 @@
 {
-  "created_date": "2026-06-03 22:43",
-  "raw_text": "{\n  \"key\": \"3731\",\n  \"selected_date\": \"2026-02-04\",\n  \"summary\": {\n    \"total_apt_count\": 98,\n    \"total_presale_count\": 8\n  },\n  \"trades\": [\n    {\n      \"trade_type\": \"아파트\",\n      \"apt_name\": \"죽전역동화아이위시\",\n      \"area\": 84.84,\n      \"amount\": 620000000,\n      \"floor\": 24\n    }\n  ]\n}"
+  "key": "3731",
+  "selected_date": "2026-02-04",
+  "summary": {
+    "total_apt_count": 98,
+    "total_presale_count": 8
+  },
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "apt_name": "죽전역동화아이위시",
+      "area": 84.84,
+      "amount": 620000000,
+      "flo11or": 24
+    }
+  ]
 }
