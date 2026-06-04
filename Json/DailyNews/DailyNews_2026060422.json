@@ -1,0 +1,16 @@
+{
+  "date": "2026-06-03-0900",
+  "title": "매일 아침 09시 최신 뉴스 TOP 10",
+  "news_items": [
+    {
+      "rank": 1,
+      "original_title": "토지거래허가구역 내 '세 낀 집' 실거주 의무 최대 2년 유예 본격 시행",
+      "news_url": "https://news.example.com/realestate/2026060201",
+      "headline": "토허구 실거주 2년 유예",
+      "core_data": "2년 유예 / 규제 완화",
+      "summary": [
+        "토지거래허가구역 내 세입자가 있는 주택을 매수할 때 실거주 의무가 최대 2년간 유예됩니다."
+      ]
+    }
+  ]
+}
