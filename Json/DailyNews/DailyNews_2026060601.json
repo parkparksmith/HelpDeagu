@@ -1,1 +1,126 @@
-{}
+{
+  "date": "2024-05-15-0900",
+  "news_items": [
+    {
+      "core_data": "이란-미국 군사 충돌",
+      "headline": "이란, 미군 기지 미사일 발사.. 美 \"모두 요격\" 확전 일촉즉발",
+      "news_url": "https://news.google.com/rss/articles/CBMic0FVX3lxTFBKT2VEYm1aWUk2RUQ2UXBOR3FLVkExUjlMRkpLQktJM0wzTi1FUUN3a2lxNGhkQU11ZHYwOTBLUjlMMmJuX3QweTBnclViNDI5RkkxaUVZVVVMRTZILW9NeGpXUW50TF9CU1huZWhNd254NmfSAWZBVV95cUxPZFItYVcxbG9CUWhmTWRjdTdybWw5blp4YXZjMlhzVUF3VGdVejgtdkx5M0o2b2NYWjJKQTU0UUxtVkFnQ2ZvTXdrWkNrUko2eUNJV00zbHhiWU9CZFpkajROMVc4V0E?oc=5",
+      "original_title": "[속보]이란 “호르무즈 유조선 4척-美 5함대 타격”…美 “미사일 모두 요격” - 동아일보",
+      "rank": 1,
+      "summary": [
+        "이란이 미군 기지에 미사일을 발사하고 호르무즈 해협 봉쇄 가능성을 언급하며 미국을 비난했습니다.",
+        "미국은 발사된 미사일을 모두 요격했다고 밝히며 추가적인 군사적 확전 가능성에 대한 우려가 커지고 있습니다.",
+        "중동 지역 긴장이 최고조에 달하면서 국제 유가 및 안보 정세에 미칠 영향에 전 세계가 주목하고 있습니다."
+      ]
+    },
+    {
+      "core_data": "환율 1560원 돌파 / 증시 하락",
+      "headline": "원·달러 환율 1560원 돌파, 금융위기 이후 최고치…뉴욕증시 반도체주 폭락",
+      "news_url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1nN01UQXR4QXA5Yl9zRVFid1lLVjk3Nk04N2FCcXh0WHVMeF85Ukx2a2xmdm5QdDZ1TUJweXdVbWFKM25xZEJEUVpXTVM2eUVWcXJhLVA1eG51Z9IBVEFVX3lxTE5PMUFtN2RwQ3kwQVB3c3R5X1lud2VWREtWd29ndXRJZUdMN205STJ5WTRwaWJLa1hMZExNZU1aMDAtMFhXQVVJUEJaM2h0X29tbWEzYQ?oc=5",
+      "original_title": "원·달러 환율, 장중 1560원도 뚫어…금융위기 이후 최고치 - 한국경제",
+      "rank": 2,
+      "summary": [
+        "원·달러 환율이 장중 한때 1560원을 돌파하며 2008년 금융위기 이후 최고치를 기록했습니다.",
+        "뉴욕 증시에서는 금리 인상 공포로 반도체주가 일제히 폭락하며 시장 전반의 불안감이 커졌습니다.",
+        "국내 코스피 시장에도 '검은 월요일'이 예상되는 등 전 세계적으로 금융시장 경계령이 발령되었습니다."
+      ]
+    },
+    {
+      "core_data": "윤석열 특검 출석",
+      "headline": "윤석열 대통령, 종합특검 첫 출석…'계엄 정당화' 메시지 논란",
+      "news_url": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE11SWlCTUhGVk5Rd09XWUVrMW1UY2YxeFltLVhWYTc1dXhZWUlidk5ma2xyNlpIMFFSTVlfeF9jTlVDYVdTYkxHYjJSbVBjUFE?oc=5",
+      "original_title": "윤석열, 종합특검 첫 출석…'계엄 정당화 메시지' 피의자 - v.daum.net",
+      "rank": 3,
+      "summary": [
+        "윤석열 대통령이 종합 특검에 처음으로 출석하여 조사를 받았습니다.",
+        "특검은 대통령이 과거 '계엄 정당화 메시지'를 보낸 혐의에 대해 집중적으로 수사 중인 것으로 알려졌습니다.",
+        "이번 특검 출석은 현직 대통령에 대한 이례적인 상황으로, 정국에 큰 파장을 불러올 것으로 예상됩니다."
+      ]
+    },
+    {
+      "core_data": "시진핑 7년 만에 방북",
+      "headline": "시진핑, 7년 만에 방북…북중 관계 복원 및 대북 영향력 강화 모색",
+      "news_url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE9rMDFlTVY3WkFMZXpWcWRIeWsyQVk4MG8yTHpWcEhhOU5ZdUtfWVQ4UHM5UEtHYm83UG1pcThNemxPb0xfR2s2Wk5UVlIwZkY1dkFLbWQ3SlRnbkp2WEJYY0JvTWNmeUpTWk9JSg?oc=5",
+      "original_title": "시진핑 7년 만에 방북…대북 영향력 강화 ‘속내’ - 한겨레",
+      "rank": 4,
+      "summary": [
+        "시진핑 중국 국가주석이 7년 만에 북한을 방문하여 김정은 위원장과 회담을 가졌습니다.",
+        "이번 방북은 북중 관계 복원과 더불어 중국의 대북 영향력을 강화하려는 의도로 풀이됩니다.",
+        "한반도 비핵화 협상이 교착 상태에 빠진 가운데, 시 주석의 방북이 향후 국제 정세에 미칠 영향이 주목됩니다."
+      ]
+    },
+    {
+      "core_data": "AI 범용 백신 임상 완료",
+      "headline": "英, AI 기반 '코로나·메르스 범용 백신' 인체 임상시험 완료…팬데믹 종식 기대감",
+      "news_url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1JN29HWXA3eC1LX0tjTnZOQXdLX0xTVGR2ZzBpTmMtd0J4dFpLcDA4MVVCVU03SzRsX3JXZXhGdmZyeEtrWEZyd0pZT2RVMlNPMV9iZF9YM3d4QjEwTUhPSQ?oc=5",
+      "original_title": "코로나·메르스 한방에 잡나…英, AI 기반 '범용 백신' 인체 임상시험 완료 - 아시아경제",
+      "rank": 5,
+      "summary": [
+        "영국에서 인공지능(AI) 기반의 '범용 백신' 인체 임상시험이 성공적으로 완료되었습니다.",
+        "이 백신은 코로나19와 메르스 등 다양한 변이 바이러스에 동시 대응할 수 있도록 설계되었습니다.",
+        "새로운 팬데믹 시대에 혁신적인 대응책이 될 것으로 기대되며 전 세계 공중 보건에 희망을 제시하고 있습니다."
+      ]
+    },
+    {
+      "core_data": "젠슨 황 CEO 방한",
+      "headline": "젠슨 황 엔비디아 CEO, 유퀴즈 출연부터 게임업계 회동까지 '광폭 행보'",
+      "news_url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE5YY04xYlJla2c1ODFWTWZDRE9aTXh3bXZnN2tFSEhHZXRfTFoyaXROV2I5bXNKZVUyQ1I3M0xJcUY1aGlXZXpxZ1hHUkt2SF80V2twa0pOdG9JTGPSAWBBVV95cUxNX25qamdwN29lbVFibHQwQTI3Y2k5cjVzZnpYUmd6Z28za0hyTEpwSjBCWDQ2RVM3bTJ5SVU5aXpmdkRWdTlPa2RJX2xtT1RsYUpXQnhwY09kcG95ZWtJU0s?oc=5",
+      "original_title": "젠슨 황, 주말엔 유퀴즈…시구·게임업계 회동도 - 연합뉴스",
+      "rank": 6,
+      "summary": [
+        "인공지능(AI) 열풍의 주역, 젠슨 황 엔비디아 최고경영자(CEO)가 한국을 방문해 다양한 일정을 소화하고 있습니다.",
+        "인기 예능 프로그램 '유 퀴즈 온 더 블럭' 출연을 비롯해 시구, 국내 게임업계 주요 인사들과의 회동 등 광폭 행보를 보였습니다.",
+        "그의 방한은 한국의 AI 및 반도체 산업에 대한 높은 관심을 반영하며 관련 산업에 활력을 불어넣고 있습니다."
+      ]
+    },
+    {
+      "core_data": "서울 선거 민심 / 오세훈 시정",
+      "headline": "서울 2030, 이념보다 이슈…오세훈은 찍었지만, 시의회·구청장은 민주당 압승",
+      "news_url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxPb09sYThtZDEwTTBLODhKOWlhanhoTXdnWEFjUjdFQ1I2QTNlZ3NrYU1MYmh5OF9FekpIZFhNNExWSFJJTTFSM1k3MjFEMm9Fa2ZzN19VdVJveTY0WXlnb1d6RkE1MXBLY3NKblc3Uk5mc1l2bVhubW9LMTYyOFZoMU5LWlZ4QQ?oc=5",
+      "original_title": "서울 2030, 이념보다 이슈... 절반 넘게 오세훈 찍었다 - 조선일보",
+      "rank": 7,
+      "summary": [
+        "최근 선거에서 서울 2030세대 유권자들이 이념보다는 실질적인 이슈를 중심으로 투표하는 경향을 보였습니다.",
+        "오세훈 시장은 젊은층의 지지를 얻었지만, 서울시의회와 다수의 구청장은 민주당이 차지하며 '여소야대' 지형이 형성되었습니다.",
+        "이는 시민들의 복합적인 요구를 반영하며 오 시장의 향후 시정 운영에 상당한 영향을 미칠 것으로 분석됩니다."
+      ]
+    },
+    {
+      "core_data": "치매 치료제 임상",
+      "headline": "치매 전 치료제 '콜린알포세레이트', 인지기능 개선 확인…1차 지표 미충족에도 희망",
+      "news_url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE1qNEU2b01WRUZFVEcyYTdVOUk1THk3MC1qUnJXc0VnVGQ3dnVBUWRKN3c1VnU5QW9VZFpUNlA2d3dVdmZYcllDeTRBRkZWdUJvVm53?oc=5",
+      "original_title": "치매 전 치료제 '콜린알포세레이트'…\"임상 1차 지표 미충족했지만 인지기능 개선 확인\" - 네이트",
+      "rank": 8,
+      "summary": [
+        "치매 전 단계 치료제 '콜린알포세레이트'가 최종 임상에서 1차 지표는 미충족했지만, 인지기능 개선 효과를 확인했습니다.",
+        "이는 치매 예방 및 진행 지연에 대한 잠재적 가능성을 보여주며, 연구진은 추가 분석을 통해 약물 효과를 면밀히 검토할 예정입니다.",
+        "고령화 사회에서 치매는 중요한 사회적 문제인 만큼, 이번 연구 결과에 많은 관심이 쏠리고 있습니다."
+      ]
+    },
+    {
+      "core_data": "영화 '군체' 흥행 / OTT '멋진 신세계' 1위",
+      "headline": "영화 '군체' 400만 관객 돌파 1위, OTT '멋진 신세계' 3주 연속 정상 등극",
+      "news_url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE9yNFhtd2x1WVNNLWZZSEkzS29ranRsS3VXb0dmTUNpVkpzM1R5bHlvOUNvYTAyQXh6THRGVjFlWlJybkVhVHU1c3lhblVjQ1Npd21HQW1BRnRzSWlxc2V3WDFKV1NYMXpIYWhwWVRHRGMyN21YRjJKUjg?oc=5",
+      "original_title": "영화 '군체' 관객 400만 명 넘어서며 1위, OTT '멋진 신세계' 3주 연속 1위 - 비즈니스포스트",
+      "rank": 9,
+      "summary": [
+        "개봉작 '군체'가 전국 관객 400만 명을 돌파하며 박스오피스 1위를 차지, 흥행 돌풍을 이어가고 있습니다.",
+        "한편, 온라인동영상서비스(OTT) 부문에서는 오리지널 드라마 '멋진 신세계'가 3주 연속 시청률 1위를 기록했습니다.",
+        "극장과 OTT 시장 모두에서 다채로운 콘텐츠들이 인기를 얻으며 K-콘텐츠의 저력을 보여주고 있습니다."
+      ]
+    },
+    {
+      "core_data": "이정후 13경기 연속 안타",
+      "headline": "이정후, 컵스전 2루타로 13경기 연속 안타 행진…ML 데뷔 후 최고 기록",
+      "news_url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5oR3pXamh4NTBnR21Ea0ZuNUI5QXYzMURNTDlOOXQwcXpsSGV0dmh3eDBEZFlWRm5HQXJHNDI4dUxkR2pUSTVxMHdWRmZmN0ZtS2FFbzhWVWhKb3BPLUhIV1dYWFRGMVdrMUE?oc=5",
+      "original_title": "이정후, 컵스전 2루타…13경기 연속 안타 행진 - SBS 뉴스",
+      "rank": 10,
+      "summary": [
+        "샌프란시스코 자이언츠의 이정후 선수가 컵스전에서 2루타를 기록하며 13경기 연속 안타 행진을 이어갔습니다.",
+        "이는 메이저리그 데뷔 후 개인 최다 연속 안타 기록을 경신하는 것으로, 꾸준한 활약을 입증하고 있습니다.",
+        "'바람의 손자' 이정후의 활약이 팀 성적에 긍정적인 영향을 미치며 팬들의 기대감을 높이고 있습니다."
+      ]
+    }
+  ],
+  "title": "매일 아침 09시 최신 뉴스 TOP 10"
+}
