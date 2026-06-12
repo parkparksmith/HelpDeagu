@@ -1,5 +1,5 @@
 {
-  "created_date": "2026-06-12 11:30:12",
+  "created_date": "2026-06-12 21:00:26",
   "list": [
     {
       "No": 14660435,
@@ -29,6 +29,16 @@
       "WroteDate": "2026-06-12T00:32:00",
       "GetUrl": "https://event.gsshop.com/event/welcome",
       "ProfitLink": "https://click.linkprice.com/click.php?m=gseshop&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fevent.gsshop.com%2Fevent%2Fwelcome",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14662645,
+      "Title": "빕스) 네이버페이 머니/포인트로 결제시 50% (10만이상 5만) (15일부터)",
+      "ViewCount": 2330,
+      "LikeCount": 162,
+      "WroteDate": "2026-06-12T18:29:00",
+      "GetUrl": "https://www.ivips.co.kr/promotion/71",
+      "ProfitLink": null,
       "ShortenUrl": null
     },
     {
@@ -82,6 +92,16 @@
       "ShortenUrl": null
     },
     {
+      "No": 14662273,
+      "Title": "bbq 백원딜 6월25일까지",
+      "ViewCount": 7211,
+      "LikeCount": 69,
+      "WroteDate": "2026-06-12T16:05:00",
+      "GetUrl": "https://bbq.co.kr/open?type=event&id=162",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14660481,
       "Title": "맛뜰무안몰)무안 간척지쌀 새청무 상등급 20kg 45,930원",
       "ViewCount": 2896,
@@ -100,6 +120,186 @@
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=6900072345&itemId=19225633702&vendorItemId=86342275010&traceid=V0-153-a39d0a70397a6a7e&requestid=20260612090642099053595096&token=31850C%7CGM"
+    },
+    {
+      "No": 14660803,
+      "Title": "티플러스 모바일) 티플 가성비(300분/6기가) 평생요금 990원",
+      "ViewCount": 1020,
+      "LikeCount": 91,
+      "WroteDate": "2026-06-12T09:06:00",
+      "GetUrl": "https://www.tplusmobile.com/main/rate/plan_details?seq=B0B978582B8FA2062418D043A7A0E89CF4825ADFF003EFCA791940FB253F1D7749DC134C2AE32626544DC2DBB096F04CD348F1770D9381FDD7A92F585AE26616",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14662585,
+      "Title": "실리만) 뒤집개 / 물주머니 / 국자 등 900원 (유배, 개수 상관없이 배송비 동일)",
+      "ViewCount": 3058,
+      "LikeCount": 66,
+      "WroteDate": "2026-06-12T17:58:00",
+      "GetUrl": "https://m.sillymann.com/goods/event_sale.php?sno=241",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14661659,
+      "Title": "카스 기프티콘응모 선착 ㄱㄱ",
+      "ViewCount": 5743,
+      "LikeCount": 39,
+      "WroteDate": "2026-06-12T12:55:00",
+      "GetUrl": "https://naver.me/5jXZZdTb",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14661366,
+      "Title": "부산은행앱.롯마제타 30%쿠폰받고 등록하세요",
+      "ViewCount": 1799,
+      "LikeCount": 70,
+      "WroteDate": "2026-06-12T11:45:00",
+      "GetUrl": "https://naver.me/5PWc1M8Y?tc=shared_link",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14660951,
+      "Title": "토스쇼핑) 자동회전냄비 IH 회전롤팬 39cm 65,900원",
+      "ViewCount": 3118,
+      "LikeCount": 54,
+      "WroteDate": "2026-06-12T09:55:00",
+      "GetUrl": "https://service.toss.im/shopping/c/120064193",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14660701,
+      "Title": "gs25픽업,배달)순살후라이드 치킨 4,950원(50%)",
+      "ViewCount": 2123,
+      "LikeCount": 61,
+      "WroteDate": "2026-06-12T08:18:00",
+      "GetUrl": "https://abr.ge/aw5ip6h",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14660842,
+      "Title": "당근) 푸라닭 8천원 할인 (선착순)",
+      "ViewCount": 2177,
+      "LikeCount": 60,
+      "WroteDate": "2026-06-12T09:20:00",
+      "GetUrl": "https://daangn.com/kr/share/pickup/kkd/PURADAK_2606",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14660514,
+      "Title": "오늘의집) 구슬아이스크림 30개 (랜덤쿠폰+토스결제시) 11,930",
+      "ViewCount": 2963,
+      "LikeCount": 51,
+      "WroteDate": "2026-06-12T01:33:00",
+      "GetUrl": "https://ozip.me/jPbc3Ho",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14660431,
+      "Title": "맘맘) 소노벨 비발디파크 3인 패밀리 패키지 152,000원~",
+      "ViewCount": 1843,
+      "LikeCount": 62,
+      "WroteDate": "2026-06-12T00:13:00",
+      "GetUrl": "https://mom-mom.net/shop/showcases/6a15ccd8157d79dbcdf7eb3d",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14660917,
+      "Title": "올리브영) 오리온 촉촉한 황치즈칩 160g 2800원 (2만이상 무배)",
+      "ViewCount": 3337,
+      "LikeCount": 44,
+      "WroteDate": "2026-06-12T09:43:00",
+      "GetUrl": "https://play.google.com/store/apps/details?id=com.oliveyoung",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14661298,
+      "Title": "SSF) 제너럴아이디어 셔츠 카라 반팔니트 42,190 (무배)",
+      "ViewCount": 2966,
+      "LikeCount": 47,
+      "WroteDate": "2026-06-12T11:23:00",
+      "GetUrl": "https://www.ssfshop.com/GENERAL-IDEA/GP2N26042074149/good?utag=ref_sch:GF2LKP531$set:1$dpos:1",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14661212,
+      "Title": "지마켓)아디다스 키즈 유아용 슈퍼스타 샌들 쿠폰가 26210원 무배",
+      "ViewCount": 4203,
+      "LikeCount": 33,
+      "WroteDate": "2026-06-12T11:01:00",
+      "GetUrl": "https://item.gmarket.co.kr/Item?goodscode=4564669925",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fitem.gmarket.co.kr%2FItem%3Fgoodscode%3D4564669925",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14662106,
+      "Title": "지오다노몰)쿨 나일론 반팔 셔츠 자켓 19,800원 무배",
+      "ViewCount": 2949,
+      "LikeCount": 42,
+      "WroteDate": "2026-06-12T15:14:00",
+      "GetUrl": "https://www.giordano.co.kr/shop/detail.php?pno=1C508F548E902673C239B187A28CDB30&cno1=1283",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14661019,
+      "Title": "쿠팡) 촉촉한 황치즈칩 7470원",
+      "ViewCount": 4430,
+      "LikeCount": 26,
+      "WroteDate": "2026-06-12T10:12:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/a/evLccgksdU"
+    },
+    {
+      "No": 14662310,
+      "Title": "롯데ON) 아이더 역시즌 장원영 구스다운 롱패딩 46만원 -> 161,870원 (무배)",
+      "ViewCount": 3270,
+      "LikeCount": 35,
+      "WroteDate": "2026-06-12T16:16:00",
+      "GetUrl": "https://www.lotteon.com/p/product/LE1221784338?mall_no=1",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fwww.lotteon.com%2Fp%2Fproduct%2FLE1221784338%3Fmall_no%3D1",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14662611,
+      "Title": "PRIVIA여행) 베트남 알마 리조트 깜란 3박+조식포함 625,787원",
+      "ViewCount": 1516,
+      "LikeCount": 51,
+      "WroteDate": "2026-06-12T18:12:00",
+      "GetUrl": "https://hotel.priviatravel.com/hotel/view/363063?checkIn=2026-09-09&checkOut=2026-09-12",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14660800,
+      "Title": "오늘의집) 롯데 아이스크림바 세트 50개 20,925원 (카카오페이)",
+      "ViewCount": 1868,
+      "LikeCount": 47,
+      "WroteDate": "2026-06-12T09:06:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14661182,
+      "Title": "소진.11시.컬리 패션 50%쿠폰 받으세요",
+      "ViewCount": 2117,
+      "LikeCount": 43,
+      "WroteDate": "2026-06-12T10:54:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
     }
   ]
 }
