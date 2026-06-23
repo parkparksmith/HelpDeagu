@@ -1,13 +1,53 @@
 {
-  "created_date": "2026-06-23 11:30:15",
+  "created_date": "2026-06-23 21:00:22",
   "list": [
     {
       "No": 14689161,
       "Title": "배스킨라빈스)23일~25일 Npay QR 결제 시 전 제품 50% 할인/쿠폰 10시 발급",
-      "ViewCount": 8808,
-      "LikeCount": 473,
+      "ViewCount": 10000,
+      "LikeCount": 541,
       "WroteDate": "2026-06-23T08:41:00",
       "GetUrl": "https://pay.naver.com/coupon/home/offline",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14689719,
+      "Title": "소진/12시 넾다세일 목표달성 20% 쿠폰",
+      "ViewCount": 12000,
+      "LikeCount": 340,
+      "WroteDate": "2026-06-23T11:21:00",
+      "GetUrl": "https://naver.me/FG3Utjei",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14690065,
+      "Title": "컬리X페이코)3개월 미구매 3만원이상 18,000원 혜택/사미헌 갈비탕 1kg 2개 체감가 1.2만원",
+      "ViewCount": 6274,
+      "LikeCount": 250,
+      "WroteDate": "2026-06-23T13:16:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14689835,
+      "Title": "12시/메가MGC커피선물하기)메가커피 아이스카페라떼 28%할인 2,070원",
+      "ViewCount": 8589,
+      "LikeCount": 207,
+      "WroteDate": "2026-06-23T11:57:00",
+      "GetUrl": "https://naver.me/574xMFPQ",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14689101,
+      "Title": "CGV 무료영화) 와일드씽,너바나밴드,눈동자",
+      "ViewCount": 3719,
+      "LikeCount": 196,
+      "WroteDate": "2026-06-23T07:54:00",
+      "GetUrl": "https://cgv.co.kr/mShrtU/jJ4Po\r\nhttps://cgv.co.kr/mShrtU/x3KaR\r\nhttps://cgv.co.kr/mShrtU/Fo1qY",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -22,24 +62,34 @@
       "ShortenUrl": null
     },
     {
-      "No": 14689101,
-      "Title": "CGV 무료영화) 와일드씽,너바나밴드,눈동자",
-      "ViewCount": 3119,
-      "LikeCount": 189,
-      "WroteDate": "2026-06-23T07:54:00",
-      "GetUrl": "https://cgv.co.kr/mShrtU/jJ4Po\r\nhttps://cgv.co.kr/mShrtU/x3KaR\r\nhttps://cgv.co.kr/mShrtU/Fo1qY",
+      "No": 14689783,
+      "Title": "무신사) 크록스 키즈 헬로키티 클로그 39,890원 무배",
+      "ViewCount": 5781,
+      "LikeCount": 130,
+      "WroteDate": "2026-06-23T11:40:00",
+      "GetUrl": "https://www.musinsa.com/products/6297915",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
       "No": 14689057,
-      "Title": "품절/쿠팡)오아 베이직 5엽 날개 키높이 스탠드 선풍기 18,500원",
-      "ViewCount": 7093,
-      "LikeCount": 112,
+      "Title": "쿠팡)오아 베이직 5엽 날개 키높이 스탠드 선풍기 18,500원",
+      "ViewCount": 7210,
+      "LikeCount": 113,
       "WroteDate": "2026-06-23T07:05:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9459611361&itemId=28147230583&vendorItemId=95102612861&traceid=V0-153-ad1e6778da5adf6e&requestid=20260623093059595150762605&token=31850C%7CGM"
+    },
+    {
+      "No": 14689397,
+      "Title": "카톡 선물)루메나 탁상용 선풍기 27,810원",
+      "ViewCount": 4595,
+      "LikeCount": 120,
+      "WroteDate": "2026-06-23T10:01:00",
+      "GetUrl": "https://kko.to/9zZNmF2Uex",
+      "ProfitLink": null,
+      "ShortenUrl": null
     },
     {
       "No": 14688922,
@@ -52,12 +102,42 @@
       "ShortenUrl": null
     },
     {
+      "No": 14689794,
+      "Title": "쿠쿠몰) CRP-CHAS109FWM IH전기압력밥솥 올스텐내솥(10인용) 토스경유 215,000원 / 페이코경유 222,600원",
+      "ViewCount": 4302,
+      "LikeCount": 97,
+      "WroteDate": "2026-06-23T11:43:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14689597,
+      "Title": "네이버)삐삐롱 감사특가 팬티,런닝 단품 1600원 유배 4개이상구매시 무배",
+      "ViewCount": 3192,
+      "LikeCount": 102,
+      "WroteDate": "2026-06-23T10:50:00",
+      "GetUrl": "https://naver.me/GSQzr9D6",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14688957,
       "Title": "Medical shop)아큐라 혈당측정기 혈당계 ACURA 뷰 혈당체크 3500원무배",
-      "ViewCount": 4002,
+      "ViewCount": 4015,
       "LikeCount": 90,
       "WroteDate": "2026-06-23T00:33:00",
       "GetUrl": "https://naver.me/GVVo3joH",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14689603,
+      "Title": "무신사)뉴발 브리즈 핑크 70840원(카카페 결제 시) 사이즈230,240만",
+      "ViewCount": 6463,
+      "LikeCount": 65,
+      "WroteDate": "2026-06-23T10:51:00",
+      "GetUrl": "https://musinsa.onelink.me/PvkC/lm2wla07",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -72,6 +152,16 @@
       "ShortenUrl": null
     },
     {
+      "No": 14689274,
+      "Title": "카톡 선물)BBQ황금올리브치킨+황금알치즈볼+콜라 22,500원(8천원할인)",
+      "ViewCount": 2247,
+      "LikeCount": 104,
+      "WroteDate": "2026-06-23T09:23:00",
+      "GetUrl": "https://kko.to/FcoXPCs5mk\r\nhttps://kko.to/2t48b7eYxE\r\nhttps://kko.to/fz8hpahkvb\r\nhttps://kko.to/0B_9lqnUJT",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14688903,
       "Title": "유배로 변경/대한민국농수산)소고기 육포 20g 간식 안주 마른안주 990원",
       "ViewCount": 2714,
@@ -82,10 +172,20 @@
       "ShortenUrl": null
     },
     {
+      "No": 14689748,
+      "Title": "무신사) 무신사 쿨탠다드 슬림 크루넥 티셔츠 13930",
+      "ViewCount": 3978,
+      "LikeCount": 70,
+      "WroteDate": "2026-06-23T11:29:00",
+      "GetUrl": "https://musinsa.onelink.me/ANAQ/9uz5jnta",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14689000,
       "Title": "11번가) 아레나 생존수영 아동 실내수영복 23200원",
-      "ViewCount": 3927,
-      "LikeCount": 68,
+      "ViewCount": 3945,
+      "LikeCount": 69,
       "WroteDate": "2026-06-23T01:33:00",
       "GetUrl": "http://www.11st.co.kr/products/7374059239/share",
       "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F7374059239%2Fshare",
@@ -98,6 +198,106 @@
       "LikeCount": 70,
       "WroteDate": "2026-06-23T00:10:00",
       "GetUrl": "https://naver.me/G7NerPYg",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14689135,
+      "Title": "카카오톡 선물하기) 베네피트 립 앤 치크 틴트 1+1 27,252원",
+      "ViewCount": 2550,
+      "LikeCount": 77,
+      "WroteDate": "2026-06-23T08:21:00",
+      "GetUrl": "https://kko.to/h82sKmERMc",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14690851,
+      "Title": "품절 패밀리그라운드 세탁 세제 1000원 무배 알림받기필수 뛰",
+      "ViewCount": 4363,
+      "LikeCount": 53,
+      "WroteDate": "2026-06-23T17:22:00",
+      "GetUrl": "https://naver.me/FQujbLmY",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14690160,
+      "Title": "테리파머) 뽑아쓰는 키친타올 100매 × 9개 체감가 4500원 네멤 베이비바우처",
+      "ViewCount": 2925,
+      "LikeCount": 66,
+      "WroteDate": "2026-06-23T13:47:00",
+      "GetUrl": "https://m.brand.naver.com/terrypalmer/products/5613816304\r\nhttps://nid.naver.com/membership/lifecycle/baby",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14688930,
+      "Title": "롯데온)엠앤엠즈 미니 튜브 35gx12개+12개 카페 14,900원 무배",
+      "ViewCount": 3206,
+      "LikeCount": 62,
+      "WroteDate": "2026-06-23T00:10:00",
+      "GetUrl": "https://www.lotteon.com/p/product/LO2367199839",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fwww.lotteon.com%2Fp%2Fproduct%2FLO2367199839",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14690547,
+      "Title": "24일.커피빈 3만원이상 충전시 3만원증정(내용확인필)",
+      "ViewCount": 1954,
+      "LikeCount": 73,
+      "WroteDate": "2026-06-23T15:31:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14689110,
+      "Title": "배달의민족)매일 8시 이디야/더벤티/텐퍼센트/이삭토스트",
+      "ViewCount": 3576,
+      "LikeCount": 51,
+      "WroteDate": "2026-06-23T08:00:00",
+      "GetUrl": "https://baemin.go.link/fHwuM",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14689943,
+      "Title": "무신사) 스탠다드 우먼즈 세미 벌룬 히든 밴딩 슬랙스 19,280원",
+      "ViewCount": 3371,
+      "LikeCount": 44,
+      "WroteDate": "2026-06-23T12:35:00",
+      "GetUrl": "https://www.musinsa.com/products/3134728",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14688931,
+      "Title": "롯데온)시어블라우스5종세트 33920원",
+      "ViewCount": 2936,
+      "LikeCount": 46,
+      "WroteDate": "2026-06-23T00:12:00",
+      "GetUrl": "https://s.lotteon.com/RtX_I_BLeV",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FRtX_I_BLeV",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14689576,
+      "Title": "14시)롯데시네마.무비싸다구 와일드씽 0원 관람권외(너만 보이는 날은 11시)",
+      "ViewCount": 2493,
+      "LikeCount": 47,
+      "WroteDate": "2026-06-23T10:45:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14688926,
+      "Title": "네이버) 듀오덤 공식몰 듀오덤 엑스트라씬 10x10cm 10매 네멤 17450원 무배",
+      "ViewCount": 1365,
+      "LikeCount": 58,
+      "WroteDate": "2026-06-23T00:10:00",
+      "GetUrl": "https://naver.me/GJZAd4hQ",
       "ProfitLink": null,
       "ShortenUrl": null
     }
