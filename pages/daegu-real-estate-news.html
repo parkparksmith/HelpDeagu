@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대구 부동산 뉴스 - 경제 도구 모음</title>
+    <meta name="description" content="대구·경북 지역 부동산 뉴스 Top 10. 대구 아파트 시장, 지역 개발, 분양 소식을 매일 확인하세요.">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/news.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <img src="../LOGO1.png" alt="Logo" class="header-logo">
+                <h1>대구 부동산 뉴스</h1>
+            </div>
+            <a href="news-menu.html" id="back-btn">
+                <span class="material-icons-round">arrow_back</span>
+                뉴스 메뉴
+            </a>
+        </header>
+
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <main class="view active">
+            <div class="news-page-header">
+                <div class="news-page-icon" style="background: linear-gradient(135deg, #065f46, #059669);">
+                    <span class="material-icons-round">location_city</span>
+                </div>
+                <div class="news-page-info">
+                    <h2>대구 부동산 뉴스</h2>
+                    <p>대구·경북 지역 부동산 특화 뉴스 Top 10</p>
+                </div>
+            </div>
+
+            <div id="news-date-filter" class="news-date-filter"></div>
+
+            <div class="news-date-info" id="news-date-info" style="display:none;"></div>
+
+            <div id="news-copy-actions" class="news-copy-actions" style="display:none;"></div>
+
+            <section id="news-list" class="news-list"></section>
+        </main>
+    </div>
+
+    <script src="../js/news.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initNewsPage('DailyDaeguRealEstateNews', 'all');
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,501 @@
+/* ==================== 뉴스 페이지 스타일 ==================== */
+
+/* 로딩/오류 상태 */
+.news-loading, .news-error, .news-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    text-align: center;
+    color: var(--text-muted);
+    gap: 16px;
+}
+
+.news-loading .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(201, 162, 39, 0.2);
+    border-left-color: var(--accent);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.news-error .material-icons-round,
+.news-empty .material-icons-round {
+    font-size: 48px;
+    opacity: 0.4;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* 뉴스 헤더 영역 */
+.news-page-header {
+    background: linear-gradient(135deg, rgba(26, 41, 66, 0.7), rgba(13, 17, 23, 0.9));
+    border: 1px solid var(--border-accent);
+    border-radius: 14px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.news-page-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-light));
+    border: 1px solid rgba(201, 162, 39, 0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.news-page-icon .material-icons-round {
+    font-size: 24px;
+    color: var(--accent);
+}
+
+.news-page-info h2 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.news-page-info p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* 데이터 날짜 표시 */
+.news-date-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    padding: 10px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.news-date-info .material-icons-round {
+    font-size: 16px;
+    color: var(--accent);
+}
+
+/* 뉴스 카드 리스트 */
+.news-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* 뉴스 카드 */
+.news-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.news-card:hover {
+    border-color: var(--border-accent);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.news-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px 10px;
+}
+
+.news-header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+}
+
+.news-rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: linear-gradient(135deg, var(--accent), #b8922a);
+    color: #1a1a1a;
+    font-weight: 800;
+    font-size: 0.85rem;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.news-rank.top3 {
+    background: linear-gradient(135deg, #ffd700, #ffa500);
+    box-shadow: 0 2px 8px rgba(255, 165, 0, 0.4);
+}
+
+.news-date-badge {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    background: var(--bg-dark);
+    padding: 3px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    white-space: nowrap;
+}
+
+.news-create-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    opacity: 0.75;
+    white-space: nowrap;
+}
+
+.news-create-time .material-icons-round {
+    font-size: 13px;
+    color: var(--accent);
+    opacity: 0.7;
+}
+
+.news-card-body {
+    padding: 0 16px 14px;
+}
+
+.news-headline {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.45;
+    margin-bottom: 8px;
+    word-break: keep-all;
+}
+
+.news-core-data {
+    font-size: 0.8rem;
+    color: var(--accent);
+    background: rgba(201, 162, 39, 0.08);
+    padding: 5px 10px;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent);
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+/* 카드 액션 영역 */
+.news-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.news-summary-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    flex: 1;
+    justify-content: center;
+}
+
+.news-summary-toggle:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-accent);
+    color: var(--text-primary);
+}
+
+.news-summary-toggle .toggle-icon {
+    font-size: 18px;
+    transition: transform 0.2s;
+}
+
+.news-summary-toggle.open .toggle-icon {
+    transform: rotate(180deg);
+}
+
+.news-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: linear-gradient(135deg, var(--accent), #b8922a);
+    color: #1a1a1a;
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+
+.news-link-btn:hover {
+    background: linear-gradient(135deg, var(--accent-light), var(--accent));
+    box-shadow: 0 2px 10px rgba(201, 162, 39, 0.3);
+}
+
+.news-link-btn .material-icons-round {
+    font-size: 15px;
+}
+
+/* 요약 항상 표시 영역 */
+.news-summary-inline {
+    margin-bottom: 12px;
+}
+
+.news-summary-inline ul {
+    list-style: none;
+    padding: 10px 0 0;
+    border-top: 1px dashed var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.news-summary-inline ul li {
+    position: relative;
+    padding-left: 18px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+    word-break: keep-all;
+}
+
+.news-summary-inline ul li::before {
+    content: '•';
+    position: absolute;
+    left: 4px;
+    color: var(--accent);
+    font-weight: bold;
+}
+
+/* 날짜 구분선 */
+.news-date-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px 0 8px;
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    font-weight: 500;
+}
+
+.news-date-divider::before,
+.news-date-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+}
+
+/* 날짜 필터 영역 */
+.news-date-filter {
+    margin-bottom: 14px;
+}
+
+.date-filter-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.latest-news-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 9px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.latest-news-btn .material-icons-round {
+    font-size: 17px;
+}
+
+.latest-news-btn:hover {
+    border-color: var(--border-accent);
+    color: var(--text-primary);
+}
+
+.latest-news-btn.active {
+    background: linear-gradient(135deg, rgba(201, 162, 39, 0.15), rgba(184, 146, 42, 0.1));
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.date-filter-inputs {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    flex-wrap: wrap;
+}
+
+.news-date-input {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    min-width: 140px;
+    flex-shrink: 0;
+}
+
+.news-date-input:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.news-date-input::-webkit-calendar-picker-indicator {
+    filter: invert(0.6);
+    cursor: pointer;
+}
+
+.news-file-select {
+    flex: 1;
+    min-width: 180px;
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-family: inherit;
+    cursor: pointer;
+    transition: border-color 0.2s;
+    appearance: auto;
+}
+
+.news-file-select:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.news-file-select:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* 복사 버튼 영역 */
+.news-copy-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+    border: none;
+}
+
+.copy-btn .material-icons-round {
+    font-size: 18px;
+}
+
+.copy-btn-infographic {
+    background: rgba(201, 162, 39, 0.12);
+    border: 1px solid rgba(201, 162, 39, 0.35);
+    color: var(--accent);
+}
+
+.copy-btn-infographic:hover {
+    background: rgba(201, 162, 39, 0.22);
+    border-color: var(--accent);
+}
+
+.copy-btn-kakao {
+    background: rgba(254, 229, 0, 0.1);
+    border: 1px solid rgba(254, 229, 0, 0.3);
+    color: #c8a800;
+}
+
+.copy-btn-kakao:hover {
+    background: rgba(254, 229, 0, 0.2);
+    border-color: #c8a800;
+}
+
+.copy-btn-done {
+    background: rgba(34, 197, 94, 0.15) !important;
+    border-color: rgba(34, 197, 94, 0.5) !important;
+    color: #22c55e !important;
+}
+
+/* 뉴스 메뉴 페이지 */
+.news-menu-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.news-menu-header h2 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.news-menu-header p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+    .news-page-header {
+        padding: 16px;
+    }
+
+    .news-headline {
+        font-size: 0.95rem;
+    }
+
+    .news-card-actions {
+        flex-direction: row;
+    }
+}
