@@ -1,0 +1,73 @@
+{
+  "key": "3731",
+  "export_date": "2026-07-13T07:14:09.958894",
+  "selected_date": "2026-07-13",
+  "summary": {
+    "total_apt_count": 2,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "중구",
+      "count": 1
+    },
+    {
+      "gu": "서구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 679719,
+      "district": "대구광역시 중구 삼덕동2가",
+      "gu": "중구",
+      "dong": "삼덕동2가",
+      "bunji": "328",
+      "apt_name": "동성로SK리더스뷰",
+      "area": 84.99,
+      "contract_date": "2026-07-09",
+      "amount": 615000000,
+      "floor": 35,
+      "buyer_type": "개인",
+      "construction_year": 2024,
+      "road_name": "공평로 36",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 중구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-07-13T07:12:22.902712",
+      "previous_high": 645000000,
+      "trade_count_3m_total": 2,
+      "trade_count_3m_area": 2,
+      "presale_type": null
+    },
+    {
+      "trade_type": "아파트",
+      "raw_id": 679615,
+      "district": "대구광역시 서구 평리동",
+      "gu": "서구",
+      "dong": "평리동",
+      "bunji": "1703",
+      "apt_name": "서대구역반도유보라센텀",
+      "area": 84.9602,
+      "contract_date": "2026-07-05",
+      "amount": 490000000,
+      "floor": 17,
+      "buyer_type": "개인",
+      "construction_year": 2023,
+      "road_name": "문화로 230",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 서구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-07-13T07:12:22.902712",
+      "previous_high": 513000000,
+      "trade_count_3m_total": 24,
+      "trade_count_3m_area": 15,
+      "presale_type": null
+    }
+  ]
+}
