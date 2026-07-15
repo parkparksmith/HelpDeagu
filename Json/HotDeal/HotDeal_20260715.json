@@ -1,21 +1,31 @@
 {
-  "created_date": "2026-07-15 11:30:12",
+  "created_date": "2026-07-15 21:00:21",
   "list": [
     {
       "No": 14745467,
       "Title": "[네이버] 멤버십 20% 선착순 쿠폰",
       "ViewCount": 16000,
-      "LikeCount": 339,
+      "LikeCount": 340,
       "WroteDate": "2026-07-15T00:02:00",
       "GetUrl": "https://naver.me/GXF7EjEz",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14747288,
+      "Title": "[기타] 케이뱅크 아이키즈 적금 / 30만원씩 5년 만기시 원금 1,800만원 이자 세후 328만원",
+      "ViewCount": 3974,
+      "LikeCount": 392,
+      "WroteDate": "2026-07-15T16:45:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14745548,
       "Title": "[프레시누리/신선재구매] 누리푸드 차돌박이 / 250g / 3팩 / 10,920원/우삼겹 / 3팩 / 9,360원",
-      "ViewCount": 9473,
-      "LikeCount": 255,
+      "ViewCount": 9639,
+      "LikeCount": 256,
       "WroteDate": "2026-07-15T01:22:00",
       "GetUrl": null,
       "ProfitLink": null,
@@ -24,29 +34,9 @@
     {
       "No": 14745779,
       "Title": "[우체국쇼핑] 캠핑밥상 /  / 9,900원",
-      "ViewCount": 6225,
-      "LikeCount": 161,
+      "ViewCount": 7254,
+      "LikeCount": 178,
       "WroteDate": "2026-07-15T09:10:00",
-      "GetUrl": null,
-      "ProfitLink": null,
-      "ShortenUrl": null
-    },
-    {
-      "No": 14745475,
-      "Title": "[농심 브랜드스토어] 신라면 / 20개 / 11,950원",
-      "ViewCount": 3298,
-      "LikeCount": 76,
-      "WroteDate": "2026-07-15T00:08:00",
-      "GetUrl": "https://naver.me/GXF7EjEz\r\nhttps://naver.me/5eZWHuT1",
-      "ProfitLink": null,
-      "ShortenUrl": null
-    },
-    {
-      "No": 14745533,
-      "Title": "[농심 브랜드스토어] 안성탕면 / 20개 / 9,970원",
-      "ViewCount": 2750,
-      "LikeCount": 81,
-      "WroteDate": "2026-07-15T00:57:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
@@ -54,9 +44,99 @@
     {
       "No": 14745980,
       "Title": "[쿠팡] 쿠폰받으세요+첫구매쿠폰+카드 1천할인쿠폰",
-      "ViewCount": 2635,
-      "LikeCount": 56,
+      "ViewCount": 5404,
+      "LikeCount": 148,
       "WroteDate": "2026-07-15T10:02:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14747687,
+      "Title": "[배달의민족] 이삭토스트 햄치즈 토스트 / 픽업 / 100원",
+      "ViewCount": 2178,
+      "LikeCount": 151,
+      "WroteDate": "2026-07-15T19:26:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746682,
+      "Title": "[쇼핑라운지] kt보답 7월 2차(16일~) 파리바게뜨 50%/쇼핑라운지 5천원할인 택1",
+      "ViewCount": 5034,
+      "LikeCount": 103,
+      "WroteDate": "2026-07-15T13:28:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746528,
+      "Title": "[gsshop] 피지 모락셀라 세탁세제 / 2.1L / 9,696원",
+      "ViewCount": 3530,
+      "LikeCount": 109,
+      "WroteDate": "2026-07-15T12:36:00",
+      "GetUrl": "https://m.gsshop.com/prd/prd.gs?prdid=1072404032&shareType=url_copy",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gseshop&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gsshop.com%2Fprd%2Fprd.gs%3Fprdid%3D1072404032%26shareType%3Durl_copy",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746207,
+      "Title": "[네이버] 메가커피.네이베페이 머니/포인트로 2천원이상 결제시 20%적립(5천원한도)",
+      "ViewCount": 2164,
+      "LikeCount": 116,
+      "WroteDate": "2026-07-15T10:52:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746617,
+      "Title": "[gs홈쇼핑] 적립금 달리세요~~",
+      "ViewCount": 8820,
+      "LikeCount": 30,
+      "WroteDate": "2026-07-15T13:08:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14745858,
+      "Title": "[11번가] T쇼페 아텍스 썸머격자패치 / 90매 / 3560원",
+      "ViewCount": 3244,
+      "LikeCount": 80,
+      "WroteDate": "2026-07-15T09:31:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14745533,
+      "Title": "[농심 브랜드스토어] 안성탕면 / 20개 / 9,970원",
+      "ViewCount": 2797,
+      "LikeCount": 83,
+      "WroteDate": "2026-07-15T00:57:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14745475,
+      "Title": "[농심 브랜드스토어] 신라면 / 20개 / 11,950원",
+      "ViewCount": 3345,
+      "LikeCount": 77,
+      "WroteDate": "2026-07-15T00:08:00",
+      "GetUrl": "https://naver.me/GXF7EjEz\r\nhttps://naver.me/5eZWHuT1",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746358,
+      "Title": "[쿠팡]회전 연필꽂이, 크림, 1개 / 3000원",
+      "ViewCount": 5134,
+      "LikeCount": 49,
+      "WroteDate": "2026-07-15T11:28:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
@@ -64,39 +144,159 @@
     {
       "No": 14745736,
       "Title": "[기타] 땡겨요.푸라닭 치킨 / 18천이상 6천할인+온누리,지역화폐 2천(되는곳)할인",
-      "ViewCount": 1764,
-      "LikeCount": 55,
+      "ViewCount": 2109,
+      "LikeCount": 67,
       "WroteDate": "2026-07-15T08:54:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 14745646,
-      "Title": "[쿠팡] 심플 매쉬 비치백 토트백 / 2p / 2970원",
-      "ViewCount": 4446,
-      "LikeCount": 24,
-      "WroteDate": "2026-07-15T07:56:00",
+      "No": 14746536,
+      "Title": "[기타] gs25 삼각김밥 / 50% 할인쿠폰",
+      "ViewCount": 3557,
+      "LikeCount": 51,
+      "WroteDate": "2026-07-15T12:39:00",
+      "GetUrl": "https://play.google.com/store/apps/details?id=com.gsr.gs25",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14747408,
+      "Title": "[쿠팡] 해태제과 홈런볼 초코 / 41g, 12개 / 9,900원",
+      "ViewCount": 3011,
+      "LikeCount": 56,
+      "WroteDate": "2026-07-15T17:26:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14746026,
+      "Title": "[지오다노공식몰] 쿨 라이트 스판 밴딩팬츠 / 17,000원",
+      "ViewCount": 2619,
+      "LikeCount": 58,
+      "WroteDate": "2026-07-15T10:12:00",
+      "GetUrl": "https://www.giordano.co.kr/shop/detail.php?pno=9E6E65FAB2F66CB6F758102E231A198E&cno1=2496",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14745979,
-      "Title": "[프레시누리] 누리푸드 차돌박이 / 250g 4팩 / 15,640원",
-      "ViewCount": 1885,
-      "LikeCount": 44,
+      "Title": "[쿠팡] 프레시누리 멤버십 누리푸드 차돌박이 / 250g 4팩 / 15,640원",
+      "ViewCount": 2557,
+      "LikeCount": 57,
       "WroteDate": "2026-07-15T10:02:00",
       "GetUrl": "https://naver.me/G1pQITGE\r\nhttps://naver.me/xrzlya9Z",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14745646,
+      "Title": "[쿠팡] 심플 매쉬 비치백 토트백 / 2p / 2970원",
+      "ViewCount": 4806,
+      "LikeCount": 26,
+      "WroteDate": "2026-07-15T07:56:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14745505,
       "Title": "[아모레퍼시픽몰] 일리윤 아토로션(580ml+300ml)x2세트 / 41,500원",
-      "ViewCount": 2363,
+      "ViewCount": 2391,
       "LikeCount": 38,
       "WroteDate": "2026-07-15T00:28:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14745700,
+      "Title": "[G마켓] 초ㄷ 콜게이트 쿨민트 / 10개 / 30,950원",
+      "ViewCount": 2119,
+      "LikeCount": 40,
+      "WroteDate": "2026-07-15T08:37:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746450,
+      "Title": "[카톡] 메가MGC 아메리카노 / 20% / 1600원",
+      "ViewCount": 1784,
+      "LikeCount": 41,
+      "WroteDate": "2026-07-15T12:02:00",
+      "GetUrl": "https://kko.to/sQyZC5Oj_U",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746022,
+      "Title": "[쿠팡] 냉장고 정리 트레이 4개 / 9990원",
+      "ViewCount": 2783,
+      "LikeCount": 31,
+      "WroteDate": "2026-07-15T10:11:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9436309183&itemId=28061582583&vendorItemId=95398166533&traceid=V0-153-bc84edaf9cc26e3d&requestid=20260715104153962020129570&token=31850C%7CGM"
+    },
+    {
+      "No": 14745636,
+      "Title": "[쿠팡] 와 아이스크림 / 16개 / 13,900원",
+      "ViewCount": 3162,
+      "LikeCount": 26,
+      "WroteDate": "2026-07-15T07:48:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=1652874112&itemId=2816154568&vendorItemId=74537895165&traceid=V0-153-b012fbc0464d16c4&requestid=20260715075231925041841282&token=31850C%7CGM"
+    },
+    {
+      "No": 14746075,
+      "Title": "[이니스프리]웰컴딜 4종 / 2,000원",
+      "ViewCount": 2734,
+      "LikeCount": 30,
+      "WroteDate": "2026-07-15T10:21:00",
+      "GetUrl": "https://naver.me/xEXPqzx2",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746259,
+      "Title": "[동서식품] 오곡코코볼 / 570g / 3개 / 8,280원",
+      "ViewCount": 2246,
+      "LikeCount": 33,
+      "WroteDate": "2026-07-15T11:05:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14747545,
+      "Title": "[롯데온] 국내산 한돈삼겹살 / 1kg / 16,900원",
+      "ViewCount": 1328,
+      "LikeCount": 42,
+      "WroteDate": "2026-07-15T18:22:00",
+      "GetUrl": "https://s.lotteon.com/vC7N-1z2E5",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FvC7N-1z2E5",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746590,
+      "Title": "[G마켓] 오크밸리 리조트 힐스빌리지 / 79,800원",
+      "ViewCount": 1863,
+      "LikeCount": 35,
+      "WroteDate": "2026-07-15T13:01:00",
+      "GetUrl": "https://item.gmarket.co.kr/Item?goodsCode=4798251979",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fitem.gmarket.co.kr%2FItem%3FgoodsCode%3D4798251979",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14746109,
+      "Title": "[이랜드몰] 노스페이스 남성 코튼베이직 반팔티셔츠 / 29,920원",
+      "ViewCount": 2292,
+      "LikeCount": 28,
+      "WroteDate": "2026-07-15T10:28:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
