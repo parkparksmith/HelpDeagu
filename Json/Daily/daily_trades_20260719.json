@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-07-19T07:13:34.005158",
+  "selected_date": "2026-07-19",
+  "summary": {
+    "total_apt_count": 1,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "수성구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 687940,
+      "district": "대구광역시 수성구 황금동",
+      "gu": "수성구",
+      "dong": "황금동",
+      "bunji": "365",
+      "apt_name": "캐슬골드파크4단지",
+      "area": 74.62,
+      "contract_date": "2026-07-04",
+      "amount": 538000000,
+      "floor": 17,
+      "buyer_type": "개인",
+      "construction_year": 2006,
+      "road_name": "청수로 261",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 수성구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-07-19T07:12:07.524857",
+      "previous_high": 650000000,
+      "trade_count_3m_total": 12,
+      "trade_count_3m_area": 1,
+      "presale_type": null
+    }
+  ]
+}
