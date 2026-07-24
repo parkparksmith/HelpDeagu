@@ -1,5 +1,5 @@
 {
-  "created_date": "2026-07-24 11:30:03",
+  "created_date": "2026-07-24 21:00:02",
   "list": [
     {
       "No": 14766218,
@@ -8,6 +8,36 @@
       "LikeCount": 361,
       "WroteDate": "2026-07-24T00:44:00",
       "GetUrl": "https://shopping.naver.com/festa/onsale/6a5da89d6ec5e337237ea193",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14766964,
+      "Title": "[11번가] 양파 / 2kg / 990원",
+      "ViewCount": 3114,
+      "LikeCount": 172,
+      "WroteDate": "2026-07-24T11:12:00",
+      "GetUrl": "https://plan.11st.co.kr/plan/mobile/exhibitions/2225178/detail",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fplan.11st.co.kr%2Fplan%2Fmobile%2Fexhibitions%2F2225178%2Fdetail",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14768107,
+      "Title": "[배달의민족] 5천원 할인쿠폰 (다른 쿠폰과 중복 사용 가능, 토스)",
+      "ViewCount": 4750,
+      "LikeCount": 139,
+      "WroteDate": "2026-07-24T18:29:00",
+      "GetUrl": "https://baemin.go.link/gateway/webview?webview_url=https%3A%2F%2Fevent-view.baemin.com%2Fapps%2F592a781&adj_t=1uh7wnwy&adj_campaign=aff-tosspay&adj_adgroup=2607-tosspay-card",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14766787,
+      "Title": "[배달의민족] 처갓집양념치킨 / 9천원 할인",
+      "ViewCount": 4596,
+      "LikeCount": 135,
+      "WroteDate": "2026-07-24T10:20:00",
+      "GetUrl": "https://baemin.go.link/5H0ry\r\nhttps://baemin.go.link/gateway/webview?webview_url=https%3A%2F%2Fevent-view.baemin.com%2Fapps%2F592a781&adj_t=1uh7wnwy&adj_campaign\r\nhttps://campaign2.naver.com/npay/branddraw/apply/?t=1784856116.149",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -32,6 +62,16 @@
       "ShortenUrl": null
     },
     {
+      "No": 14768165,
+      "Title": "[지마켓] 소마셈, 팩토, 빠작 등 / 30% / 36,040원",
+      "ViewCount": 1992,
+      "LikeCount": 118,
+      "WroteDate": "2026-07-24T19:03:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14766213,
       "Title": "[토스쇼핑] 애슐리 주먹밥 김치콘치즈 5개+데리참치마요 5개 11,900원 무배",
       "ViewCount": 3075,
@@ -42,12 +82,52 @@
       "ShortenUrl": null
     },
     {
-      "No": 14766787,
-      "Title": "[배달의민족] 처갓집양념치킨 / 9천원 할인",
-      "ViewCount": 2557,
-      "LikeCount": 82,
-      "WroteDate": "2026-07-24T10:20:00",
-      "GetUrl": "https://baemin.go.link/5H0ry\r\nhttps://baemin.go.link/gateway/webview?webview_url=https%3A%2F%2Fevent-view.baemin.com%2Fapps%2F592a781&adj_t=1uh7wnwy&adj_campaign\r\nhttps://campaign2.naver.com/npay/branddraw/apply/?t=1784856116.149",
+      "No": 14767875,
+      "Title": "[토스] 감자 / 10kg / 1,700원",
+      "ViewCount": 4429,
+      "LikeCount": 91,
+      "WroteDate": "2026-07-24T16:45:00",
+      "GetUrl": "https://play.google.com/store/apps/details?id=viva.republica.toss",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14767133,
+      "Title": "[쿠팡] 모던하우스 프릴리옹 쟁반 3종 세트 /  / 14,050원",
+      "ViewCount": 6464,
+      "LikeCount": 70,
+      "WroteDate": "2026-07-24T12:07:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9004653498&itemId=26389994144&vendorItemId=93625752498&traceid=V0-153-08562e6357ea2d9e&requestid=20260724122024585031300619&token=31850C%7CGM"
+    },
+    {
+      "No": 14767156,
+      "Title": "[하이스토어] 롤링카트 / 19,900원",
+      "ViewCount": 5046,
+      "LikeCount": 70,
+      "WroteDate": "2026-07-24T12:19:00",
+      "GetUrl": "https://hi-store.co.kr/goods/detail/11331897?itmNo=00002",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14767004,
+      "Title": "[쿠팡] 바겐슈타이거 스텐 스태프볼 / 950ml / 1개 / 6,360원",
+      "ViewCount": 6110,
+      "LikeCount": 56,
+      "WroteDate": "2026-07-24T11:25:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14766936,
+      "Title": "[배민.카카오페이] 2만이상 최대3천할인 더하기쿠폰",
+      "ViewCount": 3365,
+      "LikeCount": 71,
+      "WroteDate": "2026-07-24T11:04:00",
+      "GetUrl": "https://baemin.go.link/gateway/webview?webview_url=https://event-view.baemin.com/apps/1c06336&adj_t=1uh7wnwy&adj_campaign=aff-kakaopay&adj_adgroup=2607-kakaopay-pd&adj_label=제휴사업팀_권순철&adj_deep_link=baemin://gateway/webview?webview_url=https%3A%2F%2Fevent-view.baemin.com%2Fapps%2F1c06336&adj_deeplink_js=1\r\nhttps://baemin.go.link/gateway/webview?webview_url=https://event-view.baemin.com/apps/1c06336&adj_t=1uh7wnwy&adj_campaign=aff-kakaopay&adj_adgroup=2607-kakaopay-pd&adj_label=\r\nhttp://2Fevent-view.baemin.com%2Fapps%2F1c06336&adj_deeplink_js=1",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -62,12 +142,62 @@
       "ShortenUrl": null
     },
     {
+      "No": 14767252,
+      "Title": "[온누리] 한우 1++등급 로스한판 / 800g / 45,500원",
+      "ViewCount": 2527,
+      "LikeCount": 71,
+      "WroteDate": "2026-07-24T13:05:00",
+      "GetUrl": "https://www.onnuri-sijang.com/mw/onnuri/goods/detail?goodsCd=100489471&ctgCd=100101473#a",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14766752,
+      "Title": "[cj더마켓] 햇반 / 210g, 72개 / 50,066원",
+      "ViewCount": 2752,
+      "LikeCount": 68,
+      "WroteDate": "2026-07-24T10:13:00",
+      "GetUrl": "https://m.cjthemarket.com/the/event/brandweek?mid1=bnr_bn1\r\nhttps://m.cjthemarket.com/the/product/product-main?prdCd=40213293\r\nhttps://m.cjthemarket.com/the/product/product-main?prdCd=40225398",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=cjbrand&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.cjthemarket.com%2Fthe%2Fevent%2Fbrandweek%3Fmid1%3Dbnr_bn1",
+      "ShortenUrl": null
+    },
+    {
       "No": 14766205,
       "Title": "[카카오페이] 이마트24 잔망루피우유 100원딜 11시!",
       "ViewCount": 1615,
       "LikeCount": 79,
       "WroteDate": "2026-07-24T00:26:00",
       "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14767267,
+      "Title": "[gs25 온오프] 무신사 스탠다드 세피아노 신세틱 레더 벨트 / 7,950원",
+      "ViewCount": 5417,
+      "LikeCount": 38,
+      "WroteDate": "2026-07-24T13:09:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14767319,
+      "Title": "[네이버] 탑텐 여아 에코쿨링 셋업 / 7,980원",
+      "ViewCount": 4452,
+      "LikeCount": 35,
+      "WroteDate": "2026-07-24T13:31:00",
+      "GetUrl": "https://naver.me/Ghw93eKx",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14767909,
+      "Title": "[품절] 위글위글 춘식이 우산 / 7500원",
+      "ViewCount": 5059,
+      "LikeCount": 24,
+      "WroteDate": "2026-07-24T16:55:00",
+      "GetUrl": "https://m.wiggle-wiggle.com/product/detail.html?product_no=4148",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -82,12 +212,62 @@
       "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9150789578&itemId=26945224805&vendorItemId=93914367974&traceid=V0-153-3d3e91334d8e5676&requestid=20260724074340389247750784&token=31850C%7CGM"
     },
     {
+      "No": 14767009,
+      "Title": "[쿠팡] 스타벅스 셀렉트 카페 라떼 / 300ml / 24개 / 38,930원",
+      "ViewCount": 3936,
+      "LikeCount": 32,
+      "WroteDate": "2026-07-24T11:27:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14767040,
+      "Title": "[쿠팡] 나라홈데코 코지엔 오코텍스 3중직 냉감 여름 쿨 베개커버 2장 / 5,340원",
+      "ViewCount": 3562,
+      "LikeCount": 33,
+      "WroteDate": "2026-07-24T11:35:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14766172,
       "Title": "[가격오름) 쿠팡 로우로우 스트링 백팩 750 올리브 컬러만 55,190원",
       "ViewCount": 4620,
       "LikeCount": 19,
       "WroteDate": "2026-07-24T23:54:00",
       "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14767659,
+      "Title": "[네이버] 오늘끝딜 듀링 종아리 스트레칭보드 / 25400원",
+      "ViewCount": 1872,
+      "LikeCount": 46,
+      "WroteDate": "2026-07-24T15:29:00",
+      "GetUrl": "https://smartstore.naver.com/brandduring/products/11202547863",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14767525,
+      "Title": "[기타] 선착순 쿠폰 롯데 아이스크림 / 30개 / 10,900원",
+      "ViewCount": 2945,
+      "LikeCount": 34,
+      "WroteDate": "2026-07-24T14:41:00",
+      "GetUrl": "https://go.nsmall.com/goods?target=%2Fgoods%2F36045947&utm_source=nsmall&utm_medium=share&utm_campaign=button_share",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14766597,
+      "Title": "[컬리N마트] 피지 모락셀라 세탁세제 리필2.3L / 2개 / 21,000원",
+      "ViewCount": 2054,
+      "LikeCount": 42,
+      "WroteDate": "2026-07-24T09:38:00",
+      "GetUrl": "https://naver.me/FCZOFCoJ",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -100,6 +280,26 @@
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=7225411623&itemId=18820750428&vendorItemId=95816842652&traceid=V0-153-e9608b847aa18cd2&requestid=20260724074340580324808543&token=31850C%7CGM"
+    },
+    {
+      "No": 14767066,
+      "Title": "[쿠팡] 맥스봉 치즈, 27g, 40개 / 10,900원",
+      "ViewCount": 2872,
+      "LikeCount": 30,
+      "WroteDate": "2026-07-24T11:48:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9223224319&itemId=27257107704&vendorItemId=94223949439&traceid=V0-153-ffbd21c68e5fc203&requestid=20260724115140493126789713&token=31850C%7CGM"
+    },
+    {
+      "No": 14766915,
+      "Title": "[지마켓] 비비고 사골곰탕 / 500g / 18개 / 15,300원",
+      "ViewCount": 1633,
+      "LikeCount": 42,
+      "WroteDate": "2026-07-24T10:58:00",
+      "GetUrl": "https://m.gmarket.co.kr/vi/product/1649311897",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gmarket.co.kr%2Fvi%2Fproduct%2F1649311897",
+      "ShortenUrl": null
     }
   ]
 }
