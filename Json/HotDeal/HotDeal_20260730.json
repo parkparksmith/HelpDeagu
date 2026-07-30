@@ -1,5 +1,5 @@
 {
-  "created_date": "2026-07-30 11:30:03",
+  "created_date": "2026-07-30 21:00:01",
   "list": [
     {
       "No": 14779668,
@@ -8,6 +8,26 @@
       "LikeCount": 179,
       "WroteDate": "2026-07-30T00:30:00",
       "GetUrl": "https://kko.to/AhfEJiCQxQ",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780547,
+      "Title": "[이마트] 튜브 / 3180원부터~~",
+      "ViewCount": 6708,
+      "LikeCount": 117,
+      "WroteDate": "2026-07-30T12:31:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780419,
+      "Title": "[카카오페이] 삼성페이 7월 미결제면 버거킹 롯데리아 2200원어치 / 0원",
+      "ViewCount": 2033,
+      "LikeCount": 132,
+      "WroteDate": "2026-07-30T11:37:00",
+      "GetUrl": "https://play.google.com/store/apps/details?id=com.kakaopay.app",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -22,6 +42,46 @@
       "ShortenUrl": null
     },
     {
+      "No": 14780537,
+      "Title": "[쿠팡] 쌀국수미역국 /  / 5830원",
+      "ViewCount": 4497,
+      "LikeCount": 65,
+      "WroteDate": "2026-07-30T12:25:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=6793079553&itemId=16466480002&vendorItemId=91208254066&traceid=V0-153-b9e373ae4d6575de&requestid=20260730122948746206622973&token=31850C%7CGM"
+    },
+    {
+      "No": 14780456,
+      "Title": "[T딜] 더쌀집 삼광미 특등급 / 10kg / 27,999원",
+      "ViewCount": 2967,
+      "LikeCount": 63,
+      "WroteDate": "2026-07-30T11:47:00",
+      "GetUrl": "https://tdeal.kr/app/14CMHHK",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14779838,
+      "Title": "[땡겨요] 던킨 포장 / 1.5만원이상 7천원 할인",
+      "ViewCount": 2596,
+      "LikeCount": 65,
+      "WroteDate": "2026-07-30T07:43:00",
+      "GetUrl": "https://fdofd.ddangyo.com/gateway4.html?qqNCzOv\r\nhttps://fdofd.ddangyo.com/gateway4.html?yaQX9rB",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780702,
+      "Title": "[우체국쇼핑] 샤인머스캣 / 2kg / 13,720원",
+      "ViewCount": 2002,
+      "LikeCount": 69,
+      "WroteDate": "2026-07-30T13:44:00",
+      "GetUrl": "https://mall.epost.go.kr/mo/display/retrieveTemplateView.do?templNo=100014\r\nhttps://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA2006315&pavlnDivCd=02&goodsDispTypeCd=&goodsDispTypeDtlCd=&ctgryCd=101202000&searchTermCd=%EC%83%A4%EC%9D%B8%EB%A8%B8%EC%8A%A4%EC%BC%93",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14779636,
       "Title": "[우체국쇼핑] 완도 전복 / 1kg 7-9미 / 11,780원",
       "ViewCount": 2569,
@@ -32,13 +92,23 @@
       "ShortenUrl": null
     },
     {
-      "No": 14779838,
-      "Title": "[땡겨요] 던킨 포장 / 1.5만원이상 7천원 할인",
-      "ViewCount": 2438,
-      "LikeCount": 58,
-      "WroteDate": "2026-07-30T07:43:00",
-      "GetUrl": "https://fdofd.ddangyo.com/gateway4.html?qqNCzOv\r\nhttps://fdofd.ddangyo.com/gateway4.html?yaQX9rB",
+      "No": 14780389,
+      "Title": "[네이버] 춘천그린식품 강명희 국내산 냉장 닭다리 / 2kg / 16,920원",
+      "ViewCount": 1760,
+      "LikeCount": 66,
+      "WroteDate": "2026-07-30T11:27:00",
+      "GetUrl": "https://brand.naver.com/ccdakgalbi/products/9654403264",
       "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14781227,
+      "Title": "[롯데온] 요거 완전 맛도리! 추억의 옛날 과자 / 8봉 총 2kg / 11,430원",
+      "ViewCount": 4008,
+      "LikeCount": 43,
+      "WroteDate": "2026-07-30T16:43:00",
+      "GetUrl": "https://s.lotteon.com/HwUEVvJJlH",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FHwUEVvJJlH",
       "ShortenUrl": null
     },
     {
@@ -50,6 +120,36 @@
       "GetUrl": "https://www.tripbtoz.com/hotels/30035444?check-in=2026-08-10&check-out=2026-08-11&rooms=1&room-0-adults=2&room-0-children=0&query=%EC%86%8C%EB%85%B8%EC%BA%84+%EB%B9%84%EB%B0%9C%EB%94%94%ED%8C%8C%ED%81%AC%2C+%ED%99%8D%EC%B2%9C%EA%B5%B0%2C+%EA%B0%95%EC%9B%90%ED%8A%B9%EB%B3%84%EC%9E%90%EC%B9%98%EB%8F%84%2C+%EB%8C%80%ED%95%9C%EB%AF%BC%EA%B5%AD&searchId=30035444&searchType=HOTEL&searchText=%EC%86%8C%EB%85%B8%EC%BA%84+%EB%B9%84%EB%B0%9C%EB%94%94%ED%8C%8C%ED%81%AC",
       "ProfitLink": null,
       "ShortenUrl": null
+    },
+    {
+      "No": 14780381,
+      "Title": "[GS샵] 화이트 미용티슈 / 180매 6팩 / 2,465원",
+      "ViewCount": 2288,
+      "LikeCount": 48,
+      "WroteDate": "2026-07-30T11:25:00",
+      "GetUrl": "https://m.gsshop.com/plan/shop/home.gs?planseq=276977\r\nhttps://m.gsshop.com/prd/prd.gs?prdid=1097265351&shareType=url_copy",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gseshop&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gsshop.com%2Fplan%2Fshop%2Fhome.gs%3Fplanseq%3D276977",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780108,
+      "Title": "[LF몰] 마크곤잘레스키즈 엔젤 덕다운 조끼패딩 / 26,884원 무배",
+      "ViewCount": 2484,
+      "LikeCount": 43,
+      "WroteDate": "2026-07-30T10:03:00",
+      "GetUrl": "https://www.lfmall.co.kr/app/event/109824",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780553,
+      "Title": "[쿠팡] 프레지덩 스프레더블 치즈 포션 / 3180원",
+      "ViewCount": 3738,
+      "LikeCount": 25,
+      "WroteDate": "2026-07-30T12:32:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=116654440&itemId=349372193&vendorItemId=3852436602&traceid=V0-153-92ada5a6993f829d&requestid=20260730123942223164549321&token=31850C%7CGM"
     },
     {
       "No": 14779665,
@@ -72,13 +172,63 @@
       "ShortenUrl": null
     },
     {
+      "No": 14780856,
+      "Title": "[11번가] 스탠리 올데이 캐리올 퀜처 H2.0 텀블러 스트랩백 / 1.18L / 17,490원",
+      "ViewCount": 4332,
+      "LikeCount": 15,
+      "WroteDate": "2026-07-30T14:36:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780631,
+      "Title": "[기타] 롯마제타.풀무원 핫도그+피자2판+다논 / 1개 / 12,000원",
+      "ViewCount": 1771,
+      "LikeCount": 40,
+      "WroteDate": "2026-07-30T13:16:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14779884,
       "Title": "[쿠팡프레시] 쉐푸드 등심 통 돈까스 (냉동) / 300g, 2개 / 9,480원",
-      "ViewCount": 2421,
-      "LikeCount": 24,
+      "ViewCount": 2602,
+      "LikeCount": 31,
       "WroteDate": "2026-07-30T08:19:00",
       "GetUrl": null,
       "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14779983,
+      "Title": "[쿠팡] 지퍼락 그립앤실 냉장 밀폐용백 미니 / 100개입 / 2개 / 6,050원",
+      "ViewCount": 2721,
+      "LikeCount": 28,
+      "WroteDate": "2026-07-30T09:17:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14779957,
+      "Title": "[쿠팡프레시] 스타벅스 카페 라떼 / 270ml / 10개 / 13,900원",
+      "ViewCount": 2232,
+      "LikeCount": 30,
+      "WroteDate": "2026-07-30T09:06:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780344,
+      "Title": "[w컨셉] 쿠쿠 10인용 올스텐 내솥 IH 전기압력밥솥 그레이스 화이트 /  / 269,970원",
+      "ViewCount": 1114,
+      "LikeCount": 40,
+      "WroteDate": "2026-07-30T11:12:00",
+      "GetUrl": "https://www.wconcept.co.kr/Product/307359638",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=wconcept&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fwww.wconcept.co.kr%2FProduct%2F307359638",
       "ShortenUrl": null
     },
     {
@@ -92,14 +242,64 @@
       "ShortenUrl": null
     },
     {
-      "No": 14779811,
-      "Title": "[쿠팡] 해피제이 여성용 빛반사 와이드 썬캡 / 2,870원",
-      "ViewCount": 2586,
-      "LikeCount": 18,
-      "WroteDate": "2026-07-30T07:19:00",
+      "No": 14781315,
+      "Title": "[이마트24] 루피 우유 / 지금받아짐",
+      "ViewCount": 3890,
+      "LikeCount": 9,
+      "WroteDate": "2026-07-30T17:29:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
+    },
+    {
+      "No": 14780724,
+      "Title": "[우체국쇼핑] 국내산 만생양파 / 3kg / 1,920원",
+      "ViewCount": 1573,
+      "LikeCount": 32,
+      "WroteDate": "2026-07-30T13:52:00",
+      "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA2004665&pavlnDivCd=02&goodsDispTypeCd=03&goodsDispTypeDtlCd=10027460&ctgryCd=101204305",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780120,
+      "Title": "[쿠팡프레시] 필라델피아 크림치즈 / 6개입 4개 / 6,480원",
+      "ViewCount": 2461,
+      "LikeCount": 23,
+      "WroteDate": "2026-07-30T10:06:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14781446,
+      "Title": "[쿠팡] 수납 망사 대형 메쉬파우치 / 10개 / 5,980원",
+      "ViewCount": 2193,
+      "LikeCount": 25,
+      "WroteDate": "2026-07-30T18:39:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780883,
+      "Title": "[쿠팡]청정원 클래식 돈카츠 소스 / 400g / 2개 / 3,180원",
+      "ViewCount": 1625,
+      "LikeCount": 30,
+      "WroteDate": "2026-07-30T14:45:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14780329,
+      "Title": "[쿠팡] 해태제과 얼초 자동차만들기 / 36g, 2개 / 3180원",
+      "ViewCount": 2201,
+      "LikeCount": 24,
+      "WroteDate": "2026-07-30T11:06:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9143322491&itemId=27220641218&vendorItemId=94322615465&traceid=V0-153-330bb444d53e87cb&requestid=20260730111304230241214041&token=31850C%7CGM"
     }
   ]
 }
