@@ -1,34 +1,104 @@
 {
-  "created_date": "2026-08-11 11:30:01",
+  "created_date": "2026-08-11 21:00:00",
   "list": [
-    {
-      "No": 14807152,
-      "Title": "[이마트] 고래잇페스타 전단지",
-      "ViewCount": 5239,
-      "LikeCount": 198,
-      "WroteDate": "2026-08-11T09:03:00",
-      "GetUrl": "https://emart.kr/GO0811",
-      "ProfitLink": null,
-      "ShortenUrl": null
-    },
     {
       "No": 14807162,
       "Title": "[알뜰요금제] 프리티 KT망 평생요금제 더 든든한 500분 20G / 4,400원",
-      "ViewCount": 2336,
-      "LikeCount": 198,
+      "ViewCount": 3591,
+      "LikeCount": 285,
       "WroteDate": "2026-08-11T09:08:00",
       "GetUrl": "https://www.freet.co.kr/plan/ratePlan/detail?svcCd=FTDP213&recommCode=RC01079483",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14807152,
+      "Title": "[이마트] 고래잇페스타 전단지",
+      "ViewCount": 6212,
+      "LikeCount": 245,
+      "WroteDate": "2026-08-11T09:03:00",
+      "GetUrl": "https://emart.kr/GO0811",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807621,
+      "Title": "[지그재그] 시오 니트 (라운드넥/브이넥) /  / 11,840원",
+      "ViewCount": 9221,
+      "LikeCount": 186,
+      "WroteDate": "2026-08-11T11:23:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807734,
+      "Title": "[GS샵] 크리넥스 데코앤소프트 / 24롤2팩 / 페이코결제 20,900원",
+      "ViewCount": 4977,
+      "LikeCount": 143,
+      "WroteDate": "2026-08-11T11:59:00",
+      "GetUrl": "https://m.gsshop.com/prd/prd.gs?prdid=1131429001&shareType=url_copy",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gseshop&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gsshop.com%2Fprd%2Fprd.gs%3Fprdid%3D1131429001%26shareType%3Durl_copy",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807580,
+      "Title": "[카카오페이] 굿딜 랜덤 할인쿠폰 (간식 즉당) 무제한 뽑기 가능",
+      "ViewCount": 6488,
+      "LikeCount": 95,
+      "WroteDate": "2026-08-11T11:10:00",
+      "GetUrl": "https://link.kakaopay.com/__/JtPvNUx?f_code=16gDwl6XiwN5ERc5D2V64S",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807904,
+      "Title": "[우체국쇼핑] 맛보기딜 재입고 달리세요~",
+      "ViewCount": 8558,
+      "LikeCount": 66,
+      "WroteDate": "2026-08-11T13:30:00",
+      "GetUrl": "https://mall.epost.go.kr/mo/display/mobilePlanDetailView.do?plnbefId=10022307&throughSnsYn=Y",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14806876,
       "Title": "[기타] 롯백몰.카카오페이 쿠폰) 캉골 토트백 하퍼 / 25,330원",
-      "ViewCount": 7726,
-      "LikeCount": 67,
+      "ViewCount": 7751,
+      "LikeCount": 68,
       "WroteDate": "2026-08-11T00:47:00",
       "GetUrl": "https://s.lotteon.com/DxZ4miZkys",
       "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FDxZ4miZkys",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807888,
+      "Title": "[쿠팡] CUBBYCASE 데스크탑 수납 선반 다층 정리대 4단 / 9,240원",
+      "ViewCount": 7778,
+      "LikeCount": 42,
+      "WroteDate": "2026-08-11T13:23:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807680,
+      "Title": "[GS샵] 좋은느낌입오버 / 32매 + 입오버 3매추가 / 16924원",
+      "ViewCount": 2443,
+      "LikeCount": 81,
+      "WroteDate": "2026-08-11T11:46:00",
+      "GetUrl": "https://m.gsshop.com/prd/prd.gs?prdid=1087822509&shareType=url_copy",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gseshop&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gsshop.com%2Fprd%2Fprd.gs%3Fprdid%3D1087822509%26shareType%3Durl_copy",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807455,
+      "Title": "[지그재그] [made]네추럴텐셀티셔츠 / 4,320원",
+      "ViewCount": 3814,
+      "LikeCount": 57,
+      "WroteDate": "2026-08-11T10:43:00",
+      "GetUrl": null,
+      "ProfitLink": null,
       "ShortenUrl": null
     },
     {
@@ -40,6 +110,16 @@
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
+    },
+    {
+      "No": 14807815,
+      "Title": "[쿠팡] LED 키캡 키링 키보드 클리커 9구 / 2,700원",
+      "ViewCount": 5686,
+      "LikeCount": 33,
+      "WroteDate": "2026-08-11T12:43:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9616670140&itemId=28714731135&vendorItemId=95655385921&traceid=V0-153-9e721a07d19443e8&requestid=20260811130734495242774647&token=31850C%7CGM"
     },
     {
       "No": 14806830,
@@ -62,9 +142,89 @@
       "ShortenUrl": null
     },
     {
+      "No": 14807359,
+      "Title": "[그리팅+페이코] 수향미 / 상등급 / 10kg / 32,775원",
+      "ViewCount": 3587,
+      "LikeCount": 45,
+      "WroteDate": "2026-08-11T10:11:00",
+      "GetUrl": "https://www.greating.co.kr/market/marketDetail?ctgryId=&itemId=148279&idx=2",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14808478,
+      "Title": "[쓱라이브] 제주신화월드 신화관 1박 패키지 / 173,000원",
+      "ViewCount": 2050,
+      "LikeCount": 60,
+      "WroteDate": "2026-08-11T16:55:00",
+      "GetUrl": "https://m.ssg.com/ssgLive/detail.ssg?scomBrocOrgaId=ch_3GFemh9hRwYtrG80knK8zWsfPQJ&redirect=Y&gateYn=Y&mobilAppSvcNo=3&store=N&ckwhere=ssg_",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=emart&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.ssg.com%2FssgLive%2Fdetail.ssg%3FscomBrocOrgaId%3Dch_3GFemh9hRwYtrG80knK8zWsfPQJ%26redirect%3DY%26gateYn%3DY%26mobilAppSvcNo%3D3%26store%3DN%26ckwhere%3Dssg_",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14808095,
+      "Title": "[톡딜] 마크모크 쪼리 샌들 / 4900~ 유배",
+      "ViewCount": 3148,
+      "LikeCount": 47,
+      "WroteDate": "2026-08-11T14:38:00",
+      "GetUrl": "https://store.kakao.com/macmoc/products/291626654?ref=SHARE",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807893,
+      "Title": "[11번가] 안동학가산김치 국내산 포기김치 / 7kg / 36,150원",
+      "ViewCount": 2129,
+      "LikeCount": 56,
+      "WroteDate": "2026-08-11T13:24:00",
+      "GetUrl": "http://www.11st.co.kr/products/2729450014/share",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F2729450014%2Fshare",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807433,
+      "Title": "[11번가] 원앙닭발 뼈없는 불닭발 / 230g x 5백 / 무배 / 27,740원",
+      "ViewCount": 1698,
+      "LikeCount": 58,
+      "WroteDate": "2026-08-11T10:35:00",
+      "GetUrl": "http://www.11st.co.kr/products/3184040149/share",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F3184040149%2Fshare",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807813,
+      "Title": "[쿠팡] 화장품파우치 4개 / 3,000원",
+      "ViewCount": 4507,
+      "LikeCount": 28,
+      "WroteDate": "2026-08-11T12:40:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807002,
+      "Title": "[11번가] 티멤+카카오 오랜만에 뜬 질리맥스 / 5통 / 28,510원",
+      "ViewCount": 2959,
+      "LikeCount": 43,
+      "WroteDate": "2026-08-11T07:09:00",
+      "GetUrl": "http://www.11st.co.kr/products/2749771117/share\r\nhttps://11st.kr/BI4uCv",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F2749771117%2Fshare",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807117,
+      "Title": "[홈플] 꽃갈비살 / 100g / 7920원",
+      "ViewCount": 3834,
+      "LikeCount": 32,
+      "WroteDate": "2026-08-11T08:44:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14806904,
       "Title": "[기타] 롯마제타×부산은행쿠폰) 산리오 시나모롤 워터팝 홑이불 / 한교동, 헬로키티 / 10,554원 / 10,584원",
-      "ViewCount": 2842,
+      "ViewCount": 2848,
       "LikeCount": 41,
       "WroteDate": "2026-08-11T01:36:00",
       "GetUrl": "https://naver.me/IgMSsbFE\r\nhttps://m.sktmembership.co.kr/l/DPt8Qr\r\nhttps://m.busanbank.co.kr/q/EnAnSNt7R22GQIcISQNi",
@@ -72,24 +232,64 @@
       "ShortenUrl": null
     },
     {
-      "No": 14807002,
-      "Title": "[11번가] 티멤+카카오 오랜만에 뜬 질리맥스 / 5통 / 28,510원",
-      "ViewCount": 2831,
-      "LikeCount": 41,
-      "WroteDate": "2026-08-11T07:09:00",
-      "GetUrl": "http://www.11st.co.kr/products/2749771117/share\r\nhttps://11st.kr/BI4uCv",
-      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F2749771117%2Fshare",
+      "No": 14807057,
+      "Title": "[토스] 삼육김 들기름으로 구운 광천김 도시락김 / 4g / 32봉 / 4,900원",
+      "ViewCount": 2025,
+      "LikeCount": 49,
+      "WroteDate": "2026-08-11T08:00:00",
+      "GetUrl": "https://toss.shopping/t/188394233",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14808668,
+      "Title": "[쿠팡] 26키 대형 키보드 키캡 / 9900원",
+      "ViewCount": 3491,
+      "LikeCount": 34,
+      "WroteDate": "2026-08-11T18:28:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14808633,
+      "Title": "[기타] 다녀왔어요",
+      "ViewCount": 5306,
+      "LikeCount": 14,
+      "WroteDate": "2026-08-11T18:08:00",
+      "GetUrl": null,
+      "ProfitLink": null,
       "ShortenUrl": null
     },
     {
       "No": 14806945,
       "Title": "[쿠팡] 빅크런키 / 8개 / 11,070원",
-      "ViewCount": 3757,
-      "LikeCount": 29,
+      "ViewCount": 3826,
+      "LikeCount": 28,
       "WroteDate": "2026-08-11T04:44:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": "https://link.coupang.com/a/f7cA24NPMG"
+    },
+    {
+      "No": 14808178,
+      "Title": "[가시제거연구소] 고등어밥상 오렌지라벨 / 550g / 14.660원 / 2팩 / 24.740원",
+      "ViewCount": 1972,
+      "LikeCount": 46,
+      "WroteDate": "2026-08-11T15:06:00",
+      "GetUrl": "https://naver.me/xQJge9eM",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14807016,
+      "Title": "[쿠팡] 윰스 생일파티 공주 왕관 티아라 + 어깨띠 스트랩 세트 / 로즈 / 1세트 / 3,120원",
+      "ViewCount": 4007,
+      "LikeCount": 25,
+      "WroteDate": "2026-08-11T07:23:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
     },
     {
       "No": 14806857,
