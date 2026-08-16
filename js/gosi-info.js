@@ -18,6 +18,15 @@ const GOSI_SOURCES = [
         boardUrl: `${DAEGU_LIST_URL}&searchDept_nm=${encodeURIComponent('도시주택국')}&pageIndex=1`,
         jsonPath: '../Json/Gosi/gosi_daegu.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_daegu.json'
+    },
+    {
+        id: 'daegu_build',
+        name: '대구시청 도시/주택/건설 소식',
+        desc: '도시·주택·건설 분야 소식 게시판 1페이지',
+        dept: '', // 검색 필터 없이 전체 목록
+        boardUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338',
+        jsonPath: '../Json/Gosi/gosi_daegu_build.json',
+        rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_daegu_build.json'
     }
     // TODO: 중구청, 동구청, 서구청, 남구청, 북구청, 수성구청, 달서구청, 달성군청, 군위군청 추가 예정
 ];
@@ -41,7 +50,7 @@ function renderSourceCard(source) {
                 <span class="material-icons-round">campaign</span>
             </div>
             <div class="source-info">
-                <h2>${escapeHtml(source.name)}<span class="gosi-filter-badge"><span class="material-icons-round" style="font-size:0.8rem;">filter_alt</span>${escapeHtml(source.dept)}</span></h2>
+                <h2>${escapeHtml(source.name)}${source.dept ? `<span class="gosi-filter-badge"><span class="material-icons-round" style="font-size:0.8rem;">filter_alt</span>${escapeHtml(source.dept)}</span>` : ''}</h2>
                 <p class="source-desc">${escapeHtml(source.desc)} · 클릭하면 검색된 게시판으로 이동</p>
             </div>
             <span class="material-icons-round go-icon">open_in_new</span>

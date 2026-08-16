@@ -35,6 +35,17 @@ SOURCES = {
         "viewUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170"
                    "&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do",
         "dept": "도시주택국",
+        "parser": "daegu",
+    },
+    "daegu_build": {
+        "name": "대구시청 도시/주택/건설 소식",
+        "boardUrl": "https://www.daegu.go.kr/build/index.do?menu_id=00001338",
+        "listUrl": "https://www.daegu.go.kr/build/index.do?menu_id=00001338"
+                   "&menu_link=/icms/bbs/selectBoardList.do&bbsId=BBS_00153",
+        "viewUrl": "https://www.daegu.go.kr/build/index.do?menu_id=00001338"
+                   "&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153",
+        "dept": "",  # 부서 필터 없이 전체 목록
+        "parser": "icms",
     },
 }
 
@@ -95,13 +106,55 @@ def parse_daegu_list(html, source):
     return items
 
 
+def parse_icms_list(html, source):
+    """icms 공통 게시판(도시/주택/건설 소식 등) 목록 파싱
+    행 구조: 번호 / 제목(fn_icms_navi_common('view','nttId')) / 작성자 / 등록일 / 조회
+    """
+    items = []
+    table_match = re.search(r'<table id="bbsList"[\s\S]*?<tbody>([\s\S]*?)</tbody>', html)
+    if not table_match:
+        return items
+
+    for row in re.finditer(r"<tr>([\s\S]*?)</tr>", table_match.group(1)):
+        tr = row.group(1)
+        link_match = re.search(r"fn_icms_navi_common\('view',\s*'(\d+)'\)[^>]*>([\s\S]*?)</a>", tr)
+        if not link_match:
+            continue
+
+        cells = {}
+        hide_vals = []
+        for td in re.finditer(r'<td[^>]*data-table-type="([^"]+)"[^>]*>([\s\S]*?)</td>', tr):
+            text = clean_text(td.group(2))
+            if td.group(1) == "hide_t":
+                hide_vals.append(text)
+            else:
+                cells[td.group(1)] = text
+
+        items.append({
+            "no": cells.get("number", ""),
+            "title": clean_text(link_match.group(2)),
+            "dept": hide_vals[0] if hide_vals else "",  # 이 게시판은 부서 대신 작성자
+            "date": cells.get("date", ""),
+            "views": hide_vals[1] if len(hide_vals) > 1 else "",
+            "url": f"{source['viewUrl']}&nttId={link_match.group(1)}",
+        })
+    return items
+
+
+PARSERS = {
+    "daegu": parse_daegu_list,
+    "icms": parse_icms_list,
+}
+
+
 def fetch_source(source_id, source, page=1):
-    dept_enc = urllib.parse.quote(source["dept"])
-    url = f"{source['listUrl']}&searchDept_nm={dept_enc}&pageIndex={page}"
+    # 부서 필터가 있는 기관만 검색 파라미터를 붙인다
+    dept_param = f"&searchDept_nm={urllib.parse.quote(source['dept'])}" if source["dept"] else ""
+    url = f"{source['listUrl']}{dept_param}&pageIndex={page}"
     print(f"[{source['name']}] 요청: {url}")
 
     html = fetch_html(url)
-    items = parse_daegu_list(html, source)
+    items = PARSERS[source.get("parser", "daegu")](html, source)
 
     return {
         "success": True,

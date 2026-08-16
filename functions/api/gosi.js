@@ -11,6 +11,14 @@ const SOURCES = {
         viewUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do',
         defaultDept: '도시주택국',
         parse: parseDaeguList
+    },
+    daegu_build: {
+        name: '대구시청 도시/주택/건설 소식',
+        boardUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338',
+        listUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardList.do&bbsId=BBS_00153',
+        viewUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153',
+        defaultDept: '', // 부서 필터 없이 전체 목록
+        parse: parseIcmsList
     }
 };
 
@@ -65,6 +73,43 @@ function parseDaeguList(html, source) {
     return items;
 }
 
+// icms 공통 게시판(도시/주택/건설 소식 등) 목록 HTML 파싱
+// 행 구조: 번호 / 제목(fn_icms_navi_common('view','nttId')) / 작성자 / 등록일 / 조회
+function parseIcmsList(html, source) {
+    const items = [];
+
+    const tableMatch = html.match(/<table id="bbsList"[\s\S]*?<tbody>([\s\S]*?)<\/tbody>/);
+    if (!tableMatch) return items;
+
+    const rowRegex = /<tr>([\s\S]*?)<\/tr>/g;
+    let row;
+    while ((row = rowRegex.exec(tableMatch[1])) !== null) {
+        const tr = row[1];
+
+        const linkMatch = tr.match(/fn_icms_navi_common\('view',\s*'(\d+)'\)[^>]*>([\s\S]*?)<\/a>/);
+        if (!linkMatch) continue;
+
+        const tds = [...tr.matchAll(/<td[^>]*data-table-type="([^"]+)"[^>]*>([\s\S]*?)<\/td>/g)];
+        const cell = {};
+        const hideVals = [];
+        for (const td of tds) {
+            const text = cleanText(td[2]);
+            if (td[1] === 'hide_t') hideVals.push(text);
+            else cell[td[1]] = text;
+        }
+
+        items.push({
+            no: cell.number || '',
+            title: cleanText(linkMatch[2]),
+            dept: hideVals[0] || '', // 이 게시판은 부서 대신 작성자
+            date: cell.date || '',
+            views: hideVals[1] || '',
+            url: `${source.viewUrl}&nttId=${linkMatch[1]}`
+        });
+    }
+    return items;
+}
+
 export async function onRequest(context) {
     const { request } = context;
 
@@ -96,7 +141,9 @@ export async function onRequest(context) {
         const dept = params.get('dept') ?? source.defaultDept;
         const page = params.get('page') || '1';
 
-        const targetUrl = `${source.listUrl}&searchDept_nm=${encodeURIComponent(dept)}&pageIndex=${encodeURIComponent(page)}`;
+        // 부서 필터가 있는 기관만 검색 파라미터를 붙인다
+        const deptParam = dept ? `&searchDept_nm=${encodeURIComponent(dept)}` : '';
+        const targetUrl = `${source.listUrl}${deptParam}&pageIndex=${encodeURIComponent(page)}`;
 
         const res = await fetch(targetUrl, {
             headers: {
