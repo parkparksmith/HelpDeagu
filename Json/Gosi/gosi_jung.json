@@ -3,10 +3,12 @@
   "source": "jung",
   "sourceName": "중구청 고시공고",
   "boardUrl": "https://www.jung.daegu.kr/new/pages/administration/page.html?mc=0159",
-  "dept": "건축",
+  "depts": [
+    "건축"
+  ],
   "page": 1,
   "count": 10,
-  "updatedAt": "2026-08-16 13:16:54",
+  "updatedAt": "2026-08-16 14:46:35",
   "items": [
     {
       "no": "2026-54",

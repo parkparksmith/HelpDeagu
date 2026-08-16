@@ -82,9 +82,12 @@
             border-bottom: none;
         }
 
+        /* 항목당 한 줄: 공고번호 / 제목(말줄임) / 부서 / 날짜 */
         .gosi-list a {
-            display: block;
-            padding: 13px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 20px;
             color: var(--text-primary);
             text-decoration: none;
             transition: background 0.15s;
@@ -94,18 +97,9 @@
             background: rgba(255, 255, 255, 0.04);
         }
 
-        .gosi-item-title {
-            font-size: 0.9rem;
-            line-height: 1.45;
-            margin-bottom: 5px;
-            display: flex;
-            gap: 8px;
-            align-items: baseline;
-        }
-
         .gosi-item-no {
             flex-shrink: 0;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 600;
             color: var(--accent);
             background: rgba(201, 162, 39, 0.12);
@@ -114,22 +108,22 @@
             white-space: nowrap;
         }
 
-        .gosi-item-meta {
-            font-size: 0.74rem;
+        .gosi-item-title {
+            flex: 1;
+            min-width: 0;
+            font-size: 0.88rem;
+            line-height: 1.4;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .gosi-item-dept,
+        .gosi-item-date {
+            flex-shrink: 0;
+            font-size: 0.72rem;
             color: var(--text-muted);
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4px 12px;
-        }
-
-        .gosi-item-meta span {
-            display: inline-flex;
-            align-items: center;
-            gap: 3px;
-        }
-
-        .gosi-item-meta .material-icons-round {
-            font-size: 0.85rem;
+            white-space: nowrap;
         }
 
         .gosi-empty,
@@ -193,7 +187,12 @@
             }
 
             .gosi-list a {
-                padding: 12px 16px;
+                padding: 8px 16px;
+            }
+
+            /* 좁은 화면에서는 부서명을 숨겨 한 줄 유지 */
+            .gosi-item-dept {
+                display: none;
             }
         }
     </style>

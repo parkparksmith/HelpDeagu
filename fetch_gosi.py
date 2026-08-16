@@ -34,7 +34,7 @@ SOURCES = {
                    "&menu_link=/front/daeguSidoGosi/daeguSidoGosiList.do",
         "viewUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170"
                    "&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do",
-        "dept": "도시주택국",
+        "depts": ["도시", "건축"],  # 부서명 부분검색 키워드 (검색별 결과를 병합)
         "deptField": "searchDept_nm",
         "parser": "daegu",
     },
@@ -45,7 +45,7 @@ SOURCES = {
                    "&menu_link=/icms/bbs/selectBoardList.do&bbsId=BBS_00153",
         "viewUrl": "https://www.daegu.go.kr/build/index.do?menu_id=00001338"
                    "&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153",
-        "dept": "",  # 부서 필터 없이 전체 목록
+        "depts": [],  # 부서 필터 없이 전체 목록
         "parser": "icms",
     },
     "jung": {
@@ -60,7 +60,7 @@ SOURCES = {
                    "?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt"
                    "&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y"
                    "&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0",
-        "dept": "건축",
+        "depts": ["건축"],
         "deptField": "dept_nm",
         "parser": "eminwon",
     },
@@ -197,23 +197,36 @@ PARSERS = {
 
 
 def fetch_source(source_id, source, page=1):
-    # 부서 필터가 있는 기관만 검색 파라미터를 붙인다 (파라미터 이름은 기관마다 다름)
-    dept_param = (
-        f"&{source['deptField']}={urllib.parse.quote(source['dept'])}"
-        if source["dept"] and source.get("deptField") else ""
-    )
-    url = f"{source['listUrl']}{dept_param}&pageIndex={page}"
-    print(f"[{source['name']}] 요청: {url}")
+    parse = PARSERS[source.get("parser", "daegu")]
+    depts = source["depts"] or [""]
 
-    html = fetch_html(url)
-    items = PARSERS[source.get("parser", "daegu")](html, source)
+    # 검색어별로 목록을 조회한 뒤 병합한다 (파라미터 이름은 기관마다 다름)
+    seen_urls = set()
+    items = []
+    for dept in depts:
+        dept_param = (
+            f"&{source['deptField']}={urllib.parse.quote(dept)}"
+            if dept and source.get("deptField") else ""
+        )
+        url = f"{source['listUrl']}{dept_param}&pageIndex={page}"
+        print(f"[{source['name']}] 요청: {url}")
+
+        html = fetch_html(url)
+        for item in parse(html, source):
+            if item["url"] in seen_urls:  # 검색어 간 중복 제거
+                continue
+            seen_urls.add(item["url"])
+            items.append(item)
+
+    # 등록일 내림차순 정렬
+    items.sort(key=lambda x: x.get("date", ""), reverse=True)
 
     return {
         "success": True,
         "source": source_id,
         "sourceName": source["name"],
         "boardUrl": source["boardUrl"],
-        "dept": source["dept"],
+        "depts": source["depts"],
         "page": page,
         "count": len(items),
         "updatedAt": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),

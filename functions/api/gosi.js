@@ -9,7 +9,7 @@ const SOURCES = {
         boardUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170',
         listUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiList.do',
         viewUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do',
-        defaultDept: '도시주택국',
+        defaultDepts: ['도시', '건축'], // 부서명 부분검색 키워드 (검색별 결과를 병합)
         deptField: 'searchDept_nm',
         parse: parseDaeguList
     },
@@ -18,7 +18,7 @@ const SOURCES = {
         boardUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338',
         listUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardList.do&bbsId=BBS_00153',
         viewUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153',
-        defaultDept: '', // 부서 필터 없이 전체 목록
+        defaultDepts: [], // 부서 필터 없이 전체 목록
         parse: parseIcmsList
     },
     jung: {
@@ -31,7 +31,7 @@ const SOURCES = {
         viewUrl: 'https://eminwon.jung.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do'
             + '?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst'
             + '&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0',
-        defaultDept: '건축',
+        defaultDepts: ['건축'],
         deptField: 'dept_nm',
         parse: parseEminwonList
     }
@@ -186,36 +186,46 @@ export async function onRequest(context) {
             }), { status: 400, headers: corsHeaders });
         }
 
-        const dept = params.get('dept') ?? source.defaultDept;
+        // dept는 콤마로 구분된 여러 검색어를 받는다 (예: dept=도시,건축)
+        const deptRaw = params.get('dept');
+        const depts = deptRaw !== null
+            ? deptRaw.split(',').map(s => s.trim()).filter(Boolean)
+            : source.defaultDepts;
         const page = params.get('page') || '1';
 
-        // 부서 필터가 있는 기관만 검색 파라미터를 붙인다 (파라미터 이름은 기관마다 다름)
-        const deptParam = dept && source.deptField ? `&${source.deptField}=${encodeURIComponent(dept)}` : '';
-        const targetUrl = `${source.listUrl}${deptParam}&pageIndex=${encodeURIComponent(page)}`;
+        // 검색어별로 목록을 조회한다 (파라미터 이름은 기관마다 다름)
+        const fetchOne = async (dept) => {
+            const deptParam = dept && source.deptField ? `&${source.deptField}=${encodeURIComponent(dept)}` : '';
+            const res = await fetch(`${source.listUrl}${deptParam}&pageIndex=${encodeURIComponent(page)}`, {
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
+                    'Accept-Language': 'ko-KR,ko;q=0.9'
+                }
+            });
+            if (!res.ok) throw new Error(`원본 사이트 응답 오류 (HTTP ${res.status})`);
+            return source.parse(await res.text(), source);
+        };
 
-        const res = await fetch(targetUrl, {
-            headers: {
-                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
-                'Accept-Language': 'ko-KR,ko;q=0.9'
+        const lists = await Promise.all((depts.length ? depts : ['']).map(fetchOne));
+
+        // 병합 후 중복 제거(상세 URL 기준), 등록일 내림차순 정렬
+        const seen = new Set();
+        const items = [];
+        for (const list of lists) {
+            for (const item of list) {
+                if (seen.has(item.url)) continue;
+                seen.add(item.url);
+                items.push(item);
             }
-        });
-
-        if (!res.ok) {
-            return new Response(JSON.stringify({
-                success: false,
-                error: `원본 사이트 응답 오류 (HTTP ${res.status})`
-            }), { status: 502, headers: corsHeaders });
         }
-
-        const html = await res.text();
-        const items = source.parse(html, source);
+        items.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
         return new Response(JSON.stringify({
             success: true,
             source: sourceId,
             sourceName: source.name,
             boardUrl: source.boardUrl,
-            dept,
+            depts,
             page: Number(page),
             count: items.length,
             items

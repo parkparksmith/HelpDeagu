@@ -12,10 +12,9 @@ const GOSI_SOURCES = [
     {
         id: 'daegu',
         name: '대구시청 고시공고',
-        desc: '부서명 "도시주택국" 검색 결과 1페이지',
-        dept: '도시주택국',
-        // 클릭 시 부서명 검색어가 입력되어 검색된 상태의 게시판으로 이동
-        boardUrl: `${DAEGU_LIST_URL}&searchDept_nm=${encodeURIComponent('도시주택국')}&pageIndex=1`,
+        desc: '부서명 검색 결과 통합 (중복 제거, 날짜순)',
+        depts: ['도시', '건축'], // 부서명 부분검색 키워드 (검색별 결과를 병합)
+        boardUrl: `${DAEGU_LIST_URL}&pageIndex=1`,
         jsonPath: '../Json/Gosi/gosi_daegu.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_daegu.json'
     },
@@ -23,7 +22,7 @@ const GOSI_SOURCES = [
         id: 'daegu_build',
         name: '대구시청 도시/주택/건설 소식',
         desc: '도시·주택·건설 분야 소식 게시판 1페이지',
-        dept: '', // 검색 필터 없이 전체 목록
+        depts: [], // 검색 필터 없이 전체 목록
         boardUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338',
         jsonPath: '../Json/Gosi/gosi_daegu_build.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_daegu_build.json'
@@ -32,7 +31,7 @@ const GOSI_SOURCES = [
         id: 'jung',
         name: '중구청 고시공고',
         desc: '담당부서 "건축" 검색 결과 1페이지',
-        dept: '건축',
+        depts: ['건축'],
         // 게시판이 iframe(새올 전자민원)이라 검색 상태 링크는 불가, 게시판 페이지로 이동
         boardUrl: 'https://www.jung.daegu.kr/new/pages/administration/page.html?mc=0159',
         jsonPath: '../Json/Gosi/gosi_jung.json',
@@ -60,7 +59,7 @@ function renderSourceCard(source) {
                 <span class="material-icons-round">campaign</span>
             </div>
             <div class="source-info">
-                <h2>${escapeHtml(source.name)}${source.dept ? `<span class="gosi-filter-badge"><span class="material-icons-round" style="font-size:0.8rem;">filter_alt</span>${escapeHtml(source.dept)}</span>` : ''}</h2>
+                <h2>${escapeHtml(source.name)}${source.depts.map(d => `<span class="gosi-filter-badge"><span class="material-icons-round" style="font-size:0.8rem;">filter_alt</span>${escapeHtml(d)}</span>`).join('')}</h2>
                 <p class="source-desc">${escapeHtml(source.desc)} · 클릭하면 검색된 게시판으로 이동</p>
             </div>
             <span class="material-icons-round go-icon">open_in_new</span>
@@ -90,18 +89,14 @@ function renderItems(source, items, updatedAt) {
         return;
     }
 
+    // 항목당 한 줄: [공고번호] 제목(말줄임) ... 부서 날짜
     list.innerHTML = items.map(item => `
         <li>
-            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener">
-                <div class="gosi-item-title">
-                    <span class="gosi-item-no">${escapeHtml(item.no)}</span>
-                    <span>${escapeHtml(item.title)}</span>
-                </div>
-                <div class="gosi-item-meta">
-                    <span><span class="material-icons-round">apartment</span>${escapeHtml(item.dept)}</span>
-                    <span><span class="material-icons-round">event</span>${escapeHtml(item.date)}</span>
-                    <span><span class="material-icons-round">visibility</span>조회 ${escapeHtml(item.views)}</span>
-                </div>
+            <a href="${escapeHtml(item.url)}" target="_blank" rel="noopener" title="${escapeHtml(item.title)}">
+                <span class="gosi-item-no">${escapeHtml(item.no)}</span>
+                <span class="gosi-item-title">${escapeHtml(item.title)}</span>
+                <span class="gosi-item-dept">${escapeHtml(item.dept)}</span>
+                <span class="gosi-item-date">${escapeHtml(item.date)}</span>
             </a>
         </li>
     `).join('');
@@ -124,7 +119,7 @@ async function fetchJson(url) {
 
 async function loadSource(source) {
     const cacheBust = `t=${Date.now()}`;
-    const apiParams = new URLSearchParams({ source: source.id, dept: source.dept, page: '1' });
+    const apiParams = new URLSearchParams({ source: source.id, dept: source.depts.join(','), page: '1' });
 
     // 실시간 API → 커밋된 JSON → GitHub raw 순서로 시도
     const attempts = [

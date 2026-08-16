@@ -3,58 +3,93 @@
   "source": "daegu",
   "sourceName": "대구시청",
   "boardUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170",
-  "dept": "도시주택국",
+  "depts": [
+    "도시",
+    "건축"
+  ],
   "page": 1,
-  "count": 10,
-  "updatedAt": "2026-08-16 13:16:51",
+  "count": 19,
+  "updatedAt": "2026-08-16 14:46:32",
   "items": [
     {
-      "no": "2026-148",
-      "title": "대구광역시 도시재생 인정사업계획(서로 잇고 함께 도약하는 공간 '성서이음UP센터') 고시",
-      "dept": "도시주택국 도시정비과",
-      "date": "2026-08-10",
-      "views": "23",
-      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46525&gosi_gbn=N"
+      "no": "2026-1110",
+      "title": "2026년도 달성습지 유지관리 기간제근로자(3기) 채용 서류전형 합격자 공고",
+      "dept": "도시공원관리사무소 달성습지관리소",
+      "date": "2026-08-13",
+      "views": "188",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46601&gosi_gbn=A"
     },
     {
-      "no": "2026-1062",
-      "title": "종합건설업 영업정지 처분 공고",
-      "dept": "도시주택국 건설산업과",
-      "date": "2026-07-31",
-      "views": "40",
-      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46529&gosi_gbn=A"
+      "no": "2026-1106",
+      "title": "2026년도 달성습지생태학습관 청소 및 조경관리 기간제근로자 채용 서류전형 합격자 공고",
+      "dept": "도시공원관리사무소 달성습지관리소",
+      "date": "2026-08-13",
+      "views": "140",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46597&gosi_gbn=A"
     },
     {
-      "no": "2026-143",
-      "title": "도시관리계획(지구단위계획) 결정 및 지형도면 작성 고시",
-      "dept": "도시주택국 도시균형개발과",
-      "date": "2026-07-30",
-      "views": "102",
-      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46491&gosi_gbn=N"
+      "no": "2026-1090",
+      "title": "도시관리계획(안), 전략환경영향평가서(초안) 및 기후변화영향평가서(초안) 열람공고",
+      "dept": "도시건설국 도시계획과",
+      "date": "2026-08-12",
+      "views": "87",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46575&gosi_gbn=A"
     },
     {
-      "no": "2026-140",
-      "title": "주택건설사업계획 승인 및 지형도면 고시(매천동 47)",
-      "dept": "도시주택국 주택과",
-      "date": "2026-07-30",
-      "views": "55",
-      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46459&gosi_gbn=N"
+      "no": "2026-103",
+      "title": "입찰 공고 시행[제2026-103호, 대구국제사격장 장애인편의시설 등 시설개선사업 전기공사]",
+      "dept": "도시건설본부 관리부 관리과",
+      "date": "2026-08-12",
+      "views": "12",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46602&gosi_gbn=A"
     },
     {
-      "no": "2026-138",
-      "title": "주택건설사업계획 변경승인 고시(금호워터폴리스 D2 블록)",
-      "dept": "도시주택국 주택과",
-      "date": "2026-07-30",
-      "views": "27",
-      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46456&gosi_gbn=N"
+      "no": "2026-101",
+      "title": "건설공사(건축) 안전점검 수행기관 지정 공고[제3산단(구.삼영초교) 스마트주차장 조성공사]",
+      "dept": "도시건설본부 건축기전부 건축2과",
+      "date": "2026-08-12",
+      "views": "37",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46590&gosi_gbn=A"
     },
     {
-      "no": "2026-1054",
+      "no": "2026-1100",
       "title": "폐업신고에 따른 종합건설업 등록말소 공고",
-      "dept": "도시주택국 건설산업과",
-      "date": "2026-07-28",
-      "views": "24",
-      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46513&gosi_gbn=A"
+      "dept": "도시건설국 건설산업과",
+      "date": "2026-08-11",
+      "views": "28",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46587&gosi_gbn=A"
+    },
+    {
+      "no": "2026-102",
+      "title": "소액수의 견적제출안내 공고[제2026-102호, 대구교도소~감문교차로간도로건설공사 소규모재해영향평가용역]",
+      "dept": "도시건설본부 관리부 관리과",
+      "date": "2026-08-11",
+      "views": "22",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46593&gosi_gbn=A"
+    },
+    {
+      "no": "2026-1091",
+      "title": "종합건설업 등록 공고",
+      "dept": "도시건설국 건설산업과",
+      "date": "2026-08-10",
+      "views": "60",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46576&gosi_gbn=A"
+    },
+    {
+      "no": "2026-1078",
+      "title": "건설산업기본법 위반의심업체 소명요청공문 반송에 따른 공시송달 공고",
+      "dept": "도시건설국 건설산업과",
+      "date": "2026-08-10",
+      "views": "53",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46553&gosi_gbn=A"
+    },
+    {
+      "no": "2026-1073",
+      "title": "소송비용액 납부 독촉 공시송달 공고",
+      "dept": "도시건설국 건설산업과",
+      "date": "2026-08-10",
+      "views": "19",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46548&gosi_gbn=A"
     },
     {
       "no": "2026-983",
@@ -65,28 +100,68 @@
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46392&gosi_gbn=A"
     },
     {
-      "no": "2026-1040",
-      "title": "폐업신고에 따른 종합건설업 등록말소 공고",
-      "dept": "도시주택국 건설산업과",
-      "date": "2026-07-24",
-      "views": "44",
-      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46494&gosi_gbn=A"
+      "no": "2026-985",
+      "title": "대구광역시 공공건축가 공개모집 공고",
+      "dept": "도시주택국 건축과",
+      "date": "2026-07-13",
+      "views": "144",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46394&gosi_gbn=A"
     },
     {
-      "no": "2026-1019",
-      "title": "주택건설사업자 행정처분 사전통지 공시송달 공고",
-      "dept": "도시주택국 주택과",
-      "date": "2026-07-24",
-      "views": "39",
-      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46461&gosi_gbn=A"
+      "no": "2026-844",
+      "title": "대구광역시 건축사징계위원회 위원 공개모집 공고",
+      "dept": "도시주택국 건축과",
+      "date": "2026-06-10",
+      "views": "101",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46171&gosi_gbn=A"
     },
     {
-      "no": "2026-951",
-      "title": "대구광역시 개발제한구역 내 야영장 및 실외체육시설 구군 배분계획 변경 공고",
-      "dept": "도시주택국 도시계획과",
-      "date": "2026-07-24",
-      "views": "47",
-      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46345&gosi_gbn=A"
+      "no": "2026-72",
+      "title": "신천 프러포즈 조성사업 CCTV 설치에 따른 행정예고 실시",
+      "dept": "도시건설본부 건축기전부 전기과",
+      "date": "2026-06-05",
+      "views": "59",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46180&gosi_gbn=A"
+    },
+    {
+      "no": "2026-539",
+      "title": "미군반환부지 문화공원 지하공영주차장 CCTV 설치에 따른 행정예고 실시",
+      "dept": "도시건설본부 건축기전부 전기과",
+      "date": "2026-03-30",
+      "views": "40",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45685&gosi_gbn=A"
+    },
+    {
+      "no": "2026-529",
+      "title": "대구광역시 집합건물분쟁조정위원회 위원 추가모집 공고",
+      "dept": "도시주택국 건축과",
+      "date": "2026-03-27",
+      "views": "123",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45673&gosi_gbn=A"
+    },
+    {
+      "no": "2026-436",
+      "title": "제안서 평가위원회 평가결과 공개(대구광역시 제3차 건축기본계획 수립 용역)",
+      "dept": "도시주택국 건축과",
+      "date": "2026-03-13",
+      "views": "98",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45528&gosi_gbn=A"
+    },
+    {
+      "no": "2026-408",
+      "title": "대구광역시 집합건물분쟁조정위원회 위원 공개모집 공고",
+      "dept": "도시주택국 건축과",
+      "date": "2026-03-10",
+      "views": "105",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45490&gosi_gbn=A"
+    },
+    {
+      "no": "2026-330",
+      "title": "도시계획시설(공원)사업 공사완료 공고[월배공원(지하 공영주차장 상부) 재조성 공사]",
+      "dept": "도시건설본부 건축기전부 조경과",
+      "date": "2026-02-27",
+      "views": "45",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45370&gosi_gbn=A"
     }
   ]
 }
