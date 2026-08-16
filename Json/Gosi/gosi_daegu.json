@@ -1,0 +1,92 @@
+{
+  "success": true,
+  "source": "daegu",
+  "sourceName": "대구시청",
+  "boardUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170",
+  "dept": "도시주택국",
+  "page": 1,
+  "count": 10,
+  "updatedAt": "2026-08-16 02:28:31",
+  "items": [
+    {
+      "no": "2026-148",
+      "title": "대구광역시 도시재생 인정사업계획(서로 잇고 함께 도약하는 공간 '성서이음UP센터') 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2026-08-10",
+      "views": "22",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46525&gosi_gbn=N"
+    },
+    {
+      "no": "2026-1062",
+      "title": "종합건설업 영업정지 처분 공고",
+      "dept": "도시주택국 건설산업과",
+      "date": "2026-07-31",
+      "views": "40",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46529&gosi_gbn=A"
+    },
+    {
+      "no": "2026-143",
+      "title": "도시관리계획(지구단위계획) 결정 및 지형도면 작성 고시",
+      "dept": "도시주택국 도시균형개발과",
+      "date": "2026-07-30",
+      "views": "101",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46491&gosi_gbn=N"
+    },
+    {
+      "no": "2026-140",
+      "title": "주택건설사업계획 승인 및 지형도면 고시(매천동 47)",
+      "dept": "도시주택국 주택과",
+      "date": "2026-07-30",
+      "views": "55",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46459&gosi_gbn=N"
+    },
+    {
+      "no": "2026-138",
+      "title": "주택건설사업계획 변경승인 고시(금호워터폴리스 D2 블록)",
+      "dept": "도시주택국 주택과",
+      "date": "2026-07-30",
+      "views": "27",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46456&gosi_gbn=N"
+    },
+    {
+      "no": "2026-1054",
+      "title": "폐업신고에 따른 종합건설업 등록말소 공고",
+      "dept": "도시주택국 건설산업과",
+      "date": "2026-07-28",
+      "views": "24",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46513&gosi_gbn=A"
+    },
+    {
+      "no": "2026-983",
+      "title": "2026년 제35회 대구광역시 건축상 작품공모 공고",
+      "dept": "도시주택국 건축과",
+      "date": "2026-07-27",
+      "views": "61",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46392&gosi_gbn=A"
+    },
+    {
+      "no": "2026-1040",
+      "title": "폐업신고에 따른 종합건설업 등록말소 공고",
+      "dept": "도시주택국 건설산업과",
+      "date": "2026-07-24",
+      "views": "44",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46494&gosi_gbn=A"
+    },
+    {
+      "no": "2026-1019",
+      "title": "주택건설사업자 행정처분 사전통지 공시송달 공고",
+      "dept": "도시주택국 주택과",
+      "date": "2026-07-24",
+      "views": "39",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46461&gosi_gbn=A"
+    },
+    {
+      "no": "2026-951",
+      "title": "대구광역시 개발제한구역 내 야영장 및 실외체육시설 구군 배분계획 변경 공고",
+      "dept": "도시주택국 도시계획과",
+      "date": "2026-07-24",
+      "views": "46",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46345&gosi_gbn=A"
+    }
+  ]
+}

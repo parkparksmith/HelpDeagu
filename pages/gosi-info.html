@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>대구 고시정보 - 고시공고 모음</title>
+    <meta name="description" content="대구시청 및 각 구청의 고시공고 게시판 최신 글을 한곳에서 확인합니다.">
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css" />
+    <link rel="stylesheet" href="../css/common.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+    <style>
+        .gosi-source {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        /* 첫줄: 해당 게시판으로 바로가기 */
+        .gosi-source-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+            border-bottom: 1px solid var(--border);
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+
+        .gosi-source-header:hover {
+            background: rgba(201, 162, 39, 0.08);
+        }
+
+        .gosi-source-header .icon-box {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201, 162, 39, 0.15);
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+
+        .gosi-source-header .source-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .gosi-source-header .source-info h2 {
+            font-size: 1.05rem;
+            margin: 0 0 2px;
+        }
+
+        .gosi-source-header .source-info p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .gosi-source-header .go-icon {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
+        .gosi-list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .gosi-list li {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .gosi-list li:last-child {
+            border-bottom: none;
+        }
+
+        .gosi-list a {
+            display: block;
+            padding: 13px 20px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: background 0.15s;
+        }
+
+        .gosi-list a:hover {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        .gosi-item-title {
+            font-size: 0.9rem;
+            line-height: 1.45;
+            margin-bottom: 5px;
+            display: flex;
+            gap: 8px;
+            align-items: baseline;
+        }
+
+        .gosi-item-no {
+            flex-shrink: 0;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--accent);
+            background: rgba(201, 162, 39, 0.12);
+            border-radius: 6px;
+            padding: 2px 7px;
+            white-space: nowrap;
+        }
+
+        .gosi-item-meta {
+            font-size: 0.74rem;
+            color: var(--text-muted);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px 12px;
+        }
+
+        .gosi-item-meta span {
+            display: inline-flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .gosi-item-meta .material-icons-round {
+            font-size: 0.85rem;
+        }
+
+        .gosi-empty,
+        .gosi-error {
+            padding: 24px 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        .gosi-error {
+            color: #e5534b;
+        }
+
+        .gosi-filter-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.72rem;
+            color: var(--text-secondary);
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3px 10px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .loading.hidden {
+            display: none;
+        }
+
+        .spinner {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border);
+            border-top-color: var(--accent);
+            border-radius: 50%;
+            animation: gosi-spin 0.8s linear infinite;
+        }
+
+        @keyframes gosi-spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .gosi-source-header {
+                padding: 14px 16px;
+            }
+
+            .gosi-list a {
+                padding: 12px 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <header class="app-header">
+            <div class="title-with-logo">
+                <a href="../index.html" id="back-btn">
+                    <span class="material-icons-round">arrow_back</span>
+                    <span>홈으로</span>
+                </a>
+                <h1>대구 고시정보</h1>
+            </div>
+        </header>
+
+        <div class="watermark">
+            <img src="../LOGO1.png" alt="">
+        </div>
+
+        <main class="view active">
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <span>고시공고를 불러오는 중...</span>
+            </div>
+
+            <section id="gosi-sources"></section>
+        </main>
+    </div>
+
+    <script src="../js/gosi-info.js"></script>
+</body>
+
+</html>
