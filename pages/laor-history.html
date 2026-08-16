@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>라오어 무한매수 History - 과거 데이터 백테스터</title>
+<meta name="description"
+    content="라오어 무한매수법 V2.2를 과거 일봉 데이터로 검증하는 백테스터입니다. TQQQ, SOXL 등 미국 레버리지 ETF와 국내 종목의 과거 데이터로 수익률, MDD, 사이클별 결과를 확인하세요.">
+<meta name="keywords" content="라오어 무한매수법, 백테스트, History, 과거 데이터, TQQQ, SOXL, 레버리지 ETF, 무한매수, 수익률 검증">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9666444539079216"
+    crossorigin="anonymous"></script>
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-card: #161b22;
+    --bg-card-2: #1c2330;
+    --border: #2d3748;
+    --border-accent: #3b82f6;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #58a6ff;
+    --success: #3fb950;   /* 수익(빨강 대신 초록 표준) */
+    --danger: #f85149;
+    --buy: #58a6ff;
+    --sell: #f85149;
+    --star: #f5a623;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, "Segoe UI", "Malgun Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    padding: 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .top-bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+  h1 { font-size: 1.5rem; margin-bottom: 4px; }
+  .subtitle { color: var(--text-dim); font-size: 0.85rem; margin-bottom: 20px; }
+  .back-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: var(--text); text-decoration: none; font-size: 0.85rem;
+    background: var(--bg-card-2); border: 1px solid var(--border);
+    border-radius: 8px; padding: 8px 14px; white-space: nowrap;
+  }
+  .back-link:hover { border-color: var(--border-accent); }
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 16px;
+  }
+  .card h2 { font-size: 1rem; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+  .card h2 .tag { font-size: 0.7rem; color: var(--text-dim); font-weight: 400; }
+
+  .grid-settings {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  label { display: block; font-size: 0.78rem; color: var(--text-dim); margin-bottom: 5px; }
+  input[type=text], input[type=number], input[type=date], select, textarea {
+    width: 100%;
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text);
+    padding: 9px 11px;
+    font-size: 0.9rem;
+    font-family: inherit;
+  }
+  input:focus, textarea:focus, select:focus { outline: none; border-color: var(--border-accent); }
+  textarea { resize: vertical; min-height: 90px; font-family: "Consolas", monospace; font-size: 0.8rem; }
+
+  /* 슬라이더 */
+  .slider-row { display: flex; flex-direction: column; gap: 8px; }
+  .slider-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+  .slider-head label { margin-bottom: 0; }
+  .val-input {
+    width: 92px; text-align: right; padding: 5px 8px; font-size: 0.9rem; font-weight: 700;
+    color: var(--accent); background: var(--bg-card-2); border: 1px solid var(--border); border-radius: 6px;
+  }
+  /* 자본금은 원화(억 단위) 입력이 가능하도록 넓게 */
+  #budget { width: 130px; }
+  input[type=range] {
+    -webkit-appearance: none; appearance: none; width: 100%; height: 6px; border-radius: 999px;
+    background: var(--bg-card-2); border: 1px solid var(--border); outline: none; cursor: pointer;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none; appearance: none; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--border-accent); border: 2px solid #fff; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,.4);
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 18px; height: 18px; border-radius: 50%; background: var(--border-accent);
+    border: 2px solid #fff; cursor: pointer;
+  }
+  /* 최적화 */
+  #optimize-result { margin-top: 6px; }
+  .opt-picks { display: flex; gap: 12px; flex-wrap: wrap; margin: 14px 0 10px; }
+  .opt-pick { flex: 1 1 240px; background: var(--bg-card-2); border: 1px solid var(--border); border-radius: 10px; padding: 12px 14px; cursor: pointer; transition: border-color .15s; }
+  .opt-pick:hover { border-color: var(--border-accent); }
+  .op-label { font-size: .78rem; color: var(--text-dim); margin-bottom: 4px; }
+  .op-main { font-size: 1.15rem; font-weight: 700; color: var(--accent); }
+  .op-sub { font-size: .76rem; color: var(--text-dim); margin-top: 4px; }
+  .opt-hint { font-size: .75rem; color: var(--text-dim); margin: 6px 0 10px; line-height: 1.6; }
+  .hm-wrap { overflow-x: auto; }
+  table.heatmap { border-collapse: collapse; font-size: .8rem; }
+  table.heatmap th { color: var(--text-dim); font-weight: 500; padding: 5px 8px; position: static; background: transparent; white-space: nowrap; }
+  table.heatmap td.hm-cell { min-width: 40px; text-align: center; padding: 7px 4px; cursor: pointer; border: 1px solid rgba(255,255,255,.05); color: #fff; font-weight: 600; }
+  table.heatmap td.hm-cell:hover { outline: 2px solid var(--text); }
+  table.heatmap td.best-ret { box-shadow: inset 0 0 0 2px #f5a623; }
+  table.heatmap td.best-cal { box-shadow: inset 0 0 0 2px #2dd4bf; }
+  .seed-hint { margin-top: 14px; font-size: 0.82rem; color: var(--text-dim); background: var(--bg-card-2); border: 1px solid var(--border); border-radius: 8px; padding: 9px 12px; }
+  .seed-hint b { color: var(--accent); }
+  .seed-hint:empty { display: none; }
+  .period-box { margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--border); }
+  .period-label { font-size: 0.85rem; font-weight: 700; color: var(--accent); }
+  .dual-range { position: relative; height: 22px; margin-top: 6px; }
+  .dual-range input[type=range] { position: absolute; top: 8px; left: 0; width: 100%; margin: 0; pointer-events: none; background: transparent; border: none; }
+  .dual-range::before { content: ''; position: absolute; top: 8px; left: 0; width: 100%; height: 6px; border-radius: 999px; background: var(--bg-card-2); border: 1px solid var(--border); }
+  .dual-range input[type=range]::-webkit-slider-thumb { pointer-events: auto; }
+  .dual-range input[type=range]::-moz-range-thumb { pointer-events: auto; }
+
+  .btn {
+    background: var(--border-accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 11px 18px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.15s;
+  }
+  .btn:hover { opacity: 0.88; }
+  .btn.secondary { background: var(--bg-card-2); border: 1px solid var(--border); color: var(--text); }
+  .btn-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+
+  .data-row { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; margin-bottom: 10px; }
+  .data-row .hint { font-size: 0.75rem; color: var(--text-dim); }
+  #data-status { font-size: 0.8rem; color: var(--success); }
+
+  /* 요약 카드 */
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+  }
+  .metric {
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+  }
+  .metric .m-label { font-size: 0.72rem; color: var(--text-dim); margin-bottom: 6px; }
+  .metric .m-value { font-size: 1.35rem; font-weight: 700; }
+  .metric .m-sub { font-size: 0.72rem; color: var(--text-dim); margin-top: 3px; }
+  .positive { color: var(--success); }
+  .negative { color: var(--danger); }
+
+  canvas { width: 100%; display: block; }
+  .chart-wrap { position: relative; overflow-x: auto; }
+
+  table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+  th, td { padding: 8px 10px; text-align: right; border-bottom: 1px solid var(--border); white-space: nowrap; }
+  th { color: var(--text-dim); font-weight: 500; text-align: right; position: sticky; top: 0; background: var(--bg-card); }
+  th:first-child, td:first-child { text-align: left; }
+  .tbl-scroll { max-height: 380px; overflow: auto; border: 1px solid var(--border); border-radius: 8px; }
+  .badge-buy { color: var(--buy); font-weight: 600; }
+  .badge-sell { color: var(--sell); font-weight: 600; }
+  .hidden { display: none; }
+
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.78rem; color: var(--text-dim); margin-bottom: 10px; }
+  .legend span::before { content: ''; display: inline-block; width: 12px; height: 3px; margin-right: 5px; vertical-align: middle; }
+  .lg-strat::before { background: var(--accent); }
+  .lg-hold::before { background: var(--text-dim); }
+  .lg-dca::before { background: #a371f7; }
+  .lg-us::before { background: #2dd4bf; }
+  .lg-kr::before { background: #f778ba; }
+  .lg-invested::before { background: var(--star); }
+
+  details { margin-top: 8px; }
+  summary { cursor: pointer; font-size: 0.85rem; color: var(--text-dim); padding: 6px 0; }
+  .note { font-size: 0.75rem; color: var(--text-dim); line-height: 1.7; }
+  .note code { background: var(--bg-card-2); padding: 1px 5px; border-radius: 4px; color: var(--accent); }
+  .disclaimer { font-size: 0.75rem; color: var(--text-dim); background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 10px 14px; margin-bottom: 16px; line-height: 1.7; }
+</style>
+</head>
+<body>
+  <div class="top-bar">
+    <div>
+      <h1>📈 라오어 무한매수 History</h1>
+    </div>
+    <div style="display:flex; gap:8px;">
+      <a href="laor.html" class="back-link">🧮 계산기로</a>
+      <a href="../index.html" class="back-link">← 메인으로</a>
+    </div>
+  </div>
+  <p class="subtitle">과거 일봉 데이터로 무한매수법(V2.2)의 특정 기간 수익을 검증합니다. LOC 매수/매도, 평단(이동평균), T·★% 공식을 그대로 재현합니다.</p>
+
+  <div class="disclaimer">
+    ⚠️ 본 페이지는 라오어 무한매수법 공식을 활용한 <b>팬메이드 백테스터</b>이며, 라오어 님 및 공식 채널과 무관합니다.
+    과거 데이터 기반 시뮬레이션 결과는 미래 수익을 보장하지 않으며, 투자 결정의 책임은 본인에게 있습니다.
+  </div>
+
+  <!-- 데이터 -->
+  <div class="card">
+    <h2>📊 과거 데이터 <span class="tag">종목을 선택하면 자동으로 불러옵니다</span></h2>
+    <div class="data-row">
+      <select id="ticker-select" style="min-width:260px;"></select>
+      <span id="data-status">데이터 없음</span>
+    </div>
+  </div>
+
+  <!-- 설정 -->
+  <div class="card">
+    <h2>⚙️ 설정 <span class="tag">슬라이더를 움직이면 즉시 반영됩니다</span></h2>
+    <div class="grid-settings">
+      <div class="slider-row">
+        <div class="slider-head">
+          <label id="budget-label">자본금 (시드, $)</label>
+          <input type="number" id="budget" class="val-input" value="10000" min="1000" max="1000000000" step="1000">
+        </div>
+        <input type="range" id="budget-range" min="1000" max="200000" step="1000" value="10000">
+      </div>
+      <div class="slider-row">
+        <div class="slider-head">
+          <label>분할일수 (N)</label>
+          <input type="number" id="days" class="val-input" value="40" min="5" max="120" step="1">
+        </div>
+        <input type="range" id="days-range" min="10" max="80" step="1" value="40">
+      </div>
+      <div class="slider-row">
+        <div class="slider-head">
+          <label>목표수익률 (R, %)</label>
+          <input type="number" id="target" class="val-input" value="10" min="1" max="50" step="0.5">
+        </div>
+        <input type="range" id="target-range" min="3" max="30" step="0.5" value="10">
+      </div>
+      <div class="slider-row">
+        <div class="slider-head">
+          <label>쿼터손절 (T&gt;39)</label>
+          <span></span>
+        </div>
+        <select id="quarter-stop">
+          <option value="on">적용</option>
+          <option value="off" selected>미적용</option>
+        </select>
+      </div>
+    </div>
+
+    <div id="seed-hint" class="seed-hint"></div>
+
+    <!-- 기간 (이중 슬라이더) -->
+    <div class="period-box">
+      <div class="slider-head">
+        <label>백테스트 기간</label>
+        <span id="period-label" class="period-label">데이터를 먼저 불러오세요</span>
+      </div>
+      <div class="dual-range">
+        <input type="range" id="start-range" min="0" max="100" step="1" value="0">
+        <input type="range" id="end-range" min="0" max="100" step="1" value="100">
+      </div>
+    </div>
+  </div>
+
+  <!-- 최적 파라미터 -->
+  <div class="card">
+    <h2>🔎 최적 파라미터 찾기 <span class="tag">자본금·기간 고정 · 분할일수(N) × 목표수익률(R) 그리드 서치</span></h2>
+    <button class="btn" onclick="optimizeParams()">최적 분할일수·목표수익률 찾기</button>
+    <div id="optimize-result"></div>
+  </div>
+
+  <!-- 결과 -->
+  <div id="results" class="hidden">
+    <div class="card">
+      <h2>💹 자산 곡선 <span class="tag">전략 vs 단순보유(Buy &amp; Hold)</span></h2>
+      <div class="legend">
+        <span class="lg-strat">무한매수법 자산</span>
+        <span class="lg-hold">단순보유(동일시드)</span>
+        <span class="lg-dca">분할매수(DCA)</span>
+        <span class="lg-us">美 기준금리</span>
+        <span class="lg-kr">韓 기준금리</span>
+        <span class="lg-invested">투입원금(누적)</span>
+      </div>
+      <div class="chart-wrap"><canvas id="equity-chart" height="300"></canvas></div>
+    </div>
+
+    <div class="card">
+      <h2>📌 요약</h2>
+      <div class="summary-grid" id="summary-grid"></div>
+    </div>
+
+    <div class="card">
+      <h2>🔄 사이클별 결과 <span class="tag">1사이클 = 진입~전량매도</span></h2>
+      <div class="tbl-scroll">
+        <table id="cycle-table">
+          <thead><tr>
+            <th>#</th><th>시작일</th><th>종료일</th><th>일수</th>
+            <th>매수총액</th><th>매도총액</th><th>수익금</th><th>수익률</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🧾 거래 로그 <span class="tag" id="trade-count"></span></h2>
+      <div class="tbl-scroll">
+        <table id="trade-table">
+          <thead><tr>
+            <th>날짜</th><th>구분</th><th>내용</th><th>체결가</th><th>수량</th>
+            <th>평단</th><th>보유</th><th>T</th><th>★%</th><th>자산</th>
+          </tr></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <details>
+        <summary>ℹ️ 계산 방식 / 가정 설명</summary>
+        <div class="note" style="margin-top:10px;">
+          <p>• <b>평단가</b>: HTS 이동평균법. 매수 시 <code>(기존총액+신규매수액)/(기존수량+신규수량)</code>, 매도 시 평단 유지·수량 차감.</p>
+          <p>• <b>T(회차)</b> = <code>ceil(누적매수액 ÷ 1회시도액 ×100)/100</code>, <b>1회시도액</b> = 시드/N. T&lt;20 전반전, ≥20 후반전.</p>
+          <p>• <b>★%</b> = <code>R − T × (R/20) × (40/N)</code>.</p>
+          <p>• <b>매수(LOC)</b>: 전반전은 평단·평단+★%에 0.5회씩, 후반전은 평단+★%에 1회. 종가가 지정가 이하일 때 <b>종가로</b> 체결.</p>
+          <p>• <b>매도</b>: 1/4는 평단+★%에 LOC(종가≥지정가 시 종가 체결), 3/4는 평단+R%에 지정가(당일 고가≥지정가 시 지정가 체결).</p>
+          <p>• <b>자본 제약</b>: 보유현금 한도 내에서만 매수. 시드 소진 시 매수 중단. 쿼터손절 옵션 적용 시 T&gt;39에서 1/4 시장가 매도.</p>
+          <p>• <b>최종 수익</b> = 실현손익 + 평가손익(마지막 종가 기준). 단순보유는 동일 시드로 시작일 종가에 전량 매수 후 보유한 결과.</p>
+          <p>※ 실제 거래의 슬리피지·수수료·환율·세금은 미반영. LOC 체결 판정은 일봉 기준 근사입니다.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+
+  <script src="../data/laor-history/rates.js"></script>
+  <script src="../js/laor-history.js"></script>
+</body>
+</html>
