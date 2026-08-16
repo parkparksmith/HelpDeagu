@@ -39,7 +39,7 @@ const SOURCES = {
         boardUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170',
         listUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiList.do',
         viewUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do',
-        defaultDepts: ['도시건설국', '건축주택과'], // 부서명 부분검색 키워드 (검색별 결과를 병합)
+        defaultDepts: ['도시', '주택', '건설', '건축', '토지'], // 부서명 부분검색 키워드 (검색별 결과를 병합)
         deptField: 'searchDept_nm',
         parse: parseDaeguList
     },
@@ -375,7 +375,11 @@ export async function onRequest(context) {
                 items.push(item);
             }
         }
-        items.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
+        // 등록일 1년 이상 지난 항목 제외 (날짜 없는 항목은 유지)
+        const cutoff = new Date(Date.now() - 365 * 24 * 3600 * 1000).toISOString().slice(0, 10);
+        const recent = items.filter(item => !item.date || item.date >= cutoff);
+
+        recent.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
 
         return new Response(JSON.stringify({
             success: true,
@@ -384,8 +388,8 @@ export async function onRequest(context) {
             boardUrl: source.boardUrl,
             depts,
             page: Number(page),
-            count: items.length,
-            items
+            count: recent.length,
+            items: recent
         }), { headers: corsHeaders });
 
     } catch (error) {

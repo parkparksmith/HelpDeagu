@@ -9,8 +9,8 @@
     "건설"
   ],
   "page": 1,
-  "count": 24,
-  "updatedAt": "2026-08-16 15:08:24",
+  "count": 22,
+  "updatedAt": "2026-08-16 23:21:58",
   "items": [
     {
       "no": "2026-748",
@@ -187,22 +187,6 @@
       "date": "2025-09-01",
       "views": "16",
       "url": "https://eminwon.jung.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=32398"
-    },
-    {
-      "no": "2024-1243",
-      "title": "2025년 공원·녹지분야 기간제근로자 공개채용 공고",
-      "dept": "도시디자인과",
-      "date": "2024-12-05",
-      "views": "377",
-      "url": "https://eminwon.jung.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=30976"
-    },
-    {
-      "no": "2023-1250",
-      "title": "2024년 공원·녹지분야 기간제근로자 공개채용 공고",
-      "dept": "도시디자인과",
-      "date": "2023-12-05",
-      "views": "328",
-      "url": "https://eminwon.jung.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=28964"
     }
   ]
 }

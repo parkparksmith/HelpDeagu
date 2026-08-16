@@ -10,8 +10,8 @@
     "토지정보"
   ],
   "page": 1,
-  "count": 37,
-  "updatedAt": "2026-08-16 15:08:49",
+  "count": 31,
+  "updatedAt": "2026-08-16 23:22:28",
   "items": [
     {
       "no": "2026-1199",
@@ -260,54 +260,6 @@
       "date": "2025-12-26",
       "views": "59",
       "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=53516"
-    },
-    {
-      "no": "2022-102",
-      "title": "지적기준점 성과고시",
-      "dept": "토지정보과",
-      "date": "2022-11-18",
-      "views": "32",
-      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=39037"
-    },
-    {
-      "no": "2022-1679",
-      "title": "토지개발사업 완료에 따른 지적공부 확정 시행 공고",
-      "dept": "토지정보과",
-      "date": "2022-10-21",
-      "views": "60",
-      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=38651"
-    },
-    {
-      "no": "2022-1612",
-      "title": "토지개발사업 완료에 따른 지적공부 확정 시행 공고",
-      "dept": "토지정보과",
-      "date": "2022-10-07",
-      "views": "67",
-      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=38528"
-    },
-    {
-      "no": "2022-78",
-      "title": "지적기준점 성과고시",
-      "dept": "토지정보과",
-      "date": "2022-09-02",
-      "views": "42",
-      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=38112"
-    },
-    {
-      "no": "2022-70",
-      "title": "지적기준점 성과 고시",
-      "dept": "토지정보과",
-      "date": "2022-07-28",
-      "views": "24",
-      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=37711"
-    },
-    {
-      "no": "2022-67",
-      "title": "지적기준점 성과 고시",
-      "dept": "토지정보과",
-      "date": "2022-07-18",
-      "views": "32",
-      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=37579"
     }
   ]
 }

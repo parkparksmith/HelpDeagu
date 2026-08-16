@@ -20,7 +20,7 @@ import re
 import sys
 import urllib.parse
 import urllib.request
-from datetime import datetime
+from datetime import datetime, timedelta
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -71,7 +71,7 @@ SOURCES = {
                    "&menu_link=/front/daeguSidoGosi/daeguSidoGosiList.do",
         "viewUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170"
                    "&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do",
-        "depts": ["도시건설국", "건축주택과"],  # 부서명 부분검색 키워드 (검색별 결과를 병합)
+        "depts": ["도시", "주택", "건설", "건축", "토지"],  # 부서명 부분검색 키워드 (검색별 결과를 병합)
         "deptField": "searchDept_nm",
         "parser": "daegu",
     },
@@ -387,6 +387,10 @@ def fetch_source(source_id, source, page=1):
                 if dept and source.get("deptField") else ""
             )
             collect(f"{source['listUrl']}{dept_param}&{page_field}={page}")
+
+    # 등록일 1년 이상 지난 항목 제외 (날짜 없는 항목은 유지)
+    cutoff = (datetime.now() - timedelta(days=365)).strftime("%Y-%m-%d")
+    items[:] = [it for it in items if not it.get("date") or it["date"] >= cutoff]
 
     # 등록일 내림차순 정렬
     items.sort(key=lambda x: x.get("date", ""), reverse=True)

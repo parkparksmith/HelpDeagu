@@ -6,14 +6,14 @@
   "depts": [],
   "page": 1,
   "count": 10,
-  "updatedAt": "2026-08-16 15:08:17",
+  "updatedAt": "2026-08-16 23:21:52",
   "items": [
     {
       "no": "1334",
       "title": "정비사업 추진현황(2026. 7월말 기준)",
       "dept": "류혜영",
       "date": "2026-08-14",
-      "views": "42",
+      "views": "46",
       "url": "https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153&nttId=818637"
     },
     {
@@ -21,7 +21,7 @@
       "title": "소규모 정비사업 추진현황(2026.7월말 기준)",
       "dept": "박경민",
       "date": "2026-08-13",
-      "views": "55",
+      "views": "57",
       "url": "https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153&nttId=818288"
     },
     {
@@ -37,7 +37,7 @@
       "title": "2026년 6월 건축현황(허가, 착공, 사용승인)",
       "dept": "이건희",
       "date": "2026-08-06",
-      "views": "130",
+      "views": "132",
       "url": "https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153&nttId=817130"
     },
     {
@@ -45,7 +45,7 @@
       "title": "2026년 6월말 대구 공동주택 미분양 현황",
       "dept": "최익제",
       "date": "2026-07-31",
-      "views": "610",
+      "views": "613",
       "url": "https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153&nttId=815963"
     },
     {
@@ -53,7 +53,7 @@
       "title": "주택건설사업 추진현황(2026년 6월말 기준)",
       "dept": "이훈국",
       "date": "2026-07-29",
-      "views": "288",
+      "views": "289",
       "url": "https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153&nttId=815748"
     },
     {
@@ -61,7 +61,7 @@
       "title": "소규모 정비사업 추진현황(2026.6월말 기준)",
       "dept": "박경민",
       "date": "2026-07-16",
-      "views": "437",
+      "views": "438",
       "url": "https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153&nttId=813504"
     },
     {
@@ -69,7 +69,7 @@
       "title": "정비사업 추진현황(2026. 6월말 기준)",
       "dept": "류혜영",
       "date": "2026-07-15",
-      "views": "563",
+      "views": "564",
       "url": "https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153&nttId=813423"
     },
     {
@@ -85,7 +85,7 @@
       "title": "대구광역시 건축사사무소 개설신고 현황(2026.07.03.)",
       "dept": "이건희",
       "date": "2026-07-03",
-      "views": "170",
+      "views": "171",
       "url": "https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153&nttId=811911"
     }
   ]

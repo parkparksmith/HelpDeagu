@@ -10,8 +10,8 @@
     "토지"
   ],
   "page": 1,
-  "count": 36,
-  "updatedAt": "2026-08-16 15:08:50",
+  "count": 35,
+  "updatedAt": "2026-08-16 23:22:30",
   "items": [
     {
       "no": "2026-1530",
@@ -54,20 +54,20 @@
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60564&mid=0201020000"
     },
     {
-      "no": "2026-1496",
-      "title": "전문건설업 등록말소 처분 공고",
-      "dept": "건설과",
-      "date": "2026-08-07",
-      "views": "",
-      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60578&mid=0201020000"
-    },
-    {
       "no": "2026-1494",
       "title": "전문건설업 폐업 공고",
       "dept": "건설과",
       "date": "2026-08-07",
       "views": "",
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60573&mid=0201020000"
+    },
+    {
+      "no": "2026-1496",
+      "title": "전문건설업 등록말소 처분 공고",
+      "dept": "건설과",
+      "date": "2026-08-07",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60578&mid=0201020000"
     },
     {
       "no": "2026-1497",
@@ -110,20 +110,20 @@
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60512&mid=0201020000"
     },
     {
-      "no": "2026-1448",
-      "title": "도시계획시설(도로)사업 실시계획 열람공고[팔공산순환로~용진마을 도로건설]",
-      "dept": "건설과",
-      "date": "2026-08-03",
-      "views": "",
-      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60484&mid=0201020000"
-    },
-    {
       "no": "2026-1443",
       "title": "도시계획시설(도로)사업 실시계획 열람공고[능성동 672번지선 도로개설]",
       "dept": "건설과",
       "date": "2026-08-03",
       "views": "",
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60469&mid=0201020000"
+    },
+    {
+      "no": "2026-1448",
+      "title": "도시계획시설(도로)사업 실시계획 열람공고[팔공산순환로~용진마을 도로건설]",
+      "dept": "건설과",
+      "date": "2026-08-03",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60484&mid=0201020000"
     },
     {
       "no": "2026-69",
@@ -174,20 +174,20 @@
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60014&mid=0201020000"
     },
     {
-      "no": "2026-58",
-      "title": "도시계획시설 결정 및 지형도면 작성 고시",
-      "dept": "도시과",
-      "date": "2026-06-30",
-      "views": "",
-      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60007&mid=0201020000"
-    },
-    {
       "no": "2026-59",
       "title": "도시관리계획(지구단위계획) 변경결정 및 지형도면 작성 고시",
       "dept": "도시과",
       "date": "2026-06-30",
       "views": "",
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60013&mid=0201020000"
+    },
+    {
+      "no": "2026-58",
+      "title": "도시계획시설 결정 및 지형도면 작성 고시",
+      "dept": "도시과",
+      "date": "2026-06-30",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60007&mid=0201020000"
     },
     {
       "no": "2026-1226",
@@ -230,20 +230,20 @@
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58818&mid=0201020000"
     },
     {
-      "no": "2026-27",
-      "title": "도시계획시설(도로)사업 실시계획고시[도동 817-2번지선 도로개설공사]",
-      "dept": "건설과",
-      "date": "2026-03-19",
-      "views": "",
-      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58789&mid=0201020000"
-    },
-    {
       "no": "2026-28",
       "title": "도시계획시설(도로)사업 실시계획고시[미대동 260번지선 도로개설공사]",
       "dept": "건설과",
       "date": "2026-03-19",
       "views": "",
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58790&mid=0201020000"
+    },
+    {
+      "no": "2026-27",
+      "title": "도시계획시설(도로)사업 실시계획고시[도동 817-2번지선 도로개설공사]",
+      "dept": "건설과",
+      "date": "2026-03-19",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58789&mid=0201020000"
     },
     {
       "no": "2026-13",
@@ -254,12 +254,12 @@
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58408&mid=0201020000"
     },
     {
-      "no": "2026-222",
-      "title": "도로사용개시에 관한 공고[안심3,4동 안심중학교 남북간 도로개설공사]",
+      "no": "2026-194",
+      "title": "도시계획시설(도로) 사업 공사완료 공고[안심3,4동 안심중학교 남북간 도로개설공사]",
       "dept": "건설과",
       "date": "2026-02-10",
       "views": "",
-      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58332&mid=0201020000"
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58291&mid=0201020000"
     },
     {
       "no": "2025-1754",
@@ -292,14 +292,6 @@
       "date": "2025-11-10",
       "views": "",
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=57076&mid=0201020000"
-    },
-    {
-      "no": "2016-130",
-      "title": "지적측량기준점(도근점)성과 고시",
-      "dept": "토지정보과",
-      "date": "2016-10-26",
-      "views": "",
-      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=24757&mid=0201020000"
     }
   ]
 }
