@@ -72,7 +72,9 @@ SOURCES = {
         "viewUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170"
                    "&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do",
         "depts": ["도시", "주택", "건설", "건축", "토지"],  # 부서명 부분검색 키워드 (검색별 결과를 병합)
-        "deptField": "searchDept_nm",
+        "titles": ["재건축", "재개발"],  # 제목 검색 키워드 (부서 검색과 별개로 병합)
+        "deptQuery": "searchDept_nm={kw}",
+        "titleQuery": "searchField=TITLE&searchTitle={kw}",
         "parser": "daegu",
     },
     "daegu_build": {
@@ -83,6 +85,7 @@ SOURCES = {
         "viewUrl": "https://www.daegu.go.kr/build/index.do?menu_id=00001338"
                    "&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153",
         "depts": [],  # 부서 필터 없이 전체 목록
+        "titles": [],  # 이 게시판은 제목 검색 제외
         "parser": "icms",
     },
     "jung": {
@@ -91,7 +94,9 @@ SOURCES = {
         "listUrl": _JUNG_LIST,
         "viewUrl": _JUNG_VIEW,
         "depts": ["도시디자인", "주택", "건설"],
-        "deptField": "dept_nm",
+        "titles": ["재건축", "재개발"],
+        "deptQuery": "dept_nm={kw}",
+        "titleQuery": "not_ancmt_sj={kw}",
         "parser": "eminwon",
     },
     "suseong": {
@@ -100,7 +105,9 @@ SOURCES = {
         "listUrl": _SUSEONG_LIST,
         "viewUrl": _SUSEONG_VIEW,
         "depts": ["도시디자인", "건축", "건설"],
-        "deptField": "dept_nm",
+        "titles": ["재건축", "재개발"],
+        "deptQuery": "dept_nm={kw}",
+        "titleQuery": "not_ancmt_sj={kw}",
         "parser": "eminwon",
     },
     "dalseo": {
@@ -109,7 +116,9 @@ SOURCES = {
         "listUrl": _DALSEO_LIST,
         "viewUrl": _DALSEO_VIEW,
         "depts": ["도시디자인", "건설", "건축", "토지정보"],
-        "deptField": "dept_nm",
+        "titles": ["재건축", "재개발"],
+        "deptQuery": "dept_nm={kw}",
+        "titleQuery": "not_ancmt_sj={kw}",
         "parser": "eminwon",
     },
     "dong": {
@@ -117,9 +126,11 @@ SOURCES = {
         "boardUrl": "https://dong.daegu.kr/portal/saeol/gosi/list.do?seCode=01&mid=0201020000",
         "origin": "https://dong.daegu.kr",
         "listUrl": "https://dong.daegu.kr/portal/saeol/gosi/list.do"
-                   "?seCode=01&mid=0201020000&searchType=dnm",
+                   "?seCode=01&mid=0201020000",
         "depts": ["도시", "주택", "건설", "토지"],
-        "deptField": "searchTxt",
+        "titles": ["재건축", "재개발"],
+        "deptQuery": "searchType=dnm&searchTxt={kw}",
+        "titleQuery": "searchType=tit&searchTxt={kw}",
         "pageField": "page",
         "parser": "saeol",
     },
@@ -128,9 +139,11 @@ SOURCES = {
         "boardUrl": "https://www.dgs.go.kr/portal/saeol/gosi/list.do?seCode=01&endYn=N&mid=0601020100",
         "origin": "https://www.dgs.go.kr",
         "listUrl": "https://www.dgs.go.kr/portal/saeol/gosi/list.do"
-                   "?seCode=01&endYn=N&mid=0601020100&searchType=dnm",
+                   "?seCode=01&endYn=N&mid=0601020100",
         "depts": ["도시", "건축", "건설"],
-        "deptField": "searchTxt",
+        "titles": ["재건축", "재개발"],
+        "deptQuery": "searchType=dnm&searchTxt={kw}",
+        "titleQuery": "searchType=tit&searchTxt={kw}",
         "pageField": "page",
         "parser": "saeol",
     },
@@ -140,8 +153,10 @@ SOURCES = {
         "listUrl": _DALSEONG_LIST,
         "viewUrl": _DALSEONG_VIEW,
         "depts": ["건설", "도시", "건축", "토지"],
-        # 서버측 담당부서 검색이 무시되어 목록 50건을 받아 자체 필터링
+        "titles": ["재건축", "재개발"],
+        # 서버측 담당부서 검색이 무시되어 목록 50건을 받아 자체 필터링 (제목 검색은 서버측 동작)
         "deptFilter": "client",
+        "titleQuery": "not_ancmt_sj={kw}",
         "parser": "eminwon",
     },
 }
@@ -375,18 +390,27 @@ def fetch_source(source_id, source, page=1):
             seen_urls.add(item["url"])
             items.append(item)
 
+    def query_of(template, kw):
+        return "&" + template.replace("{kw}", urllib.parse.quote(kw))
+
+    # 1) 부서 검색
     if source.get("deptFilter") == "client":
         # 서버측 부서 검색이 동작하지 않는 기관: 전체 목록을 받아 자체 필터링
         collect(f"{source['listUrl']}&{page_field}={page}")
         items[:] = [it for it in items
                     if any(kw in it["dept"] for kw in source["depts"])]
+        # 필터로 제외된 URL 이 이후 제목 검색에서 다시 들어올 수 있게 초기화
+        seen_urls.clear()
+        seen_urls.update(it["url"] for it in items)
     else:
         for dept in (source["depts"] or [""]):
-            dept_param = (
-                f"&{source['deptField']}={urllib.parse.quote(dept)}"
-                if dept and source.get("deptField") else ""
-            )
+            dept_param = query_of(source["deptQuery"], dept) if dept and source.get("deptQuery") else ""
             collect(f"{source['listUrl']}{dept_param}&{page_field}={page}")
+
+    # 2) 제목 검색 (부서 검색과 별개로 병합)
+    if source.get("titleQuery"):
+        for kw in source.get("titles", []):
+            collect(f"{source['listUrl']}{query_of(source['titleQuery'], kw)}&{page_field}={page}")
 
     # 등록일 1년 이상 지난 항목 제외 (날짜 없는 항목은 유지)
     cutoff = (datetime.now() - timedelta(days=365)).strftime("%Y-%m-%d")
@@ -401,6 +425,7 @@ def fetch_source(source_id, source, page=1):
         "sourceName": source["name"],
         "boardUrl": source["boardUrl"],
         "depts": source["depts"],
+        "titles": source.get("titles", []),
         "page": page,
         "count": len(items),
         "updatedAt": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),

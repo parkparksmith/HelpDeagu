@@ -9,9 +9,13 @@
     "건축",
     "토지정보"
   ],
+  "titles": [
+    "재건축",
+    "재개발"
+  ],
   "page": 1,
-  "count": 31,
-  "updatedAt": "2026-08-16 23:22:28",
+  "count": 36,
+  "updatedAt": "2026-08-16 23:41:18",
   "items": [
     {
       "no": "2026-1199",
@@ -198,6 +202,22 @@
       "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=55692"
     },
     {
+      "no": "2026-49",
+      "title": "성당우방아파트 재건축 사업시행계획변경인가 고시",
+      "dept": "건축과",
+      "date": "2026-05-29",
+      "views": "41",
+      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=55305"
+    },
+    {
+      "no": "2026-35",
+      "title": "청구그린맨션1차아파트 재건축정비사업 조합설립추진위원회 승인 고시",
+      "dept": "건축과",
+      "date": "2026-04-21",
+      "views": "65",
+      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=54806"
+    },
+    {
       "no": "2026-501",
       "title": "도시개발사업 공사완료 공고",
       "dept": "도시디자인과",
@@ -260,6 +280,30 @@
       "date": "2025-12-26",
       "views": "59",
       "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=53516"
+    },
+    {
+      "no": "2025-119",
+      "title": "우방청자아파트 재건축 정비사업 조합설립추진위원회 구성·승인 고시",
+      "dept": "건축과",
+      "date": "2025-12-11",
+      "views": "63",
+      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=53218"
+    },
+    {
+      "no": "2025-114",
+      "title": "월촌역 청솔 재개발정비사업 조합설립추진위원회 구성 승인 고시",
+      "dept": "건축과",
+      "date": "2025-12-01",
+      "views": "43",
+      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=53053"
+    },
+    {
+      "no": "2025-106",
+      "title": "송현월성아파트 재건축 정비사업 조합설립추진위원회 구성·승인 고시",
+      "dept": "건축과",
+      "date": "2025-11-11",
+      "views": "48",
+      "url": "https://eminwon.dalseo.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=52758"
     }
   ]
 }

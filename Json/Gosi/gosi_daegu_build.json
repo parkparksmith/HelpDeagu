@@ -4,9 +4,10 @@
   "sourceName": "대구시청 도시/주택/건설 소식",
   "boardUrl": "https://www.daegu.go.kr/build/index.do?menu_id=00001338",
   "depts": [],
+  "titles": [],
   "page": 1,
   "count": 10,
-  "updatedAt": "2026-08-16 23:21:52",
+  "updatedAt": "2026-08-16 23:40:25",
   "items": [
     {
       "no": "1334",
@@ -53,7 +54,7 @@
       "title": "주택건설사업 추진현황(2026년 6월말 기준)",
       "dept": "이훈국",
       "date": "2026-07-29",
-      "views": "289",
+      "views": "290",
       "url": "https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153&nttId=815748"
     },
     {

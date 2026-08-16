@@ -14,6 +14,7 @@ const GOSI_SOURCES = [
         name: '대구시청 고시공고',
         desc: '부서명 검색 결과 통합 (중복 제거, 날짜순)',
         depts: ['도시', '주택', '건설', '건축', '토지'], // 부서명 부분검색 키워드 (검색별 결과를 병합)
+        titles: ['재건축', '재개발'], // 제목 검색 키워드 (부서 검색과 별개로 병합)
         boardUrl: `${DAEGU_LIST_URL}&pageIndex=1`,
         jsonPath: '../Json/Gosi/gosi_daegu.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_daegu.json'
@@ -23,6 +24,7 @@ const GOSI_SOURCES = [
         name: '대구시청 도시/주택/건설 소식',
         desc: '도시·주택·건설 분야 소식 게시판 1페이지',
         depts: [], // 검색 필터 없이 전체 목록
+        titles: [], // 이 게시판은 제목 검색 제외
         boardUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338',
         jsonPath: '../Json/Gosi/gosi_daegu_build.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_daegu_build.json'
@@ -32,6 +34,7 @@ const GOSI_SOURCES = [
         name: '중구청 고시공고',
         desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
         depts: ['도시디자인', '주택', '건설'],
+        titles: ['재건축', '재개발'],
         // 게시판이 iframe(새올 전자민원)이라 검색 상태 링크는 불가, 게시판 페이지로 이동
         boardUrl: 'https://www.jung.daegu.kr/new/pages/administration/page.html?mc=0159',
         jsonPath: '../Json/Gosi/gosi_jung.json',
@@ -42,6 +45,7 @@ const GOSI_SOURCES = [
         name: '수성구청 고시공고',
         desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
         depts: ['도시디자인', '건축', '건설'],
+        titles: ['재건축', '재개발'],
         boardUrl: 'https://www.suseong.kr/index.do?menu_id=00000064',
         jsonPath: '../Json/Gosi/gosi_suseong.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_suseong.json'
@@ -51,6 +55,7 @@ const GOSI_SOURCES = [
         name: '달서구청 고시공고',
         desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
         depts: ['도시디자인', '건설', '건축', '토지정보'],
+        titles: ['재건축', '재개발'],
         boardUrl: 'https://www.dalseo.daegu.kr/index.do?menu_id=10000104',
         jsonPath: '../Json/Gosi/gosi_dalseo.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_dalseo.json'
@@ -60,6 +65,7 @@ const GOSI_SOURCES = [
         name: '동구청 고시공고',
         desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
         depts: ['도시', '주택', '건설', '토지'],
+        titles: ['재건축', '재개발'],
         boardUrl: 'https://dong.daegu.kr/portal/saeol/gosi/list.do?seCode=01&mid=0201020000',
         jsonPath: '../Json/Gosi/gosi_dong.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_dong.json'
@@ -69,6 +75,7 @@ const GOSI_SOURCES = [
         name: '서구청 고시공고',
         desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
         depts: ['도시', '건축', '건설'],
+        titles: ['재건축', '재개발'],
         boardUrl: 'https://www.dgs.go.kr/portal/saeol/gosi/list.do?seCode=01&endYn=N&mid=0601020100',
         jsonPath: '../Json/Gosi/gosi_seogu.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_seogu.json'
@@ -78,6 +85,7 @@ const GOSI_SOURCES = [
         name: '달성군청 고시공고',
         desc: '최근 50건 중 담당부서 필터 (사이트 부서검색 미지원)',
         depts: ['건설', '도시', '건축', '토지'],
+        titles: ['재건축', '재개발'],
         boardUrl: 'https://www.dalseong.daegu.kr/index.do?menu_id=00000194',
         jsonPath: '../Json/Gosi/gosi_dalseong.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_dalseong.json'
@@ -104,7 +112,7 @@ function renderSourceCard(source) {
                 <span class="material-icons-round">campaign</span>
             </div>
             <div class="source-info">
-                <h2>${escapeHtml(source.name)}${source.depts.map(d => `<span class="gosi-filter-badge"><span class="material-icons-round" style="font-size:0.8rem;">filter_alt</span>${escapeHtml(d)}</span>`).join('')}</h2>
+                <h2>${escapeHtml(source.name)}${source.depts.map(d => `<span class="gosi-filter-badge"><span class="material-icons-round" style="font-size:0.8rem;">filter_alt</span>${escapeHtml(d)}</span>`).join('')}${source.titles.map(t => `<span class="gosi-filter-badge"><span class="material-icons-round" style="font-size:0.8rem;">search</span>${escapeHtml(t)}</span>`).join('')}</h2>
                 <p class="source-desc">${escapeHtml(source.desc)} · 클릭하면 검색된 게시판으로 이동</p>
             </div>
             <span class="material-icons-round go-icon">open_in_new</span>
@@ -164,7 +172,7 @@ async function fetchJson(url) {
 
 async function loadSource(source) {
     const cacheBust = `t=${Date.now()}`;
-    const apiParams = new URLSearchParams({ source: source.id, dept: source.depts.join(','), page: '1' });
+    const apiParams = new URLSearchParams({ source: source.id, dept: source.depts.join(','), title: source.titles.join(','), page: '1' });
 
     // 실시간 API → 커밋된 JSON → GitHub raw 순서로 시도
     const attempts = [

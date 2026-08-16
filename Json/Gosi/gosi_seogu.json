@@ -8,9 +8,13 @@
     "건축",
     "건설"
   ],
+  "titles": [
+    "재건축",
+    "재개발"
+  ],
   "page": 1,
-  "count": 30,
-  "updatedAt": "2026-08-16 23:22:33",
+  "count": 39,
+  "updatedAt": "2026-08-16 23:41:24",
   "items": [
     {
       "no": "2026-785",
@@ -197,6 +201,14 @@
       "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34586&mid=0601020100"
     },
     {
+      "no": "2026-18",
+      "title": "평리6재정비촉진구역 주택재개발정비사업 사업시행계획(변경)인가 고시",
+      "dept": "건축주택과",
+      "date": "2026-03-03",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34542&mid=0601020100"
+    },
+    {
       "no": "2026-197",
       "title": "도시계획시설(서부제15공원)사업 공사완료 공고",
       "dept": "도시공원과",
@@ -251,6 +263,70 @@
       "date": "2026-01-12",
       "views": "",
       "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34131&mid=0601020100"
+    },
+    {
+      "no": "2026-1",
+      "title": "광장타운1차아파트 재건축정비사업 조합설립추진위원회 구성・승인 고시",
+      "dept": "건축주택과",
+      "date": "2026-01-12",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34103&mid=0601020100"
+    },
+    {
+      "no": "2026-2",
+      "title": "평리3재정비촉진구역 주택재개발정비사업 준공인가 고시",
+      "dept": "건축주택과",
+      "date": "2026-01-12",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34130&mid=0601020100"
+    },
+    {
+      "no": "2026-3",
+      "title": "평리5재정비촉진구역 주택재개발정비사업 준공인가 고시",
+      "dept": "건축주택과",
+      "date": "2026-01-12",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34132&mid=0601020100"
+    },
+    {
+      "no": "2025-56",
+      "title": "평리5재정비촉진구역 주택재개발정비사업 사업시행계획(변경)인가 고시",
+      "dept": "건축주택과",
+      "date": "2025-11-20",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=33783&mid=0601020100"
+    },
+    {
+      "no": "2025-50",
+      "title": "평리3동 재건축사업 이전고시",
+      "dept": "건축주택과",
+      "date": "2025-09-30",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=33514&mid=0601020100"
+    },
+    {
+      "no": "2025-47",
+      "title": "평리4재정비촉진구역 주택재개발정비사업 관리처분계획(변경)인가 고시",
+      "dept": "건축주택과",
+      "date": "2025-09-22",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=33480&mid=0601020100"
+    },
+    {
+      "no": "2025-41",
+      "title": "내당시영아파트 재건축사업 사업시행계획인가 고시",
+      "dept": "건축주택과",
+      "date": "2025-09-10",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=33389&mid=0601020100"
+    },
+    {
+      "no": "2025-42",
+      "title": "평리3동 재건축사업 관리처분계획(변경) 인가 고시",
+      "dept": "건축주택과",
+      "date": "2025-09-10",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=33394&mid=0601020100"
     }
   ]
 }

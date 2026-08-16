@@ -40,7 +40,9 @@ const SOURCES = {
         listUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiList.do',
         viewUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do',
         defaultDepts: ['도시', '주택', '건설', '건축', '토지'], // 부서명 부분검색 키워드 (검색별 결과를 병합)
-        deptField: 'searchDept_nm',
+        defaultTitles: ['재건축', '재개발'], // 제목 검색 키워드 (부서 검색과 별개로 병합)
+        deptQuery: 'searchDept_nm={kw}',
+        titleQuery: 'searchField=TITLE&searchTitle={kw}',
         parse: parseDaeguList
     },
     daegu_build: {
@@ -49,6 +51,7 @@ const SOURCES = {
         listUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardList.do&bbsId=BBS_00153',
         viewUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153',
         defaultDepts: [], // 부서 필터 없이 전체 목록
+        defaultTitles: [], // 이 게시판은 제목 검색 제외
         parse: parseIcmsList
     },
     jung: {
@@ -57,7 +60,9 @@ const SOURCES = {
         listUrl: JUNG.listUrl,
         viewUrl: JUNG.viewUrl,
         defaultDepts: ['도시디자인', '주택', '건설'],
-        deptField: 'dept_nm',
+        defaultTitles: ['재건축', '재개발'],
+        deptQuery: 'dept_nm={kw}',
+        titleQuery: 'not_ancmt_sj={kw}',
         parse: parseEminwonList
     },
     suseong: {
@@ -66,7 +71,9 @@ const SOURCES = {
         listUrl: SUSEONG.listUrl,
         viewUrl: SUSEONG.viewUrl,
         defaultDepts: ['도시디자인', '건축', '건설'],
-        deptField: 'dept_nm',
+        defaultTitles: ['재건축', '재개발'],
+        deptQuery: 'dept_nm={kw}',
+        titleQuery: 'not_ancmt_sj={kw}',
         parse: parseEminwonList
     },
     dalseo: {
@@ -75,16 +82,20 @@ const SOURCES = {
         listUrl: DALSEO.listUrl,
         viewUrl: DALSEO.viewUrl,
         defaultDepts: ['도시디자인', '건설', '건축', '토지정보'],
-        deptField: 'dept_nm',
+        defaultTitles: ['재건축', '재개발'],
+        deptQuery: 'dept_nm={kw}',
+        titleQuery: 'not_ancmt_sj={kw}',
         parse: parseEminwonList
     },
     dong: {
         name: '동구청 고시공고',
         boardUrl: 'https://dong.daegu.kr/portal/saeol/gosi/list.do?seCode=01&mid=0201020000',
         origin: 'https://dong.daegu.kr',
-        listUrl: 'https://dong.daegu.kr/portal/saeol/gosi/list.do?seCode=01&mid=0201020000&searchType=dnm',
+        listUrl: 'https://dong.daegu.kr/portal/saeol/gosi/list.do?seCode=01&mid=0201020000',
         defaultDepts: ['도시', '주택', '건설', '토지'],
-        deptField: 'searchTxt',
+        defaultTitles: ['재건축', '재개발'],
+        deptQuery: 'searchType=dnm&searchTxt={kw}',
+        titleQuery: 'searchType=tit&searchTxt={kw}',
         pageField: 'page',
         parse: parseSaeolList
     },
@@ -92,9 +103,11 @@ const SOURCES = {
         name: '서구청 고시공고',
         boardUrl: 'https://www.dgs.go.kr/portal/saeol/gosi/list.do?seCode=01&endYn=N&mid=0601020100',
         origin: 'https://www.dgs.go.kr',
-        listUrl: 'https://www.dgs.go.kr/portal/saeol/gosi/list.do?seCode=01&endYn=N&mid=0601020100&searchType=dnm',
+        listUrl: 'https://www.dgs.go.kr/portal/saeol/gosi/list.do?seCode=01&endYn=N&mid=0601020100',
         defaultDepts: ['도시', '건축', '건설'],
-        deptField: 'searchTxt',
+        defaultTitles: ['재건축', '재개발'],
+        deptQuery: 'searchType=dnm&searchTxt={kw}',
+        titleQuery: 'searchType=tit&searchTxt={kw}',
         pageField: 'page',
         parse: parseSaeolList
     },
@@ -104,8 +117,10 @@ const SOURCES = {
         listUrl: DALSEONG.listUrl,
         viewUrl: DALSEONG.viewUrl,
         defaultDepts: ['건설', '도시', '건축', '토지'],
-        // 서버측 담당부서 검색이 무시되어 목록 50건을 받아 자체 필터링
+        defaultTitles: ['재건축', '재개발'],
+        // 서버측 담당부서 검색이 무시되어 목록 50건을 받아 자체 필터링 (제목 검색은 서버측 동작)
         deptFilter: 'client',
+        titleQuery: 'not_ancmt_sj={kw}',
         parse: parseEminwonList
     }
 };
@@ -336,17 +351,17 @@ export async function onRequest(context) {
             }), { status: 400, headers: corsHeaders });
         }
 
-        // dept는 콤마로 구분된 여러 검색어를 받는다 (예: dept=도시,건축)
-        const deptRaw = params.get('dept');
-        const depts = deptRaw !== null
-            ? deptRaw.split(',').map(s => s.trim()).filter(Boolean)
-            : source.defaultDepts;
+        // dept/title은 콤마로 구분된 여러 검색어를 받는다 (예: dept=도시,건축&title=재건축)
+        const parseKeywords = (raw, fallback) => raw !== null
+            ? raw.split(',').map(s => s.trim()).filter(Boolean)
+            : fallback;
+        const depts = parseKeywords(params.get('dept'), source.defaultDepts);
+        const titles = parseKeywords(params.get('title'), source.defaultTitles || []);
         const page = params.get('page') || '1';
         const pageField = source.pageField || 'pageIndex';
 
-        const fetchOne = async (dept) => {
-            const deptParam = dept && source.deptField ? `&${source.deptField}=${encodeURIComponent(dept)}` : '';
-            const res = await fetch(`${source.listUrl}${deptParam}&${pageField}=${encodeURIComponent(page)}`, {
+        const fetchOne = async (query) => {
+            const res = await fetch(`${source.listUrl}${query}&${pageField}=${encodeURIComponent(page)}`, {
                 headers: {
                     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36',
                     'Accept-Language': 'ko-KR,ko;q=0.9'
@@ -355,14 +370,27 @@ export async function onRequest(context) {
             if (!res.ok) throw new Error(`원본 사이트 응답 오류 (HTTP ${res.status})`);
             return source.parse(await res.text(), source);
         };
+        const queryOf = (template, kw) => '&' + template.replace('{kw}', encodeURIComponent(kw));
 
+        // 부서 검색
         let lists;
         if (source.deptFilter === 'client') {
             // 서버측 부서 검색이 동작하지 않는 기관: 전체 목록을 받아 자체 필터링
             const all = await fetchOne('');
             lists = [all.filter(item => depts.some(kw => item.dept.includes(kw)))];
         } else {
-            lists = await Promise.all((depts.length ? depts : ['']).map(fetchOne));
+            const deptQueries = (depts.length ? depts : ['']).map(
+                dept => dept && source.deptQuery ? queryOf(source.deptQuery, dept) : ''
+            );
+            lists = await Promise.all(deptQueries.map(fetchOne));
+        }
+
+        // 제목 검색 (부서 검색과 별개로 병합)
+        if (source.titleQuery && titles.length) {
+            const titleLists = await Promise.all(
+                titles.map(kw => fetchOne(queryOf(source.titleQuery, kw)))
+            );
+            lists = lists.concat(titleLists);
         }
 
         // 병합 후 중복 제거(상세 URL 기준), 등록일 내림차순 정렬
@@ -387,6 +415,7 @@ export async function onRequest(context) {
             sourceName: source.name,
             boardUrl: source.boardUrl,
             depts,
+            titles,
             page: Number(page),
             count: recent.length,
             items: recent

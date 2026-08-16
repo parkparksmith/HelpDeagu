@@ -9,9 +9,13 @@
     "건설",
     "토지"
   ],
+  "titles": [
+    "재건축",
+    "재개발"
+  ],
   "page": 1,
-  "count": 35,
-  "updatedAt": "2026-08-16 23:22:30",
+  "count": 37,
+  "updatedAt": "2026-08-16 23:41:21",
   "items": [
     {
       "no": "2026-1530",
@@ -38,20 +42,20 @@
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60601&mid=0201020000"
     },
     {
-      "no": "2026-1498",
-      "title": "위반건축물 이행강제금 부과통지 공시송달 공고",
-      "dept": "건축주택과",
-      "date": "2026-08-07",
-      "views": "",
-      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60580&mid=0201020000"
-    },
-    {
       "no": "2026-1491",
       "title": "위반건축물 처분사전통지, 이행강제금 부과통지 공시송달",
       "dept": "건축주택과",
       "date": "2026-08-07",
       "views": "",
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60564&mid=0201020000"
+    },
+    {
+      "no": "2026-1498",
+      "title": "위반건축물 이행강제금 부과통지 공시송달 공고",
+      "dept": "건축주택과",
+      "date": "2026-08-07",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60580&mid=0201020000"
     },
     {
       "no": "2026-1494",
@@ -230,20 +234,20 @@
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58818&mid=0201020000"
     },
     {
-      "no": "2026-28",
-      "title": "도시계획시설(도로)사업 실시계획고시[미대동 260번지선 도로개설공사]",
-      "dept": "건설과",
-      "date": "2026-03-19",
-      "views": "",
-      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58790&mid=0201020000"
-    },
-    {
       "no": "2026-27",
       "title": "도시계획시설(도로)사업 실시계획고시[도동 817-2번지선 도로개설공사]",
       "dept": "건설과",
       "date": "2026-03-19",
       "views": "",
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58789&mid=0201020000"
+    },
+    {
+      "no": "2026-28",
+      "title": "도시계획시설(도로)사업 실시계획고시[미대동 260번지선 도로개설공사]",
+      "dept": "건설과",
+      "date": "2026-03-19",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58790&mid=0201020000"
     },
     {
       "no": "2026-13",
@@ -254,12 +258,12 @@
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58408&mid=0201020000"
     },
     {
-      "no": "2026-194",
-      "title": "도시계획시설(도로) 사업 공사완료 공고[안심3,4동 안심중학교 남북간 도로개설공사]",
+      "no": "2026-222",
+      "title": "도로사용개시에 관한 공고[안심3,4동 안심중학교 남북간 도로개설공사]",
       "dept": "건설과",
       "date": "2026-02-10",
       "views": "",
-      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58291&mid=0201020000"
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58332&mid=0201020000"
     },
     {
       "no": "2025-1754",
@@ -292,6 +296,22 @@
       "date": "2025-11-10",
       "views": "",
       "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=57076&mid=0201020000"
+    },
+    {
+      "no": "2025-88",
+      "title": "이전고시(동신천연합 주택재건축정비사업)",
+      "dept": "건축주택과",
+      "date": "2025-09-01",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=56457&mid=0201020000"
+    },
+    {
+      "no": "2025-84",
+      "title": "동신천연합 주택재건축정비사업 관리처분계획(변경)인가 정정고시",
+      "dept": "건축주택과",
+      "date": "2025-08-20",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=56344&mid=0201020000"
     }
   ]
 }

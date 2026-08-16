@@ -8,9 +8,13 @@
     "건축",
     "건설"
   ],
+  "titles": [
+    "재건축",
+    "재개발"
+  ],
   "page": 1,
-  "count": 30,
-  "updatedAt": "2026-08-16 23:22:14",
+  "count": 36,
+  "updatedAt": "2026-08-16 23:40:57",
   "items": [
     {
       "no": "2026-1255",
@@ -229,12 +233,36 @@
       "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=51794"
     },
     {
+      "no": "2026-46",
+      "title": "산장맨션 재건축사업 조합설립추진위원회 구성·승인 고시",
+      "dept": "건축과",
+      "date": "2026-04-20",
+      "views": "86",
+      "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=51708"
+    },
+    {
       "no": "2026-567",
       "title": "대구광역시 수성구 미집행 도시계획시설 단계별 집행계획 공고",
       "dept": "도시디자인과",
       "date": "2026-04-10",
       "views": "61",
       "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=51593"
+    },
+    {
+      "no": "2026-38",
+      "title": "중동희망지구 재건축사업 관리처분계획인가 고시",
+      "dept": "건축과",
+      "date": "2026-04-06",
+      "views": "93",
+      "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=51540"
+    },
+    {
+      "no": "2026-25",
+      "title": "『광명아파트 주택재건축사업』사업시행계획(변경)인가 고시",
+      "dept": "건축과",
+      "date": "2026-03-10",
+      "views": "77",
+      "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=51315"
     },
     {
       "no": "2026-11",
@@ -245,12 +273,36 @@
       "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=50933"
     },
     {
+      "no": "2026-15",
+      "title": "조합설립변경인가 고시[범어공원풀비체 소규모재건축정비사업]",
+      "dept": "건축과",
+      "date": "2026-01-30",
+      "views": "110",
+      "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=50976"
+    },
+    {
+      "no": "2026-14",
+      "title": "조합설립변경인가 고시[청구매일맨션 소규모재건축정비사업]",
+      "dept": "건축과",
+      "date": "2026-01-26",
+      "views": "73",
+      "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=50974"
+    },
+    {
       "no": "2026-87",
       "title": "도시계획시설(도로)사업 공사완료 공고",
       "dept": "도시디자인과",
       "date": "2026-01-20",
       "views": "22",
       "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=50887"
+    },
+    {
+      "no": "2025-131",
+      "title": "수성구30-11구역 재개발사업 조합설립추진위원회 구성·승인 고시",
+      "dept": "건축과",
+      "date": "2025-11-28",
+      "views": "154",
+      "url": "https://eminwon.suseong.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=N&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0&not_ancmt_mgt_no=50355"
     }
   ]
 }

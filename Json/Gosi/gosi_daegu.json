@@ -10,16 +10,20 @@
     "건축",
     "토지"
   ],
+  "titles": [
+    "재건축",
+    "재개발"
+  ],
   "page": 1,
-  "count": 40,
-  "updatedAt": "2026-08-16 23:21:52",
+  "count": 56,
+  "updatedAt": "2026-08-16 23:40:25",
   "items": [
     {
       "no": "2026-1110",
       "title": "2026년도 달성습지 유지관리 기간제근로자(3기) 채용 서류전형 합격자 공고",
       "dept": "도시공원관리사무소 달성습지관리소",
       "date": "2026-08-13",
-      "views": "192",
+      "views": "193",
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46601&gosi_gbn=A"
     },
     {
@@ -27,7 +31,7 @@
       "title": "2026년도 달성습지생태학습관 청소 및 조경관리 기간제근로자 채용 서류전형 합격자 공고",
       "dept": "도시공원관리사무소 달성습지관리소",
       "date": "2026-08-13",
-      "views": "146",
+      "views": "147",
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46597&gosi_gbn=A"
     },
     {
@@ -191,6 +195,14 @@
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46345&gosi_gbn=A"
     },
     {
+      "no": "2026-135",
+      "title": "수성1지구 재개발사업 정비구역 변경지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2026-07-20",
+      "views": "73",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46411&gosi_gbn=N"
+    },
+    {
       "no": "2026-985",
       "title": "대구광역시 공공건축가 공개모집 공고",
       "dept": "도시주택국 건축과",
@@ -215,12 +227,28 @@
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46260&gosi_gbn=N"
     },
     {
+      "no": "2026-110",
+      "title": "지산목련아파트 재건축사업 정비구역 지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2026-06-18",
+      "views": "131",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46161&gosi_gbn=N"
+    },
+    {
       "no": "2026-844",
       "title": "대구광역시 건축사징계위원회 위원 공개모집 공고",
       "dept": "도시주택국 건축과",
       "date": "2026-06-10",
       "views": "101",
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46171&gosi_gbn=A"
+    },
+    {
+      "no": "2026-109",
+      "title": "동구43 재개발사업 정비구역 변경 지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2026-06-10",
+      "views": "92",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46160&gosi_gbn=N"
     },
     {
       "no": "2026-72",
@@ -231,12 +259,28 @@
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46180&gosi_gbn=A"
     },
     {
+      "no": "2026-101",
+      "title": "서대구지구 재개발사업 정비구역 변경지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2026-06-01",
+      "views": "89",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=46119&gosi_gbn=N"
+    },
+    {
       "no": "2026-713",
       "title": "부동산개발업 등록말소 공고",
       "dept": "도시주택국 토지정보과",
       "date": "2026-05-11",
       "views": "66",
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45959&gosi_gbn=A"
+    },
+    {
+      "no": "2026-74",
+      "title": "녹원맨션 재건축사업 정비기본계획 변경, 정비구역 지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2026-04-30",
+      "views": "108",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45887&gosi_gbn=N"
     },
     {
       "no": "2026-644",
@@ -261,6 +305,14 @@
       "date": "2026-03-30",
       "views": "40",
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45685&gosi_gbn=A"
+    },
+    {
+      "no": "2026-51",
+      "title": "대명3동 뉴타운 재개발사업 정비기본계획 변경, 정비구역 변경지정 및 지형도면 정정고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2026-03-30",
+      "views": "69",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45646&gosi_gbn=N"
     },
     {
       "no": "2026-529",
@@ -303,6 +355,22 @@
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45370&gosi_gbn=A"
     },
     {
+      "no": "2026-27",
+      "title": "대명4동 재개발사업 정비구역 해제기한 연장 결정 및 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2026-02-20",
+      "views": "42",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45220&gosi_gbn=N"
+    },
+    {
+      "no": "2026-25",
+      "title": "대명3동 뉴타운 재개발사업 정비기본계획 변경, 정비구역 변경지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2026-02-20",
+      "views": "53",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=45214&gosi_gbn=N"
+    },
+    {
       "no": "2026-184",
       "title": "토지거래허가구역 조정(일부해제) 공고",
       "dept": "도시주택국 토지정보과",
@@ -327,12 +395,76 @@
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=44807&gosi_gbn=A"
     },
     {
+      "no": "2025-243",
+      "title": "산장맨션 재건축사업 정비기본계획 변경, 정비구역 지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2025-12-22",
+      "views": "94",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=44708&gosi_gbn=N"
+    },
+    {
+      "no": "2025-227",
+      "title": "앵두 재건축사업 정비구역 해제기한 연장 결정 및 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2025-12-10",
+      "views": "47",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=44593&gosi_gbn=N"
+    },
+    {
       "no": "2025-1562",
       "title": "부동산개발업 등록 공고",
       "dept": "도시주택국 토지정보과",
       "date": "2025-12-01",
       "views": "36",
       "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=44453&gosi_gbn=A"
+    },
+    {
+      "no": "2025-217",
+      "title": "을지맨션 재건축사업 정비구역 변경지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2025-11-20",
+      "views": "66",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=44432&gosi_gbn=N"
+    },
+    {
+      "no": "2025-206",
+      "title": "대명2동 명덕지구 재개발사업 정비기본계획변경, 정비구역 지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2025-11-10",
+      "views": "99",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=44326&gosi_gbn=N"
+    },
+    {
+      "no": "2025-207",
+      "title": "우방범어타운2차 재건축사업 정비기본계획 변경, 정비구역 변경지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2025-11-06",
+      "views": "71",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=44327&gosi_gbn=N"
+    },
+    {
+      "no": "2025-184",
+      "title": "대명6동 44구역 재건축사업 정비기본계획변경, 정비구역 지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2025-10-20",
+      "views": "61",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=44137&gosi_gbn=N"
+    },
+    {
+      "no": "2025-161",
+      "title": "수성구30-11구역 재개발사업 정비기본계획 변경, 정비구역 지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2025-08-28",
+      "views": "263",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=43881&gosi_gbn=N"
+    },
+    {
+      "no": "2025-155",
+      "title": "문화지구 재개발사업 정비구역 변경 지정 및 지형도면 고시",
+      "dept": "도시주택국 도시정비과",
+      "date": "2025-08-20",
+      "views": "122",
+      "url": "https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do&sno=43824&gosi_gbn=N"
     }
   ]
 }
