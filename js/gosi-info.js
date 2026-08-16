@@ -27,8 +27,18 @@ const GOSI_SOURCES = [
         boardUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338',
         jsonPath: '../Json/Gosi/gosi_daegu_build.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_daegu_build.json'
+    },
+    {
+        id: 'jung',
+        name: '중구청 고시공고',
+        desc: '담당부서 "건축" 검색 결과 1페이지',
+        dept: '건축',
+        // 게시판이 iframe(새올 전자민원)이라 검색 상태 링크는 불가, 게시판 페이지로 이동
+        boardUrl: 'https://www.jung.daegu.kr/new/pages/administration/page.html?mc=0159',
+        jsonPath: '../Json/Gosi/gosi_jung.json',
+        rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_jung.json'
     }
-    // TODO: 중구청, 동구청, 서구청, 남구청, 북구청, 수성구청, 달서구청, 달성군청, 군위군청 추가 예정
+    // TODO: 동구청, 서구청, 남구청, 북구청, 수성구청, 달서구청, 달성군청, 군위군청 추가 예정
 ];
 
 function escapeHtml(str) {

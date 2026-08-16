@@ -10,6 +10,7 @@ const SOURCES = {
         listUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiList.do',
         viewUrl: 'https://www.daegu.go.kr/index.do?menu_id=00940170&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do',
         defaultDept: '도시주택국',
+        deptField: 'searchDept_nm',
         parse: parseDaeguList
     },
     daegu_build: {
@@ -19,6 +20,20 @@ const SOURCES = {
         viewUrl: 'https://www.daegu.go.kr/build/index.do?menu_id=00001338&menu_link=/icms/bbs/selectBoardArticle.do&bbsId=BBS_00153',
         defaultDept: '', // 부서 필터 없이 전체 목록
         parse: parseIcmsList
+    },
+    jung: {
+        name: '중구청 고시공고',
+        boardUrl: 'https://www.jung.daegu.kr/new/pages/administration/page.html?mc=0159',
+        // 새올 전자민원(eminwon) 목록 조회. initValue=Y 가 없으면 검색 필터가 무시된다
+        listUrl: 'https://eminwon.jung.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do'
+            + '?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectListOfrNotAncmt&methodnm=selectListOfrNotAncmtHomepage'
+            + '&homepage_pbs_yn=Y&subCheck=Y&ofr_pageSize=10&not_ancmt_se_code=01%2C04&initValue=Y&countYn=Y&yyyy=2018',
+        viewUrl: 'https://eminwon.jung.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do'
+            + '?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst'
+            + '&homepage_pbs_yn=Y&subCheck=Y&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0',
+        defaultDept: '건축',
+        deptField: 'dept_nm',
+        parse: parseEminwonList
     }
 };
 
@@ -110,6 +125,39 @@ function parseIcmsList(html, source) {
     return items;
 }
 
+// 새올 전자민원(eminwon) 고시공고 목록 파싱 (구청 공통)
+// 행 구조: 번호 / 고시공고번호 / 제목(searchDetail('mgtNo')) / 담당부서 / 등록일 / 조회수
+function parseEminwonList(html, source) {
+    const items = [];
+
+    const tableMatch = html.match(/<table[^>]*class="boardList[\s\S]*?<tbody>([\s\S]*?)<\/tbody>/);
+    if (!tableMatch) return items;
+
+    // 줄무늬 행은 <tr style="..."> 형태라 속성까지 허용해야 한다
+    const rowRegex = /<tr[^>]*>([\s\S]*?)<\/tr>/g;
+    let row;
+    while ((row = rowRegex.exec(tableMatch[1])) !== null) {
+        const tr = row[1];
+
+        const linkMatch = tr.match(/searchDetail\('(\d+)'\)[^>]*>([\s\S]*?)<\/a>/);
+        if (!linkMatch) continue;
+
+        const tds = [...tr.matchAll(/<td[^>]*>([\s\S]*?)<\/td>/g)].map(td => cleanText(td[1]));
+        // 공고번호("대구광역시 중구 공고 제2026-748호")에서 짧은 번호만 추출
+        const noMatch = (tds[1] || '').match(/제?(\d{4}-\d+)호?/);
+
+        items.push({
+            no: noMatch ? noMatch[1] : (tds[1] || ''),
+            title: cleanText(linkMatch[2]),
+            dept: tds[3] || '',
+            date: tds[4] || '',
+            views: tds[5] || '',
+            url: `${source.viewUrl}&not_ancmt_mgt_no=${linkMatch[1]}`
+        });
+    }
+    return items;
+}
+
 export async function onRequest(context) {
     const { request } = context;
 
@@ -141,8 +189,8 @@ export async function onRequest(context) {
         const dept = params.get('dept') ?? source.defaultDept;
         const page = params.get('page') || '1';
 
-        // 부서 필터가 있는 기관만 검색 파라미터를 붙인다
-        const deptParam = dept ? `&searchDept_nm=${encodeURIComponent(dept)}` : '';
+        // 부서 필터가 있는 기관만 검색 파라미터를 붙인다 (파라미터 이름은 기관마다 다름)
+        const deptParam = dept && source.deptField ? `&${source.deptField}=${encodeURIComponent(dept)}` : '';
         const targetUrl = `${source.listUrl}${deptParam}&pageIndex=${encodeURIComponent(page)}`;
 
         const res = await fetch(targetUrl, {
