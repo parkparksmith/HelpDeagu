@@ -34,7 +34,7 @@ SOURCES = {
                    "&menu_link=/front/daeguSidoGosi/daeguSidoGosiList.do",
         "viewUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170"
                    "&menu_link=/front/daeguSidoGosi/daeguSidoGosiView.do",
-        "depts": ["도시", "건축"],  # 부서명 부분검색 키워드 (검색별 결과를 병합)
+        "depts": ["도시건설국", "건축주택과"],  # 부서명 부분검색 키워드 (검색별 결과를 병합)
         "deptField": "searchDept_nm",
         "parser": "daegu",
     },

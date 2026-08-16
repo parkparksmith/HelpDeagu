@@ -13,7 +13,7 @@ const GOSI_SOURCES = [
         id: 'daegu',
         name: '대구시청 고시공고',
         desc: '부서명 검색 결과 통합 (중복 제거, 날짜순)',
-        depts: ['도시', '건축'], // 부서명 부분검색 키워드 (검색별 결과를 병합)
+        depts: ['도시건설국', '건축주택과'], // 부서명 부분검색 키워드 (검색별 결과를 병합)
         boardUrl: `${DAEGU_LIST_URL}&pageIndex=1`,
         jsonPath: '../Json/Gosi/gosi_daegu.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_daegu.json'
