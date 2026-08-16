@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-08-06T07:15:14.607984",
+  "selected_date": "2026-08-06",
+  "summary": {
+    "total_apt_count": 0,
+    "total_presale_count": 1,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "남구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "분양권",
+      "raw_id": 129147,
+      "district": "대구광역시 남구 대명동",
+      "gu": "남구",
+      "dong": "대명동",
+      "bunji": "2301-2",
+      "apt_name": "대명자이 그랜드시티",
+      "area": 84.9177,
+      "contract_date": "2026-08-02",
+      "amount": 553000000,
+      "floor": 22,
+      "buyer_type": "개인",
+      "presale_type": "분양권",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 남구, 대구 서구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-08-06T07:13:00.932284",
+      "previous_high": 608440000,
+      "trade_count_3m_total": 115,
+      "trade_count_3m_area": 32,
+      "construction_year": null,
+      "road_name": null
+    }
+  ]
+}

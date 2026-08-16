@@ -1,0 +1,73 @@
+{
+  "key": "3731",
+  "export_date": "2026-06-14T07:14:10.048626",
+  "selected_date": "2026-06-14",
+  "summary": {
+    "total_apt_count": 2,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "중구",
+      "count": 1
+    },
+    {
+      "gu": "수성구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 638677,
+      "district": "대구광역시 중구 삼덕동2가",
+      "gu": "중구",
+      "dong": "삼덕동2가",
+      "bunji": "166",
+      "apt_name": "빌리브프리미어",
+      "area": 104.5014,
+      "contract_date": "2026-06-07",
+      "amount": 950000000,
+      "floor": 22,
+      "buyer_type": "개인",
+      "construction_year": 2023,
+      "road_name": "공평로 6",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 수성구, 대구 중구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-06-14T07:12:04.544982",
+      "previous_high": 1050000000,
+      "trade_count_3m_total": 4,
+      "trade_count_3m_area": 4,
+      "presale_type": null
+    },
+    {
+      "trade_type": "아파트",
+      "raw_id": 638468,
+      "district": "대구광역시 수성구 황금동",
+      "gu": "수성구",
+      "dong": "황금동",
+      "bunji": "365",
+      "apt_name": "캐슬골드파크4단지",
+      "area": 84.97,
+      "contract_date": "2026-06-02",
+      "amount": 635000000,
+      "floor": 7,
+      "buyer_type": "개인",
+      "construction_year": 2006,
+      "road_name": "청수로 261",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 수성구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-06-14T07:12:04.544982",
+      "previous_high": 800000000,
+      "trade_count_3m_total": 7,
+      "trade_count_3m_area": 3,
+      "presale_type": null
+    }
+  ]
+}
