@@ -1,0 +1,305 @@
+{
+  "success": true,
+  "source": "dong",
+  "sourceName": "동구청 고시공고",
+  "boardUrl": "https://dong.daegu.kr/portal/saeol/gosi/list.do?seCode=01&mid=0201020000",
+  "depts": [
+    "도시",
+    "주택",
+    "건설",
+    "토지"
+  ],
+  "page": 1,
+  "count": 36,
+  "updatedAt": "2026-08-16 15:08:50",
+  "items": [
+    {
+      "no": "2026-1530",
+      "title": "「하천법」위반에 따른 행정대집행 영장 공시송달 공고",
+      "dept": "건설과",
+      "date": "2026-08-14",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60632&mid=0201020000"
+    },
+    {
+      "no": "2026-1522",
+      "title": "전문건설업 신규등록 공고",
+      "dept": "건설과",
+      "date": "2026-08-13",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60619&mid=0201020000"
+    },
+    {
+      "no": "2026-1513",
+      "title": "「입석1지구」 지적재조사 조정금 분할납부 고지서 반송에 따른 공시송달 공고",
+      "dept": "토지정보과",
+      "date": "2026-08-11",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60601&mid=0201020000"
+    },
+    {
+      "no": "2026-1498",
+      "title": "위반건축물 이행강제금 부과통지 공시송달 공고",
+      "dept": "건축주택과",
+      "date": "2026-08-07",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60580&mid=0201020000"
+    },
+    {
+      "no": "2026-1491",
+      "title": "위반건축물 처분사전통지, 이행강제금 부과통지 공시송달",
+      "dept": "건축주택과",
+      "date": "2026-08-07",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60564&mid=0201020000"
+    },
+    {
+      "no": "2026-1496",
+      "title": "전문건설업 등록말소 처분 공고",
+      "dept": "건설과",
+      "date": "2026-08-07",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60578&mid=0201020000"
+    },
+    {
+      "no": "2026-1494",
+      "title": "전문건설업 폐업 공고",
+      "dept": "건설과",
+      "date": "2026-08-07",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60573&mid=0201020000"
+    },
+    {
+      "no": "2026-1497",
+      "title": "지적재조사사업 조정금 공탁 공고",
+      "dept": "토지정보과",
+      "date": "2026-08-07",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60579&mid=0201020000"
+    },
+    {
+      "no": "2026-1482",
+      "title": "무단점용 적치물 행정대집행 계고 공시송달 공고(수정)",
+      "dept": "도시과",
+      "date": "2026-08-06",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60553&mid=0201020000"
+    },
+    {
+      "no": "2026-73",
+      "title": "도로명주소 고시",
+      "dept": "토지정보과",
+      "date": "2026-08-06",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60571&mid=0201020000"
+    },
+    {
+      "no": "2026-1472",
+      "title": "무단점용 적치물 행정대집행 계고 공시송달 공고",
+      "dept": "도시과",
+      "date": "2026-08-04",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60529&mid=0201020000"
+    },
+    {
+      "no": "2026-1460",
+      "title": "건축법 위반건축물 시정명령 공시송달 공고",
+      "dept": "건축주택과",
+      "date": "2026-08-03",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60512&mid=0201020000"
+    },
+    {
+      "no": "2026-1448",
+      "title": "도시계획시설(도로)사업 실시계획 열람공고[팔공산순환로~용진마을 도로건설]",
+      "dept": "건설과",
+      "date": "2026-08-03",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60484&mid=0201020000"
+    },
+    {
+      "no": "2026-1443",
+      "title": "도시계획시설(도로)사업 실시계획 열람공고[능성동 672번지선 도로개설]",
+      "dept": "건설과",
+      "date": "2026-08-03",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60469&mid=0201020000"
+    },
+    {
+      "no": "2026-69",
+      "title": "도시계획시설 결정 및 지형도면 작성 고시",
+      "dept": "도시과",
+      "date": "2026-07-30",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60400&mid=0201020000"
+    },
+    {
+      "no": "2026-70",
+      "title": "동구43 재개발사업 사업시행계획인가 고시",
+      "dept": "건축주택과",
+      "date": "2026-07-30",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60461&mid=0201020000"
+    },
+    {
+      "no": "2026-71",
+      "title": "도로명주소 고시",
+      "dept": "토지정보과",
+      "date": "2026-07-27",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60468&mid=0201020000"
+    },
+    {
+      "no": "2026-67",
+      "title": "도시계획시설 결정 및 지형도면 작성 고시",
+      "dept": "도시과",
+      "date": "2026-07-20",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60278&mid=0201020000"
+    },
+    {
+      "no": "2026-68",
+      "title": "도로명주소 고시",
+      "dept": "토지정보과",
+      "date": "2026-07-16",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60323&mid=0201020000"
+    },
+    {
+      "no": "2026-60",
+      "title": "도시관리계획 변경결정 및 지형도면 작성 고시",
+      "dept": "도시과",
+      "date": "2026-07-10",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60014&mid=0201020000"
+    },
+    {
+      "no": "2026-58",
+      "title": "도시계획시설 결정 및 지형도면 작성 고시",
+      "dept": "도시과",
+      "date": "2026-06-30",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60007&mid=0201020000"
+    },
+    {
+      "no": "2026-59",
+      "title": "도시관리계획(지구단위계획) 변경결정 및 지형도면 작성 고시",
+      "dept": "도시과",
+      "date": "2026-06-30",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60013&mid=0201020000"
+    },
+    {
+      "no": "2026-1226",
+      "title": "2026년도 공동주택 전자투표 지원사업 계획 공고",
+      "dept": "건축주택과",
+      "date": "2026-06-26",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=60060&mid=0201020000"
+    },
+    {
+      "no": "2026-53",
+      "title": "대구방촌 LH참여형 가로주택정비사업 사업시행계획(변경)인가 고시",
+      "dept": "건축주택과",
+      "date": "2026-06-22",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=59846&mid=0201020000"
+    },
+    {
+      "no": "2026-41",
+      "title": "도시관리계획(소로3류불(1)1) 결정(경미한변경) 및 지형도면, 도시계획시설(도로)사업 실시계획 변경고시",
+      "dept": "건설과",
+      "date": "2026-04-20",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=59152&mid=0201020000"
+    },
+    {
+      "no": "2026-36",
+      "title": "도시계획시설 결정의 실효 및 지형도면 작성 고시",
+      "dept": "도시과",
+      "date": "2026-04-10",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=59034&mid=0201020000"
+    },
+    {
+      "no": "2026-483",
+      "title": "대구광역시 동구 건축위원회 명단 공고",
+      "dept": "건축주택과",
+      "date": "2026-03-20",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58818&mid=0201020000"
+    },
+    {
+      "no": "2026-27",
+      "title": "도시계획시설(도로)사업 실시계획고시[도동 817-2번지선 도로개설공사]",
+      "dept": "건설과",
+      "date": "2026-03-19",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58789&mid=0201020000"
+    },
+    {
+      "no": "2026-28",
+      "title": "도시계획시설(도로)사업 실시계획고시[미대동 260번지선 도로개설공사]",
+      "dept": "건설과",
+      "date": "2026-03-19",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58790&mid=0201020000"
+    },
+    {
+      "no": "2026-13",
+      "title": "도시관리계획 변경결정 및 지형도면 작성 고시",
+      "dept": "도시과",
+      "date": "2026-02-20",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58408&mid=0201020000"
+    },
+    {
+      "no": "2026-222",
+      "title": "도로사용개시에 관한 공고[안심3,4동 안심중학교 남북간 도로개설공사]",
+      "dept": "건설과",
+      "date": "2026-02-10",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=58332&mid=0201020000"
+    },
+    {
+      "no": "2025-1754",
+      "title": "대구광역시 동구 미집행 도시계획시설 단계별 집행계획 공고",
+      "dept": "도시과",
+      "date": "2025-12-22",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=57665&mid=0201020000"
+    },
+    {
+      "no": "2025-1797",
+      "title": "2026년 건설공사(건축) 안전점검 수행기관 등록명부 공개",
+      "dept": "건축주택과",
+      "date": "2025-12-22",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=57746&mid=0201020000"
+    },
+    {
+      "no": "2025-130",
+      "title": "대구방촌 LH참여형 가로주택정비사업 사업시행계획(변경)인가 고시",
+      "dept": "건축주택과",
+      "date": "2025-12-22",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=57701&mid=0201020000"
+    },
+    {
+      "no": "2025-1468",
+      "title": "동구 관내 정비사업의 정보공개서 공개 공고",
+      "dept": "건축주택과",
+      "date": "2025-11-10",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=57076&mid=0201020000"
+    },
+    {
+      "no": "2016-130",
+      "title": "지적측량기준점(도근점)성과 고시",
+      "dept": "토지정보과",
+      "date": "2016-10-26",
+      "views": "",
+      "url": "https://dong.daegu.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=24757&mid=0201020000"
+    }
+  ]
+}

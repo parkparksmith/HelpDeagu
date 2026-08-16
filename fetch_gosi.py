@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
 """
 대구 고시공고 수집 스크립트
-대구시청(및 추후 각 구청) 고시공고 게시판에서 부서명 필터로 1페이지를 가져와
+대구시청과 각 구청 고시공고 게시판에서 담당부서 검색어로 목록을 가져와
 Json/Gosi/gosi_<기관ID>.json 으로 저장한다.
 
 사용법:
     python fetch_gosi.py
 
-저장 후 git commit/push 하면 GitHub Pages 사이트(pages/gosi-info.html)에 반영된다.
+저장 후 git commit/push 하면 사이트(pages/gosi-info.html)에 반영된다.
+
+게시판 시스템 종류:
+- daegu   : 대구시청 고시공고 (자체 시스템, fn_goLinkView 링크)
+- icms    : 대구시청 분야별 소식 게시판 (fn_icms_navi_common 링크)
+- eminwon : 새올 전자민원 (중구/수성구/달서구/달성군, searchDetail 링크)
+- saeol   : 새올 포털형 (동구/서구, data-action 링크)
 """
 import json
 import re
@@ -25,10 +31,41 @@ USER_AGENT = (
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36"
 )
 
+
+def eminwon_urls(host, sub_check="Y", yyyy=None, page_size=10):
+    """새올 전자민원(eminwon) 고시공고 목록/상세 URL 생성 (구청 공통)
+    initValue=Y 가 없으면 검색 필터가 무시된다. subCheck/yyyy 값은 기관마다 다르다.
+    """
+    common = (
+        f"https://{host}/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do"
+        "?jndinm=OfrNotAncmtEJB&context=NTIS"
+    )
+    yyyy_param = f"&yyyy={yyyy}" if yyyy else ""
+    list_url = (
+        common
+        + "&method=selectListOfrNotAncmt&methodnm=selectListOfrNotAncmtHomepage"
+        + f"&homepage_pbs_yn=Y&subCheck={sub_check}&ofr_pageSize={page_size}"
+        + "&not_ancmt_se_code=01%2C04&initValue=Y&countYn=Y" + yyyy_param
+    )
+    view_url = (
+        common
+        + "&method=selectOfrNotAncmt&methodnm=selectOfrNotAncmtRegst"
+        + f"&homepage_pbs_yn=Y&subCheck={sub_check}"
+        + "&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0"
+    )
+    return list_url, view_url
+
+
+_JUNG_LIST, _JUNG_VIEW = eminwon_urls("eminwon.jung.daegu.kr", "Y", yyyy=2018)
+_SUSEONG_LIST, _SUSEONG_VIEW = eminwon_urls("eminwon.suseong.kr", "N")
+_DALSEO_LIST, _DALSEO_VIEW = eminwon_urls("eminwon.dalseo.daegu.kr", "Y", yyyy=2013)
+# 달성군은 서버측 담당부서 검색이 동작하지 않아 50건을 받아 자체 필터링한다
+_DALSEONG_LIST, _DALSEONG_VIEW = eminwon_urls("eminwon.dalseong.daegu.kr", "Y", page_size=50)
+
 # 기관별 설정 (구청 추가 시 여기에 항목을 늘린다)
 SOURCES = {
     "daegu": {
-        "name": "대구시청",
+        "name": "대구시청 고시공고",
         "boardUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170",
         "listUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170"
                    "&menu_link=/front/daeguSidoGosi/daeguSidoGosiList.do",
@@ -51,17 +88,60 @@ SOURCES = {
     "jung": {
         "name": "중구청 고시공고",
         "boardUrl": "https://www.jung.daegu.kr/new/pages/administration/page.html?mc=0159",
-        # 새올 전자민원(eminwon) 목록 조회. initValue=Y 가 없으면 검색 필터가 무시된다
-        "listUrl": "https://eminwon.jung.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do"
-                   "?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectListOfrNotAncmt"
-                   "&methodnm=selectListOfrNotAncmtHomepage&homepage_pbs_yn=Y&subCheck=Y"
-                   "&ofr_pageSize=10&not_ancmt_se_code=01%2C04&initValue=Y&countYn=Y&yyyy=2018",
-        "viewUrl": "https://eminwon.jung.daegu.kr/emwp/gov/mogaha/ntis/web/ofr/action/OfrAction.do"
-                   "?jndinm=OfrNotAncmtEJB&context=NTIS&method=selectOfrNotAncmt"
-                   "&methodnm=selectOfrNotAncmtRegst&homepage_pbs_yn=Y&subCheck=Y"
-                   "&title=%EA%B3%A0%EC%8B%9C%EA%B3%B5%EA%B3%A0",
-        "depts": ["건축"],
+        "listUrl": _JUNG_LIST,
+        "viewUrl": _JUNG_VIEW,
+        "depts": ["도시디자인", "주택", "건설"],
         "deptField": "dept_nm",
+        "parser": "eminwon",
+    },
+    "suseong": {
+        "name": "수성구청 고시공고",
+        "boardUrl": "https://www.suseong.kr/index.do?menu_id=00000064",
+        "listUrl": _SUSEONG_LIST,
+        "viewUrl": _SUSEONG_VIEW,
+        "depts": ["도시디자인", "건축", "건설"],
+        "deptField": "dept_nm",
+        "parser": "eminwon",
+    },
+    "dalseo": {
+        "name": "달서구청 고시공고",
+        "boardUrl": "https://www.dalseo.daegu.kr/index.do?menu_id=10000104",
+        "listUrl": _DALSEO_LIST,
+        "viewUrl": _DALSEO_VIEW,
+        "depts": ["도시디자인", "건설", "건축", "토지정보"],
+        "deptField": "dept_nm",
+        "parser": "eminwon",
+    },
+    "dong": {
+        "name": "동구청 고시공고",
+        "boardUrl": "https://dong.daegu.kr/portal/saeol/gosi/list.do?seCode=01&mid=0201020000",
+        "origin": "https://dong.daegu.kr",
+        "listUrl": "https://dong.daegu.kr/portal/saeol/gosi/list.do"
+                   "?seCode=01&mid=0201020000&searchType=dnm",
+        "depts": ["도시", "주택", "건설", "토지"],
+        "deptField": "searchTxt",
+        "pageField": "page",
+        "parser": "saeol",
+    },
+    "seogu": {
+        "name": "서구청 고시공고",
+        "boardUrl": "https://www.dgs.go.kr/portal/saeol/gosi/list.do?seCode=01&endYn=N&mid=0601020100",
+        "origin": "https://www.dgs.go.kr",
+        "listUrl": "https://www.dgs.go.kr/portal/saeol/gosi/list.do"
+                   "?seCode=01&endYn=N&mid=0601020100&searchType=dnm",
+        "depts": ["도시", "건축", "건설"],
+        "deptField": "searchTxt",
+        "pageField": "page",
+        "parser": "saeol",
+    },
+    "dalseong": {
+        "name": "달성군청 고시공고",
+        "boardUrl": "https://www.dalseong.daegu.kr/index.do?menu_id=00000194",
+        "listUrl": _DALSEONG_LIST,
+        "viewUrl": _DALSEONG_VIEW,
+        "depts": ["건설", "도시", "건축", "토지"],
+        # 서버측 담당부서 검색이 무시되어 목록 50건을 받아 자체 필터링
+        "deptFilter": "client",
         "parser": "eminwon",
     },
 }
@@ -76,7 +156,7 @@ def clean_text(text):
     }
     for src, dst in replacements.items():
         text = text.replace(src, dst)
-    return text.strip()
+    return re.sub(r"\s+", " ", text).strip()
 
 
 def fetch_html(url):
@@ -97,7 +177,7 @@ def parse_daegu_list(html, source):
     if not table_match:
         return items
 
-    for row in re.finditer(r"<tr>([\s\S]*?)</tr>", table_match.group(1)):
+    for row in re.finditer(r"<tr[^>]*>([\s\S]*?)</tr>", table_match.group(1)):
         tr = row.group(1)
         link_match = re.search(r"fn_goLinkView\('(\d+)',\s*'([A-Z])'\)\">([\s\S]*?)</a>", tr)
         if not link_match:
@@ -132,7 +212,7 @@ def parse_icms_list(html, source):
     if not table_match:
         return items
 
-    for row in re.finditer(r"<tr>([\s\S]*?)</tr>", table_match.group(1)):
+    for row in re.finditer(r"<tr[^>]*>([\s\S]*?)</tr>", table_match.group(1)):
         tr = row.group(1)
         link_match = re.search(r"fn_icms_navi_common\('view',\s*'(\d+)'\)[^>]*>([\s\S]*?)</a>", tr)
         if not link_match:
@@ -160,31 +240,113 @@ def parse_icms_list(html, source):
 
 def parse_eminwon_list(html, source):
     """새올 전자민원(eminwon) 고시공고 목록 파싱 (구청 공통)
-    행 구조: 번호 / 고시공고번호 / 제목(searchDetail('mgtNo')) / 담당부서 / 등록일 / 조회수
+    기관마다 마크업이 조금씩 다르다:
+    - 중구: class="boardList", td 에 data-table-type 없음 (순서 고정)
+    - 수성/달서/달성: id="bbsList", td 에 data-table-type(dpt/date/subject 등) 있음
     """
     items = []
-    table_match = re.search(r'<table[^>]*class="boardList[\s\S]*?<tbody>([\s\S]*?)</tbody>', html)
+    table_match = re.search(
+        r'<table[^>]*(?:id="bbsList"|class="boardList)[\s\S]*?<tbody>([\s\S]*?)</tbody>', html
+    )
     if not table_match:
         return items
 
-    # 줄무늬 행은 <tr style="..."> 형태라 속성까지 허용해야 한다
     for row in re.finditer(r"<tr[^>]*>([\s\S]*?)</tr>", table_match.group(1)):
         tr = row.group(1)
-        link_match = re.search(r"searchDetail\('(\d+)'\)[^>]*>([\s\S]*?)</a>", tr)
+        id_match = re.search(r"searchDetail\('(\d+)'\)", tr)
+        if not id_match:
+            continue
+
+        tds = [(m.group(1), clean_text(m.group(2)))
+               for m in re.finditer(r"<td([^>]*)>([\s\S]*?)</td>", tr)]
+        texts = [t for _, t in tds]
+
+        def td_by_type(t):
+            for attrs, text in tds:
+                if f'data-table-type="{t}"' in attrs:
+                    return text
+            return None
+
+        # 제목: subject 셀의 링크 텍스트, 없으면(중구) 행의 마지막 searchDetail 링크 텍스트
+        subject_td = re.search(r'<td[^>]*data-table-type="subject"[^>]*>([\s\S]*?)</td>', tr)
+        if subject_td:
+            a = re.search(r"<a[^>]*>([\s\S]*?)</a>", subject_td.group(1))
+            title = clean_text(a.group(1)) if a else clean_text(subject_td.group(1))
+        else:
+            links = re.findall(r"searchDetail\('\d+'\)[^>]*>([\s\S]*?)</a>", tr)
+            title = clean_text(links[-1]) if links else ""
+
+        # 공고번호("대구광역시 ○○구 공고 제2026-748호")에서 짧은 번호만 추출
+        no = ""
+        for text in texts:
+            no_match = re.search(r"제?\s*(\d{4}-\d+)\s*호", text)
+            if no_match:
+                no = no_match.group(1)
+                break
+
+        dept = td_by_type("dpt")
+        if dept is None:
+            dept = texts[3] if len(texts) > 3 else ""
+
+        # 등록일: date 타입 셀 우선, 그 외에는 날짜 형식 셀 탐색
+        date = td_by_type("date")
+        if not date or not re.fullmatch(r"\d{4}-\d{2}-\d{2}", date):
+            date = next((t for t in texts if re.fullmatch(r"\d{4}-\d{2}-\d{2}", t)), "")
+
+        views = texts[-1] if texts and texts[-1].isdigit() else ""
+
+        items.append({
+            "no": no,
+            "title": title,
+            "dept": dept,
+            "date": date,
+            "views": views,
+            "url": f"{source['viewUrl']}&not_ancmt_mgt_no={id_match.group(1)}",
+        })
+    return items
+
+
+def parse_saeol_list(html, source):
+    """새올 포털형(saeol) 고시공고 목록 파싱 (동구/서구)
+    행 구조: 번호 / 공고번호 / 제목(a[data-action=view.do]) / 담당부서 / 등록일
+    """
+    items = []
+    table_match = re.search(r"<tbody>([\s\S]*?)</tbody>", html)
+    if not table_match:
+        return items
+
+    for row in re.finditer(r"<tr[^>]*>([\s\S]*?)</tr>", table_match.group(1)):
+        tr = row.group(1)
+        link_match = re.search(
+            r'data-action="([^"]*notAncmtMgtNo=[^"]*)"[^>]*>([\s\S]*?)</a>', tr
+        )
         if not link_match:
             continue
 
-        tds = [clean_text(m.group(1)) for m in re.finditer(r"<td[^>]*>([\s\S]*?)</td>", tr)]
-        # 공고번호("대구광역시 중구 공고 제2026-748호")에서 짧은 번호만 추출
-        no_match = re.search(r"제?(\d{4}-\d+)호?", tds[1] if len(tds) > 1 else "")
+        tds = [(m.group(1), clean_text(m.group(2)))
+               for m in re.finditer(r"<td([^>]*)>([\s\S]*?)</td>", tr)]
 
+        def td_by_class(cls):
+            for attrs, text in tds:
+                if cls in attrs:
+                    return text
+            return ""
+
+        no = ""
+        for _, text in tds:
+            no_match = re.search(r"제?\s*(\d{4}-\d+)\s*호", text)
+            if no_match:
+                no = no_match.group(1)
+                break
+
+        path = link_match.group(1).replace("&amp;", "&")
         items.append({
-            "no": no_match.group(1) if no_match else (tds[1] if len(tds) > 1 else ""),
+            "no": no,
             "title": clean_text(link_match.group(2)),
-            "dept": tds[3] if len(tds) > 3 else "",
-            "date": tds[4] if len(tds) > 4 else "",
-            "views": tds[5] if len(tds) > 5 else "",
-            "url": f"{source['viewUrl']}&not_ancmt_mgt_no={link_match.group(1)}",
+            "dept": td_by_class("list_dept"),
+            "date": td_by_class("list_date"),
+            "views": "",
+            "url": f"{source['origin']}{path}",
         })
     return items
 
@@ -193,30 +355,38 @@ PARSERS = {
     "daegu": parse_daegu_list,
     "icms": parse_icms_list,
     "eminwon": parse_eminwon_list,
+    "saeol": parse_saeol_list,
 }
 
 
 def fetch_source(source_id, source, page=1):
     parse = PARSERS[source.get("parser", "daegu")]
-    depts = source["depts"] or [""]
+    page_field = source.get("pageField", "pageIndex")
 
-    # 검색어별로 목록을 조회한 뒤 병합한다 (파라미터 이름은 기관마다 다름)
     seen_urls = set()
     items = []
-    for dept in depts:
-        dept_param = (
-            f"&{source['deptField']}={urllib.parse.quote(dept)}"
-            if dept and source.get("deptField") else ""
-        )
-        url = f"{source['listUrl']}{dept_param}&pageIndex={page}"
-        print(f"[{source['name']}] 요청: {url}")
 
+    def collect(url):
+        print(f"[{source['name']}] 요청: {url}")
         html = fetch_html(url)
         for item in parse(html, source):
             if item["url"] in seen_urls:  # 검색어 간 중복 제거
                 continue
             seen_urls.add(item["url"])
             items.append(item)
+
+    if source.get("deptFilter") == "client":
+        # 서버측 부서 검색이 동작하지 않는 기관: 전체 목록을 받아 자체 필터링
+        collect(f"{source['listUrl']}&{page_field}={page}")
+        items[:] = [it for it in items
+                    if any(kw in it["dept"] for kw in source["depts"])]
+    else:
+        for dept in (source["depts"] or [""]):
+            dept_param = (
+                f"&{source['deptField']}={urllib.parse.quote(dept)}"
+                if dept and source.get("deptField") else ""
+            )
+            collect(f"{source['listUrl']}{dept_param}&{page_field}={page}")
 
     # 등록일 내림차순 정렬
     items.sort(key=lambda x: x.get("date", ""), reverse=True)

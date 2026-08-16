@@ -30,14 +30,59 @@ const GOSI_SOURCES = [
     {
         id: 'jung',
         name: '중구청 고시공고',
-        desc: '담당부서 "건축" 검색 결과 1페이지',
-        depts: ['건축'],
+        desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
+        depts: ['도시디자인', '주택', '건설'],
         // 게시판이 iframe(새올 전자민원)이라 검색 상태 링크는 불가, 게시판 페이지로 이동
         boardUrl: 'https://www.jung.daegu.kr/new/pages/administration/page.html?mc=0159',
         jsonPath: '../Json/Gosi/gosi_jung.json',
         rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_jung.json'
+    },
+    {
+        id: 'suseong',
+        name: '수성구청 고시공고',
+        desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
+        depts: ['도시디자인', '건축', '건설'],
+        boardUrl: 'https://www.suseong.kr/index.do?menu_id=00000064',
+        jsonPath: '../Json/Gosi/gosi_suseong.json',
+        rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_suseong.json'
+    },
+    {
+        id: 'dalseo',
+        name: '달서구청 고시공고',
+        desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
+        depts: ['도시디자인', '건설', '건축', '토지정보'],
+        boardUrl: 'https://www.dalseo.daegu.kr/index.do?menu_id=10000104',
+        jsonPath: '../Json/Gosi/gosi_dalseo.json',
+        rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_dalseo.json'
+    },
+    {
+        id: 'dong',
+        name: '동구청 고시공고',
+        desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
+        depts: ['도시', '주택', '건설', '토지'],
+        boardUrl: 'https://dong.daegu.kr/portal/saeol/gosi/list.do?seCode=01&mid=0201020000',
+        jsonPath: '../Json/Gosi/gosi_dong.json',
+        rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_dong.json'
+    },
+    {
+        id: 'seogu',
+        name: '서구청 고시공고',
+        desc: '담당부서 검색 결과 통합 (중복 제거, 날짜순)',
+        depts: ['도시', '건축', '건설'],
+        boardUrl: 'https://www.dgs.go.kr/portal/saeol/gosi/list.do?seCode=01&endYn=N&mid=0601020100',
+        jsonPath: '../Json/Gosi/gosi_seogu.json',
+        rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_seogu.json'
+    },
+    {
+        id: 'dalseong',
+        name: '달성군청 고시공고',
+        desc: '최근 50건 중 담당부서 필터 (사이트 부서검색 미지원)',
+        depts: ['건설', '도시', '건축', '토지'],
+        boardUrl: 'https://www.dalseong.daegu.kr/index.do?menu_id=00000194',
+        jsonPath: '../Json/Gosi/gosi_dalseong.json',
+        rawUrl: 'https://raw.githubusercontent.com/parkparksmith/HelpDeagu/main/Json/Gosi/gosi_dalseong.json'
     }
-    // TODO: 동구청, 서구청, 남구청, 북구청, 수성구청, 달서구청, 달성군청, 군위군청 추가 예정
+    // TODO: 남구청, 북구청, 군위군청 추가 예정
 ];
 
 function escapeHtml(str) {

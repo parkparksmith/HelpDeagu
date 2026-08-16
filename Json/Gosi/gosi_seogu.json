@@ -1,0 +1,256 @@
+{
+  "success": true,
+  "source": "seogu",
+  "sourceName": "서구청 고시공고",
+  "boardUrl": "https://www.dgs.go.kr/portal/saeol/gosi/list.do?seCode=01&endYn=N&mid=0601020100",
+  "depts": [
+    "도시",
+    "건축",
+    "건설"
+  ],
+  "page": 1,
+  "count": 30,
+  "updatedAt": "2026-08-16 15:08:52",
+  "items": [
+    {
+      "no": "2026-785",
+      "title": "건설산업기본법 위반 과태료 사전통지서 반송분 공시송달 공고",
+      "dept": "건설과",
+      "date": "2026-08-13",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35591&mid=0601020100"
+    },
+    {
+      "no": "2026-770",
+      "title": "수용재결신청서 열람공고(상리동 새방골간 도로건설(2단계 3차))",
+      "dept": "건설과",
+      "date": "2026-08-12",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35553&mid=0601020100"
+    },
+    {
+      "no": "2026-784",
+      "title": "2026년도 정기분 국유재산 및 공유수면 사용료 독촉 고지서 미송달분 공시송달 공고",
+      "dept": "건설과",
+      "date": "2026-08-12",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35581&mid=0601020100"
+    },
+    {
+      "no": "2026-780",
+      "title": "건설산업기본법 위반 과태료 독촉고지서 반송분 공시송달 공고",
+      "dept": "건설과",
+      "date": "2026-08-11",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35568&mid=0601020100"
+    },
+    {
+      "no": "2026-48",
+      "title": "개발제한구역을 제외한 개별공시지가의 지목별 평균치 고시",
+      "dept": "도시재생과",
+      "date": "2026-07-30",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35516&mid=0601020100"
+    },
+    {
+      "no": "2026-740",
+      "title": "임대조건(변경)신고 공고(2026년도 2분기)",
+      "dept": "건축주택과",
+      "date": "2026-07-30",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35483&mid=0601020100"
+    },
+    {
+      "no": "2026-46",
+      "title": "평리3재정비촉진구역 주택재개발정비사업 (부분-토지)이전고시",
+      "dept": "건축주택과",
+      "date": "2026-07-30",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35496&mid=0601020100"
+    },
+    {
+      "no": "2026-730",
+      "title": "건설공사 안전점검 수행기관 지정 공고(평리동1217-2 메디컬빌딩 신축공사)",
+      "dept": "건축주택과",
+      "date": "2026-07-22",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35464&mid=0601020100"
+    },
+    {
+      "no": "2026-41",
+      "title": "도시계획시설(가스공급설비)사업 시행자지정 및 실시계획인가 고시",
+      "dept": "도시재생과",
+      "date": "2026-06-30",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35284&mid=0601020100"
+    },
+    {
+      "no": "2026-656",
+      "title": "대구광역시 서구 미집행 도시계획시설 단계별 집행계획 공고",
+      "dept": "도시재생과",
+      "date": "2026-06-30",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35295&mid=0601020100"
+    },
+    {
+      "no": "2026-666",
+      "title": "행정대집행 물품 내역 및 보관 장소 공시송달 공고",
+      "dept": "건설과",
+      "date": "2026-06-30",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35316&mid=0601020100"
+    },
+    {
+      "no": "2026-38",
+      "title": "공유수면 점사용 변경허가 고시",
+      "dept": "건설과",
+      "date": "2026-06-16",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=35217&mid=0601020100"
+    },
+    {
+      "no": "2026-479",
+      "title": "안전점검 수행기관 지정 공고(대구의료원 본관 증축 및 대수선 공사)",
+      "dept": "건축주택과",
+      "date": "2026-05-07",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34977&mid=0601020100"
+    },
+    {
+      "no": "2026-32",
+      "title": "평리6재정비촉진구역 주택재개발정비사업 준공인가 고시",
+      "dept": "건축주택과",
+      "date": "2026-04-30",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34932&mid=0601020100"
+    },
+    {
+      "no": "2026-33",
+      "title": "하천점용허가 고시",
+      "dept": "건설과",
+      "date": "2026-04-29",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34943&mid=0601020100"
+    },
+    {
+      "no": "2026-397",
+      "title": "2026년도 정비사업 정보공개 공고",
+      "dept": "건축주택과",
+      "date": "2026-04-20",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34837&mid=0601020100"
+    },
+    {
+      "no": "2026-30",
+      "title": "평리5재정비촉진구역 주택재개발정비사업 이전고시",
+      "dept": "건축주택과",
+      "date": "2026-04-20",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34870&mid=0601020100"
+    },
+    {
+      "no": "2026-29",
+      "title": "내당아파트지구 3주구 재건축사업 사업시행자 지정 취소 고시",
+      "dept": "건축주택과",
+      "date": "2026-04-10",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34809&mid=0601020100"
+    },
+    {
+      "no": "2026-27",
+      "title": "제림보라 가로주택정비사업 조합설립인가 및 지형도면 고시",
+      "dept": "건축주택과",
+      "date": "2026-04-10",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34786&mid=0601020100"
+    },
+    {
+      "no": "2026-25",
+      "title": "평리5재정비촉진구역 주택재개발정비사업 관리처분계획(변경)인가 고시",
+      "dept": "건축주택과",
+      "date": "2026-03-30",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34737&mid=0601020100"
+    },
+    {
+      "no": "2026-24",
+      "title": "공유수면 점사용허가 고시",
+      "dept": "건설과",
+      "date": "2026-03-25",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34728&mid=0601020100"
+    },
+    {
+      "no": "2026-23",
+      "title": "공유수면 점사용허가 고시",
+      "dept": "건설과",
+      "date": "2026-03-19",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34705&mid=0601020100"
+    },
+    {
+      "no": "2026-19",
+      "title": "하천점용허가(연장) 고시",
+      "dept": "건설과",
+      "date": "2026-03-04",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34586&mid=0601020100"
+    },
+    {
+      "no": "2026-198",
+      "title": "도시계획시설(서부제16공원)사업 공사완료 공고",
+      "dept": "도시공원과",
+      "date": "2026-02-20",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34471&mid=0601020100"
+    },
+    {
+      "no": "2026-12",
+      "title": "도시계획시설(도로)사업 시행자지정 및 실시계획인가 고시",
+      "dept": "도시재생과",
+      "date": "2026-02-20",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34434&mid=0601020100"
+    },
+    {
+      "no": "2026-196",
+      "title": "도시계획시설(원대어린이공원)사업 공사완료 공고",
+      "dept": "도시공원과",
+      "date": "2026-02-20",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34469&mid=0601020100"
+    },
+    {
+      "no": "2026-160",
+      "title": "도시계획시설(주차장)사업 공사완료 공고",
+      "dept": "도시재생과",
+      "date": "2026-02-20",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34412&mid=0601020100"
+    },
+    {
+      "no": "2026-197",
+      "title": "도시계획시설(서부제15공원)사업 공사완료 공고",
+      "dept": "도시공원과",
+      "date": "2026-02-20",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34470&mid=0601020100"
+    },
+    {
+      "no": "2026-5",
+      "title": "산불조심기간 등산로 입산통제 및 화기물 소지 금지구역 지정 고시",
+      "dept": "도시공원과",
+      "date": "2026-01-16",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34219&mid=0601020100"
+    },
+    {
+      "no": "2026-20",
+      "title": "도시계획시설(도로)사업 공사완료 공고",
+      "dept": "도시재생과",
+      "date": "2026-01-12",
+      "views": "",
+      "url": "https://www.dgs.go.kr/portal/saeol/gosi/view.do?notAncmtMgtNo=34131&mid=0601020100"
+    }
+  ]
+}

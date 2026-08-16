@@ -1,7 +1,7 @@
 {
   "success": true,
   "source": "daegu",
-  "sourceName": "대구시청",
+  "sourceName": "대구시청 고시공고",
   "boardUrl": "https://www.daegu.go.kr/index.do?menu_id=00940170",
   "depts": [
     "도시건설국",
@@ -9,7 +9,7 @@
   ],
   "page": 1,
   "count": 20,
-  "updatedAt": "2026-08-16 14:49:48",
+  "updatedAt": "2026-08-16 15:08:17",
   "items": [
     {
       "no": "2026-1090",
