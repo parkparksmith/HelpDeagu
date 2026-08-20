@@ -1,92 +1,202 @@
 {
-  "created_date": "2026-08-20 11:30:02",
+  "created_date": "2026-08-20 21:00:03",
   "list": [
+    {
+      "No": 14827532,
+      "Title": "지그재그) 제 완전 교복템.. 절개 바지 25,380원",
+      "ViewCount": 12000,
+      "LikeCount": 410,
+      "WroteDate": "2026-08-20T11:54:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
     {
       "No": 14826822,
       "Title": "8월 21일 금 N페이 결제 시 파리바게뜨 50% 최대만원 할인",
-      "ViewCount": 4303,
-      "LikeCount": 329,
+      "ViewCount": 4515,
+      "LikeCount": 339,
       "WroteDate": "2026-08-20T01:06:00",
       "GetUrl": "https://www.paris.co.kr/promotion/benefit-napy-260821/",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14828024,
+      "Title": "지마켓) 읽고 또 읽는 책 3탄 <천하무적 개냥이 수사대> 전10권 90,000원 무배 - 삼카링크",
+      "ViewCount": 2743,
+      "LikeCount": 243,
+      "WroteDate": "2026-08-20T14:58:00",
+      "GetUrl": "https://m.gmarket.co.kr/vi/product/2631404385\r\nhttps://deeplink.monimo.com/api/v1/click/3n0bt1AMf0SfNJoSoTMrQQ?deeplink_custom_path=monimoapp%3A%2F%2Fadbrix%3FGNB%3D2030%26url%3Dhttps%253A%252F%252Fwww.samsungcard.com%252Fhome%252Fbenefit%252Flink%252FPGHPPCCBenefitLinkViewIndex002%253FcmpId%253DM261106488&adv_campaign=sc_online&adv_ad=1app&adv_agency=link&adv_placement=4710&adv_keyword=shareurl&abx_tracker_id=3n0bt1AMf0SfNJoSoTMrQQ",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gmarket.co.kr%2Fvi%2Fproduct%2F2631404385",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827436,
+      "Title": "지오다노공홈)시어 긴팔티 9,500원 무배",
+      "ViewCount": 6398,
+      "LikeCount": 163,
+      "WroteDate": "2026-08-20T11:18:00",
+      "GetUrl": "https://www.giordano.co.kr/shop/detail.php?pno=9657CBE984AEE7C3B812070E001F26DC&cno1=2520",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827879,
+      "Title": "지그재그) 짱짱편한 밴딩 스커트 18,310원 ( 2천원 포인트 적용가)",
+      "ViewCount": 6215,
+      "LikeCount": 161,
+      "WroteDate": "2026-08-20T14:13:00",
+      "GetUrl": "https://naver.me/GfrTFr3i?tc=shared_link",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14826875,
       "Title": "우체국) 아타토 수제쿠키선물세트 8,920원",
-      "ViewCount": 6343,
-      "LikeCount": 124,
+      "ViewCount": 6610,
+      "LikeCount": 129,
       "WroteDate": "2026-08-20T04:25:00",
       "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA1063493&pavlnDivCd=02&goodsDispTypeCd=03&goodsDispTypeDtlCd=10025445&ctgryCd=104208301",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 14827112,
-      "Title": "신한쏠페이)신한카드 있으신분 네이버쇼핑 경유",
-      "ViewCount": 1987,
-      "LikeCount": 94,
-      "WroteDate": "2026-08-20T09:37:00",
-      "GetUrl": null,
-      "ProfitLink": null,
-      "ShortenUrl": null
-    },
-    {
       "No": 14827242,
       "Title": "맥도날드.불고기버거 2,500원(매장방문)/네이버페이,머니 1만원이상 20%적립도있어요",
-      "ViewCount": 2257,
-      "LikeCount": 76,
+      "ViewCount": 3804,
+      "LikeCount": 152,
       "WroteDate": "2026-08-20T10:14:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14827902,
+      "Title": "[배럴] 배럴 패밀리세일 마지막날! 40%~80% 6400원 부터~",
+      "ViewCount": 5084,
+      "LikeCount": 107,
+      "WroteDate": "2026-08-20T14:20:00",
+      "GetUrl": "Life is swell. BARREL",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827112,
+      "Title": "신한쏠페이)신한카드 있으신분 네이버쇼핑 경유",
+      "ViewCount": 2633,
+      "LikeCount": 121,
+      "WroteDate": "2026-08-20T09:37:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827774,
+      "Title": "알뜰요금제) 프리티 skt망 데이터 20GB 통화500분 (7,370원/평생)",
+      "ViewCount": 2156,
+      "LikeCount": 113,
+      "WroteDate": "2026-08-20T13:36:00",
+      "GetUrl": "https://www.freet.co.kr/plan/ratePlan/detail?svcCd=PC0SB00178",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14828034,
+      "Title": "롯데이츠) 롯데리아 리아새우버거 2개 7,800원 (8/20~21)",
+      "ViewCount": 3067,
+      "LikeCount": 88,
+      "WroteDate": "2026-08-20T15:03:00",
+      "GetUrl": "https://www.lotteeatz.com/event/main/selectEvent/18048",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14827192,
       "Title": "오케이캐시백)메가커피 아이스아메리카노 1,000원 3,000개",
-      "ViewCount": 3123,
-      "LikeCount": 67,
+      "ViewCount": 4167,
+      "LikeCount": 74,
       "WroteDate": "2026-08-20T10:00:00",
       "GetUrl": "https://m.okcashbag.com/g/w/v2/shopping/group-purchase/1319",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14828231,
+      "Title": "지그재그) 스파오 썸머가디건 17,360원 ( 시크릿 2천원 포인트 적용)",
+      "ViewCount": 4574,
+      "LikeCount": 56,
+      "WroteDate": "2026-08-20T16:20:00",
+      "GetUrl": "https://naver.me/G4dKoGu3?tc=shared_link",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827648,
+      "Title": "쿠팡)스탠리 아이스플로우 플립 스트로 2.0 피치로즈 887ml 27,590원",
+      "ViewCount": 5455,
+      "LikeCount": 46,
+      "WroteDate": "2026-08-20T12:45:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=8640236446&itemId=27806784667&vendorItemId=94766676442&traceid=V0-153-1264dac7f63310b6&requestid=20260820124740252018766437&token=31850C%7CGM"
+    },
+    {
+      "No": 14827401,
+      "Title": "아침빛바다)자연산 치즈가 듬뿍 모짜렐라 모짜치즈떡 1kg+1kg 9900원",
+      "ViewCount": 2408,
+      "LikeCount": 73,
+      "WroteDate": "2026-08-20T11:06:00",
+      "GetUrl": "https://naver.me/xqbPpo7l",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827303,
+      "Title": "룩캐스트) 공홈 총 세일 29000원부터 페이코경유시 추가9%",
+      "ViewCount": 2894,
+      "LikeCount": 67,
+      "WroteDate": "2026-08-20T10:33:00",
+      "GetUrl": "https://lookast.com/event/26archivesale.html?cate_no=868&utm_source=kakao&utm_medium=crm&utm_campaign=260820_kakao_archivesale",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827985,
+      "Title": "이마트 오프))분리수거함3단 2만원(모션데스크, 드라이기도 겟)",
+      "ViewCount": 4216,
+      "LikeCount": 52,
+      "WroteDate": "2026-08-20T14:46:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14826939,
       "Title": "우체국쇼핑)농할) 국내산 새청무쌀 상등급 10kg 25년 27600 원",
-      "ViewCount": 3186,
-      "LikeCount": 52,
+      "ViewCount": 3451,
+      "LikeCount": 58,
       "WroteDate": "2026-08-20T07:56:00",
       "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA2006440&pavlnDivCd=02&goodsDispTypeCd=&goodsDispTypeDtlCd=&ctgryCd=101201000&searchTermCd=%EC%8C%80%2010%20KG\r\nhttps://mall.epost.go.kr/mo/event/whatEatThisWeekend.do?plnbefId=10003945#EA1074604",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 14826855,
-      "Title": "네이버) 목우촌 주부9단 치킨너겟 1.1kg 2개 14000원 슈퍼적립 N무배",
-      "ViewCount": 2715,
-      "LikeCount": 42,
-      "WroteDate": "2026-08-20T02:15:00",
-      "GetUrl": "https://naver.me/xD8IkiWH",
+      "No": 14828461,
+      "Title": "품절/힐팩)서울랜드 종일파크이용권 18,810원",
+      "ViewCount": 2358,
+      "LikeCount": 68,
+      "WroteDate": "2026-08-20T17:54:00",
+      "GetUrl": "https://naver.me/5MvG7PyY",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 14826748,
-      "Title": "롯데온) 오프아워 키즈 파자마세트 8930원",
-      "ViewCount": 2636,
-      "LikeCount": 36,
-      "WroteDate": "2026-08-20T00:01:00",
-      "GetUrl": "https://s.lotteon.com/DfL1yK5GOW",
-      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FDfL1yK5GOW",
-      "ShortenUrl": null
-    },
-    {
-      "No": 14826880,
-      "Title": "품절/쿠팡)신라명과 갸또러스크 16p, 256g, 1개 6,710원",
-      "ViewCount": 4695,
-      "LikeCount": 14,
-      "WroteDate": "2026-08-20T05:40:00",
+      "No": 14827387,
+      "Title": "이마트온오프) 호주산 냉동 차돌박이·차돌양지 500g/미국산 냉동 우삼겹 800g 각 9980원",
+      "ViewCount": 2680,
+      "LikeCount": 64,
+      "WroteDate": "2026-08-20T11:01:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
@@ -94,10 +204,100 @@
     {
       "No": 14827103,
       "Title": "이마트 오프)(재고점바점) 베이직 모션데스크 화이트 84500원",
-      "ViewCount": 2226,
-      "LikeCount": 33,
+      "ViewCount": 3049,
+      "LikeCount": 55,
       "WroteDate": "2026-08-20T09:35:00",
       "GetUrl": "https://emart.kr/10aqM\r\nhttps://emart.kr/136AF",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827846,
+      "Title": "쿠팡)스탠리 아이스플로우 플립 스트로 2.0 텀블러 591ml 1개 24,030원(카드할인)",
+      "ViewCount": 5135,
+      "LikeCount": 34,
+      "WroteDate": "2026-08-20T14:00:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14828565,
+      "Title": "남도장터)전복 7-9미 초특대 1kg 12240원 기삼전복",
+      "ViewCount": 2075,
+      "LikeCount": 61,
+      "WroteDate": "2026-08-20T18:48:00",
+      "GetUrl": "https://www.jnmall.kr/product/1715-34343",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14828530,
+      "Title": "하나카드) 요기요 2만원이상 5천원 할인권-선착순 사용",
+      "ViewCount": 1229,
+      "LikeCount": 66,
+      "WroteDate": "2026-08-20T18:30:00",
+      "GetUrl": "https://ws.yogiyo.co.kr/2128x0",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14828007,
+      "Title": "품절/농협목우촌)주부9단 나주배 숙성 오리훈제 200g 2개 5,980원/네멤무배",
+      "ViewCount": 3515,
+      "LikeCount": 41,
+      "WroteDate": "2026-08-20T14:52:00",
+      "GetUrl": "https://naver.me/xD8IP7d8",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827929,
+      "Title": "쿠팡프레시) LARSA 버터 250g × 2개 7120원",
+      "ViewCount": 3046,
+      "LikeCount": 44,
+      "WroteDate": "2026-08-20T14:29:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=8539414784&itemId=24753364442&vendorItemId=91761826890&traceid=V0-153-a1609d8ebae57793&requestid=20260820143747929294647227&token=31850C%7CGM"
+    },
+    {
+      "No": 14826855,
+      "Title": "네이버) 목우촌 주부9단 치킨너겟 1.1kg 2개 14000원 슈퍼적립 N무배",
+      "ViewCount": 2793,
+      "LikeCount": 42,
+      "WroteDate": "2026-08-20T02:15:00",
+      "GetUrl": "https://naver.me/xD8IkiWH",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14827991,
+      "Title": "하이마트) LG 휘센 25년형 제습기 20L 374,100원",
+      "ViewCount": 1391,
+      "LikeCount": 52,
+      "WroteDate": "2026-08-20T14:47:00",
+      "GetUrl": "https://m.e-himart.co.kr/app/goods/goodsDetail?goodsNo=0044837016&stonType=iPhone",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=himart&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.e-himart.co.kr%2Fapp%2Fgoods%2FgoodsDetail%3FgoodsNo%3D0044837016%26stonType%3DiPhone",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14828170,
+      "Title": "품절/쿠팡)태블릿PC 3단 케이스 갤럭시탭S6 1,550원",
+      "ViewCount": 3925,
+      "LikeCount": 24,
+      "WroteDate": "2026-08-20T15:53:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14826880,
+      "Title": "품절/쿠팡)신라명과 갸또러스크 16p, 256g, 1개 6,710원",
+      "ViewCount": 4816,
+      "LikeCount": 15,
+      "WroteDate": "2026-08-20T05:40:00",
+      "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     }
