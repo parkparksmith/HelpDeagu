@@ -1,5 +1,5 @@
 {
-  "created_date": "2026-08-28 11:30:03",
+  "created_date": "2026-08-28 11:36:10",
   "list": [
     {
       "No": 14845755,
@@ -8,7 +8,7 @@
       "LikeCount": 167,
       "WroteDate": "2026-08-28T09:19:00",
       "GetUrl": "https://m.gmarket.co.kr/vi/product/4650647116\r\nhttps://naver.me/Fkanf4PJ?tc=shared_link\r\nhttps://deeplink.monimo.com/api/v1/click/3n0bt1AMf0SfNJoSoTMrQQ?deeplink_custom_path=monimoapp%3A%2F%2Fadbrix%3FGNB%3D2030%26url%3Dhttps%253A%252F%252Fwww.samsungcard.com%252Fhome%252Fbenefit%252Flink%252FPGHPPCCBenefitLinkViewIndex002%253FcmpId%253DM261106488&adv_campaign=sc_online&adv_ad=1app&adv_agency=link&adv_placement=4710&adv_keyword=shareurl&abx_tracker_id=3n0bt1AMf0SfNJoSoTMrQQ\r\nhttps://naver.me/Gy3RzqaJ?tc=shared_link",
-      "ProfitLink": null,
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gmarket.co.kr%2Fvi%2Fproduct%2F4650647116",
       "ShortenUrl": null
     },
     {
@@ -67,7 +67,7 @@
       "ViewCount": 3772,
       "LikeCount": 41,
       "WroteDate": "2026-08-28T10:13:00",
-      "GetUrl": null,
+      "GetUrl": "https://naver.me/xeFyC2jb",
       "ProfitLink": null,
       "ShortenUrl": null
     },
