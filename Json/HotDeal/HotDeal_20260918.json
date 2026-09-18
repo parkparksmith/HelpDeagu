@@ -1,11 +1,11 @@
 {
-  "created_date": "2026-09-18 11:30:03",
+  "created_date": "2026-09-18 21:00:11",
   "list": [
     {
       "No": 14891464,
       "Title": "뚜레쥬르 네이버페이 포인트 머니로 2만이상 결제시 50% 적립",
-      "ViewCount": 6274,
-      "LikeCount": 223,
+      "ViewCount": 8040,
+      "LikeCount": 257,
       "WroteDate": "2026-09-18T06:37:00",
       "GetUrl": "https://app.tlj.co.kr/applink/appLinkMain.do?taskDetailPage=FO_EV%2FFO_EV010100G.html&taskDetailJsonParams=%7B%22eventId%22%3A%22EVT20260915000002%22%7D",
       "ProfitLink": null,
@@ -14,9 +14,19 @@
     {
       "No": 14891614,
       "Title": "토스쇼핑 국내산 콩두부 1000원 우유 1000원 콩나물 100원",
-      "ViewCount": 8751,
-      "LikeCount": 106,
+      "ViewCount": 12000,
+      "LikeCount": 179,
       "WroteDate": "2026-09-18T08:59:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14892095,
+      "Title": "토스) 요기요 요기패스 6개월 0원 + 5천원 쿠폰",
+      "ViewCount": 4012,
+      "LikeCount": 174,
+      "WroteDate": "2026-09-18T11:54:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
@@ -24,29 +34,9 @@
     {
       "No": 14891525,
       "Title": "토스페이스페이.전국카페중 8천개매장 50%(최대3천원)",
-      "ViewCount": 3258,
-      "LikeCount": 123,
+      "ViewCount": 4303,
+      "LikeCount": 159,
       "WroteDate": "2026-09-18T07:57:00",
-      "GetUrl": null,
-      "ProfitLink": null,
-      "ShortenUrl": null
-    },
-    {
-      "No": 14891489,
-      "Title": "롯데온) 에어맥스 모토 2k주니어(블랙) 65,290 (카페머, 롯카, 카페카, 토카 결제)",
-      "ViewCount": 4196,
-      "LikeCount": 66,
-      "WroteDate": "2026-09-18T07:21:00",
-      "GetUrl": "https://s.lotteon.com/WlnWDSGC9y",
-      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FWlnWDSGC9y",
-      "ShortenUrl": null
-    },
-    {
-      "No": 14891536,
-      "Title": "쿠팡) 디유 비비드 2중 진공 원터치 보온병 350ml 1세트(2개) 8,880원",
-      "ViewCount": 4274,
-      "LikeCount": 60,
-      "WroteDate": "2026-09-18T08:10:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
@@ -54,49 +44,259 @@
     {
       "No": 14891653,
       "Title": "우체국쇼핑)셰프셀렉션 동그랑땡 1kg 2개 16,000원",
-      "ViewCount": 2468,
-      "LikeCount": 70,
+      "ViewCount": 4242,
+      "LikeCount": 137,
       "WroteDate": "2026-09-18T09:17:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14892008,
+      "Title": "도씨공홈) 어른, 아이 반팔 잠옷 만원, 6만이상 무배",
+      "ViewCount": 4050,
+      "LikeCount": 118,
+      "WroteDate": "2026-09-18T11:24:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14891489,
+      "Title": "롯데온) 에어맥스 모토 2k주니어(블랙) 65,290 (카페머, 롯카, 카페카, 토카 결제)",
+      "ViewCount": 5554,
+      "LikeCount": 90,
+      "WroteDate": "2026-09-18T07:21:00",
+      "GetUrl": "https://s.lotteon.com/WlnWDSGC9y",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FWlnWDSGC9y",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14892048,
+      "Title": "옥션) 블루독 신상품 베이직 패딩점퍼 38,360원",
+      "ViewCount": 5345,
+      "LikeCount": 91,
+      "WroteDate": "2026-09-18T11:38:00",
+      "GetUrl": "https://itempage3.auction.co.kr/DetailView.aspx?itemno=F642276966",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=auction&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fitempage3.auction.co.kr%2FDetailView.aspx%3Fitemno%3DF642276966",
+      "ShortenUrl": null
+    },
+    {
       "No": 14891557,
       "Title": "토스) 전 또 샀습니다.. 셰프예찬 수제 청양 맵짭이 225g 2통 7,990원",
-      "ViewCount": 5089,
-      "LikeCount": 36,
+      "ViewCount": 7248,
+      "LikeCount": 65,
       "WroteDate": "2026-09-18T08:27:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 14891475,
-      "Title": "쿠팡) 닌자 맥스 프로 XL 6 in 1 에어프라이어 107,760원",
-      "ViewCount": 4616,
-      "LikeCount": 39,
-      "WroteDate": "2026-09-18T07:03:00",
+      "No": 14891536,
+      "Title": "쿠팡) 디유 비비드 2중 진공 원터치 보온병 350ml 1세트(2개) 8,880원",
+      "ViewCount": 5412,
+      "LikeCount": 78,
+      "WroteDate": "2026-09-18T08:10:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14891713,
+      "Title": "카카오 포미) 닌텐도 스위치 45720원 ,스위치 2 용 스타폭스,리듬천국도 할인 해요",
+      "ViewCount": 3777,
+      "LikeCount": 80,
+      "WroteDate": "2026-09-18T09:40:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14891789,
+      "Title": "GS샵 아리울떡 깨송편 2키로 토스페이 11990원!!",
+      "ViewCount": 3332,
+      "LikeCount": 82,
+      "WroteDate": "2026-09-18T10:08:00",
+      "GetUrl": "https://event.gsshop.com/event/member-price?utm_source=url&utm_medium=sns&utm_campaign=event_member_price_share_url\r\nhttps://m.gsshop.com/prd/prd.gs?prdid=1134531727&shareType=url_copy",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gseshop&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fevent.gsshop.com%2Fevent%2Fmember-price%3Futm_source%3Durl%26utm_medium%3Dsns%26utm_campaign%3Devent_member_price_share_url",
+      "ShortenUrl": null
+    },
+    {
       "No": 14891443,
       "Title": "제이키즈) 주니어 상하복 50프로 할인 19900원",
-      "ViewCount": 3019,
-      "LikeCount": 48,
+      "ViewCount": 3740,
+      "LikeCount": 61,
       "WroteDate": "2026-09-18T02:47:00",
       "GetUrl": "https://www.jkids.co.kr/m/product.html?branduid=1177977&xcode=020&mcode=008&scode=&type=Y&sort=order&current_category=020&search=&GfDT=bG53UlQ%3D",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14891475,
+      "Title": "쿠팡) 닌자 맥스 프로 XL 6 in 1 에어프라이어 107,760원",
+      "ViewCount": 5340,
+      "LikeCount": 45,
+      "WroteDate": "2026-09-18T07:03:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14892581,
+      "Title": "네이버 참도깨비/멤버십무배)의정부식 부대찌개 700g 2팩 7,900원",
+      "ViewCount": 2339,
+      "LikeCount": 73,
+      "WroteDate": "2026-09-18T15:06:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14893084,
+      "Title": "토스쇼핑 오아시스 신상 슬라이스햄 1000원 바나나 2000원",
+      "ViewCount": 4361,
+      "LikeCount": 50,
+      "WroteDate": "2026-09-18T19:40:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14892659,
+      "Title": "네이버)오르시떼 아동/성인 파자마 등등 5,900원부터(유배)",
+      "ViewCount": 4819,
+      "LikeCount": 44,
+      "WroteDate": "2026-09-18T15:39:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14891953,
+      "Title": "네이버 케이미트스토어) 꽃삼겹살 1kg 네멤 9980원 네멤무배",
+      "ViewCount": 2531,
+      "LikeCount": 66,
+      "WroteDate": "2026-09-18T11:09:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14891677,
+      "Title": "11번가)피자헛 화이트 트러플L+리치치즈파스타+콜라1.25L 19,200원",
+      "ViewCount": 2770,
+      "LikeCount": 57,
+      "WroteDate": "2026-09-18T09:26:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14891500,
+      "Title": "쿠팡) 모던하우스 리본머그컵 4개 1세트 8,460원",
+      "ViewCount": 5711,
+      "LikeCount": 26,
+      "WroteDate": "2026-09-18T07:37:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/a/g8mtQIpNzU"
+    },
+    {
       "No": 14891478,
       "Title": "쿠팡+신한,농협,삼성) 바겐슈타이거 엘로아 플래티넘 실리콘 수저 세트 4세트 14,090원",
-      "ViewCount": 4260,
-      "LikeCount": 25,
+      "ViewCount": 5096,
+      "LikeCount": 32,
       "WroteDate": "2026-09-18T07:09:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14892176,
+      "Title": "쿠팡 닌텐도 마인크래프트칩 29,920원",
+      "ViewCount": 4142,
+      "LikeCount": 39,
+      "WroteDate": "2026-09-18T12:29:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=5007636737&itemId=6701315987&vendorItemId=70135711632&traceid=V0-153-37c5d908ab5638af&requestid=20260918124206767298189721&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
+      "No": 14891479,
+      "Title": "쿠팡 뉴에라키즈 공용맨투맨 19900원 3가지색 전사이즈 160까지",
+      "ViewCount": 4165,
+      "LikeCount": 36,
+      "WroteDate": "2026-09-18T07:09:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14891488,
+      "Title": "배스킨라빈스) 파인트 아이스크림 8,030원",
+      "ViewCount": 2902,
+      "LikeCount": 48,
+      "WroteDate": "2026-09-18T07:20:00",
+      "GetUrl": "https://naver.me/F2LX3Rnj",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14891622,
+      "Title": "네이버쇼핑)주말배송 9시쿠폰 10%",
+      "ViewCount": 3098,
+      "LikeCount": 44,
+      "WroteDate": "2026-09-18T09:03:00",
+      "GetUrl": "https://naver.me/G5kAiWW9",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14891964,
+      "Title": "토스쇼핑)스파클 생수, 무라벨, 2L, 24개 7,400원",
+      "ViewCount": 1331,
+      "LikeCount": 61,
+      "WroteDate": "2026-09-18T11:12:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14891463,
+      "Title": "이마트 오프)(재고점바점)담터 핫초코 30입+포켓몬 그립톡 기획 2000원",
+      "ViewCount": 2203,
+      "LikeCount": 51,
+      "WroteDate": "2026-09-18T06:32:00",
+      "GetUrl": "https://emart.kr/1bhMa",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14892555,
+      "Title": "롯데온 와룡막창 초벌막창400g+소스 3팩 26950원!!",
+      "ViewCount": 1688,
+      "LikeCount": 56,
+      "WroteDate": "2026-09-18T14:55:00",
+      "GetUrl": "https://s.lotteon.com/OA_i71yjRE",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FOA_i71yjRE",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14892653,
+      "Title": "ssg)꽃보다오징어 오리지날/소프트 230g 2봉 28,800원",
+      "ViewCount": 2070,
+      "LikeCount": 51,
+      "WroteDate": "2026-09-18T15:36:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14892763,
+      "Title": "지마켓 테리파머 대형수건1+발매트1+핸드타올3 8천원!!",
+      "ViewCount": 2852,
+      "LikeCount": 38,
+      "WroteDate": "2026-09-18T16:24:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
