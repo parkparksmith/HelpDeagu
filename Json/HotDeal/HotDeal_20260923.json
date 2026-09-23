@@ -1,61 +1,91 @@
 {
-  "created_date": "2026-09-23 11:30:02",
+  "created_date": "2026-09-23 21:00:07",
   "list": [
     {
       "No": 14901323,
       "Title": "토스페이 던킨 50%할인(최대1만원)",
-      "ViewCount": 3882,
-      "LikeCount": 244,
+      "ViewCount": 4593,
+      "LikeCount": 256,
       "WroteDate": "2026-09-23T00:09:00",
       "GetUrl": "https://toss.im/_m/bZEHm18w\r\nhttps://www.dunkindonuts.co.kr/event/view?id=5445",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 14901327,
-      "Title": "쿠팡이츠 랜덤 할인쿠폰 오늘도 뽑아보셔요",
-      "ViewCount": 7202,
-      "LikeCount": 47,
-      "WroteDate": "2026-09-23T00:15:00",
-      "GetUrl": "https://play.google.com/store/apps/details?id=com.coupang.mobile.eats",
+      "No": 14902719,
+      "Title": "배달의민족 랜덤 할인쿠폰 (더하기 쿠폰이라 중복 사용 가능)",
+      "ViewCount": 8222,
+      "LikeCount": 165,
+      "WroteDate": "2026-09-23T16:11:00",
+      "GetUrl": "https://play.google.com/store/apps/details?id=com.kakaopay.app\r\nhttps://baemin.go.link/gateway/webview?webview_url=https%3A%2F%2Fevent-view.baemin.com%2Fapps%2F1938c3d&adj_t=1uh7wnwy&adj_campaign=aff-tosspay&adj_adgroup=2607-tosspay-card\r\nhttps://point.pay.naver.com/coupon/home/online?curl=close&redirect=new&category=all&tab=ONLY&usageSeq=all",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
       "No": 14901683,
       "Title": "10시 해피포인트 배스킨라빈스 블록팩 4개 50%쿠폰 선착순",
-      "ViewCount": 3686,
-      "LikeCount": 79,
+      "ViewCount": 5000,
+      "LikeCount": 90,
       "WroteDate": "2026-09-23T09:23:00",
       "GetUrl": "https://napi.happypointcard.com/page/event/event-view.spc?eventseq=252225fd6a6cf9f21af42612669ada16&share=Y",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14901327,
+      "Title": "쿠팡이츠 랜덤 할인쿠폰 오늘도 뽑아보셔요",
+      "ViewCount": 7907,
+      "LikeCount": 55,
+      "WroteDate": "2026-09-23T00:15:00",
+      "GetUrl": "https://play.google.com/store/apps/details?id=com.coupang.mobile.eats",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14902076,
+      "Title": "요기요 신규/복귀 고객 카카오 페이득 만원이상 6천원 쿠폰 (30일 미주문)",
+      "ViewCount": 3016,
+      "LikeCount": 92,
+      "WroteDate": "2026-09-23T11:38:00",
+      "GetUrl": "https://ws.yogiyo.co.kr/soqhg8",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14901357,
       "Title": "카카오페이 페이득 (11번가 3천원 선착순쿠폰, cgv 영화관람권 8천원 등)",
-      "ViewCount": 2352,
-      "LikeCount": 87,
+      "ViewCount": 2570,
+      "LikeCount": 92,
       "WroteDate": "2026-09-23T00:56:00",
       "GetUrl": "https://plan.11st.co.kr/plan/mobile/exhibitions/2225178/detail?showCase=C1\r\nhttps://play.google.com/store/apps/details?id=com.kakaopay.app",
       "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fplan.11st.co.kr%2Fplan%2Fmobile%2Fexhibitions%2F2225178%2Fdetail%3FshowCase%3DC1",
       "ShortenUrl": null
     },
     {
-      "No": 14901397,
-      "Title": "쿠팡) 로이체 산리오 LED 무선 미니 블루투스 스피커 +마이크 2p 37,030원",
-      "ViewCount": 3027,
-      "LikeCount": 44,
-      "WroteDate": "2026-09-23T02:16:00",
-      "GetUrl": null,
-      "ProfitLink": null,
-      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=8867121456&itemId=25862271212&vendorItemId=92848553007&traceid=V0-153-f2132e28c48acd36&requestid=20260923102116141229390859&token=31850C%7CGM&pt=0&slot=1"
+      "No": 14901966,
+      "Title": "11번가 철판구이 오징어 100g 3천원 무배 (카카오페이)",
+      "ViewCount": 4352,
+      "LikeCount": 72,
+      "WroteDate": "2026-09-23T11:01:00",
+      "GetUrl": "https://plan.11st.co.kr/plan/mobile/exhibitions/2225178/detail?showCase=C1",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fplan.11st.co.kr%2Fplan%2Fmobile%2Fexhibitions%2F2225178%2Fdetail%3FshowCase%3DC1",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14902857,
+      "Title": "신세계쇼핑 신라명과 브라우니 쿠키세트 6610원",
+      "ViewCount": 3606,
+      "LikeCount": 56,
+      "WroteDate": "2026-09-23T17:28:00",
+      "GetUrl": "https://m.shinsegaetvshopping.com/event/welcome\r\nhttps://m.shinsegaetvshopping.com/cp/shop?viewType&linkCode=260900508",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=ssglive&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.shinsegaetvshopping.com%2Fevent%2Fwelcome",
+      "ShortenUrl": null
     },
     {
       "No": 14901500,
       "Title": "토스)미미네 국물떡볶이 4봉9900원 8시부터",
-      "ViewCount": 3444,
-      "LikeCount": 36,
+      "ViewCount": 4326,
+      "LikeCount": 46,
       "WroteDate": "2026-09-23T07:57:00",
       "GetUrl": "https://toss.shopping/t/135010245",
       "ProfitLink": null,
@@ -64,19 +94,69 @@
     {
       "No": 14901506,
       "Title": "토스) 호정가 우리쌀약과 1kg 4990원",
-      "ViewCount": 3155,
-      "LikeCount": 31,
+      "ViewCount": 4021,
+      "LikeCount": 45,
       "WroteDate": "2026-09-23T08:01:00",
       "GetUrl": "https://play.google.com/store/apps/details?id=viva.republica.toss",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14901397,
+      "Title": "쿠팡) 로이체 산리오 LED 무선 미니 블루투스 스피커 +마이크 2p 37,030원",
+      "ViewCount": 3611,
+      "LikeCount": 49,
+      "WroteDate": "2026-09-23T02:16:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=8867121456&itemId=25862271212&vendorItemId=92848553007&traceid=V0-153-f2132e28c48acd36&requestid=20260923102116141229390859&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
+      "No": 14902156,
+      "Title": "H몰)하남쭈꾸미 500g 5팩 42,588원 10팩79,214원쿠폰소진종료",
+      "ViewCount": 3034,
+      "LikeCount": 52,
+      "WroteDate": "2026-09-23T12:13:00",
+      "GetUrl": "https://naver.me/xgXryl0v",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14902104,
+      "Title": "쿠팡) 프링글스 스윗 어니언, 48g, 4개 2000원",
+      "ViewCount": 5336,
+      "LikeCount": 19,
+      "WroteDate": "2026-09-23T11:53:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14901422,
       "Title": "쿠팡)오리온 나 치즈크림, 77g 6개 5,400원",
-      "ViewCount": 3240,
-      "LikeCount": 24,
+      "ViewCount": 3747,
+      "LikeCount": 34,
       "WroteDate": "2026-09-23T06:17:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14902133,
+      "Title": "요기요 하나카드 결제시 2만 이상 5천 쿠폰",
+      "ViewCount": 1540,
+      "LikeCount": 55,
+      "WroteDate": "2026-09-23T12:06:00",
+      "GetUrl": "https://ws.yogiyo.co.kr/ixhp8w",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14902631,
+      "Title": "홈플러스 오프라인 그릇,산리오 76% 행사",
+      "ViewCount": 4306,
+      "LikeCount": 25,
+      "WroteDate": "2026-09-23T15:29:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
@@ -84,20 +164,140 @@
     {
       "No": 14901459,
       "Title": "쿠팡)삭스판다 20켤레 남성용 발이 편한 카바 밴딩 중목 양말 7,800원",
-      "ViewCount": 2401,
-      "LikeCount": 27,
+      "ViewCount": 2880,
+      "LikeCount": 38,
       "WroteDate": "2026-09-23T07:19:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14901815,
+      "Title": "대상웰라이프 선착순쇼핑지원금 받고 뽑기도해보세유",
+      "ViewCount": 2097,
+      "LikeCount": 45,
+      "WroteDate": "2026-09-23T10:09:00",
+      "GetUrl": "https://www.wellife.co.kr/pages/chuseokstore_2026#enp_mbris",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=dswellife&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fwww.wellife.co.kr%2Fpages%2Fchuseokstore_2026%23enp_mbris",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14902166,
+      "Title": "쿠팡)물빠짐 거꾸로 양치컵, 오트밀, 3개 3390원",
+      "ViewCount": 3040,
+      "LikeCount": 32,
+      "WroteDate": "2026-09-23T12:18:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14902926,
+      "Title": "쿠팡)곰도리 온열안대 오리지널/라이트 케어 플러스, 40개입, 1세트 5,900원",
+      "ViewCount": 2908,
+      "LikeCount": 31,
+      "WroteDate": "2026-09-23T18:17:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14902181,
+      "Title": "쿠폰종료/우체국쇼핑)천지샘 산청 참기름 300ml 19,840원",
+      "ViewCount": 2303,
+      "LikeCount": 37,
+      "WroteDate": "2026-09-23T12:24:00",
+      "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA1037744&pavlnDivCd=02&goodsDispTypeCd=03&goodsDispTypeDtlCd=10026640&ctgryCd=104204301",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14901518,
+      "Title": "토스쇼핑) 초코무초 10개 3,900원",
+      "ViewCount": 4108,
+      "LikeCount": 18,
+      "WroteDate": "2026-09-23T08:07:00",
+      "GetUrl": "https://toss.shopping/t/2665308059",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14901819,
+      "Title": "쿠팡) 파워에이드 제로, 600ml 20개(타겟) 11,990원",
+      "ViewCount": 2967,
+      "LikeCount": 26,
+      "WroteDate": "2026-09-23T10:11:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=7168704316&itemId=15509101&vendorItemId=90861125615&traceid=V0-153-322ca15e5540b494&requestid=20260923102117757325588112&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
       "No": 14901386,
       "Title": "네멤)컬리)사리원 소불고기전골 8,900원 일상식탁 낙곱새 10,580 2만이상무배",
-      "ViewCount": 1793,
-      "LikeCount": 30,
+      "ViewCount": 2047,
+      "LikeCount": 34,
       "WroteDate": "2026-09-23T01:48:00",
       "GetUrl": "https://naver.me/GQG7dehB",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14901496,
+      "Title": "쿠팡끝)푹핏 1+1 바른슬리퍼연구소 실내 사무실 거실 구름 슬리퍼 5,680원",
+      "ViewCount": 2650,
+      "LikeCount": 27,
+      "WroteDate": "2026-09-23T07:49:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9561082311&itemId=28532033648&vendorItemId=95477636859&traceid=V0-153-da8d7d379f96fa96&requestid=20260923102116964108698834&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
+      "No": 14902025,
+      "Title": "[수지 롯데몰] 스파오 파자마 1만원 할인!!",
+      "ViewCount": 4078,
+      "LikeCount": 12,
+      "WroteDate": "2026-09-23T11:24:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14901613,
+      "Title": "오케이캐시백)공차 블랙밀크티 + 펄L 3,900원",
+      "ViewCount": 2112,
+      "LikeCount": 29,
+      "WroteDate": "2026-09-23T09:01:00",
+      "GetUrl": "https://m.okcashbag.com/g/w/v2/shopping/group-purchase/1398",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14901614,
+      "Title": "쿠팡) 삼성출판사 은행놀이 리뉴얼 도서 5,270원",
+      "ViewCount": 1746,
+      "LikeCount": 31,
+      "WroteDate": "2026-09-23T09:01:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=8717630736&itemId=25320486069&vendorItemId=93484214437&traceid=V0-153-f5b2c1fff1a09484&requestid=20260923102117360169589755&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
+      "No": 14902163,
+      "Title": "쿠팡)바닥 청소솔 욕실 청소솔 3000원",
+      "ViewCount": 2196,
+      "LikeCount": 26,
+      "WroteDate": "2026-09-23T12:16:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14902591,
+      "Title": "씨유.단백질드링크외 2개이상 삼성 월렛머니 결제시 50%",
+      "ViewCount": 1081,
+      "LikeCount": 37,
+      "WroteDate": "2026-09-23T15:12:00",
+      "GetUrl": "https://www.pocketcu.co.kr/deepLink/checkAppInstall?viewType=1&viewUrl=/event/eventView/9005260911236",
       "ProfitLink": null,
       "ShortenUrl": null
     }
