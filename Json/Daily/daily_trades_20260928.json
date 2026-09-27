@@ -1,0 +1,69 @@
+{
+  "key": "3731",
+  "export_date": "2026-09-28T07:14:10.293422",
+  "selected_date": "2026-09-28",
+  "summary": {
+    "total_apt_count": 2,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "북구",
+      "count": 2
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 768120,
+      "district": "대구광역시 북구 사수동",
+      "gu": "북구",
+      "dong": "사수동",
+      "bunji": "833",
+      "apt_name": "금호서한이다음",
+      "area": 84.55,
+      "contract_date": "2026-09-23",
+      "amount": 255000000,
+      "floor": 13,
+      "buyer_type": "개인",
+      "construction_year": 2016,
+      "road_name": "한강로 17",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 북구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-09-28T07:12:07.576235",
+      "previous_high": 392000000,
+      "trade_count_3m_total": 5,
+      "trade_count_3m_area": 3,
+      "presale_type": null
+    },
+    {
+      "trade_type": "아파트",
+      "raw_id": 768019,
+      "district": "대구광역시 북구 태전동",
+      "gu": "북구",
+      "dong": "태전동",
+      "bunji": "1244",
+      "apt_name": "대구태전역광신프로그레스",
+      "area": 59.734,
+      "contract_date": "2026-09-19",
+      "amount": 260000000,
+      "floor": 9,
+      "buyer_type": "개인",
+      "construction_year": 2023,
+      "road_name": "태전로7길 34",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 북구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-09-28T07:12:07.576235",
+      "previous_high": 320000000,
+      "trade_count_3m_total": 6,
+      "trade_count_3m_area": 1,
+      "presale_type": null
+    }
+  ]
+}
