@@ -1,0 +1,44 @@
+{
+  "key": "3731",
+  "export_date": "2026-10-12T07:13:47.325529",
+  "selected_date": "2026-10-12",
+  "summary": {
+    "total_apt_count": 1,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "북구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 782965,
+      "district": "대구광역시 북구 구암동",
+      "gu": "북구",
+      "dong": "구암동",
+      "bunji": "695-1",
+      "apt_name": "칠곡동서영남",
+      "area": 59.84,
+      "contract_date": "2026-09-12",
+      "amount": 122000000,
+      "floor": 9,
+      "buyer_type": "개인",
+      "construction_year": 1995,
+      "road_name": "구암로 180",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 북구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-10-12T07:12:08.144289",
+      "previous_high": 191000000,
+      "trade_count_3m_total": 4,
+      "trade_count_3m_area": 2,
+      "presale_type": null
+    }
+  ]
+}
