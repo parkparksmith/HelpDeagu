@@ -1,11 +1,21 @@
 {
-  "created_date": "2026-10-14 11:30:02",
+  "created_date": "2026-10-14 21:00:01",
   "list": [
+    {
+      "No": 14941816,
+      "Title": "g마켓)춘천 레고랜드 코리아 리조트 프리미엄 룸 271,544원+조식",
+      "ViewCount": 4805,
+      "LikeCount": 129,
+      "WroteDate": "2026-10-14T09:31:00",
+      "GetUrl": "https://item.gmarket.co.kr/Item?goodsCode=4226705713",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fitem.gmarket.co.kr%2FItem%3FgoodsCode%3D4226705713",
+      "ShortenUrl": null
+    },
     {
       "No": 14941736,
       "Title": "롯데온) 4시판매예정 엘포30%페이백체감가 42,530원+조선호텔특제육수포기김치4kg+4kg",
-      "ViewCount": 2112,
-      "LikeCount": 122,
+      "ViewCount": 2943,
+      "LikeCount": 137,
       "WroteDate": "2026-10-14T08:58:00",
       "GetUrl": "https://s.lotteon.com/h9sacykUPO",
       "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2Fh9sacykUPO",
@@ -14,10 +24,60 @@
     {
       "No": 14941663,
       "Title": "톡딜)하겐다즈 크리스피 샌드위치 9개 19,710원",
-      "ViewCount": 5017,
-      "LikeCount": 74,
+      "ViewCount": 6240,
+      "LikeCount": 86,
       "WroteDate": "2026-10-14T08:26:00",
       "GetUrl": "https://store.kakao.com/haagendazs/products/641827229?ref=SHARE",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14941691,
+      "Title": "[이마트] 이번 주 전단 행사(10/15 ~ 10/21)",
+      "ViewCount": 4216,
+      "LikeCount": 102,
+      "WroteDate": "2026-10-14T08:41:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14942785,
+      "Title": "Gs샵+토스) 프로쉬 식기세척기 세제미니 50개입 3개+주방세제 500ml 31,000원 핫딜!!!",
+      "ViewCount": 3655,
+      "LikeCount": 107,
+      "WroteDate": "2026-10-14T15:55:00",
+      "GetUrl": "https://m.gsshop.com/prd/prd.gs?prdid=1063661999&shareType=url_copy",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gseshop&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gsshop.com%2Fprd%2Fprd.gs%3Fprdid%3D1063661999%26shareType%3Durl_copy",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14941633,
+      "Title": "카톡 나에게선물) 사미헌 한끼 갈비탕 700g 4팩 26,820원",
+      "ViewCount": 2916,
+      "LikeCount": 113,
+      "WroteDate": "2026-10-14T08:01:00",
+      "GetUrl": "https://kko.to/9JqD8zBY8W",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14942973,
+      "Title": "톡딜) 동원참치 라이트 85g 16캔 + 마일드 90g 4캔 22,860원",
+      "ViewCount": 2870,
+      "LikeCount": 102,
+      "WroteDate": "2026-10-14T17:09:00",
+      "GetUrl": "https://store.kakao.com/dongwonfnb/products/71615031?ref=SHARE",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14942048,
+      "Title": "오늘의집 산지직송 파프리카 3kg 7920원",
+      "ViewCount": 4830,
+      "LikeCount": 79,
+      "WroteDate": "2026-10-14T10:44:00",
+      "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -32,6 +92,16 @@
       "ShortenUrl": null
     },
     {
+      "No": 14943202,
+      "Title": "이랜드몰) 스파오 블루종 레더 블랙 27960원 유배",
+      "ViewCount": 4940,
+      "LikeCount": 69,
+      "WroteDate": "2026-10-14T19:15:00",
+      "GetUrl": "https://www.elandmall.co.kr/i/item?itemNo=2509068183&lowerVendNo=LV16003579",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14941443,
       "Title": "생활공작소.신규가입 99%쿠폰(최대 1만할인)",
       "ViewCount": 2186,
@@ -42,23 +112,23 @@
       "ShortenUrl": null
     },
     {
-      "No": 14941633,
-      "Title": "카톡 나에게선물) 사미헌 한끼 갈비탕 700g 4팩 26,820원",
-      "ViewCount": 2452,
-      "LikeCount": 92,
-      "WroteDate": "2026-10-14T08:01:00",
-      "GetUrl": "https://kko.to/9JqD8zBY8W",
-      "ProfitLink": null,
+      "No": 14941969,
+      "Title": "지마켓) NBA키즈 LAL 팀 로고 후드티셔츠 19,480원",
+      "ViewCount": 4587,
+      "LikeCount": 69,
+      "WroteDate": "2026-10-14T10:20:00",
+      "GetUrl": "https://item.gmarket.co.kr/Item?goodscode=4844894783",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fitem.gmarket.co.kr%2FItem%3Fgoodscode%3D4844894783",
       "ShortenUrl": null
     },
     {
-      "No": 14941816,
-      "Title": "g마켓)춘천 레고랜드 코리아 리조트 프리미엄 룸 271,544원+조식",
-      "ViewCount": 2930,
-      "LikeCount": 77,
-      "WroteDate": "2026-10-14T09:31:00",
-      "GetUrl": "https://item.gmarket.co.kr/Item?goodsCode=4226705713",
-      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fitem.gmarket.co.kr%2FItem%3FgoodsCode%3D4226705713",
+      "No": 14942252,
+      "Title": "CJ온스타일) 한상궁김치 겉절이 2kg 무배 9,410원",
+      "ViewCount": 3018,
+      "LikeCount": 81,
+      "WroteDate": "2026-10-14T11:47:00",
+      "GetUrl": "https://item.cjonstyle.com/nfront/item/2003424003?infl_cd=I4218",
+      "ProfitLink": null,
       "ShortenUrl": null
     },
     {
@@ -72,19 +142,79 @@
       "ShortenUrl": null
     },
     {
-      "No": 14941691,
-      "Title": "[이마트] 이번 주 행사 전단(10/15 ~ 10/21)",
-      "ViewCount": 3042,
-      "LikeCount": 73,
-      "WroteDate": "2026-10-14T08:41:00",
+      "No": 14941638,
+      "Title": "카톡 나에게선물) 인기아이스크림 바류 50개/ 구구크러스트 5개 18,360원",
+      "ViewCount": 2852,
+      "LikeCount": 77,
+      "WroteDate": "2026-10-14T08:05:00",
+      "GetUrl": "https://kko.to/l2lhOPhmXp",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14941778,
+      "Title": "롯데온)[12+12] 엠앤엠즈 미니 튜브 35g 14900원",
+      "ViewCount": 3842,
+      "LikeCount": 60,
+      "WroteDate": "2026-10-14T09:19:00",
+      "GetUrl": "https://s.lotteon.com/MR33AJ8mEw",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FMR33AJ8mEw",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14942145,
+      "Title": "쿠팡) 정리여왕 옷정리 수납함 리빙박스 특대형 2개 4800원",
+      "ViewCount": 4399,
+      "LikeCount": 52,
+      "WroteDate": "2026-10-14T11:11:00",
       "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9738152479&itemId=29144656602&vendorItemId=96068110477&traceid=V0-153-666fad354d1d1d2e&requestid=20261014111959676147163245&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
+      "No": 14942108,
+      "Title": "kt멤머쉽 품절)햇반 윤기가득쌀밥 210g x36개 19.450원 개당540원",
+      "ViewCount": 3570,
+      "LikeCount": 58,
+      "WroteDate": "2026-10-14T11:01:00",
+      "GetUrl": "https://ktmembership.page.link/ghdHuMohoTPk7ebE8",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14941708,
+      "Title": "[노브랜드]이번 주 전단 행사 (10/15~10/21, 10/29)",
+      "ViewCount": 3199,
+      "LikeCount": 60,
+      "WroteDate": "2026-10-14T08:51:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14941937,
+      "Title": "지마켓)비비고 한우사골곰탕 500G X 16 + 사골곰탕 500G X 2 15,460원(삼카14,690원)",
+      "ViewCount": 2081,
+      "LikeCount": 69,
+      "WroteDate": "2026-10-14T10:11:00",
+      "GetUrl": "https://m.gmarket.co.kr/vi/product/4733019508",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gmarket.co.kr%2Fvi%2Fproduct%2F4733019508",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14942981,
+      "Title": "네이버가쯔)가쯔 물빠짐 와이드 주방 세제 수세미 거치대 1900원",
+      "ViewCount": 3423,
+      "LikeCount": 55,
+      "WroteDate": "2026-10-14T17:12:00",
+      "GetUrl": "https://naver.me/GjyVpcRm",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
       "No": 14941591,
       "Title": "롯데온)샐러드용 채소 믹스 1kg 쌈채소 샐러드 3~4종 내외 스마트팜 수경재배 5990원 끝",
-      "ViewCount": 1894,
+      "ViewCount": 2013,
       "LikeCount": 68,
       "WroteDate": "2026-10-14T07:23:00",
       "GetUrl": "https://s.lotteon.com/Y2N2bTPoCji",
@@ -92,12 +222,82 @@
       "ShortenUrl": null
     },
     {
-      "No": 14941638,
-      "Title": "카톡 나에게선물) 인기아이스크림 바류 50개/ 구구크러스트 5개 18,360원",
-      "ViewCount": 2441,
-      "LikeCount": 60,
-      "WroteDate": "2026-10-14T08:05:00",
-      "GetUrl": "https://kko.to/l2lhOPhmXp",
+      "No": 14942180,
+      "Title": "쿠팡) 퀘이커 마시는 오트밀 그레인 서리태 낱봉팩 1kg(20개) 10,920원",
+      "ViewCount": 4031,
+      "LikeCount": 42,
+      "WroteDate": "2026-10-14T11:24:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14942425,
+      "Title": "네이버) 스케쳐스 키즈 마이크로스펙 맥스 아동 운동화 SK0BDCFX042 44,240원 무배",
+      "ViewCount": 3717,
+      "LikeCount": 44,
+      "WroteDate": "2026-10-14T13:15:00",
+      "GetUrl": "https://shopping.naver.com/window-products/department/8316270014",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14943003,
+      "Title": "쿠팡 카드할인) 쿠첸 브레인 듀얼프레셔 IH압력 전기밥솥 6인용 181,020원",
+      "ViewCount": 3555,
+      "LikeCount": 44,
+      "WroteDate": "2026-10-14T17:20:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14941741,
+      "Title": "지마켓) 창의사고력 팩토 문제집세트 33,600원 할인중이네용!",
+      "ViewCount": 1423,
+      "LikeCount": 65,
+      "WroteDate": "2026-10-14T09:01:00",
+      "GetUrl": "http://item.gmarket.co.kr/Item?goodscode=4659190495",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gmarket&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fitem.gmarket.co.kr%2FItem%3Fgoodscode%3D4659190495",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14942219,
+      "Title": "롯데온]가격오름!![온쇼페]한일STS 스플릿 통5중 스텐레스 IH 냄비세트 5종 138,960",
+      "ViewCount": 2221,
+      "LikeCount": 55,
+      "WroteDate": "2026-10-14T11:36:00",
+      "GetUrl": "https://s.lotteon.com/whaF21kfSg\r\nhttps://s.lotteon.com/0R0fOJM6_Y",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FwhaF21kfSg",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14942132,
+      "Title": "쿠팡)카누더블샷라떼 50+50 27520원(이정도면 초핫딜)",
+      "ViewCount": 3569,
+      "LikeCount": 41,
+      "WroteDate": "2026-10-14T11:08:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14941653,
+      "Title": "우동 사전예약) 프로즌 원팩 마라탕 보통맛 4,980원 매운맛 5,480원",
+      "ViewCount": 3365,
+      "LikeCount": 43,
+      "WroteDate": "2026-10-14T08:19:00",
+      "GetUrl": "https://abr.ge/n5oftg8\r\nhttps://abr.ge/kh0osg4",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14941916,
+      "Title": "CJ온스타일) 26년 햅쌀 새청무 특등급 10kg 28,960원 무배",
+      "ViewCount": 2143,
+      "LikeCount": 49,
+      "WroteDate": "2026-10-14T10:03:00",
+      "GetUrl": "https://item.cjonstyle.com/nfront/item/2095743988?infl_cd=I4218",
       "ProfitLink": null,
       "ShortenUrl": null
     }
