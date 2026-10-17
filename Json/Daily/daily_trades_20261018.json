@@ -1,0 +1,73 @@
+{
+  "key": "3731",
+  "export_date": "2026-10-18T07:14:36.371032",
+  "selected_date": "2026-10-18",
+  "summary": {
+    "total_apt_count": 2,
+    "total_presale_count": 0,
+    "apt_newhigh_count": 0,
+    "presale_newhigh_count": 0
+  },
+  "district_status": [
+    {
+      "gu": "북구",
+      "count": 1
+    },
+    {
+      "gu": "동구",
+      "count": 1
+    }
+  ],
+  "trades": [
+    {
+      "trade_type": "아파트",
+      "raw_id": 789165,
+      "district": "대구광역시 북구 국우동",
+      "gu": "북구",
+      "dong": "국우동",
+      "bunji": "1080",
+      "apt_name": "그린빌6단지",
+      "area": 51.95,
+      "contract_date": "2026-10-04",
+      "amount": 138000000,
+      "floor": 15,
+      "buyer_type": "개인",
+      "construction_year": 2002,
+      "road_name": "학정동로 10",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 북구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-10-18T07:12:20.099517",
+      "previous_high": 200000000,
+      "trade_count_3m_total": 9,
+      "trade_count_3m_area": 7,
+      "presale_type": null
+    },
+    {
+      "trade_type": "아파트",
+      "raw_id": 789014,
+      "district": "대구광역시 동구 신천동",
+      "gu": "동구",
+      "dong": "신천동",
+      "bunji": "100",
+      "apt_name": "벽산e-솔렌스힐",
+      "area": 84.6953,
+      "contract_date": "2026-10-01",
+      "amount": 290000000,
+      "floor": 13,
+      "buyer_type": "개인",
+      "construction_year": 2007,
+      "road_name": "장등로 56",
+      "transaction_type": "중개거래",
+      "agent_location": "대구 동구",
+      "termination_date": null,
+      "is_newhigh": false,
+      "write_date": "2026-10-18T07:12:20.099517",
+      "previous_high": 500000000,
+      "trade_count_3m_total": 3,
+      "trade_count_3m_area": 2,
+      "presale_type": null
+    }
+  ]
+}
