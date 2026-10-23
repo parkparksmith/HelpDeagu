@@ -1,11 +1,11 @@
 {
-  "created_date": "2026-10-23 11:30:02",
+  "created_date": "2026-10-23 21:00:01",
   "list": [
     {
       "No": 14960557,
       "Title": "캉골공홈)2026 시크릿 할인 ! 가방 8,400원 부터~ 종류 엄청 많아요 ~초핫딜!!",
-      "ViewCount": 15000,
-      "LikeCount": 314,
+      "ViewCount": 16000,
+      "LikeCount": 331,
       "WroteDate": "2026-10-23T01:55:00",
       "GetUrl": "https://kangolkorea.com/product/list.html?cate_no=1115",
       "ProfitLink": null,
@@ -14,17 +14,27 @@
     {
       "No": 14960562,
       "Title": "알뜰요금제) skt 30G/500분/100건 선착순1000명 8910원 평생요금제",
-      "ViewCount": 3327,
-      "LikeCount": 155,
+      "ViewCount": 3625,
+      "LikeCount": 165,
       "WroteDate": "2026-10-23T02:10:00",
       "GetUrl": "https://www.freet.co.kr/plan/ratePlan/detail?svcCd=PC0SB00285",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 14960833,
+      "Title": "끝!!! 당근) 본죽 포장주문시 6천원 선착순 할인(픽업 시간 지정 가능)",
+      "ViewCount": 3665,
+      "LikeCount": 94,
+      "WroteDate": "2026-10-23T09:32:00",
+      "GetUrl": "https://daangn.com/kr/share/pickup/kkd",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14960504,
       "Title": "토스)덴마크 체다치즈 4개 10600원",
-      "ViewCount": 3963,
+      "ViewCount": 4056,
       "LikeCount": 74,
       "WroteDate": "2026-10-23T00:04:00",
       "GetUrl": null,
@@ -32,22 +42,132 @@
       "ShortenUrl": null
     },
     {
+      "No": 14961400,
+      "Title": "쿠팡)베네통키즈 아동용 스트라이프 단목 양말 5종 세트 6,030원",
+      "ViewCount": 6329,
+      "LikeCount": 45,
+      "WroteDate": "2026-10-23T13:09:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14960784,
+      "Title": "다이소) 트레이닝바지 5000원,스트레이트 팬츠",
+      "ViewCount": 3697,
+      "LikeCount": 61,
+      "WroteDate": "2026-10-23T09:12:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14960900,
+      "Title": "네이버)푸드페스타 10시쿠폰 오늘도받으세요",
+      "ViewCount": 5296,
+      "LikeCount": 45,
+      "WroteDate": "2026-10-23T09:59:00",
+      "GetUrl": "https://shopping.naver.com/event/6aa74f37e5dd9c4fe583fa21?dtm_source=newsp_mohome&dtm_medium=mktatrb&dtm_campaign=2610-shopping-022&pcode=newsp_mohome&campaign_id=2610-shopping-022&channel_id=newsp_mohome&NaPm=ct%3Dmvdyfgi6%7Cci%3Dshoppingvertical%7Ctr%3Dnshm%7Chk%3D58d86ce4ad654d3882631ef90679f4d01edb7eb1",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14961975,
+      "Title": "10월 26일~ 11월 22일 코스트코 쿠폰 행사",
+      "ViewCount": 3794,
+      "LikeCount": 58,
+      "WroteDate": "2026-10-23T17:10:00",
+      "GetUrl": "https://www.costco.co.kr/FY27P3MVM",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14961422,
+      "Title": "롯데백화점) 블루독키즈 26FW 베이직 경량패딩점퍼 38,580원",
+      "ViewCount": 4377,
+      "LikeCount": 49,
+      "WroteDate": "2026-10-23T13:17:00",
+      "GetUrl": "https://s.lotteon.com/uMC1X87nb1",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=lotteon&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fs.lotteon.com%2FuMC1X87nb1",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14960567,
+      "Title": "알뜰요금제)10원 6갤(4.5기가+1mbps, 통화문자무제한) 신세계상품권2만원지급",
+      "ViewCount": 1310,
+      "LikeCount": 79,
+      "WroteDate": "2026-10-23T03:07:00",
+      "GetUrl": "https://www.uplusmvno.com/plan/plan-list/detail?mvnopPpId=CP0000005640&mvnopPtnId=PC0000000022",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14960796,
+      "Title": "맛뜰무안몰)양파 5kg 상 5,840원",
+      "ViewCount": 1960,
+      "LikeCount": 72,
+      "WroteDate": "2026-10-23T09:17:00",
+      "GetUrl": "https://muanshop.com/product/%EB%8B%A4%ED%95%9C%EB%86%8D%EC%82%B0-26%EB%85%84-%ED%96%87%EC%96%91%ED%8C%8C-%EC%82%B0%EC%A7%80%EC%A7%81%EC%86%A1-%ED%99%A9%ED%86%A0%EB%B0%AD-%EB%AC%B4%EC%95%88-%ED%96%87%EC%96%91%ED%8C%8C-3kg5kg/479/category/151/",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 14960568,
       "Title": "실리만/베이비바우처)실리콘 하모니 서빙스푼 5,900원/2,472원적립",
-      "ViewCount": 4421,
-      "LikeCount": 44,
+      "ViewCount": 4636,
+      "LikeCount": 45,
       "WroteDate": "2026-10-23T03:09:00",
       "GetUrl": "https://naver.me/5AuHHGTj\r\nhttps://naver.me/5suU2ctD",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 14960567,
-      "Title": "알뜰요금제)10원 6갤(4.5기가+1mbps, 통화문자무제한) 신세계상품권2만원지급",
-      "ViewCount": 1240,
-      "LikeCount": 74,
-      "WroteDate": "2026-10-23T03:07:00",
-      "GetUrl": "https://www.uplusmvno.com/plan/plan-list/detail?mvnopPpId=CP0000005640&mvnopPtnId=PC0000000022",
+      "No": 14961263,
+      "Title": "쿠팡) 정리여왕 옷정리 수납함 리빙박스 특대형, 2개 4,800원",
+      "ViewCount": 4534,
+      "LikeCount": 45,
+      "WroteDate": "2026-10-23T12:10:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9738152479&itemId=29144656600&vendorItemId=96068110475&traceid=V0-153-666fad354d1d1d2e&requestid=20261023121820502134490802&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
+      "No": 14961879,
+      "Title": "GS SHOP) 이벤트 적립금 만원 사용, 가디건 7,900원",
+      "ViewCount": 4254,
+      "LikeCount": 46,
+      "WroteDate": "2026-10-23T16:29:00",
+      "GetUrl": "https://m.gsshop.com/prd/prd.gs?prdid=1092196711&shareType=url_copy",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gseshop&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gsshop.com%2Fprd%2Fprd.gs%3Fprdid%3D1092196711%26shareType%3Durl_copy",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14961943,
+      "Title": "올마이투어닷컴) 인스파이어 리조트 스플래시베이 포함 특가 242,000원~",
+      "ViewCount": 2370,
+      "LikeCount": 64,
+      "WroteDate": "2026-10-23T17:00:00",
+      "GetUrl": "https://www.allmytour.com/event/accom/247",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14961075,
+      "Title": "네이버) 넾다세일 얼리버드 쿠폰 받으세요",
+      "ViewCount": 4934,
+      "LikeCount": 37,
+      "WroteDate": "2026-10-23T11:03:00",
+      "GetUrl": "https://naver.me/5Olp6wow",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14961357,
+      "Title": "카카오페이)2026 노난날 다이소 3천원이상1천원 할인쿠폰",
+      "ViewCount": 2411,
+      "LikeCount": 58,
+      "WroteDate": "2026-10-23T12:45:00",
+      "GetUrl": "https://link.kakaopay.com/_/payment-benefit-hub",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -62,12 +182,102 @@
       "ShortenUrl": null
     },
     {
-      "No": 14960833,
-      "Title": "당근) 본죽 포장주문시 6천원 선착순 할인(픽업 시간 지정 가능)",
-      "ViewCount": 2289,
-      "LikeCount": 57,
-      "WroteDate": "2026-10-23T09:32:00",
-      "GetUrl": "https://daangn.com/kr/share/pickup/kkd",
+      "No": 14961670,
+      "Title": "투에이엔 타포린백 천원 무배",
+      "ViewCount": 4748,
+      "LikeCount": 33,
+      "WroteDate": "2026-10-23T15:02:00",
+      "GetUrl": "https://m.brand.naver.com/2an/products/13827006184",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14961940,
+      "Title": "이마트 이번주 22일~29일 전단행사",
+      "ViewCount": 3346,
+      "LikeCount": 46,
+      "WroteDate": "2026-10-23T16:58:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14960865,
+      "Title": "신세계쇼핑 랜덤적립금 1,000P~5,000P",
+      "ViewCount": 1897,
+      "LikeCount": 56,
+      "WroteDate": "2026-10-23T09:47:00",
+      "GetUrl": "https://m.shinsegaetvshopping.com/event/eventView/2610133161\r\nhttps://m.shinsegaetvshopping.com/event/welcome",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=ssglive&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.shinsegaetvshopping.com%2Fevent%2FeventView%2F2610133161",
+      "ShortenUrl": null
+    },
+    {
+      "No": 14960876,
+      "Title": "스킨푸드공홈 당근패드 본품3통 총180매 토스페이22200원!!",
+      "ViewCount": 2355,
+      "LikeCount": 51,
+      "WroteDate": "2026-10-23T09:51:00",
+      "GetUrl": "https://www.theskinfood.com/m/product.html?branduid=677&search=&xcode=005&mcode=001&scode=&GfDT=bGt3UQ%3D%3D\r\nhttps://www.theskinfood.com/m/product.html?branduid=10321650&search=%ED%8C%A8%EB%93%9C&sort=sellcnt&xcode=005&mcode=001&scode=&GfDT=bm9%2BW10%3D",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14961219,
+      "Title": "네이버) 대한민국농수산 국내산 제철 홍가리비 1kg 3900원 (지난 주말 구매한 분만 무배 쿠폰 가능) 배송비3000",
+      "ViewCount": 2787,
+      "LikeCount": 42,
+      "WroteDate": "2026-10-23T11:52:00",
+      "GetUrl": "https://shopping.naver.com/event/6acf412423ef3a65b6d419f4?dtm_source=nps_homebanner_app&dtm_medium=mktatrb&dtm_campaign=2607-shopping-024&pcode=nps_homebanner_app&campaign_id=2607-shopping-024&channel_id=nps_homebanner_app\r\n국내산 제철 가리비 1kg 세척 캠핑음식 조개구이 : 대한민국농수산",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14961313,
+      "Title": "무신사) 트래블 워싱 와플 믹스 후드 집업 버건디 무배 10400원",
+      "ViewCount": 5580,
+      "LikeCount": 14,
+      "WroteDate": "2026-10-23T12:31:00",
+      "GetUrl": "https://musinsa.onelink.me/PvkC/pn320p2p",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14960608,
+      "Title": "품절/쿠팡)밴프 마스터 세트 5종 19,940원",
+      "ViewCount": 4874,
+      "LikeCount": 19,
+      "WroteDate": "2026-10-23T07:13:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14962223,
+      "Title": "더오리덕몰)다향 훈제오리 슬라이스 200g 10팩 24,000원",
+      "ViewCount": 1363,
+      "LikeCount": 54,
+      "WroteDate": "2026-10-23T19:36:00",
+      "GetUrl": "https://naver.me/GT4JjUc6",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14961220,
+      "Title": "쿠팡)이가자연면 투움바 파스타 6개 8,440원",
+      "ViewCount": 3141,
+      "LikeCount": 36,
+      "WroteDate": "2026-10-23T11:52:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 14960863,
+      "Title": "쿠팡) 쿠크다스 화이트, 128g, 3개 4,480원/ 77g, 4개 3,600원",
+      "ViewCount": 3574,
+      "LikeCount": 31,
+      "WroteDate": "2026-10-23T09:44:00",
+      "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -82,22 +292,12 @@
       "ShortenUrl": null
     },
     {
-      "No": 14960900,
-      "Title": "네이버)푸드페스타 10시쿠폰 오늘도받으세요",
-      "ViewCount": 3868,
-      "LikeCount": 26,
-      "WroteDate": "2026-10-23T09:59:00",
-      "GetUrl": "https://shopping.naver.com/event/6aa74f37e5dd9c4fe583fa21?dtm_source=newsp_mohome&dtm_medium=mktatrb&dtm_campaign=2610-shopping-022&pcode=newsp_mohome&campaign_id=2610-shopping-022&channel_id=newsp_mohome&NaPm=ct%3Dmvdyfgi6%7Cci%3Dshoppingvertical%7Ctr%3Dnshm%7Chk%3D58d86ce4ad654d3882631ef90679f4d01edb7eb1",
-      "ProfitLink": null,
-      "ShortenUrl": null
-    },
-    {
-      "No": 14960608,
-      "Title": "품절/쿠팡)밴프 마스터 세트 5종 19,940원",
-      "ViewCount": 4518,
-      "LikeCount": 18,
-      "WroteDate": "2026-10-23T07:13:00",
-      "GetUrl": null,
+      "No": 14961294,
+      "Title": "대한민국농수산) 통영 생굴 500g 내일배송 5900원",
+      "ViewCount": 1846,
+      "LikeCount": 47,
+      "WroteDate": "2026-10-23T12:21:00",
+      "GetUrl": "https://naver.me/5MvOIG4T",
       "ProfitLink": null,
       "ShortenUrl": null
     }
