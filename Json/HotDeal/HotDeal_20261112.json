@@ -1,33 +1,93 @@
 {
-  "created_date": "2026-11-12 11:30:02",
+  "created_date": "2026-11-12 21:00:08",
   "list": [
     {
       "No": 15006432,
       "Title": "쿠팡) 방학 대비하세요... 써모스 보온 도시락 42,200원 (실사 있어요)",
-      "ViewCount": 7755,
-      "LikeCount": 281,
+      "ViewCount": 8345,
+      "LikeCount": 315,
       "WroteDate": "2026-11-12T07:41:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 15007454,
+      "Title": "g마켓) 이거좋아요~ 설성목장 한우 진 사골곰탕 스틱 50개 16,970원",
+      "ViewCount": 9392,
+      "LikeCount": 259,
+      "WroteDate": "2026-11-12T13:58:00",
+      "GetUrl": "https://m.site.naver.com/2kT1t",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 15006462,
       "Title": "쿠팡) 하코야 파인세라 나이프 A685, 롱(15cm), 레드, 1개 - 7,500원 초핫딜",
-      "ViewCount": 12000,
-      "LikeCount": 141,
+      "ViewCount": 14000,
+      "LikeCount": 158,
       "WroteDate": "2026-11-12T08:08:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 15006914,
+      "Title": "배민×네페 랜덤 할인 쿠폰",
+      "ViewCount": 6916,
+      "LikeCount": 199,
+      "WroteDate": "2026-11-12T10:44:00",
+      "GetUrl": "http://tr.pay.naver.com/trace/ad/r/notification/PAY_MKT/PAY_MKT_AD/membership-20261112-095339?url=https%3A%2F%2Fm-campaign.naver.com%2Fcollect%2Fv2%2F%3Fcode%3D2026110402_888882_012_clk_888888_20261104005%26target%3Dhttps%3A%2F%2Fm.site.naver.com%2F2kQTJ&element=schedule-20261112-095339&step=message_body&ticketId=51f80cbe0d7a6eb3625a2e512df256d7",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007404,
+      "Title": "먼데이오프 공홈) 블프세일 ~90% 티셔츠 4,800원 바지 만원초반대 등등",
+      "ViewCount": 9546,
+      "LikeCount": 162,
+      "WroteDate": "2026-11-12T13:37:00",
+      "GetUrl": "https://mondayoff.co.kr/",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007115,
+      "Title": "GS샵) GGPX 소프트터치 코듀로이 팬츠 4종 세트 10,965원",
+      "ViewCount": 11000,
+      "LikeCount": 109,
+      "WroteDate": "2026-11-12T11:41:00",
+      "GetUrl": "https://m.gsshop.com/product/appRedirect.gs?rtnUrl=aHR0cHM6Ly9tLmdzc2hvcC5jb20vcGxhblByZC9wbGFuUHJkLmpzcD9wbGFuc2VxPTMxMDk3Nw==\r\nhttps://m.gsshop.com/prd/prd.gs?prdid=1097921331&shareType=url_copy",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=gseshop&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fm.gsshop.com%2Fproduct%2FappRedirect.gs%3FrtnUrl%3DaHR0cHM6Ly9tLmdzc2hvcC5jb20vcGxhblByZC9wbGFuUHJkLmpzcD9wbGFuc2VxPTMxMDk3Nw%3D%3D",
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007817,
+      "Title": "lf몰 신규 이즈니버터 60개 토스페이 결제시 16378원",
+      "ViewCount": 6491,
+      "LikeCount": 133,
+      "WroteDate": "2026-11-12T16:33:00",
+      "GetUrl": "https://m.lfmall.co.kr/app/event/100007\r\nhttps://m.lfmall.co.kr/app/product/DA49XX01114?live=Y&af=SH001&sc=58173382&sp=DA49XX01114",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 15006483,
       "Title": "쿠팡) 바브키즈 아동용 브러쉬 데님팬츠 16,590원 15,17,19호만 (착샷 있어요!!!)",
-      "ViewCount": 6727,
-      "LikeCount": 98,
+      "ViewCount": 7637,
+      "LikeCount": 108,
       "WroteDate": "2026-11-12T08:24:00",
       "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007214,
+      "Title": "무신사) 큰 딸들 옷도 5만 밑으로 소개딜 29,900원",
+      "ViewCount": 8914,
+      "LikeCount": 78,
+      "WroteDate": "2026-11-12T12:19:00",
+      "GetUrl": "https://musinsa.onelink.me/PvkC/xgo3wfxu\r\nhttps://musinsa.onelink.me/PvkC/wcf90af9\r\nhttps://musinsa.onelink.me/PvkC/x71ipwpw\r\nhttps://musinsa.onelink.me/PvkC/wt4mrwks",
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -42,32 +102,142 @@
       "ShortenUrl": null
     },
     {
-      "No": 15006914,
-      "Title": "배민×네페 랜덤 할인 쿠폰",
-      "ViewCount": 3164,
-      "LikeCount": 87,
-      "WroteDate": "2026-11-12T10:44:00",
-      "GetUrl": "http://tr.pay.naver.com/trace/ad/r/notification/PAY_MKT/PAY_MKT_AD/membership-20261112-095339?url=https%3A%2F%2Fm-campaign.naver.com%2Fcollect%2Fv2%2F%3Fcode%3D2026110402_888882_012_clk_888888_20261104005%26target%3Dhttps%3A%2F%2Fm.site.naver.com%2F2kQTJ&element=schedule-20261112-095339&step=message_body&ticketId=51f80cbe0d7a6eb3625a2e512df256d7",
+      "No": 15006754,
+      "Title": "우체국) 국내산 돼지 삼겹살 1등급 1kg 15,600원",
+      "ViewCount": 4504,
+      "LikeCount": 117,
+      "WroteDate": "2026-11-12T09:57:00",
+      "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA1075581&pavlnDivCd=02&goodsDispTypeCd=&goodsDispTypeDtlCd=10025363&ctgryCd=103202301",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15006957,
+      "Title": "첫구매, 배송비주의)스타벅스 시그니처 사이렌머그 16,900원",
+      "ViewCount": 5789,
+      "LikeCount": 77,
+      "WroteDate": "2026-11-12T10:58:00",
+      "GetUrl": "https://onlinestore.starbucks.co.kr/gate/ret?url=https%3A%2F%2Fonlinestore.starbucks.co.kr%2Fgoods%2F1006057%3Ffrm%3Dapp",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
       "No": 15006816,
       "Title": "옥션)하루견과 프리미엄너츠 낱봉 100봉 초핫딜 선착쿠폰시 34390원",
-      "ViewCount": 3103,
-      "LikeCount": 85,
+      "ViewCount": 3424,
+      "LikeCount": 98,
       "WroteDate": "2026-11-12T10:14:00",
       "GetUrl": "https://mobile.auction.co.kr/ego.aspx?t=vp&p=C507281305",
       "ProfitLink": "https://click.linkprice.com/click.php?m=auction&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=https%3A%2F%2Fmobile.auction.co.kr%2Fego.aspx%3Ft%3Dvp%26p%3DC507281305",
       "ShortenUrl": null
     },
     {
-      "No": 15006754,
-      "Title": "우체국) 국내산 돼지 삼겹살 1등급 1kg 15,600원",
-      "ViewCount": 2813,
-      "LikeCount": 66,
-      "WroteDate": "2026-11-12T09:57:00",
-      "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA1075581&pavlnDivCd=02&goodsDispTypeCd=&goodsDispTypeDtlCd=10025363&ctgryCd=103202301",
+      "No": 15006699,
+      "Title": "다이소)오픈런하세요 오늘 크리스마스 용품 출시 1,000원~",
+      "ViewCount": 6171,
+      "LikeCount": 70,
+      "WroteDate": "2026-11-12T09:41:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15008083,
+      "Title": "w컨셉 아뜰리에 드 루멘 프니에 쁘띠 토스130473원",
+      "ViewCount": 3852,
+      "LikeCount": 75,
+      "WroteDate": "2026-11-12T18:47:00",
+      "GetUrl": "https://m.site.naver.com/2kV5j",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15006966,
+      "Title": "석관동떡볶이)4팩 골라담기 오리지날 14,900원",
+      "ViewCount": 2908,
+      "LikeCount": 83,
+      "WroteDate": "2026-11-12T11:01:00",
+      "GetUrl": "https://naver.me/xeFCfnKX",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15006938,
+      "Title": "쿠팡) 거북이 키링만들기 10종 6,900원",
+      "ViewCount": 4440,
+      "LikeCount": 64,
+      "WroteDate": "2026-11-12T10:53:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9752387891&itemId=29201922706&vendorItemId=96122230815&traceid=V0-153-44a3d280c688a40f&requestid=20261112105807920276247707&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
+      "No": 15008078,
+      "Title": "투썸.20일출시.전제품 구매시 투썸 키캡 7,900원",
+      "ViewCount": 4274,
+      "LikeCount": 60,
+      "WroteDate": "2026-11-12T18:46:00",
+      "GetUrl": "https://mo.twosome.co.kr/ev/eventDtl.do?annoSeqNo=261106&eventDiv=&searchOpt=",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15006740,
+      "Title": "네이버)10시 푸드페스타 쿠폰 받으세요",
+      "ViewCount": 5277,
+      "LikeCount": 49,
+      "WroteDate": "2026-11-12T09:53:00",
+      "GetUrl": "https://naver.me/FetMQYiu",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007470,
+      "Title": "이니스프리×티데이x토스) 화산송이 폼클렌징 150g 2개 3750원(개당1875원 대박)",
+      "ViewCount": 3820,
+      "LikeCount": 56,
+      "WroteDate": "2026-11-12T14:04:00",
+      "GetUrl": "https://m.innisfree.com/kr/ko/ca/event/106272?utm_id=RF02yaN&utm_campaign=11%EC%9B%94_T_day&utm_source=newch&utm_medium=other&utm_content=1111&utm_term=",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007175,
+      "Title": "품절 지마켓 수향미 10키로 상등급 선착순쿠폰 27710원!없으면30610원!",
+      "ViewCount": 4470,
+      "LikeCount": 47,
+      "WroteDate": "2026-11-12T12:03:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007224,
+      "Title": "끝/11번가)도담 표고버섯 못난이 (P)1kg 5,160원",
+      "ViewCount": 3410,
+      "LikeCount": 56,
+      "WroteDate": "2026-11-12T12:22:00",
+      "GetUrl": "http://www.11st.co.kr/products/5802153060/share",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F5802153060%2Fshare",
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007360,
+      "Title": "쿠팡)바겐슈타이거 세라컬렉션 나이프, 그린, 대, 2개 10,460원",
+      "ViewCount": 4229,
+      "LikeCount": 45,
+      "WroteDate": "2026-11-12T13:23:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15006549,
+      "Title": "쿠팡) 닌텐도 스위치2 스포츠 리조트, 59480원",
+      "ViewCount": 3024,
+      "LikeCount": 56,
+      "WroteDate": "2026-11-12T08:50:00",
+      "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
@@ -82,22 +252,52 @@
       "ShortenUrl": null
     },
     {
-      "No": 15006740,
-      "Title": "네이버)10시 푸드페스타 쿠폰 받으세요",
-      "ViewCount": 4238,
-      "LikeCount": 39,
-      "WroteDate": "2026-11-12T09:53:00",
-      "GetUrl": "https://naver.me/FetMQYiu",
+      "No": 15007811,
+      "Title": "토스페이스페이)빽다방 페페 불가지점 많아서 아메 깊콘으로 보상해준대요",
+      "ViewCount": 4844,
+      "LikeCount": 31,
+      "WroteDate": "2026-11-12T16:31:00",
+      "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 15006549,
-      "Title": "쿠팡) 닌텐도 스위치2 스포츠 리조트, 59480원",
-      "ViewCount": 2375,
-      "LikeCount": 47,
-      "WroteDate": "2026-11-12T08:50:00",
+      "No": 15007947,
+      "Title": "쿠팡) MANTU 사계절용 밀크 벨벳 극세사 담요 230*200 사이즈 10990원 추천!",
+      "ViewCount": 2938,
+      "LikeCount": 49,
+      "WroteDate": "2026-11-12T17:33:00",
       "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007343,
+      "Title": "쿠팡이츠 슈퍼딜 교촌치킨 6000원 할인권",
+      "ViewCount": 4540,
+      "LikeCount": 31,
+      "WroteDate": "2026-11-12T13:14:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007827,
+      "Title": "지마켓)소바바 황금홀릭 순살 240g 4개 13900원",
+      "ViewCount": 2206,
+      "LikeCount": 51,
+      "WroteDate": "2026-11-12T16:40:00",
+      "GetUrl": "https://m.site.naver.com/2kUQq",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15007447,
+      "Title": "g마켓) 제스프리 썬골드키위 특대과 3kg 21입 17,580원",
+      "ViewCount": 2184,
+      "LikeCount": 49,
+      "WroteDate": "2026-11-12T13:54:00",
+      "GetUrl": "https://m.site.naver.com/2kTqH",
       "ProfitLink": null,
       "ShortenUrl": null
     }
