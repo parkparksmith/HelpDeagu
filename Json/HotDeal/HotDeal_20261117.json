@@ -1,12 +1,42 @@
 {
-  "created_date": "2026-11-17 11:30:04",
+  "created_date": "2026-11-17 21:00:06",
   "list": [
     {
       "No": 15016168,
       "Title": "쿠팡) 김장수육 하세요...쿠쿠 스피드팟 멀티쿠커 58,480원",
-      "ViewCount": 9092,
-      "LikeCount": 130,
+      "ViewCount": 11000,
+      "LikeCount": 162,
       "WroteDate": "2026-11-17T07:01:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016760,
+      "Title": "11번가) 제너럴아이디어 울 노르딕 가디건, t멤버십+신한카드 33,420원/ 카카오페이머니 34,210원",
+      "ViewCount": 9489,
+      "LikeCount": 167,
+      "WroteDate": "2026-11-17T11:28:00",
+      "GetUrl": "http://www.11st.co.kr/products/4100141411/share",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F4100141411%2Fshare",
+      "ShortenUrl": null
+    },
+    {
+      "No": 15017390,
+      "Title": "쿠팡 소개딜 굿핏 스윙보드 57,200원 스텝퍼 힘들었던 사람들 모여라",
+      "ViewCount": 4077,
+      "LikeCount": 132,
+      "WroteDate": "2026-11-17T15:23:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016182,
+      "Title": "쿠팡직구) 도브 센서티브 모이스처라이징 크림 뷰티 바, 106g, 12개입 14,500원",
+      "ViewCount": 5237,
+      "LikeCount": 117,
+      "WroteDate": "2026-11-17T07:13:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
@@ -14,69 +44,229 @@
     {
       "No": 15016203,
       "Title": "끝) 더리더스노트 오드퍼퓸 2ml 2개 0원 무배",
-      "ViewCount": 5190,
-      "LikeCount": 100,
+      "ViewCount": 5660,
+      "LikeCount": 101,
       "WroteDate": "2026-11-17T07:44:00",
       "GetUrl": "https://m.smartstore.naver.com/leadersnote/products/13025406408",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 15016182,
-      "Title": "쿠팡직구) 도브 센서티브 모이스처라이징 크림 뷰티 바, 106g, 12개입 14,500원",
-      "ViewCount": 4247,
-      "LikeCount": 92,
-      "WroteDate": "2026-11-17T07:13:00",
-      "GetUrl": null,
+      "No": 15016697,
+      "Title": "베베쥬) 어센틱 골덴 벨벳 상하복 15,110원",
+      "ViewCount": 6521,
+      "LikeCount": 91,
+      "WroteDate": "2026-11-17T11:09:00",
+      "GetUrl": "https://naver.me/GahicAqL",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
       "No": 15016349,
       "Title": "20일.파리바게뜨 해피포인트플러스 결제시 50%(최대5천원)",
-      "ViewCount": 1730,
-      "LikeCount": 90,
+      "ViewCount": 2580,
+      "LikeCount": 127,
       "WroteDate": "2026-11-17T09:13:00",
       "GetUrl": "https://napi.happypointcard.com/page/event/event-view.spc?eventseq=907cbe6fb5600fd73bce85a9095bdfd0&share=Y",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 15016861,
+      "Title": "품절)네이버)남대문 스카프 아저씨 스카프 6개 13000원",
+      "ViewCount": 7506,
+      "LikeCount": 64,
+      "WroteDate": "2026-11-17T12:04:00",
+      "GetUrl": "https://naver.me/xsZP9fll",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016422,
+      "Title": "이랜드몰) 바브키즈 기모 캐터스태그팬츠 10728원 무배",
+      "ViewCount": 3592,
+      "LikeCount": 101,
+      "WroteDate": "2026-11-17T09:41:00",
+      "GetUrl": "https://www.elandmall.co.kr/p/planshop?VTSCROLL_202605092670_tab=35&exhibitionNo=202605092670&pageId=1794875860255&preCornerNo=R01401001_mainBigBanner",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016431,
+      "Title": "우체국쇼핑)농부의선물 돌솥밥 우리쌀 누룽지 1.5kg 9360원",
+      "ViewCount": 2746,
+      "LikeCount": 105,
+      "WroteDate": "2026-11-17T09:44:00",
+      "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA1063788&pavlnDivCd=02&ctgryCd=101201000",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15017274,
+      "Title": "종료 이가자연면 체험팩 3000원",
+      "ViewCount": 8287,
+      "LikeCount": 36,
+      "WroteDate": "2026-11-17T14:41:00",
+      "GetUrl": "https://naver.me/5LQ6pHPj",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15017591,
+      "Title": "우체국쇼핑)호탄청국장 120g 6개 7,740원",
+      "ViewCount": 2975,
+      "LikeCount": 83,
+      "WroteDate": "2026-11-17T16:42:00",
+      "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA1035419&pavlnDivCd=02&goodsDispTypeCd=03&goodsDispTypeDtlCd=10027559&ctgryCd=104202302",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 15016076,
       "Title": "네이버/네멤/무배/베이비바우처/락앤락-전자렌지용찜기2L(5600원)",
-      "ViewCount": 5178,
-      "LikeCount": 55,
+      "ViewCount": 5376,
+      "LikeCount": 57,
       "WroteDate": "2026-11-17T00:23:00",
       "GetUrl": "https://m.brand.naver.com/locknlock/products/4660001876?nl-ts-pid=jYVPklqX6IKssB6B%2Bpo-511906&n_media=8753&n_query=%EB%9D%BD%EC%95%A4%EB%9D%BD%EC%9C%A0%EB%A6%AC%EC%BA%90%EC%84%9C%EB%A1%A4&n_rank=1&n_ad_group=grp-a001-02-000000073537886&n_ad=nad-a001-02-000000583579097&n_campaign_type=2&n_mall_id=locknlockmall&n_mall_pid=4660001876&n_ad_group_type=2&n_match=3&NaPm=ct%3Dmwjeukwk%7Cci%3DER4a4b0239%2De1d1%2D11f1%2D8bbf%2Dfa7b5f8f0a49%7Ctr%3Dpla%7Chk%3D38046fd105ac449e2af48afa7b007185c1600f1a%7Cnacn%3DezfiHgCrpMTEB",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 15016167,
-      "Title": "쿠팡) 쿠쿠 133L 스탠드형 김치냉장고 방문설치 266,000원",
-      "ViewCount": 4570,
-      "LikeCount": 39,
-      "WroteDate": "2026-11-17T07:00:00",
-      "GetUrl": null,
+      "No": 15016398,
+      "Title": "우체국 쇼핑) 앞다리살 수육용 1.5kg 16,650원",
+      "ViewCount": 3213,
+      "LikeCount": 77,
+      "WroteDate": "2026-11-17T09:32:00",
+      "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA1072848&pavlnDivCd=02&goodsDispTypeCd=&goodsDispTypeDtlCd=10025509&ctgryCd=103202304\r\nhttps://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA2004925&pavlnDivCd=02&goodsDispTypeCd=&goodsDispTypeDtlCd=10025368&ctgryCd=103202301",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
       "No": 15016174,
       "Title": "쿠팡) 피지 모락셀라 실내건조 냄새제거 세탁세제 화이트머스크향 본품, 2.1L, 1개 12,900원",
-      "ViewCount": 3337,
-      "LikeCount": 51,
+      "ViewCount": 3915,
+      "LikeCount": 64,
       "WroteDate": "2026-11-17T07:05:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 15016167,
+      "Title": "쿠팡) 쿠쿠 133L 스탠드형 김치냉장고 방문설치 266,000원",
+      "ViewCount": 5304,
+      "LikeCount": 47,
+      "WroteDate": "2026-11-17T07:00:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016559,
+      "Title": "쿠폰소진 홍성장터 유정란 초란 난각번호2번 30구 8330원",
+      "ViewCount": 3520,
+      "LikeCount": 60,
+      "WroteDate": "2026-11-17T10:30:00",
+      "GetUrl": "https://www.ehongseong.com/m/product.html?branduid=10610337",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15017002,
+      "Title": "오늘의집)아이러브베베 시그니앙75 70매20캡 75평량 물티슈 14774원",
+      "ViewCount": 2091,
+      "LikeCount": 70,
+      "WroteDate": "2026-11-17T13:02:00",
+      "GetUrl": "https://ozip.me/CY1xJQ9",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016467,
+      "Title": "쿠팡) 워터볼 스노우볼 무드등 장식 기차 기관사 산타... 6600원",
+      "ViewCount": 6175,
+      "LikeCount": 27,
+      "WroteDate": "2026-11-17T09:54:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=7562860708&itemId=23343513305&vendorItemId=90374939871&traceid=V0-153-ddc443adb8db23b5&requestid=20261117095805492203341588&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
+      "No": 15016163,
+      "Title": "우체국) 화순 수제 약과 260g 5,950원",
+      "ViewCount": 3599,
+      "LikeCount": 49,
+      "WroteDate": "2026-11-17T06:53:00",
+      "GetUrl": "https://mall.epost.go.kr/mo/goods/goodsDetailView.do?goodsCd=EA1064054&pavlnDivCd=02&goodsDispTypeCd=03&goodsDispTypeDtlCd=10025368&ctgryCd=104201301",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 15016088,
       "Title": "쿠팡)실내복 상의 + 하의 세트 6830원",
-      "ViewCount": 5847,
-      "LikeCount": 21,
+      "ViewCount": 6246,
+      "LikeCount": 22,
       "WroteDate": "2026-11-17T00:37:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016603,
+      "Title": "카톡선물하기) 메가MGC커피 쫀득 모찌 밀크티 2920원 무배",
+      "ViewCount": 3328,
+      "LikeCount": 50,
+      "WroteDate": "2026-11-17T10:45:00",
+      "GetUrl": "https://kko.to/yHjy-2cDFl\r\nhttps://kko.to/ufTCoJ0OPS\r\nhttps://kko.to/RGZMkhZGlb",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016152,
+      "Title": "토스) 김장털조끼 5,900원",
+      "ViewCount": 4692,
+      "LikeCount": 36,
+      "WroteDate": "2026-11-17T06:05:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15017824,
+      "Title": "패션플러스)숲 케시미어 구스 롱코트 165,050원",
+      "ViewCount": 4273,
+      "LikeCount": 40,
+      "WroteDate": "2026-11-17T18:26:00",
+      "GetUrl": "https://m.fashionplus.co.kr/goods/detail/442980662",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016616,
+      "Title": "가격오름)쿠팡)빨대판 대야 3,000원",
+      "ViewCount": 3861,
+      "LikeCount": 42,
+      "WroteDate": "2026-11-17T10:51:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9360257071&itemId=27772837820&vendorItemId=94733734456&traceid=V0-153-d6a9bfdfae01c953&requestid=20261117105805071207263484&token=31850C%7CGM&pt=0&slot=1"
+    },
+    {
+      "No": 15016263,
+      "Title": "오늘의집) 피죤 건조기시트 240매 10,8640원(카카오페이결제시)",
+      "ViewCount": 1956,
+      "LikeCount": 61,
+      "WroteDate": "2026-11-17T08:38:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15016726,
+      "Title": "쿠팡잇츠ㅡ이삭토스트 7000원 할인",
+      "ViewCount": 5325,
+      "LikeCount": 27,
+      "WroteDate": "2026-11-17T11:17:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
@@ -84,21 +274,31 @@
     {
       "No": 15016086,
       "Title": "쿠팡 ) 다용도 욕실 수납 정리함. 10개 . 3,900원",
-      "ViewCount": 4815,
+      "ViewCount": 5111,
       "LikeCount": 28,
       "WroteDate": "2026-11-17T00:33:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/a/iKf2j0tiQS"
+    },
+    {
+      "No": 15017626,
+      "Title": "쿠팡 숨 기초 타겟20,070원",
+      "ViewCount": 4841,
+      "LikeCount": 24,
+      "WroteDate": "2026-11-17T16:55:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 15016422,
-      "Title": "이랜드몰) 바브키즈 기모 캐터스태그팬츠 10728원 무배",
-      "ViewCount": 2191,
-      "LikeCount": 53,
-      "WroteDate": "2026-11-17T09:41:00",
-      "GetUrl": "https://www.elandmall.co.kr/p/planshop?VTSCROLL_202605092670_tab=35&exhibitionNo=202605092670&pageId=1794875860255&preCornerNo=R01401001_mainBigBanner",
-      "ProfitLink": null,
+      "No": 15016286,
+      "Title": "11번가) 산과들에 하루견과 원데이발란스그린 100 낱봉 28,090원",
+      "ViewCount": 2361,
+      "LikeCount": 46,
+      "WroteDate": "2026-11-17T08:50:00",
+      "GetUrl": "http://www.11st.co.kr/products/7777049648/share",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F7777049648%2Fshare",
       "ShortenUrl": null
     }
   ]
