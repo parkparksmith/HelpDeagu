@@ -1,105 +1,305 @@
 {
-  "created_date": "2026-11-22 11:30:04",
+  "created_date": "2026-11-22 21:00:10",
   "list": [
     {
       "No": 15026929,
-      "Title": "신세계푸드)베키아에누보 치아바타 샌드위치 9입 18,800원",
-      "ViewCount": 5209,
-      "LikeCount": 146,
+      "Title": "쿠폰종료/신세계푸드)베키아에누보 치아바타 샌드위치 9입 18,800원",
+      "ViewCount": 7158,
+      "LikeCount": 183,
       "WroteDate": "2026-11-22T00:45:00",
       "GetUrl": "https://naver.me/xXnmCs6M",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 15026931,
-      "Title": "홈플러스앱) simplus 심플 오픈 휴지통 3L 등등 300원 ~ (4만이상무배or픽업가능)",
-      "ViewCount": 4188,
-      "LikeCount": 53,
-      "WroteDate": "2026-11-22T00:47:00",
-      "GetUrl": "https://mfront.homeplus.co.kr/item?itemNo=070922248&storeType=HYPER&preurl=cart",
-      "ProfitLink": null,
-      "ShortenUrl": null
-    },
-    {
       "No": 15027120,
       "Title": "무신사) 키즈 방한화 16,430원~",
-      "ViewCount": 3349,
-      "LikeCount": 45,
+      "ViewCount": 11000,
+      "LikeCount": 144,
       "WroteDate": "2026-11-22T09:57:00",
       "GetUrl": "https://musinsa.onelink.me/PvkC/mwaykxvj",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 15027009,
-      "Title": "쿠팡) 만전김 미니언즈 두번 구운 삼각김밥용 김 리필용 40매입 6,210원",
-      "ViewCount": 2915,
-      "LikeCount": 44,
-      "WroteDate": "2026-11-22T07:27:00",
-      "GetUrl": null,
-      "ProfitLink": null,
+      "No": 15027436,
+      "Title": "11번가)프로월드컵 베이직 방한 털슬리퍼 3,930원(국민/토스)",
+      "ViewCount": 12000,
+      "LikeCount": 107,
+      "WroteDate": "2026-11-22T13:19:00",
+      "GetUrl": "http://www.11st.co.kr/products/9712150322/share",
+      "ProfitLink": "https://click.linkprice.com/click.php?m=11st&a=A100701889&l=9999&l_cd1=3&l_cd2=q&tu=http%3A%2F%2Fwww.11st.co.kr%2Fproducts%2F9712150322%2Fshare",
       "ShortenUrl": null
     },
     {
-      "No": 15027005,
-      "Title": "쿠팡)해태제과 맛동산 밤라떼맛, 290g, 1개 2,960원",
-      "ViewCount": 2328,
-      "LikeCount": 16,
-      "WroteDate": "2026-11-22T07:19:00",
-      "GetUrl": null,
-      "ProfitLink": null,
-      "ShortenUrl": null
-    },
-    {
-      "No": 15026965,
-      "Title": "쿠팡)퀘이커 마시는 오트밀 단백질 11,530원",
-      "ViewCount": 2357,
-      "LikeCount": 15,
-      "WroteDate": "2026-11-22T02:25:00",
-      "GetUrl": null,
-      "ProfitLink": null,
-      "ShortenUrl": "https://link.coupang.com/a/iRKDT1MZEW"
-    },
-    {
-      "No": 15027039,
-      "Title": "안아팜)면역대장 아연디시럽 30포, 2개 27,850원 4개 49,900원",
-      "ViewCount": 1108,
-      "LikeCount": 26,
-      "WroteDate": "2026-11-22T08:18:00",
-      "GetUrl": "https://naver.me/5LfM5L0y",
+      "No": 15027299,
+      "Title": "덴비 파이널 세일 (한국철수) 65%할인전",
+      "ViewCount": 7709,
+      "LikeCount": 68,
+      "WroteDate": "2026-11-22T11:50:00",
+      "GetUrl": "https://m.search.naver.com/search.naver?query=%EB%8D%B4%EB%B9%84&sm=mtp_hty.top&where=m",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
       "No": 15027232,
       "Title": "23일~27일.13시 1분)배스킨앱 블랙배라데이/선착순",
-      "ViewCount": 724,
-      "LikeCount": 29,
+      "ViewCount": 3242,
+      "LikeCount": 111,
       "WroteDate": "2026-11-22T11:02:00",
       "GetUrl": "https://abr.ge/b1kasev",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
+      "No": 15026931,
+      "Title": "홈플러스앱) simplus 심플 오픈 휴지통 3L 등등 300원 ~ (4만이상무배or픽업가능)",
+      "ViewCount": 5484,
+      "LikeCount": 72,
+      "WroteDate": "2026-11-22T00:47:00",
+      "GetUrl": "https://mfront.homeplus.co.kr/item?itemNo=070922248&storeType=HYPER&preurl=cart",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027009,
+      "Title": "쿠팡) 만전김 미니언즈 두번 구운 삼각김밥용 김 리필용 40매입 6,210원",
+      "ViewCount": 4283,
+      "LikeCount": 70,
+      "WroteDate": "2026-11-22T07:27:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027832,
+      "Title": "톡딜) 아동 성인 겨울 잠옷 9,900원 무배",
+      "ViewCount": 3867,
+      "LikeCount": 68,
+      "WroteDate": "2026-11-22T18:12:00",
+      "GetUrl": "https://store.kakao.com/ergolovers/products/432399457?ref=SHARE",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027378,
+      "Title": "당근앱) 써브웨이 당근머니로 6천원이상 결제시 3천원 할인 (내일부터)",
+      "ViewCount": 1377,
+      "LikeCount": 79,
+      "WroteDate": "2026-11-22T12:43:00",
+      "GetUrl": "https://daangn.com/kr/share/pay/kkd_2611",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027716,
+      "Title": "젝시믹스) 주말20%쿠폰+토스20%할인/5%적립쿠폰+앱다운 1만원",
+      "ViewCount": 2568,
+      "LikeCount": 53,
+      "WroteDate": "2026-11-22T16:44:00",
+      "GetUrl": "https://www.xexymix.com/m/product_list.html?type=Y&xcode=029\r\nhttps://naver.me/F6QRUSf3?tc=shared_link",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027645,
+      "Title": "다이소템)스텐딩 컬러링북 2000원",
+      "ViewCount": 3343,
+      "LikeCount": 39,
+      "WroteDate": "2026-11-22T16:00:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027481,
+      "Title": "홈플.티젠 콤부차 30t 3,990원외",
+      "ViewCount": 2857,
+      "LikeCount": 41,
+      "WroteDate": "2026-11-22T13:47:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027876,
+      "Title": "쿠팡)해피콜 인덕션 플렉스팬 22cm 2개 21,930원(농카)",
+      "ViewCount": 5097,
+      "LikeCount": 13,
+      "WroteDate": "2026-11-22T18:38:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027995,
+      "Title": "무신사) 수아레우먼 라이트 시어쉘 패딩 점퍼 61,500원(페이코포인트결제시)",
+      "ViewCount": 3626,
+      "LikeCount": 26,
+      "WroteDate": "2026-11-22T19:57:00",
+      "GetUrl": "https://musinsa.onelink.me/PvkC/6pu4pivd",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027755,
+      "Title": "룩핀) 폴로랄프로렌 플리스 크루넥 스웨트 맨투맨, 29,900원",
+      "ViewCount": 2946,
+      "LikeCount": 31,
+      "WroteDate": "2026-11-22T17:09:00",
+      "GetUrl": "https://www.lookpin.co.kr/products/2836191",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027039,
+      "Title": "안아팜)면역대장 아연디시럽 30포, 2개 27,850원 4개 49,900원",
+      "ViewCount": 1630,
+      "LikeCount": 40,
+      "WroteDate": "2026-11-22T08:18:00",
+      "GetUrl": "https://naver.me/5LfM5L0y",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027753,
+      "Title": "남대문 스카프 아저씨 한양사 스카프 6개 1만원 유배 (그지같은거 받아도 괜찮으신분만 ㅋㅋ)",
+      "ViewCount": 4299,
+      "LikeCount": 13,
+      "WroteDate": "2026-11-22T17:08:00",
+      "GetUrl": "https://naver.me/xVRhXJa4",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027005,
+      "Title": "쿠팡)해태제과 맛동산 밤라떼맛, 290g, 1개 2,960원",
+      "ViewCount": 3251,
+      "LikeCount": 23,
+      "WroteDate": "2026-11-22T07:19:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027747,
+      "Title": "끝 톡딜)윤남노 쉐프 영상 등장 속초 홍게 국물떡볶이 밀키트 210g 900원",
+      "ViewCount": 3021,
+      "LikeCount": 22,
+      "WroteDate": "2026-11-22T17:04:00",
+      "GetUrl": "https://store.kakao.com/lovemarine/products/797122948?ref=SHARE",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027318,
+      "Title": "엘칸토 미들힐 31200 무료교환반품쿠폰 남자구두 38250",
+      "ViewCount": 2030,
+      "LikeCount": 30,
+      "WroteDate": "2026-11-22T12:04:00",
+      "GetUrl": "https://m.brand.naver.com/elcanto/products/5830848054",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15026965,
+      "Title": "쿠팡)퀘이커 마시는 오트밀 단백질 11,530원",
+      "ViewCount": 2967,
+      "LikeCount": 18,
+      "WroteDate": "2026-11-22T02:25:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/a/iRKDT1MZEW"
+    },
+    {
+      "No": 15027926,
+      "Title": "무신사) 내셔널지오그래픽 키즈 숏 덕 다운 자켓 3종택 110,040원",
+      "ViewCount": 1738,
+      "LikeCount": 29,
+      "WroteDate": "2026-11-22T19:13:00",
+      "GetUrl": "https://www.musinsa.com/products/7471431",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027205,
+      "Title": "쿠팡)콘칲 C 군옥수수맛, 70g, 10개 7,400원",
+      "ViewCount": 2212,
+      "LikeCount": 24,
+      "WroteDate": "2026-11-22T10:49:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027310,
+      "Title": "네이버)깨비농원 어글리 제주감귤 4.5kg 6900원 품절",
+      "ViewCount": 2232,
+      "LikeCount": 19,
+      "WroteDate": "2026-11-22T11:58:00",
+      "GetUrl": "https://naver.me/FRud8llw",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027433,
+      "Title": "코스트코오프) 미쉐린 타이어 4본 구입시 코스트코 상품권 10만원 /14만원 증정",
+      "ViewCount": 1470,
+      "LikeCount": 26,
+      "WroteDate": "2026-11-22T13:18:00",
+      "GetUrl": "https://www.costco.co.kr/FY27_P2_Hero_Michelin_detail",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027115,
+      "Title": "네이버멤버쉽) 락피도오메가3키즈츄어블 2박33790원 체감가25000원",
+      "ViewCount": 1242,
+      "LikeCount": 28,
+      "WroteDate": "2026-11-22T09:55:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
       "No": 15026897,
       "Title": "품절)네이버)한양식품 숏다리 대 파지 300g 17,000원",
-      "ViewCount": 2411,
-      "LikeCount": 8,
+      "ViewCount": 2951,
+      "LikeCount": 9,
       "WroteDate": "2026-11-22T00:17:00",
       "GetUrl": "https://naver.me/GNRNlckU",
       "ProfitLink": null,
       "ShortenUrl": null
     },
     {
-      "No": 15026986,
-      "Title": "오름/쿠팡)에이지투웨니스 홀리데이 에디션 에센스 팩트 본품+리필 23호 1개 10,710원",
+      "No": 15027947,
+      "Title": "키디키디 ) 뉴발 글로시 배색 숏 패딩 162,320원",
       "ViewCount": 2122,
-      "LikeCount": 8,
-      "WroteDate": "2026-11-22T05:16:00",
+      "LikeCount": 16,
+      "WroteDate": "2026-11-22T19:23:00",
+      "GetUrl": "https://kidikidi.elandmall.co.kr/i/item?itemNo=2609592909",
+      "ProfitLink": null,
+      "ShortenUrl": null
+    },
+    {
+      "No": 15027821,
+      "Title": "GS샵+토스) 미샤 글로우 스킨밤 50ml 1+1 13,549원",
+      "ViewCount": 1559,
+      "LikeCount": 21,
+      "WroteDate": "2026-11-22T18:03:00",
       "GetUrl": null,
       "ProfitLink": null,
       "ShortenUrl": null
+    },
+    {
+      "No": 15027827,
+      "Title": "쿠팡) 스카프 얇고 긴거(90×7)15개 8900원(개당 600원꼴)",
+      "ViewCount": 2495,
+      "LikeCount": 11,
+      "WroteDate": "2026-11-22T18:09:00",
+      "GetUrl": null,
+      "ProfitLink": null,
+      "ShortenUrl": "https://link.coupang.com/re/AFFSDP?lptag=AF2931125&pageKey=9572337792&itemId=28571395563&vendorItemId=95515756666&traceid=V0-153-bbf42f0cf22eaf69&requestid=20261122181507480295572980&token=31850C%7CGM&pt=0&slot=1"
     }
   ]
 }
